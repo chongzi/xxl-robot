@@ -21,24 +21,30 @@ public class CrawlTools {
              * todo QQ在线聊天数据爬取
              */
             public static void QQCrawl(){
-                moveMouse(100,100);
+
+
                 try {
                     Robot robot = new Robot();
-
-
+                    moveMouse(200,100);
+                    robot.delay(6000);
             robot.mousePress(InputEvent.BUTTON1_MASK);
-            robot.delay(1000);
+            robot.delay(3000);
             robot.keyPress(KeyEvent.VK_SHIFT); //按下空格键
 //            robot.delay(3000);
-            moveMouse(100,600);
+            moveMouse(200,600);
 
             robot.keyRelease(KeyEvent.VK_SHIFT);
-            robot.keyRelease(InputEvent.BUTTON1_MASK);
+            robot.mouseRelease(InputEvent.BUTTON1_MASK);
 
-            robot.mousePress(KeyEvent.BUTTON1_MASK);
-            robot.mousePress(KeyEvent.BUTTON1_MASK);
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_C);
+            robot.delay(1000);
 
-        }catch (Exception e){
+
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+            robot.keyRelease(KeyEvent.VK_C);
+
+                }catch (Exception e){
             e.printStackTrace();
         }
 

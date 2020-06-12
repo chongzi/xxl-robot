@@ -1,12 +1,37 @@
 package com.xxl.robot.tools;
 
 import com.sun.jna.platform.win32.User32;
+import com.sun.jna.platform.win32.WinDef;
 import com.sun.jna.platform.win32.WinDef.HWND;
 
 /**
  * todo 自动复制，发送，截取window中程序中内容，实现模拟人工操作电脑
  */
 public class RobotWindowTools {
+
+
+    /**
+     * todo 初始化Window窗口弹出
+     * @param windowName 窗口名
+     */
+    public static void initWindow(String windowName){
+        HWND hwnd = getHWND(windowName);
+        if (null != hwnd) {
+            User32.INSTANCE.ShowWindow(hwnd, 0x03);        // SW_RESTORE
+            User32.INSTANCE.SetForegroundWindow(hwnd);   // bring to front
+            User32.INSTANCE.GetForegroundWindow() ;//获取现在前台窗口
+            WinDef.RECT qqwin_rect = new WinDef.RECT();
+            User32.INSTANCE.GetWindowRect(hwnd, qqwin_rect);
+
+            int qqwin_width = qqwin_rect.right - qqwin_rect.left;
+            int qqwin_height = qqwin_rect.bottom - qqwin_rect.top;
+
+        }
+
+    }
+
+
+
 
     /**
      * todo 1.根据窗口名获取窗口句柄（handle of window,窗口的句柄）
@@ -48,7 +73,6 @@ public class RobotWindowTools {
             return true;
         }
     }
-
 
 
 
