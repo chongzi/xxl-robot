@@ -7,7 +7,7 @@ import com.sun.jna.platform.win32.WinDef.HWND;
 /**
  * todo 自动复制，发送，截取window中程序中内容，实现模拟人工操作电脑
  */
-public class RobotWindowTools {
+public class WindowTools {
 
 
     /**
