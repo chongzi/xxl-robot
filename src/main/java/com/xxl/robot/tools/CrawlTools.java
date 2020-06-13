@@ -22,31 +22,41 @@ public class CrawlTools {
              */
             public static void QQCrawl(){
 
-
+            //    moveMouse(200,100);
                 try {
-                    Robot robot = new Robot();
-                    moveMouse(200,100);
-                    robot.delay(6000);
-            robot.mousePress(InputEvent.BUTTON1_MASK);
-            robot.delay(3000);
-            robot.keyPress(KeyEvent.VK_SHIFT); //按下空格键
-//            robot.delay(3000);
-            moveMouse(200,600);
 
-            robot.keyRelease(KeyEvent.VK_SHIFT);
-            robot.mouseRelease(InputEvent.BUTTON1_MASK);
+                   for(int i=1;i<16;i++){
+                       //点击左边菜单标题
+                       Robot robot = new Robot();
+                       robot.delay(3000);
+                       moveMouse(100,61*i);
+                       robot.mousePress(InputEvent.BUTTON1_MASK);
+                       robot.delay(3000);
+                       robot.mouseRelease(InputEvent.BUTTON1_MASK);
+                       //点击右边菜单对应内容窗口
+                       robot.delay(3000);
+                       moveMouse(200,100);
+                       robot.mousePress(InputEvent.BUTTON1_MASK);
+                       robot.delay(1000);
+                       robot.keyPress(KeyEvent.VK_SHIFT); //按下空格键
+                       moveMouse(200,800);
+                       robot.keyRelease(KeyEvent.VK_SHIFT);
+                       robot.mouseRelease(InputEvent.BUTTON1_MASK);
+                       robot.keyPress(KeyEvent.VK_CONTROL);
+                       robot.keyPress(KeyEvent.VK_C);
+                       robot.delay(1000);
+                       robot.keyRelease(KeyEvent.VK_CONTROL);
+                       robot.keyRelease(KeyEvent.VK_C);
 
-            robot.keyPress(KeyEvent.VK_CONTROL);
-            robot.keyPress(KeyEvent.VK_C);
-            robot.delay(1000);
+                   }
 
 
-            robot.keyRelease(KeyEvent.VK_CONTROL);
-            robot.keyRelease(KeyEvent.VK_C);
+
+
 
                 }catch (Exception e){
-            e.printStackTrace();
-        }
+                    e.printStackTrace();
+                }
 
    }
 
@@ -54,7 +64,27 @@ public class CrawlTools {
      * todo 微信在线聊天数据爬取
      */
     public static void WechatCrawl(){
+        //    moveMouse(200,100);
+        try {
 
+            for(int i=1;i<16;i++){
+                Robot robot = new Robot();
+                robot.delay(3000);
+                moveMouse(100,57*i);
+                robot.mousePress(InputEvent.BUTTON1_MASK);
+                robot.delay(3000);
+                robot.mouseRelease(InputEvent.BUTTON1_MASK);
+
+
+            }
+
+
+
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
