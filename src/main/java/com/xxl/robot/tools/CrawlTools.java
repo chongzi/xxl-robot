@@ -13,52 +13,44 @@ import java.awt.event.KeyEvent;
  */
 public class CrawlTools {
 
-
     private Clipboard system;
 
+    /**
+     * todo QQ在线聊天数据爬取
+     */
+    public static void QQCrawl(){
+         try {
+           for(int i=1;i<16;i++){
+               //点击左边菜单标题
+               Robot robot = new Robot();
+               robot.delay(3000);
+               moveMouse(100,61*i);
+               robot.mousePress(InputEvent.BUTTON1_MASK);
+               robot.delay(3000);
+               robot.mouseRelease(InputEvent.BUTTON1_MASK);
+               //点击右边菜单对应内容窗口
+               robot.delay(3000);
+               moveMouse(200,100);
+               robot.mousePress(InputEvent.BUTTON1_MASK);
+               robot.delay(1000);
+               robot.keyPress(KeyEvent.VK_SHIFT); //按下空格键
+               moveMouse(200,800);
+               robot.keyRelease(KeyEvent.VK_SHIFT);
+               robot.mouseRelease(InputEvent.BUTTON1_MASK);
+               robot.keyPress(KeyEvent.VK_CONTROL);
+               robot.keyPress(KeyEvent.VK_C);
+               robot.delay(1000);
+               robot.keyRelease(KeyEvent.VK_CONTROL);
+               robot.keyRelease(KeyEvent.VK_C);
 
-            /**
-             * todo QQ在线聊天数据爬取
-             */
-            public static void QQCrawl(){
+           }
 
-            //    moveMouse(200,100);
-                try {
-
-                   for(int i=1;i<16;i++){
-                       //点击左边菜单标题
-                       Robot robot = new Robot();
-                       robot.delay(3000);
-                       moveMouse(100,61*i);
-                       robot.mousePress(InputEvent.BUTTON1_MASK);
-                       robot.delay(3000);
-                       robot.mouseRelease(InputEvent.BUTTON1_MASK);
-                       //点击右边菜单对应内容窗口
-                       robot.delay(3000);
-                       moveMouse(200,100);
-                       robot.mousePress(InputEvent.BUTTON1_MASK);
-                       robot.delay(1000);
-                       robot.keyPress(KeyEvent.VK_SHIFT); //按下空格键
-                       moveMouse(200,800);
-                       robot.keyRelease(KeyEvent.VK_SHIFT);
-                       robot.mouseRelease(InputEvent.BUTTON1_MASK);
-                       robot.keyPress(KeyEvent.VK_CONTROL);
-                       robot.keyPress(KeyEvent.VK_C);
-                       robot.delay(1000);
-                       robot.keyRelease(KeyEvent.VK_CONTROL);
-                       robot.keyRelease(KeyEvent.VK_C);
-
-                   }
-
-
-
-
-
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
    }
+
 
     /**
      * todo 微信在线聊天数据爬取
