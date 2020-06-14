@@ -23,8 +23,11 @@ public class WindowTools {
             WinDef.RECT qqwin_rect = new WinDef.RECT();
             User32.INSTANCE.GetWindowRect(hwnd, qqwin_rect);
 
+
             int qqwin_width = qqwin_rect.right - qqwin_rect.left;
             int qqwin_height = qqwin_rect.bottom - qqwin_rect.top;
+
+
 
         }
 
