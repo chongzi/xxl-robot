@@ -17,7 +17,7 @@ public class CarWechartDto {
     @ApiModelProperty(value = "主键ID")
     private Long id;
     @ApiModelProperty(value="会话时间")
-    private Date session_time;
+    private Date sessionTime;
     @ApiModelProperty(value="内容")
     private String content;
 

@@ -24,6 +24,8 @@ public class CarDriver {
     private String mobile;
     @ApiModelProperty(value="司机类型")
     private Byte driverType;
+    @ApiModelProperty(value="身份证")
+    private String idCard;
     @ApiModelProperty(value="户籍")
     private String censusRegister;
     @ApiModelProperty(value="常住地址")
