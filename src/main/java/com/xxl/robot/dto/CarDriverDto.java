@@ -1,22 +1,20 @@
-package com.xxl.robot.entity;
+package com.xxl.robot.dto;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+
 import javax.persistence.Entity;
-import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Api(tags="司机表实体类")
 @Data
-@Entity
-@Table(name="car_driver")
-public class CarDriver {
+public class CarDriverDto {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "主键ID")
-    @Id
     private Long id;
     @ApiModelProperty(value="编码值名称")
     private String name;
@@ -33,7 +31,7 @@ public class CarDriver {
     @ApiModelProperty(value="备注")
     private String remark;
     @ApiModelProperty(value="创建时间")
-    private Date createDate;
+    private Date createTime;
 
 
 }
