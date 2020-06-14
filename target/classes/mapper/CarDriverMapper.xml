@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxl.auth.dao.SysCodeMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		id, name, mobile, driver_type, id_card, census_register, address, enabled, create_date
+	</sql>
+
+	<!--返回MAP -->
+	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.CarDriver">
+	<result column="id" property="id"/>
+	<result column="name" property="name"/>
+	<result column="mobile" property="mobile"/>
+	<result column="driver_type" property="driverType"/>
+	<result column="id_card" property="idCard"/>
+	<result column="census_register" property="censusRegister"/>
+	<result column="address" property="address"/>
+	<result column="enabled" property="enabled"/>
+	<result column="remark" property="remark"/>
+	<result column="create_date" property="createTime"/>
+	</resultMap>
+
+</mapper>

@@ -26,7 +26,7 @@ public class GrabbingCarSchedule {
     /**
      * 表示每隔6秒发送一次邮件
      */
-    @Scheduled(cron = "*/6 * * * * ?")
+   // @Scheduled(cron = "*/6 * * * * ?")
     private void qqProces(){
 
 

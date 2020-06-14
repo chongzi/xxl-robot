@@ -21,6 +21,6 @@ import org.apache.ibatis.annotations.Mapper;
  *	http://www.xlxu.com
  */
 @Mapper
-public abstract class CarQqMapper<CarQq> implements IBaseMapper<CarQq> {
+public interface CarQqMapper extends IBaseMapper<CarQq>{
 
 }
