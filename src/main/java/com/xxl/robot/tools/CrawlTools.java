@@ -25,6 +25,7 @@ public class CrawlTools {
      */
     public static List<String> QQCrawl(int count,int delayTime){
         List<String> list = new ArrayList<String>();
+        list.clear();
         try {
              for(int i=1;i<count;i++) {
                  //点击左边菜单标题
@@ -48,7 +49,9 @@ public class CrawlTools {
                  robot.delay(delayTime);
                  robot.keyRelease(KeyEvent.VK_CONTROL);
                  robot.keyRelease(KeyEvent.VK_C);
-                 list.add(getClipboard());
+                 String data = getClipboard();
+                 System.out.println(data);
+                 list.add(data);
                  System.out.println("*******************************************************"+i);
                  System.out.println(getClipboard());
              }
@@ -141,9 +144,9 @@ public class CrawlTools {
 
 
 
-    public static void main(String args[]){
-        QQCrawl(10,100);
-    }
+//    public static void main(String args[]){
+  //      QQCrawl(10,100);
+    //}
 
 
 }
