@@ -1,6 +1,7 @@
 package com.xxl.robot.time;
 
 import com.alibaba.fastjson.JSON;
+import com.github.binarywang.java.emoji.EmojiConverter;
 import com.xxl.robot.dto.CarQqDto;
 import com.xxl.robot.service.CarDriverService;
 import com.xxl.robot.service.CarQqService;
@@ -44,6 +45,8 @@ public class GrabbingCarSchedule {
        if(!CollectionUtils.isEmpty(datas)){
            for(String data:datas){
                CarQqDto dto = new CarQqDto();
+               EmojiConverter emojiConverter = EmojiConverter.getInstance();
+               data= emojiConverter.toAlias(data);//将聊天内容进行转义
                dto.setContent(data);
                carQqService.save(dto);
            }
