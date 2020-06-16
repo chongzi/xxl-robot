@@ -27,35 +27,50 @@ public class CrawlTools {
         List<String> list = new ArrayList<String>();
         list.clear();
         try {
-             for(int i=1;i<count;i++) {
-                 //点击左边菜单标题
-                 Robot robot = new Robot();
-                 robot.delay(1000);
-                 moveMouse(100, 61*i);
-                 robot.mousePress(InputEvent.BUTTON1_MASK);
-                 robot.delay(delayTime);
-                 robot.mouseRelease(InputEvent.BUTTON1_MASK);
-                 //点击右边菜单对应内容窗口
-                 robot.delay(delayTime);
-                 moveMouse(200, 100);
-                 robot.mousePress(InputEvent.BUTTON1_MASK);
-                 robot.delay(delayTime);
-                 robot.keyPress(KeyEvent.VK_SHIFT); //按下空格键
-                 moveMouse(200, 800);
-                 robot.keyRelease(KeyEvent.VK_SHIFT);
-                 robot.mouseRelease(InputEvent.BUTTON1_MASK);
-                 robot.keyPress(KeyEvent.VK_CONTROL);
-                 robot.keyPress(KeyEvent.VK_C);
-                 robot.delay(delayTime);
-                 robot.keyRelease(KeyEvent.VK_CONTROL);
-                 robot.keyRelease(KeyEvent.VK_C);
-                 String data = getClipboard();
-                 System.out.println(data);
-                 list.add(data);
-                 System.out.println("*******************************************************"+i);
-                 System.out.println(getClipboard());
-             }
-
+            //点击左边菜单标题
+            Robot robot = new Robot();
+            for(int x=1;x<count;x++) {
+                for (int i = 1; i < 5; i++) {
+                    robot.delay(1000);
+                    moveMouse(100, 63 * i);
+                    robot.mousePress(InputEvent.BUTTON1_MASK);
+                    robot.delay(delayTime);
+                    robot.mouseRelease(InputEvent.BUTTON1_MASK);
+                    //点击右边菜单对应内容窗口
+                    robot.delay(delayTime);
+                    moveMouse(270, 100);
+                    robot.mousePress(InputEvent.BUTTON1_MASK);
+                    robot.delay(delayTime);
+                    robot.keyPress(KeyEvent.VK_SHIFT); //按下空格键
+                    moveMouse(270, 800);
+                    robot.keyRelease(KeyEvent.VK_SHIFT);
+                    robot.mouseRelease(InputEvent.BUTTON1_MASK);
+                    robot.keyPress(KeyEvent.VK_CONTROL);
+                    robot.keyPress(KeyEvent.VK_C);
+                    robot.delay(delayTime);
+                    robot.keyRelease(KeyEvent.VK_CONTROL);
+                    robot.keyRelease(KeyEvent.VK_C);
+                    String data = getClipboard();
+                    System.out.println(data);
+                    list.add(data);
+                    System.out.println("*******************************************************" + i);
+                    System.out.println(getClipboard());
+                }
+                robot.delay(delayTime);
+                moveMouse(100, 63);
+                robot.mousePress(InputEvent.BUTTON1_MASK);
+                robot.mouseWheel(2);
+                robot.delay(delayTime);
+                robot.mouseRelease(InputEvent.BUTTON1_MASK);
+                if(x==5){
+                    robot.delay(delayTime*2);
+                    moveMouse(100, 63);
+                    robot.mousePress(InputEvent.BUTTON1_MASK);
+                    robot.mouseWheel(-20);
+                    robot.delay(delayTime*2);
+                    robot.mouseRelease(InputEvent.BUTTON1_MASK);
+                }
+            }
               return list;
 
         }catch (Exception e){

@@ -36,12 +36,13 @@ public class GrabbingCarSchedule {
     private CarSourceService carSourceService;
 
     /**
-     * 表示每隔1分钟获取数据一次
+     * 表示每隔3分钟获取数据一次
+     * 至少大于1分钟
      */
-   @Scheduled(cron = "0 0/1 * * * ?")
+   @Scheduled(cron = "0 0/2 * * * ?")
    public void qqProces(){
        log.info("********************qqProces定时器启动**************************");
-       List<String> datas = CrawlTools.QQCrawl(6,300);
+       List<String> datas = CrawlTools.QQCrawl(6,200);
        if(!CollectionUtils.isEmpty(datas)){
            for(String data:datas){
                CarQqDto dto = new CarQqDto();
