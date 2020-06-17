@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 
@@ -43,15 +44,7 @@ public class GrabbingCarSchedule {
    public void qqProces(){
        log.info("********************qqProces定时器启动**************************");
        List<String> datas = CrawlTools.QQCrawl(6,200);
-       if(!CollectionUtils.isEmpty(datas)){
-           for(String data:datas){
-               CarQqDto dto = new CarQqDto();
-               EmojiConverter emojiConverter = EmojiConverter.getInstance();
-               data= emojiConverter.toAlias(data);//将聊天内容进行转义
-               dto.setContent(data);
-               carQqService.save(dto);
-           }
-       }
+
 
 
     }
