@@ -3,10 +3,8 @@ package com.xxl.robot.time;
 import com.alibaba.fastjson.JSON;
 import com.github.binarywang.java.emoji.EmojiConverter;
 import com.xxl.robot.dto.CarQqDto;
-import com.xxl.robot.service.CarDriverService;
-import com.xxl.robot.service.CarQqService;
-import com.xxl.robot.service.CarSourceService;
-import com.xxl.robot.service.CarWechartService;
+import com.xxl.robot.entity.RobotConfig;
+import com.xxl.robot.service.*;
 import com.xxl.robot.tools.CrawlTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,6 +33,8 @@ public class GrabbingCarSchedule {
     private CarWechartService carWechartService;
     @Autowired
     private CarSourceService carSourceService;
+    @Autowired
+    private RobotConfigService robotConfigService;
 
     /**
      * 表示每隔3分钟获取数据一次
@@ -43,7 +43,14 @@ public class GrabbingCarSchedule {
    @Scheduled(cron = "0 0/2 * * * ?")
    public void qqProces(){
        log.info("********************qqProces定时器启动**************************");
-       List<String> datas = CrawlTools.QQCrawl(6,200);
+       RobotConfig robotConfig = robotConfigService.getByConfigNo("39.99.210.127");
+       if(null!=robotConfig&&Byte.valueOf(robotConfig.getEnabled()).equals("0")){
+           List<String> datas = CrawlTools.QQCrawl(6,200);
+
+
+
+       }
+
 
 
 

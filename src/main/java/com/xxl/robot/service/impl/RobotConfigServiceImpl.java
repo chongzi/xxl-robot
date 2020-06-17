@@ -11,6 +11,7 @@ import com.xxl.robot.service.RobotConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 import tk.mybatis.mapper.entity.Condition;
 
 import java.util.ArrayList;
@@ -72,10 +73,23 @@ public class RobotConfigServiceImpl implements RobotConfigService {
 	private Condition getCondition(RobotConfigDto dto){
 		Condition condition = new Condition(RobotConfig.class);
 		Condition.Criteria criteria = condition.createCriteria();
-
+        if(StringUtils.isEmpty(dto.getConfigNo())){
+			criteria.andEqualTo("configNo",dto.getConfigNo());
+		}
 		return condition;
 	}
 
+
+	@Override
+	public RobotConfig getByConfigNo(String no) {
+		RobotConfigDto dto = new RobotConfigDto();
+		dto.setConfigNo(no);
+		List<RobotConfig> robotConfigs = robotConfigMapper.selectByCondition(getCondition(dto));
+		if(!CollectionUtils.isEmpty(robotConfigs)){
+			return robotConfigs.get(0);
+		}
+		return null;
+	}
 
 	@Override
 	public int doEnabled(Long id) {
