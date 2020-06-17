@@ -5,6 +5,8 @@ import com.xxl.robot.entity.CarDriver;
 import com.xxl.robot.entity.CarQq;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * 
  * 司机表数据库操作接口类
@@ -22,5 +24,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface CarQqMapper extends IBaseMapper<CarQq>{
+
+    int insertBatch(List<CarQq> carQqs);
 
 }

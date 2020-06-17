@@ -7,6 +7,7 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Api(tags="汽车数据源实体类")
 @Data
@@ -22,7 +23,7 @@ public class CarSourceDto {
     @ApiModelProperty(value="类型(0-人找车，1-车找人)")
     private Byte type;
     @ApiModelProperty(value="出发时间")
-    private String startTime;
+    private Date startTime;
     @ApiModelProperty(value="从哪里面出发")
     private String to;
     @ApiModelProperty(value="到哪里去")
@@ -32,6 +33,9 @@ public class CarSourceDto {
     @ApiModelProperty(value="是否有效（0-有效，1-无效）")
     private Byte enabled;
     @ApiModelProperty(value="创建时间")
-    private String createDate;
-
+    private Date createDate;
+    @ApiModelProperty(value="原始数据")
+    private String basicData;
+    @ApiModelProperty(value="备注")
+    private String remark;
 }

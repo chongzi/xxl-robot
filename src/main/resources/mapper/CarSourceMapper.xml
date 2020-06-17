@@ -5,7 +5,7 @@
 
 	<!-- 通用查询结果列-->
 	<sql id="Base_Column_List">
-		id, type, start_time,to,from,mobile,enabled,create_date
+		id, type, start_time,to,from,mobile,enabled,create_date,basic_data,remark
 	</sql>
 
 	<!--返回MAP -->
@@ -18,6 +18,8 @@
 	<result column="mobile" property="mobile"/>
 	<result column="enabled" property="enabled"/>
 	<result column="create_date" property="createDate"/>
+	<result column="basic_data" property="basicData"/>
+	<result column="remark" property="remark"/>
 	</resultMap>
 
 </mapper>

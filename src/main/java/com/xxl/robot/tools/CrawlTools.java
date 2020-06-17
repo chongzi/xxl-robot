@@ -1,5 +1,6 @@
 package com.xxl.robot.tools;
 
+import com.github.binarywang.java.emoji.EmojiConverter;
 import com.sun.jna.platform.win32.User32;
 import com.sun.jna.platform.win32.WinDef.HWND;
 
@@ -29,6 +30,7 @@ public class CrawlTools {
         try {
             //点击左边菜单标题
             Robot robot = new Robot();
+            EmojiConverter emojiConverter = EmojiConverter.getInstance();
             for(int x=1;x<count;x++) {
                 for (int i = 1; i < 5; i++) {
                     robot.delay(1000);
@@ -52,6 +54,7 @@ public class CrawlTools {
                     robot.keyRelease(KeyEvent.VK_C);
                     String data = getClipboard();
                     System.out.println(data);
+                    data= emojiConverter.toAlias(data);//将聊天内容进行转义
                     list.add(data);
                     System.out.println("*******************************************************" + i);
                     System.out.println(getClipboard());

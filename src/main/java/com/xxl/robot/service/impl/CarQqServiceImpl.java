@@ -8,10 +8,14 @@ import com.xxl.robot.dao.CarQqMapper;
 import com.xxl.robot.dto.CarQqDto;
 import com.xxl.robot.entity.CarQq;
 import com.xxl.robot.entity.CarQq;
+import com.xxl.robot.entity.CarSource;
 import com.xxl.robot.service.CarQqService;
 import com.xxl.robot.service.CarQqService;
+import com.xxl.robot.service.CarSourceService;
+import com.xxl.robot.tools.RegTools;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Condition;
@@ -19,6 +23,8 @@ import tk.mybatis.mapper.entity.Condition;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -29,6 +35,8 @@ public class CarQqServiceImpl implements CarQqService {
 
 	@Autowired
 	private CarQqMapper carQqMapper;
+	@Autowired
+	private CarSourceService carSourceService;
 
 
 	@Override
@@ -80,24 +88,44 @@ public class CarQqServiceImpl implements CarQqService {
 	}
 
 //***********************************************业务逻辑************************************************************
-
-	public List<String> analysisQQ(List<String> datas){
+	@Override
+	public List<String> handleQQ(List<String> datas){
 		List<String> list = new ArrayList<>();
+		List<CarQq> carQqs = new ArrayList<>();
 		if(!CollectionUtils.isEmpty(datas)){
 			for(String data:datas){
-				CarQqDto dto = new CarQqDto();
-				EmojiConverter emojiConverter = EmojiConverter.getInstance();
-				data= emojiConverter.toAlias(data);//将聊天内容进行转义
+				CarQq dto = new CarQq();
 				dto.setContent(data);
-				dto.setSessionTime(new Date());
-				save(dto);
-				String arrayData[] = data.split("");
+				carQqs.add(dto);
 			}
+			carQqMapper.insertBatch(carQqs);
 		}
 
 
 		return null;
 	}
+
+	/**
+	 * 异步分析QQ聊天数据
+	 * @param datas
+	 */
+	@Async("taskExecutor")
+	public void analysisQQ(List<String> datas){
+        List<CarSource> carSources = new ArrayList<>();
+		if(!CollectionUtils.isEmpty(datas)) {
+			for (String data : datas) {
+				String[] result = data.split(RegTools.TIME);
+				for(int i=0;i<result.length;i++){
+					carSources.add(carSourceService.analysis(result[i]));
+				}
+			}
+		}
+		carSources.stream().distinct().collect(Collectors.toList());
+		carSourceService.insertBatch(carSources);
+	}
+
+
+
 
 
 

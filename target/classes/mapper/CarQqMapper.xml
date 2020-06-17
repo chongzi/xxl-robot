@@ -15,7 +15,13 @@
 		<result column="content" property="content" />
 	</resultMap>
 
-	
+	<insert id="insertBatch" parameterType="java.util.List">
+		insert into car_qq(session_time, content)
+		values
+		<foreach collection="list" item="item" index="index" separator=",">
+			(now(), #{item.content,jdbcType=VARCHAR})
+		</foreach>
+	</insert>
 	
 	
 </mapper>
