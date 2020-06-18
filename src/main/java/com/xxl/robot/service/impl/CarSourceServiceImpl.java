@@ -9,6 +9,7 @@ import com.xxl.robot.entity.CarSource;
 import com.xxl.robot.enums.CarEnum;
 import com.xxl.robot.service.CarSourceService;
 import com.xxl.robot.time.GrabbingCarSchedule;
+import com.xxl.robot.tools.CarTools;
 import com.xxl.robot.tools.DateTools;
 import com.xxl.robot.tools.StringTools;
 import org.apache.commons.lang3.StringUtils;
@@ -18,7 +19,9 @@ import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Condition;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 /**
@@ -105,8 +108,14 @@ public class CarSourceServiceImpl implements CarSourceService {
 		try {
 			CarSource carSource = new CarSource();
 			carSource.setBasicData(rowData);
-
-
+            Map<String,Object> map = CarTools.analysis(rowData);
+            if(null!=map) {
+				carSource.setStartTime((Date) map.get("startTime"));
+				carSource.setMobile((String) map.get("mobile"));
+				carSource.setTo((String) map.get("to"));
+				carSource.setFrom((String) map.get("from"));
+				carSource.setType((Byte) map.get("type"));
+			}
           return carSource;
 		}catch (Exception e){
 			log.info("方法 analysis（）单条数据解析失败：｛｝");

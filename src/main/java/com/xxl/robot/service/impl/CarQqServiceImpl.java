@@ -6,6 +6,7 @@ import com.github.pagehelper.PageInfo;
 import com.xxl.common.tools.BeanTools;
 import com.xxl.robot.dao.CarQqMapper;
 import com.xxl.robot.dto.CarQqDto;
+import com.xxl.robot.dto.CarSourceDto;
 import com.xxl.robot.entity.CarQq;
 import com.xxl.robot.entity.CarQq;
 import com.xxl.robot.entity.CarSource;
@@ -116,12 +117,14 @@ public class CarQqServiceImpl implements CarQqService {
 			for (String data : datas) {
 				String[] result = data.split(RegTools.TIME);
 				for(int i=0;i<result.length;i++){
-					carSources.add(carSourceService.analysis(result[i]));
+					CarSource carSource = carSourceService.analysis(result[i]);
+					carSources.add(carSource);
+					carSourceService.save(BeanTools.sourceToTarget(carSource, CarSourceDto.class));
 				}
 			}
 		}
 		carSources.stream().distinct().collect(Collectors.toList());
-		carSourceService.insertBatch(carSources);
+//		carSourceService.insertBatch(carSources);
 	}
 
 
