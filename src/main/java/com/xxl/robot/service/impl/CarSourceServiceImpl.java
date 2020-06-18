@@ -9,6 +9,7 @@ import com.xxl.robot.entity.CarSource;
 import com.xxl.robot.enums.CarEnum;
 import com.xxl.robot.service.CarSourceService;
 import com.xxl.robot.time.GrabbingCarSchedule;
+import com.xxl.robot.tools.DateTools;
 import com.xxl.robot.tools.StringTools;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.LoggerFactory;
@@ -16,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Condition;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -103,36 +105,16 @@ public class CarSourceServiceImpl implements CarSourceService {
 		try {
 			CarSource carSource = new CarSource();
 			carSource.setBasicData(rowData);
-			String to = null;
-			String from = null;
-			String startTime = null;
-			if (rowData.contains("车找人")) {
-				carSource.setType((byte) 1);
 
 
-			} else if (rowData.contains("人找车")) {
-				carSource.setType((byte) 0);
-			}
-			//起始-终点
-			if (rowData.contains(CarEnum.BACK.getCode())||rowData.contains(CarEnum.ARRIVE.getCode()) ||rowData.contains(CarEnum.GO.getCode())
-					||rowData.contains(CarEnum.MIDDLE_LINE.getCode())) {
-				to = rowData.substring(rowData.indexOf(CarEnum.BACK.getCode())-2,rowData.indexOf(CarEnum.BACK.getCode()));
-				from = rowData.substring(rowData.indexOf(CarEnum.BACK.getCode()),rowData.indexOf(CarEnum.BACK.getCode())+2);
-			}
-			//时间
-			if(rowData.contains(CarEnum.POINT.getCode())){
-				if()
-			}
-
-
-			String mobile = StringTools.getMobile(rowData);
-
+          return carSource;
 		}catch (Exception e){
-			log.info("方法 analysis（）顺风车单条数据解析失败：｛｝");
+			log.info("方法 analysis（）单条数据解析失败：｛｝");
 			e.printStackTrace();
 		}
 		return null;
 	}
+
 
 
 }

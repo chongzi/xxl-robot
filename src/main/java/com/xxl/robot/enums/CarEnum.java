@@ -11,9 +11,13 @@ public enum CarEnum {
 	ARRIVE("到", "到"),
 	GO("去", "去"),
 	MIDDLE_LINE("-", "-"),
+	MIDDLE_LINE1("—", "——"),
+
 	BELT("带", "带"),
 	TODAY("今天", "今天"),
 	TOMORROW("明天", "明天"),
+	AFTER_TOMORROW("后天", "后天"),
+	NUMBER("号", "号"),
 	MORNING("早上", "早上"),
 	NOON("中午", "中午"),
 	AFTERNOON("下午", "下午"),
