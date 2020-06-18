@@ -19,6 +19,7 @@ public enum CarEnum {
 	AFTER_TOMORROW("后天", "后天"),
 	NUMBER("号", "号"),
 	MORNING("早上", "早上"),
+	MORNING1("上午", "上午"),
 	NOON("中午", "中午"),
 	AFTERNOON("下午", "下午"),
 	EVENING("晚上", "晚上"),

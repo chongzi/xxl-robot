@@ -26,11 +26,26 @@ public class CarTools {
            map.put("type",0);
        }
        //起始-终点
-       if (rowData.contains(CarEnum.BACK.getCode())||rowData.contains(CarEnum.ARRIVE.getCode()) ||rowData.contains(CarEnum.GO.getCode())
-               ||rowData.contains(CarEnum.MIDDLE_LINE.getCode())||rowData.contains(CarEnum.MIDDLE_LINE1.getCode())) {
-           to = rowData.substring(rowData.indexOf(CarEnum.BACK.getCode())-2,rowData.indexOf(CarEnum.BACK.getCode()));
-           from = rowData.substring(rowData.indexOf(CarEnum.BACK.getCode())+1,rowData.indexOf(CarEnum.BACK.getCode())+3);
+       String toFrom = null;
+       if (rowData.contains(CarEnum.MIDDLE_LINE1.getCode())){
+           toFrom = CarEnum.MIDDLE_LINE1.getCode();
        }
+       if (rowData.contains(CarEnum.MIDDLE_LINE.getCode())){
+           toFrom = CarEnum.MIDDLE_LINE.getCode();
+       }
+       if (rowData.contains(CarEnum.ARRIVE.getCode())){
+           toFrom = CarEnum.ARRIVE.getCode();
+       }
+       if (rowData.contains(CarEnum.GO.getCode())){
+           toFrom = CarEnum.GO.getCode();
+       }
+       if (rowData.contains(CarEnum.BACK.getCode())){
+           toFrom = CarEnum.BACK.getCode();
+       }
+
+       to = rowData.substring(rowData.indexOf(toFrom)-2,rowData.indexOf(toFrom));
+       from = rowData.substring(rowData.indexOf(toFrom)+1,rowData.indexOf(toFrom)+3);
+
        //时间
        LocalDate today = LocalDate.now();
        if(rowData.contains(CarEnum.POINT.getCode())){
@@ -68,16 +83,30 @@ public class CarTools {
                }
            }
        }else{
-           log.info("无点------今天");
-           if(rowData.contains(CarEnum.MORNING.getCode())){
-               startTime = today+" "+"08:00:00";
-           }else if(rowData.contains(CarEnum.NOON.getCode())){
-               startTime = today+" "+"12:00:00";
-           }else if(rowData.contains(CarEnum.AFTERNOON.getCode())){
-               startTime = today+" "+"16:00:00";
-           }else if(rowData.contains(CarEnum.EVENING.getCode())){
-               startTime = today+" "+"19:00:00";
+           if(rowData.contains(CarEnum.NUMBER.getCode())&&check(CarEnum.NUMBER.getCode(),rowData)){
+               if(rowData.contains(CarEnum.MORNING.getCode())||rowData.contains(CarEnum.MORNING1.getCode())){
+                   startTime = today.plusDays(1)+" "+"08:00:00";
+               }else if(rowData.contains(CarEnum.NOON.getCode())){
+                   startTime = today.plusDays(1)+" "+"12:00:00";
+               }else if(rowData.contains(CarEnum.AFTERNOON.getCode())){
+                   startTime = today.plusDays(1)+" "+"16:00:00";
+               }else if(rowData.contains(CarEnum.EVENING.getCode())){
+                   startTime = today.plusDays(1)+" "+"19:00:00";
+               }
+               log.info("无点------号");
+           }else{
+               if(rowData.contains(CarEnum.MORNING.getCode())){
+                   startTime = today+" "+"08:00:00";
+               }else if(rowData.contains(CarEnum.NOON.getCode())){
+                   startTime = today+" "+"12:00:00";
+               }else if(rowData.contains(CarEnum.AFTERNOON.getCode())){
+                   startTime = today+" "+"16:00:00";
+               }else if(rowData.contains(CarEnum.EVENING.getCode())){
+                   startTime = today+" "+"19:00:00";
+               }
+               log.info("无点------今天");
            }
+
        }
 
        String mobile = StringTools.getMobile(rowData);
@@ -234,7 +263,7 @@ public class CarTools {
     //******************************************************************
 
     public static void main(String[] args){
-        String str = "车找人：今天下午4点左右宿迁，泗阳回上海还有2个位置，有需要的老乡抓紧联系，接送到位，联系电话17601324907微信同号";
+        String str = " 【人找车】：今晚5点以后松江老城区回宿迁电话13524286280如需可代价";
          Map<String,Object> obj = analysis(str);
 
         System.out.println("to:{}"+ obj.get("to"));
