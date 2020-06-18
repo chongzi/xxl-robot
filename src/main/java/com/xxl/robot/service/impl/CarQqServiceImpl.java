@@ -111,6 +111,7 @@ public class CarQqServiceImpl implements CarQqService {
 	 * @param datas
 	 */
 	@Async("taskExecutor")
+	@Override
 	public void analysisQQ(List<String> datas){
         List<CarSource> carSources = new ArrayList<>();
 		if(!CollectionUtils.isEmpty(datas)) {

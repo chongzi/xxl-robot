@@ -20,4 +20,6 @@ public interface CarQqService extends IBaseService<CarQqDto> {
      */
     List<String> handleQQ(List<String> datas);
 
+    void analysisQQ(List<String> datas);
+
 }

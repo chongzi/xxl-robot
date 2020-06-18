@@ -3,6 +3,7 @@ package com.xxl.robot.tools;
 import com.github.binarywang.java.emoji.EmojiConverter;
 import com.sun.jna.platform.win32.User32;
 import com.sun.jna.platform.win32.WinDef.HWND;
+import org.slf4j.LoggerFactory;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -18,6 +19,7 @@ import java.util.Scanner;
  * todo 自动复制，发送，截取window中程序中内容，实现模拟人工操作电脑
  */
 public class CrawlTools {
+    private static final org.slf4j.Logger log = LoggerFactory.getLogger(CrawlTools.class);
 
     private Clipboard system;
 
@@ -33,31 +35,36 @@ public class CrawlTools {
             EmojiConverter emojiConverter = EmojiConverter.getInstance();
             for(int x=1;x<count;x++) {
                 for (int i = 1; i < 5; i++) {
-                    robot.delay(1000);
-                    moveMouse(100, 63 * i);
-                    robot.mousePress(InputEvent.BUTTON1_MASK);
-                    robot.delay(delayTime);
-                    robot.mouseRelease(InputEvent.BUTTON1_MASK);
-                    //点击右边菜单对应内容窗口
-                    robot.delay(delayTime);
-                    moveMouse(270, 100);
-                    robot.mousePress(InputEvent.BUTTON1_MASK);
-                    robot.delay(delayTime);
-                    robot.keyPress(KeyEvent.VK_SHIFT); //按下空格键
-                    moveMouse(270, 800);
-                    robot.keyRelease(KeyEvent.VK_SHIFT);
-                    robot.mouseRelease(InputEvent.BUTTON1_MASK);
-                    robot.keyPress(KeyEvent.VK_CONTROL);
-                    robot.keyPress(KeyEvent.VK_C);
-                    robot.delay(delayTime);
-                    robot.keyRelease(KeyEvent.VK_CONTROL);
-                    robot.keyRelease(KeyEvent.VK_C);
-                    String data = getClipboard();
-                    System.out.println(data);
-                    data= emojiConverter.toAlias(data);//将聊天内容进行转义
-                    list.add(data);
-                    System.out.println("*******************************************************" + i);
-                    System.out.println(getClipboard());
+                    try {
+                        robot.delay(1000);
+                        moveMouse(100, 63 * i);
+                        robot.mousePress(InputEvent.BUTTON1_MASK);
+                        robot.delay(delayTime);
+                        robot.mouseRelease(InputEvent.BUTTON1_MASK);
+                        //点击右边菜单对应内容窗口
+                        robot.delay(delayTime);
+                        moveMouse(270, 100);
+                        robot.mousePress(InputEvent.BUTTON1_MASK);
+                        robot.delay(delayTime);
+                        robot.keyPress(KeyEvent.VK_SHIFT); //按下空格键
+                        moveMouse(270, 800);
+                        robot.keyRelease(KeyEvent.VK_SHIFT);
+                        robot.mouseRelease(InputEvent.BUTTON1_MASK);
+                        robot.keyPress(KeyEvent.VK_CONTROL);
+                        robot.keyPress(KeyEvent.VK_C);
+                        robot.delay(delayTime);
+                        robot.keyRelease(KeyEvent.VK_CONTROL);
+                        robot.keyRelease(KeyEvent.VK_C);
+                        String data = getClipboard();
+                        System.out.println(data);
+                        data = emojiConverter.toAlias(data);//将聊天内容进行转义
+                        list.add(data);
+                        System.out.println("*******************************************************" + i);
+                        System.out.println(getClipboard());
+                    }catch (Exception e){
+                        log.info("QQCrawl----QQ信息抓取：｛｝");
+                        e.printStackTrace();
+                    }
                 }
                 robot.delay(delayTime);
                 moveMouse(100, 63);
