@@ -263,7 +263,7 @@ public class CarTools {
     //******************************************************************
 
     public static void main(String[] args){
-        String str = " 【人找车】：今晚5点以后松江老城区回宿迁电话13524286280如需可代价";
+        String str = "车找人，晚上八点。上海—洋河，15252427760电话、微信预约。19号中午，洋河—上海。";
          Map<String,Object> obj = analysis(str);
 
         System.out.println("to:{}"+ obj.get("to"));
