@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
- * 《用户中心》包含用户信息及权限
+ * 《人工智能中心》
  * 
  * @author xuxuelei
  *
