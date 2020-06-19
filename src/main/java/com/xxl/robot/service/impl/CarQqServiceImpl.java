@@ -110,7 +110,7 @@ public class CarQqServiceImpl implements CarQqService {
 	 * 异步分析QQ聊天数据
 	 * @param datas
 	 */
-	@Async("taskExecutor")
+//	@Async("taskExecutor")
 	@Override
 	public void analysisQQ(List<String> datas){
         List<CarSource> carSources = new ArrayList<>();
@@ -119,8 +119,14 @@ public class CarQqServiceImpl implements CarQqService {
 				String[] result = data.split(RegTools.TIME);
 				for(int i=0;i<result.length;i++){
 					CarSource carSource = carSourceService.analysis(result[i]);
-					carSources.add(carSource);
-					carSourceService.save(BeanTools.sourceToTarget(carSource, CarSourceDto.class));
+					if(null!=carSource){
+						carSources.add(carSource);
+						try {
+							carSourceService.save(BeanTools.sourceToTarget(carSource, CarSourceDto.class));
+						}catch (Exception e){
+							e.printStackTrace();
+						}
+					}
 				}
 			}
 		}

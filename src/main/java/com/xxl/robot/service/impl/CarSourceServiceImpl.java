@@ -19,6 +19,8 @@ import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Condition;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -110,13 +112,14 @@ public class CarSourceServiceImpl implements CarSourceService {
 			carSource.setBasicData(rowData);
             Map<String,Object> map = CarTools.analysis(rowData);
             if(null!=map) {
-				carSource.setStartTime((Date) map.get("startTime"));
+				DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+				carSource.setStartTime(String.valueOf(map.get("startTime")));
 				carSource.setMobile((String) map.get("mobile"));
 				carSource.setTo((String) map.get("to"));
 				carSource.setFrom((String) map.get("from"));
-				carSource.setType((Byte) map.get("type"));
+				carSource.setType(Byte.valueOf(String.valueOf(map.get("type"))));
+				return carSource;
 			}
-          return carSource;
 		}catch (Exception e){
 			log.info("方法 analysis（）单条数据解析失败：｛｝");
 			e.printStackTrace();

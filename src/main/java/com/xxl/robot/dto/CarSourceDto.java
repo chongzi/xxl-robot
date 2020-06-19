@@ -23,7 +23,7 @@ public class CarSourceDto {
     @ApiModelProperty(value="类型(0-人找车，1-车找人)")
     private Byte type;
     @ApiModelProperty(value="出发时间")
-    private Date startTime;
+    private String startTime;
     @ApiModelProperty(value="从哪里面出发")
     private String to;
     @ApiModelProperty(value="到哪里去")
