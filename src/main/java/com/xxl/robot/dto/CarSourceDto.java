@@ -21,13 +21,13 @@ public class CarSourceDto {
     @ApiModelProperty(value = "主键ID")
     private Long id;
     @ApiModelProperty(value="类型(0-人找车，1-车找人)")
-    private Byte type;
+    private Byte rentType;
     @ApiModelProperty(value="出发时间")
     private String startTime;
     @ApiModelProperty(value="从哪里面出发")
-    private String to;
+    private String toPlace;
     @ApiModelProperty(value="到哪里去")
-    private String from;
+    private String fromPlace;
     @ApiModelProperty(value="手机号")
     private String mobile;
     @ApiModelProperty(value="是否有效（0-有效，1-无效）")

@@ -27,11 +27,6 @@ public interface CarSourceService extends IBaseService<CarSourceDto> {
      */
     int insertBatch(List<CarSource> carSources);
 
-    /**
-     * 分析一行数据
-     * @param rowData
-     * @return
-     */
-    CarSource analysis(String rowData);
+     void analysisQQ(List<String> datas);
 
 }

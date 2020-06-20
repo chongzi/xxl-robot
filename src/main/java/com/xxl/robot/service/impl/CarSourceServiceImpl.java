@@ -11,20 +11,24 @@ import com.xxl.robot.service.CarSourceService;
 import com.xxl.robot.time.GrabbingCarSchedule;
 import com.xxl.robot.tools.CarTools;
 import com.xxl.robot.tools.DateTools;
+import com.xxl.robot.tools.RegTools;
 import com.xxl.robot.tools.StringTools;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Condition;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -102,22 +106,23 @@ public class CarSourceServiceImpl implements CarSourceService {
 
 	@Override
 	public int insertBatch(List<CarSource> carSources) {
-		return carSourceMapper.insertBatch(carSources);
+//		return carSourceMapper.insertBatch(carSources);
+		return 0;
 	}
 
-	@Override
-	public CarSource analysis(String rowData) {
+	public CarSource getCarSource(String rowData) {
 		try {
 			CarSource carSource = new CarSource();
 			carSource.setBasicData(rowData);
             Map<String,Object> map = CarTools.analysis(rowData);
             if(null!=map) {
-				DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-				carSource.setStartTime(String.valueOf(map.get("startTime")));
+ 				carSource.setStartTime(String.valueOf(map.get("startTime")));
 				carSource.setMobile((String) map.get("mobile"));
-				carSource.setTo((String) map.get("to"));
-				carSource.setFrom((String) map.get("from"));
-				carSource.setType(Byte.valueOf(String.valueOf(map.get("type"))));
+				carSource.setToPlace((String) map.get("to"));
+				carSource.setFromPlace((String) map.get("from"));
+				carSource.setEnabled((byte) 0);
+				carSource.setCreateDate(new Date());
+				carSource.setRentType(Byte.valueOf(String.valueOf(map.get("type"))));
 				return carSource;
 			}
 		}catch (Exception e){
@@ -125,6 +130,35 @@ public class CarSourceServiceImpl implements CarSourceService {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+
+	/**
+	 * 异步分析QQ聊天数据
+	 * @param datas
+	 */
+	@Async("taskExecutor")
+	@Override
+	public void analysisQQ(List<String> datas){
+		List<CarSource> carSources = new ArrayList<>();
+		if(!CollectionUtils.isEmpty(datas)) {
+			for (String data : datas) {
+				String[] result = data.split(RegTools.TIME);
+				for(int i=0;i<result.length;i++){
+					CarSource carSource = getCarSource(result[i]);
+					if(null!=carSource){
+						carSources.add(carSource);
+						try {
+							save(BeanTools.sourceToTarget(carSource, CarSourceDto.class));
+						}catch (Exception e){
+							e.printStackTrace();
+						}
+					}
+				}
+			}
+		}
+		carSources.stream().distinct().collect(Collectors.toList());
+//		carSourceService.insertBatch(carSources);
 	}
 
 

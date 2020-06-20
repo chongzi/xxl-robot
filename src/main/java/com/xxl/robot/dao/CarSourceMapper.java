@@ -26,6 +26,6 @@ import java.util.List;
 @Mapper
 public interface CarSourceMapper extends IBaseMapper<CarSource>  {
 
-    int insertBatch(List<CarSource> carSources);
+//    int insertBatch(List<CarSource> carSources);
 
 }

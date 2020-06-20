@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
+import java.util.List;
 
 @Api(tags="司机qq实体类")
 @Data
@@ -25,6 +26,9 @@ public class CarQqDto {
     private Date sessionTime;
     @ApiModelProperty(value="内容")
     private String content;
+
+
+    List<String> datas;
 
 
 }

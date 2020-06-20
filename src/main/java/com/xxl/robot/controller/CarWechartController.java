@@ -9,15 +9,12 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 @RestController
-@RequestMapping(value = "/system/RobotConfig")
-@Api(tags = "智能基础配置服务")
-public class RobotConfigController {
+@RequestMapping(value = "/car/wechart")
+@Api(tags = "汽车微信服务")
+public class CarWechartController {
 
     @Autowired
     private RobotConfigService robotConfigService;

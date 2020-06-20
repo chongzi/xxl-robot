@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xxl.common.tools.BeanTools;
 import com.xxl.robot.dao.CarQqMapper;
+import com.xxl.robot.dao.CarSourceMapper;
 import com.xxl.robot.dto.CarQqDto;
 import com.xxl.robot.dto.CarSourceDto;
 import com.xxl.robot.entity.CarQq;
@@ -36,6 +37,7 @@ public class CarQqServiceImpl implements CarQqService {
 
 	@Autowired
 	private CarQqMapper carQqMapper;
+
 	@Autowired
 	private CarSourceService carSourceService;
 
@@ -101,38 +103,9 @@ public class CarQqServiceImpl implements CarQqService {
 			}
 			carQqMapper.insertBatch(carQqs);
 		}
-
-
 		return null;
 	}
 
-	/**
-	 * 异步分析QQ聊天数据
-	 * @param datas
-	 */
-//	@Async("taskExecutor")
-	@Override
-	public void analysisQQ(List<String> datas){
-        List<CarSource> carSources = new ArrayList<>();
-		if(!CollectionUtils.isEmpty(datas)) {
-			for (String data : datas) {
-				String[] result = data.split(RegTools.TIME);
-				for(int i=0;i<result.length;i++){
-					CarSource carSource = carSourceService.analysis(result[i]);
-					if(null!=carSource){
-						carSources.add(carSource);
-						try {
-							carSourceService.save(BeanTools.sourceToTarget(carSource, CarSourceDto.class));
-						}catch (Exception e){
-							e.printStackTrace();
-						}
-					}
-				}
-			}
-		}
-		carSources.stream().distinct().collect(Collectors.toList());
-//		carSourceService.insertBatch(carSources);
-	}
 
 
 
