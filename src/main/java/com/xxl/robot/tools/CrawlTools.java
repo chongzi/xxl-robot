@@ -34,7 +34,7 @@ public class CrawlTools {
             Robot robot = new Robot();
             EmojiConverter emojiConverter = EmojiConverter.getInstance();
             for(int x=1;x<count;x++) {
-                for (int i = 1; i < 4; i++) {
+                for (int i = 1; i < 5; i++) {
                     try {
                         robot.delay(1000);
                         moveMouse(100, 63 * i);
