@@ -20,6 +20,8 @@ public class CarSourceDto {
 
     @ApiModelProperty(value = "主键ID")
     private Long id;
+    @ApiModelProperty(value="状态(0-新增，1-接单中, 2-已接单，3-已过期，4-已取消)")
+    private Byte stated;
     @ApiModelProperty(value="类型(0-人找车，1-车找人)")
     private Byte rentType;
     @ApiModelProperty(value="出发时间")
@@ -30,12 +32,14 @@ public class CarSourceDto {
     private String fromPlace;
     @ApiModelProperty(value="手机号")
     private String mobile;
-    @ApiModelProperty(value="是否有效（0-有效，1-无效）")
-    private Byte enabled;
-    @ApiModelProperty(value="创建时间")
-    private Date createDate;
+    @ApiModelProperty(value="人数（可带几人或几人需坐车）")
+    private Integer personNumber;
     @ApiModelProperty(value="原始数据")
     private String basicData;
+    @ApiModelProperty(value="创建时间")
+    private Date createDate;
     @ApiModelProperty(value="备注")
     private String remark;
+
+
 }

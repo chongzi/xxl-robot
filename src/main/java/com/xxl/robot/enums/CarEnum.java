@@ -14,6 +14,8 @@ public enum CarEnum {
 	MIDDLE_LINE1("—", "——"),
 
 	BELT("带", "带"),
+	INDIVIDUAL("个","个"),
+	POSITION("位","位"),
 	TODAY("今天", "今天"),
 	TOMORROW("明天", "明天"),
 	AFTER_TOMORROW("后天", "后天"),
