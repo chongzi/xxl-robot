@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * todo 自动复制，发送，截取window中程序中内容，实现模拟人工操作电脑
+ * todo 抓取数据（自动复制，发送，截取window中程序中内容，实现模拟人工操作电脑）
  */
 public class CrawlTools {
     private static final org.slf4j.Logger log = LoggerFactory.getLogger(CrawlTools.class);

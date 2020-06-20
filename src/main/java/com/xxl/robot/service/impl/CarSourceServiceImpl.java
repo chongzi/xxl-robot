@@ -92,18 +92,6 @@ public class CarSourceServiceImpl implements CarSourceService {
 	}
 
 
-	@Override
-	public int doEnabled(Long id) {
-		CarSource entity = carSourceMapper.selectByPrimaryKey(id);
-		if(null!=entity){
-			if(entity.getEnabled()==0){
-				entity.setEnabled((byte) 1);
-			}else{
-				entity.setEnabled((byte) 0);
-			}
-		}
-		return carSourceMapper.updateByPrimaryKey(entity);
-	}
 
 	@Override
 	public int insertBatch(List<CarSource> carSources) {
@@ -117,13 +105,15 @@ public class CarSourceServiceImpl implements CarSourceService {
 			carSource.setBasicData(rowData);
             Map<String,Object> map = CarTools.analysis(rowData);
             if(null!=map) {
+				carSource.setStated((byte) 0);
+				carSource.setRentType(Byte.valueOf(String.valueOf(map.get("type"))));
  				carSource.setStartTime(String.valueOf(map.get("startTime")));
 				carSource.setMobile((String) map.get("mobile"));
 				carSource.setToPlace((String) map.get("to"));
 				carSource.setFromPlace((String) map.get("from"));
-				carSource.setEnabled((byte) 0);
+				carSource.setPersonNumber((Integer) map.get("personNumber"));
 				carSource.setCreateDate(new Date());
-				carSource.setRentType(Byte.valueOf(String.valueOf(map.get("type"))));
+
 				return carSource;
 			}
 		}catch (Exception e){

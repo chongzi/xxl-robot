@@ -13,12 +13,6 @@ import java.util.List;
  */
 public interface CarSourceService extends IBaseService<CarSourceDto> {
 
-    /**
-     * 启用/禁用
-     * @param id
-     * @return
-     */
-    int doEnabled(Long id);
 
     /**
      * 批量插入

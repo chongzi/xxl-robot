@@ -10,114 +10,144 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 解析
+ * todo 解析对话一行数据
  */
 public class CarTools {
     private static final org.slf4j.Logger log = LoggerFactory.getLogger(CarTools.class);
 
    public static Map<String,Object> analysis(String rowData){
        Map<String,Object> map = new HashMap<>();
-       String to = null;
-       String from = null;
-       String startTime = null;
-       if (rowData.contains("车找人")) {
-           map.put("type",1);
-       } else if (rowData.contains("人找车")) {
-           map.put("type",0);
-       }
-       //起始-终点
-       String toFrom = null;
-       if (rowData.contains(CarEnum.MIDDLE_LINE1.getCode())){
-           toFrom = CarEnum.MIDDLE_LINE1.getCode();
-       }
-       if (rowData.contains(CarEnum.MIDDLE_LINE.getCode())){
-           toFrom = CarEnum.MIDDLE_LINE.getCode();
-       }
-       if (rowData.contains(CarEnum.ARRIVE.getCode())){
-           toFrom = CarEnum.ARRIVE.getCode();
-       }
-       if (rowData.contains(CarEnum.GO.getCode())){
-           toFrom = CarEnum.GO.getCode();
-       }
-       if (rowData.contains(CarEnum.BACK.getCode())){
-           toFrom = CarEnum.BACK.getCode();
-       }
-
-       to = rowData.substring(rowData.indexOf(toFrom)-2,rowData.indexOf(toFrom));
-       from = rowData.substring(rowData.indexOf(toFrom)+1,rowData.indexOf(toFrom)+3);
-
-       //时间
-       LocalDate today = LocalDate.now();
-       if(rowData.contains(CarEnum.POINT.getCode())){
-           //解析几点转时间
-           String times = rowData.substring(rowData.indexOf(CarEnum.POINT.getCode())-2, rowData.indexOf(CarEnum.POINT.getCode()));
-           int time = pointTime(times);
-           if(rowData.contains(CarEnum.TOMORROW.getCode())){
-               if(rowData.contains(CarEnum.NOON.getCode())||rowData.contains(CarEnum.AFTERNOON.getCode())||rowData.contains(CarEnum.EVENING.getCode())){
-                   time+=12;
-               }
-               startTime = today.plusDays(1)+" "+addZeroForNum(time)+":00:00";
-               log.info("几点------明天");
-           }else if(rowData.contains(CarEnum.AFTER_TOMORROW.getCode())){
-               if(rowData.contains(CarEnum.NOON.getCode())||rowData.contains(CarEnum.AFTERNOON.getCode())||rowData.contains(CarEnum.EVENING.getCode())){
-                   time+=12;
-               }
-               startTime = today.plusDays(2)+" "+addZeroForNum(time)+":00:00";
-               log.info("几点------后天");
-           }else{
-               if(rowData.contains(CarEnum.NUMBER.getCode())&&check(CarEnum.NUMBER.getCode(),rowData)){
-                   //包含几号
-                   if(rowData.contains(CarEnum.NOON.getCode())||rowData.contains(CarEnum.AFTERNOON.getCode())||rowData.contains(CarEnum.EVENING.getCode())){
-                       time+=12;
-                   }
-                   String numbers = rowData.substring(rowData.indexOf(CarEnum.NUMBER.getCode())-2, rowData.indexOf(CarEnum.NUMBER.getCode()));
-                   int number = numberAccount(times);
-                   startTime = today.getYear()+"-"+today.getMonth()+"-"+addZeroForNum(number)+" "+addZeroForNum(time)+":00:00";
-                   log.info("几点------几号");
-               }else{
-                   if(rowData.contains(CarEnum.NOON.getCode())||rowData.contains(CarEnum.AFTERNOON.getCode())||rowData.contains(CarEnum.EVENING.getCode())){
-                       time+=12;
-                   }
-                   startTime = today+" "+addZeroForNum(time)+":00:00";
-                   log.info("几点------今天");
-               }
+       try {
+           String to = null;
+           String from = null;
+           String startTime = null;
+           int personNumber = 1;
+           if (rowData.contains("车找人")) {
+               map.put("type", 1);
+           } else if (rowData.contains("人找车")) {
+               map.put("type", 0);
            }
-       }else{
-           if(rowData.contains(CarEnum.NUMBER.getCode())&&check(CarEnum.NUMBER.getCode(),rowData)){
-               if(rowData.contains(CarEnum.MORNING.getCode())||rowData.contains(CarEnum.MORNING1.getCode())){
-                   startTime = today.plusDays(1)+" "+"08:00:00";
-               }else if(rowData.contains(CarEnum.NOON.getCode())){
-                   startTime = today.plusDays(1)+" "+"12:00:00";
-               }else if(rowData.contains(CarEnum.AFTERNOON.getCode())){
-                   startTime = today.plusDays(1)+" "+"16:00:00";
-               }else if(rowData.contains(CarEnum.EVENING.getCode())){
-                   startTime = today.plusDays(1)+" "+"19:00:00";
-               }
-               log.info("无点------号");
-           }else{
-               if(rowData.contains(CarEnum.MORNING.getCode())){
-                   startTime = today+" "+"08:00:00";
-               }else if(rowData.contains(CarEnum.NOON.getCode())){
-                   startTime = today+" "+"12:00:00";
-               }else if(rowData.contains(CarEnum.AFTERNOON.getCode())){
-                   startTime = today+" "+"16:00:00";
-               }else if(rowData.contains(CarEnum.EVENING.getCode())){
-                   startTime = today+" "+"19:00:00";
-               }
-               log.info("无点------今天");
+           //起始-终点
+           String toFrom = null;
+           if (rowData.contains(CarEnum.MIDDLE_LINE1.getCode())) {
+               toFrom = CarEnum.MIDDLE_LINE1.getCode();
+           }
+           if (rowData.contains(CarEnum.MIDDLE_LINE.getCode())) {
+               toFrom = CarEnum.MIDDLE_LINE.getCode();
+           }
+           if (rowData.contains(CarEnum.ARRIVE.getCode())) {
+               toFrom = CarEnum.ARRIVE.getCode();
+           }
+           if (rowData.contains(CarEnum.GO.getCode())) {
+               toFrom = CarEnum.GO.getCode();
+           }
+           if (rowData.contains(CarEnum.BACK.getCode())) {
+               toFrom = CarEnum.BACK.getCode();
            }
 
-       }
+           to = rowData.substring(rowData.indexOf(toFrom) - 2, rowData.indexOf(toFrom));
+           from = rowData.substring(rowData.indexOf(toFrom) + 1, rowData.indexOf(toFrom) + 3);
 
-       String mobile = StringTools.getMobile(rowData);
+           //时间
+           LocalDate today = LocalDate.now();
+           if (rowData.contains(CarEnum.POINT.getCode())) {
+               //解析几点转时间
+               String times = rowData.substring(rowData.indexOf(CarEnum.POINT.getCode()) - 2, rowData.indexOf(CarEnum.POINT.getCode()));
+               int time = pointTime(times);
+               if (rowData.contains(CarEnum.TOMORROW.getCode())) {
+                   if (rowData.contains(CarEnum.NOON.getCode()) || rowData.contains(CarEnum.AFTERNOON.getCode()) || rowData.contains(CarEnum.EVENING.getCode())) {
+                       time += 12;
+                   }
+                   startTime = today.plusDays(1) + " " + addZeroForNum(time) + ":00:00";
+                   log.info("几点------明天");
+               } else if (rowData.contains(CarEnum.AFTER_TOMORROW.getCode())) {
+                   if (rowData.contains(CarEnum.NOON.getCode()) || rowData.contains(CarEnum.AFTERNOON.getCode()) || rowData.contains(CarEnum.EVENING.getCode())) {
+                       time += 12;
+                   }
+                   startTime = today.plusDays(2) + " " + addZeroForNum(time) + ":00:00";
+                   log.info("几点------后天");
+               } else {
+                   if (rowData.contains(CarEnum.NUMBER.getCode()) && check(CarEnum.NUMBER.getCode(), rowData)) {
+                       //包含几号
+                       if (rowData.contains(CarEnum.NOON.getCode()) || rowData.contains(CarEnum.AFTERNOON.getCode()) || rowData.contains(CarEnum.EVENING.getCode())) {
+                           time += 12;
+                       }
+                       String numbers = rowData.substring(rowData.indexOf(CarEnum.NUMBER.getCode()) - 2, rowData.indexOf(CarEnum.NUMBER.getCode()));
+                       int number = numberAccount(times);
+                       startTime = today.getYear() + "-" + today.getMonth() + "-" + addZeroForNum(number) + " " + addZeroForNum(time) + ":00:00";
+                       log.info("几点------几号");
+                   } else {
+                       if (rowData.contains(CarEnum.NOON.getCode()) || rowData.contains(CarEnum.AFTERNOON.getCode()) || rowData.contains(CarEnum.EVENING.getCode())) {
+                           time += 12;
+                       }
+                       startTime = today + " " + addZeroForNum(time) + ":00:00";
+                       log.info("几点------今天");
+                   }
+               }
+           } else {
+               if (rowData.contains(CarEnum.NUMBER.getCode()) && check(CarEnum.NUMBER.getCode(), rowData)) {
+                   if (rowData.contains(CarEnum.MORNING.getCode()) || rowData.contains(CarEnum.MORNING1.getCode())) {
+                       startTime = today.plusDays(1) + " " + "08:00:00";
+                   } else if (rowData.contains(CarEnum.NOON.getCode())) {
+                       startTime = today.plusDays(1) + " " + "12:00:00";
+                   } else if (rowData.contains(CarEnum.AFTERNOON.getCode())) {
+                       startTime = today.plusDays(1) + " " + "16:00:00";
+                   } else if (rowData.contains(CarEnum.EVENING.getCode())) {
+                       startTime = today.plusDays(1) + " " + "19:00:00";
+                   }
+                   log.info("无点------号");
+               } else {
+                   if (rowData.contains(CarEnum.MORNING.getCode())) {
+                       startTime = today + " " + "08:00:00";
+                   } else if (rowData.contains(CarEnum.NOON.getCode())) {
+                       startTime = today + " " + "12:00:00";
+                   } else if (rowData.contains(CarEnum.AFTERNOON.getCode())) {
+                       startTime = today + " " + "16:00:00";
+                   } else if (rowData.contains(CarEnum.EVENING.getCode())) {
+                       startTime = today + " " + "19:00:00";
+                   }
+                   log.info("无点------今天");
+               }
 
-       if(StringUtils.isBlank(startTime)||StringUtils.isBlank(mobile)||StringUtils.isBlank(to)||StringUtils.isBlank(from)){
-           return null;
+           }
+
+           if (rowData.contains(CarEnum.INDIVIDUAL.getCode())) {
+               try{
+                   String personNumbers = rowData.substring(rowData.indexOf(CarEnum.INDIVIDUAL.getCode())-1, rowData.indexOf(CarEnum.INDIVIDUAL.getCode()));
+                   personNumber = numberAccount(personNumbers);
+               }catch (Exception e){};
+           }
+
+           if (rowData.contains(CarEnum.BELT.getCode())) {
+               try{
+                   String personNumbers = rowData.substring(rowData.indexOf(CarEnum.BELT.getCode()), rowData.indexOf(CarEnum.BELT.getCode()) + 1);
+                   personNumber = numberAccount(personNumbers);
+               }catch (Exception e){};
+           }
+
+           if (rowData.contains(CarEnum.POSITION.getCode())) {
+               try{
+                   String personNumbers = rowData.substring(rowData.indexOf(CarEnum.POSITION.getCode())-1, rowData.indexOf(CarEnum.POSITION.getCode()));
+                   personNumber = numberAccount(personNumbers);
+               }catch (Exception e){};
+           }
+
+
+           String mobile = StringTools.getMobile(rowData);
+
+           if (StringUtils.isBlank(startTime) || StringUtils.isBlank(mobile) || StringUtils.isBlank(to) || StringUtils.isBlank(from)) {
+               return null;
+           }
+           map.put("mobile", mobile);
+           map.put("to", to);
+           map.put("from", from);
+           map.put("startTime", startTime);
+           map.put("personNumber", personNumber);
+
+       }catch (Exception e){
+           log.info("对话数据解析出错：请针对性优化数据算法");
+           e.printStackTrace();
        }
-       map.put("mobile",mobile);
-       map.put("to",to);
-       map.put("from",from);
-       map.put("startTime",startTime);
 
        return map;
    }
