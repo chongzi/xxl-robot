@@ -59,12 +59,5 @@ public class CarQqController {
     }
 
 
-    @PostMapping("analysisQQ")
-    @ApiOperation("分析数据")
-    public BaseResponse analysisQQ(@RequestBody CarQqDto dto) {
-        carQqService.analysisQQ(dto.getDatas());
-        return BaseResponse.newSuccess();
-    }
- 
 
 }
