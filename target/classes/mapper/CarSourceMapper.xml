@@ -5,16 +5,16 @@
 
 	<!-- 通用查询结果列-->
 	<sql id="Base_Column_List">
-		id, type, start_time,to,from,mobile,enabled,create_date,basic_data,remark
+		id, rent_type, start_time,to_place,from_place,mobile,enabled,create_date,basic_data,remark
 	</sql>
 
 	<!--返回MAP -->
 	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.CarSource">
 	<result column="id" property="id"/>
-	<result column="type" property="type"/>
+	<result column="rent_type" property="rentType"/>
 	<result column="start_time" property="startTime"/>
-	<result column="to" property="to"/>
-	<result column="from" property="from"/>
+	<result column="to_place" property="toPlace"/>
+	<result column="from_place" property="fromPlace"/>
 	<result column="mobile" property="mobile"/>
 	<result column="enabled" property="enabled"/>
 	<result column="create_date" property="createDate"/>
