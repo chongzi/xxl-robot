@@ -35,18 +35,30 @@ public class CarTools {
            if (rowData.contains(CarEnum.MIDDLE_LINE.getCode())) {
                toFrom = CarEnum.MIDDLE_LINE.getCode();
            }
-           if (rowData.contains(CarEnum.ARRIVE.getCode())) {
+           if (rowData.contains(CarEnum.ARRIVE.getCode())&&(!rowData.contains(CarEnum.ARRIVE_DA.getCode()))) {
                toFrom = CarEnum.ARRIVE.getCode();
            }
            if (rowData.contains(CarEnum.GO.getCode())) {
                toFrom = CarEnum.GO.getCode();
            }
-           if (rowData.contains(CarEnum.BACK.getCode())) {
+           if (rowData.contains(CarEnum.BACK.getCode())&&(!rowData.contains(CarEnum.BACK_HOME.getCode()))&&(!rowData.contains(CarEnum.BACK_BACK.getCode()))) {
                toFrom = CarEnum.BACK.getCode();
            }
 
-           to = rowData.substring(rowData.indexOf(toFrom) - 2, rowData.indexOf(toFrom));
-           from = rowData.substring(rowData.indexOf(toFrom) + 1, rowData.indexOf(toFrom) + 3);
+           int size = rowData.indexOf(toFrom);
+           for(int i=0;i<size;i++){
+               to = rowData.substring(rowData.indexOf(toFrom) - 2-i, rowData.indexOf(toFrom)-i);
+               if(RegionTools.check(to)){
+                   break;
+               }
+           }
+          String ss = rowData.substring(size, rowData.length());
+           for(int i=0;i<ss.length();i++){
+               from = rowData.substring(rowData.indexOf(toFrom) + 1+i, rowData.indexOf(toFrom) + 3+i);
+               if(RegionTools.check(from)){
+                   break;
+               }
+           }
 
            //时间
            LocalDate today = LocalDate.now();
@@ -293,7 +305,7 @@ public class CarTools {
     //******************************************************************
 
     public static void main(String[] args){
-        String str = "车找人，晚上八点。上海—洋河，15252427760电话、微信预约。19号中午，洋河—上海。";
+        String str = "【人找车】：19号晚上6:30左右以后松江老城区回泗阳临河电话18014550720【县长】LK 2020/6/19  ";
          Map<String,Object> obj = analysis(str);
 
         System.out.println("to:{}"+ obj.get("to"));

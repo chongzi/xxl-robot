@@ -8,7 +8,10 @@ package com.xxl.robot.enums;
 public enum CarEnum {
 
 	BACK("回", "回"),
+	BACK_HOME("回家", "回家"),
+	BACK_BACK("返回", "返回"),
 	ARRIVE("到", "到"),
+	ARRIVE_DA("到达", "到达"),
 	GO("去", "去"),
 	MIDDLE_LINE("-", "-"),
 	MIDDLE_LINE1("—", "——"),
