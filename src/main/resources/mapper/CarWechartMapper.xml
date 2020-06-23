@@ -18,28 +18,5 @@
 
 
 
-	<insert id="insertBatch" parameterType="java.util.List">
-		insert into car_wechart(session_time, content,enabled)
-		values
-		<foreach collection="carWecharts" item="item" index="index" separator=",">
-			(now(), #{item.content},#{item.enabled})
-		</foreach>
-	</insert>
-
-
-	<!-- 批量更新 -->
-	<update id="updateBatch" parameterType="java.util.List">
-		<foreach collection="carWecharts" item="item" index="index" open="" close="" separator=";">
-			update car_wechart
-			<set>
-				<if test="item.enabled !=null">
-					enabled = #{item.enabled},
-				</if>
-			</set>
-			where id = #{item.id}
-		</foreach>
-	</update>
-
-
 
 </mapper>

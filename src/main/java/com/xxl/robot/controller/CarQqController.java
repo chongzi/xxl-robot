@@ -58,6 +58,4 @@ public class CarQqController {
         return BaseResponse.newSuccess(pageInfo.getList(), pageInfo.getTotal());
     }
 
-
-
 }

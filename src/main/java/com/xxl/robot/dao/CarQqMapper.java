@@ -25,10 +25,5 @@ import java.util.List;
 @Mapper
 public interface CarQqMapper extends IBaseMapper<CarQq>{
 
-    int insertBatch(@Param("carQqs")  List<CarQq> carQqs);
-
-    int updateBatch(@Param("carQqs")  List<CarQq> carQqs);
-
-
 
 }

@@ -102,7 +102,7 @@ public class CarQqServiceImpl implements CarQqService {
 				dto.setEnabled((byte) 0);
 				carQqs.add(dto);
 			}
-			carQqMapper.insertBatch(carQqs);
+			carQqMapper.insertList(carQqs);
 		}
 		return null;
 	}
