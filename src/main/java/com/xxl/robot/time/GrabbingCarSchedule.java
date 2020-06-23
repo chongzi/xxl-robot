@@ -60,7 +60,7 @@ public class GrabbingCarSchedule {
     * 表示每隔2分钟获取数据一次
     * 至少大于1分钟
     */
-//   @Scheduled(cron = "0 0/2 * * * ?")
+//   @Scheduled(cron = "0 0/5 * * * ?")
    public void analysisQQ(){
        CarQqDto dto = new CarQqDto();
        dto.setEnabled((byte) 0);

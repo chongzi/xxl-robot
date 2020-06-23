@@ -100,7 +100,7 @@ public class CarQqServiceImpl implements CarQqService {
 		if(!CollectionUtils.isEmpty(datas)){
 			for(String data:datas){
 				CarQq dto = new CarQq();
-				dto.setContent(EmojiUtil.format(data));
+				dto.setContent(data);
 				dto.setEnabled((byte) 0);
 				carQqs.add(dto);
 			}
