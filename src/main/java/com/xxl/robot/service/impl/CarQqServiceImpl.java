@@ -87,7 +87,9 @@ public class CarQqServiceImpl implements CarQqService {
 	private Condition getCondition(CarQqDto dto){
 		Condition condition = new Condition(CarQq.class);
 		Condition.Criteria criteria = condition.createCriteria();
-
+		if(null!=dto.getEnabled()){
+			criteria.andEqualTo("enabled",dto.getEnabled());
+		}
 		return condition;
 	}
 

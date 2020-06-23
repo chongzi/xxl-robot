@@ -16,6 +16,7 @@ import org.springframework.util.CollectionUtils;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 /**
@@ -37,24 +38,43 @@ public class GrabbingCarSchedule {
     private RobotConfigService robotConfigService;
 
     /**
+     * todo qq采集信息
      * 表示每隔3分钟获取数据一次
      * 至少大于1分钟
      */
-   @Scheduled(cron = "0 0/1 * * * ?")
-   public void qqProces(){
+   @Scheduled(cron = "0 0/2 * * * ?")
+   public void qqCrawl(){
        log.info("********************qqProces定时器启动**************************");
        RobotConfig robotConfig = robotConfigService.getByConfigNo("39.99.210.127");
        if(null!=robotConfig&&String.valueOf(robotConfig.getEnabled()).equals("0")){
-           List<String> datas = CrawlTools.QQCrawl(2,300);
+           List<String> datas = CrawlTools.QQCrawl(6,300);
 //            carSourceService.analysisQQ(datas);
             carQqService.handleQQ(datas);
 
        }
+   }
 
 
-
+   /**
+    * todo 解析数据
+    * 表示每隔2分钟获取数据一次
+    * 至少大于1分钟
+    */
+//   @Scheduled(cron = "0 0/2 * * * ?")
+   public void analysisQQ(){
+       CarQqDto dto = new CarQqDto();
+       dto.setEnabled((byte) 0);
+       List<CarQqDto>  dtos = carQqService.list(dto);
+       List<String> contents = dtos.stream().map(CarQqDto::getContent).collect(Collectors.toList());
+       carSourceService.analysisQQ(contents);
+       if(!CollectionUtils.isEmpty(dtos)){
+           for(CarQqDto ss:dtos){
+               ss.setEnabled((byte) 1);
+               carQqService.update(ss);
+           }
+       }
 
     }
 
-
 }
+

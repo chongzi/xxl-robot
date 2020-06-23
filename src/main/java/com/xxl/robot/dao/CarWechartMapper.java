@@ -26,7 +26,7 @@ import java.util.List;
  */
 @Mapper
 public interface CarWechartMapper extends IBaseMapper<CarWechart>  {
-
+      
 
 
 }
