@@ -102,7 +102,7 @@ public class CarSourceServiceImpl implements CarSourceService {
 	public CarSource getCarSource(String rowData) {
 		try {
 			CarSource carSource = new CarSource();
-			carSource.setBasicData(rowData);
+
             Map<String,Object> map = CarTools.analysis(rowData);
             if(null!=map) {
 				carSource.setStated((byte) 0);
@@ -112,6 +112,7 @@ public class CarSourceServiceImpl implements CarSourceService {
 				carSource.setToPlace((String) map.get("to"));
 				carSource.setFromPlace((String) map.get("from"));
 				carSource.setPersonNumber((Integer) map.get("personNumber"));
+				carSource.setBasicData((String) map.get("rowData"));
 				carSource.setCreateDate(new Date());
 
 				return carSource;
@@ -139,17 +140,17 @@ public class CarSourceServiceImpl implements CarSourceService {
 					CarSource carSource = getCarSource(result[i]);
 					if(null!=carSource){
 						carSources.add(carSource);
-						try {
-							save(BeanTools.sourceToTarget(carSource, CarSourceDto.class));
-						}catch (Exception e){
-							e.printStackTrace();
-						}
+//						try {
+//							save(BeanTools.sourceToTarget(carSource, CarSourceDto.class));
+//						}catch (Exception e){
+//							e.printStackTrace();
+//						}
 					}
 				}
 			}
 		}
 		carSources.stream().distinct().collect(Collectors.toList());
-//		carSourceService.insertBatch(carSources);
+		carSourceMapper.insertList(carSources);
 	}
 
 

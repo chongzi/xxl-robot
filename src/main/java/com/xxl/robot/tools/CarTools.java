@@ -85,8 +85,8 @@ public class CarTools {
                            time += 12;
                        }
                        String numbers = rowData.substring(rowData.indexOf(CarEnum.NUMBER.getCode()) - 2, rowData.indexOf(CarEnum.NUMBER.getCode()));
-                       int number = numberAccount(times);
-                       startTime = today.getYear() + "-" + today.getMonth() + "-" + addZeroForNum(number) + " " + addZeroForNum(time) + ":00:00";
+                       int number = numberAccount(numbers);
+                       startTime = today.getYear() + "-" + addZeroForNum(today.getMonthValue()) + "-" + addZeroForNum(number) + " " + addZeroForNum(time) + ":00:00";
                        log.info("几点------几号");
                    } else {
                        if (rowData.contains(CarEnum.NOON.getCode()) || rowData.contains(CarEnum.AFTERNOON.getCode()) || rowData.contains(CarEnum.EVENING.getCode())) {
@@ -147,7 +147,8 @@ public class CarTools {
 
            String mobile = StringTools.getMobile(rowData);
 
-           if (StringUtils.isBlank(startTime) || StringUtils.isBlank(mobile) || StringUtils.isBlank(to) || StringUtils.isBlank(from)) {
+           if (StringUtils.isBlank(startTime) || StringUtils.isBlank(mobile) || StringUtils.isBlank(to)
+                   || StringUtils.isBlank(from)) {
                return null;
            }
            map.put("mobile", mobile);
@@ -155,6 +156,7 @@ public class CarTools {
            map.put("from", from);
            map.put("startTime", startTime);
            map.put("personNumber", personNumber);
+           map.put("rowData", rowData);
 
        }catch (Exception e){
            log.info("对话数据解析出错：请针对性优化数据算法");
@@ -305,7 +307,9 @@ public class CarTools {
     //******************************************************************
 
     public static void main(String[] args){
-        String str = "【人找车】：19号晚上6:30左右以后松江老城区回泗阳临河电话18014550720【县长】LK 2020/6/19  ";
+        String str = "车找人24号下午3点宝山罗泾镇回泗阳可带2人15921360932徐\n" +
+                "\n" +
+                "【潜水】且行且珍惜 ";
          Map<String,Object> obj = analysis(str);
 
         System.out.println("to:{}"+ obj.get("to"));

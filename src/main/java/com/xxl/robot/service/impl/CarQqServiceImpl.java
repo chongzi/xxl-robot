@@ -94,17 +94,23 @@ public class CarQqServiceImpl implements CarQqService {
 	}
 
 //***********************************************业务逻辑************************************************************
+    @Async("taskExecutor")
 	@Override
 	public List<String> handleQQ(List<String> datas){
 		List<CarQq> carQqs = new ArrayList<>();
 		if(!CollectionUtils.isEmpty(datas)){
 			for(String data:datas){
-				CarQq dto = new CarQq();
-				dto.setContent(data);
-				dto.setEnabled((byte) 0);
-				carQqs.add(dto);
+				try {
+					CarQq dto = new CarQq();
+					dto.setContent(data);
+					dto.setEnabled((byte) 0);
+					carQqs.add(dto);
+					carQqMapper.insert(dto);
+				}catch (Exception e){
+
+				}
 			}
-			carQqMapper.insertList(carQqs);
+//			carQqMapper.insertList(carQqs);
 		}
 		return null;
 	}
