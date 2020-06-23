@@ -40,13 +40,14 @@ public class GrabbingCarSchedule {
      * 表示每隔3分钟获取数据一次
      * 至少大于1分钟
      */
-   @Scheduled(cron = "0 0/3 * * * ?")
+   @Scheduled(cron = "0 0/1 * * * ?")
    public void qqProces(){
        log.info("********************qqProces定时器启动**************************");
        RobotConfig robotConfig = robotConfigService.getByConfigNo("39.99.210.127");
        if(null!=robotConfig&&String.valueOf(robotConfig.getEnabled()).equals("0")){
-           List<String> datas = CrawlTools.QQCrawl(6,300);
-           carSourceService.analysisQQ(datas);
+           List<String> datas = CrawlTools.QQCrawl(2,300);
+//            carSourceService.analysisQQ(datas);
+            carQqService.handleQQ(datas);
 
        }
 

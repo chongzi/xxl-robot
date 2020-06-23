@@ -14,6 +14,7 @@ import com.xxl.robot.entity.CarSource;
 import com.xxl.robot.service.CarQqService;
 import com.xxl.robot.service.CarQqService;
 import com.xxl.robot.service.CarSourceService;
+import com.xxl.robot.tools.EmojiUtil;
 import com.xxl.robot.tools.RegTools;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -93,12 +94,12 @@ public class CarQqServiceImpl implements CarQqService {
 //***********************************************业务逻辑************************************************************
 	@Override
 	public List<String> handleQQ(List<String> datas){
-		List<String> list = new ArrayList<>();
 		List<CarQq> carQqs = new ArrayList<>();
 		if(!CollectionUtils.isEmpty(datas)){
 			for(String data:datas){
 				CarQq dto = new CarQq();
-				dto.setContent(data);
+				dto.setContent(EmojiUtil.format(data));
+				dto.setEnabled((byte) 0);
 				carQqs.add(dto);
 			}
 			carQqMapper.insertBatch(carQqs);

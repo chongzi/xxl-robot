@@ -2,8 +2,12 @@ package com.xxl.robot.dao;
 
 import com.xxl.common.dao.IBaseMapper;
 import com.xxl.robot.entity.CarDriver;
+import com.xxl.robot.entity.CarQq;
 import com.xxl.robot.entity.CarWechart;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * 
@@ -22,5 +26,10 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface CarWechartMapper extends IBaseMapper<CarWechart>  {
+
+    int insertBatch(@Param("carWecharts") List<CarQq> carWecharts);
+
+    int updateBatch(@Param("carWecharts")  List<CarQq> carWecharts);
+
 
 }

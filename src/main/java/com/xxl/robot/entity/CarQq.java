@@ -23,6 +23,8 @@ public class CarQq {
     private Date sessionTime;
     @ApiModelProperty(value="内容")
     private String content;
+    @ApiModelProperty(value="开关")
+    private Byte enabled;
 
 
 }
