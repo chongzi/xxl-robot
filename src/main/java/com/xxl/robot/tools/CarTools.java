@@ -22,11 +22,7 @@ public class CarTools {
            String from = null;
            String startTime = null;
            int personNumber = 1;
-           if (rowData.contains("车找人")) {
-               map.put("type", 1);
-           } else if (rowData.contains("人找车")) {
-               map.put("type", 0);
-           }
+
            //起始-终点
            String toFrom = null;
            if (rowData.contains(CarEnum.MIDDLE_LINE1.getCode())) {
@@ -147,16 +143,21 @@ public class CarTools {
 
            String mobile = StringTools.getMobile(rowData);
 
-           if (StringUtils.isBlank(startTime) || StringUtils.isBlank(mobile) || StringUtils.isBlank(to)
-                   || StringUtils.isBlank(from)) {
-               return null;
+           if (StringUtils.isNotBlank(startTime) && StringUtils.isNotBlank(mobile) && StringUtils.isNotBlank(to)
+                   && StringUtils.isNotBlank(from)&&(!startTime.equals("2020-06-26 24:00:00"))) {
+               if (rowData.contains("车找人")) {
+                   map.put("type", 1);
+               } else if (rowData.contains("人找车")) {
+                   map.put("type", 0);
+               }
+               map.put("mobile", mobile);
+               map.put("to", to);
+               map.put("from", from);
+               map.put("startTime", startTime);
+               map.put("personNumber", personNumber);
+               map.put("rowData", rowData);
            }
-           map.put("mobile", mobile);
-           map.put("to", to);
-           map.put("from", from);
-           map.put("startTime", startTime);
-           map.put("personNumber", personNumber);
-           map.put("rowData", rowData);
+
 
        }catch (Exception e){
            log.info("对话数据解析出错：请针对性优化数据算法");
@@ -307,9 +308,15 @@ public class CarTools {
     //******************************************************************
 
     public static void main(String[] args){
-        String str = "车找人24号下午3点宝山罗泾镇回泗阳可带2人15921360932徐\n" +
+        String str = "【冒泡】(_灬春暖花開 15:57:13\n" +
+                "人找车，26号下午一点左右 泗阳县城回上海徐家汇，电话18202185878\n" +
                 "\n" +
-                "【潜水】且行且珍惜 ";
+                "【传说】下一个路口，等你 22:12:13\n" +
+                "车找人，6月26明天上午泗洪到上海，途径盱眙、常州、无锡、苏州、昆山可带1人，电话、微信18221087161，诚信出行，可以接送上门☞27日下午三点左右上海回泗洪\n" +
+                "\n" +
+                "【吐槽】A surname 22:12:54\n" +
+                "车找人，27号下午宿豫回上海松江九亭，可带三人18251508218\n" +
+                "\n";
          Map<String,Object> obj = analysis(str);
 
         System.out.println("to:{}"+ obj.get("to"));

@@ -47,7 +47,7 @@ public class GrabbingCarSchedule {
        log.info("********************qqProces定时器启动**************************");
        RobotConfig robotConfig = robotConfigService.getByConfigNo("39.99.210.127");
        if(null!=robotConfig&&String.valueOf(robotConfig.getEnabled()).equals("0")){
-           List<String> datas = CrawlTools.QQCrawl(3,300);
+           List<String> datas = CrawlTools.QQCrawl(6,300);
             carSourceService.analysisQQ(datas);
 //            carQqService.handleQQ(datas);
 
