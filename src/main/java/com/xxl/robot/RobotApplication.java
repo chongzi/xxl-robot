@@ -16,7 +16,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableSwagger2
 @EnableScheduling
-@EnableEurekaClient
 @ComponentScan(basePackages={"com.xxl.*"})
 public class RobotApplication {
 	public static void main(String[] args) {

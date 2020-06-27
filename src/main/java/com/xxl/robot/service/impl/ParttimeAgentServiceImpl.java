@@ -73,6 +73,9 @@ public class ParttimeAgentServiceImpl implements ParttimeAgentService {
 	private Condition getCondition(ParttimeAgentDto dto){
 		Condition condition = new Condition(ParttimeAgent.class);
 		Condition.Criteria criteria = condition.createCriteria();
+		if(null!=dto.getAngentType()){
+			criteria.andEqualTo("agent_type",dto.getAngentType());
+		}
 		if(null!=dto.getEnabled()){
 			criteria.andEqualTo("enabled",dto.getEnabled());
 		}

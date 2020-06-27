@@ -1,0 +1,26 @@
+server:
+  port: 883
+  servlet:
+    context-path: /robot
+
+
+spring:
+  application:
+    name: xxl-robot
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://rm-8vb609g9dl7q906xlmo.mysql.zhangbei.rds.aliyuncs.com:3306/xxl_robot?characterEncoding=utf8&useSSL=false&serverTimezone=GMT&rewriteBatchedStatements=true
+    username: xxl880
+    password: Phoenix880
+
+mybatis:
+  basepackage: com.xxl.robot.dao
+  mapper-locations: classpath*:mapper/*.xml
+
+eureka:
+  client:
+    service-url:
+       defaultZone: http://localhost:880/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
