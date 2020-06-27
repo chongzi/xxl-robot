@@ -6,6 +6,7 @@ import com.xxl.common.tools.BeanTools;
 import com.xxl.robot.dao.ParttimeAgentMapper;
 import com.xxl.robot.dto.ParttimeAgentDto;
 import com.xxl.robot.entity.ParttimeAgent;
+import com.xxl.robot.entity.RobotConfig;
 import com.xxl.robot.service.ParttimeAgentService;
 import com.xxl.robot.service.CarSourceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,6 +80,18 @@ public class ParttimeAgentServiceImpl implements ParttimeAgentService {
 	}
 
 //***********************************************业务逻辑************************************************************
+	@Override
+	public int doEnabled(Long id) {
+		ParttimeAgent entity = parttimeAgentMapper.selectByPrimaryKey(id);
+		if(null!=entity){
+			if(entity.getEnabled()==0){
+				entity.setEnabled((byte) 1);
+			}else{
+				entity.setEnabled((byte) 0);
+			}
+		}
+		return parttimeAgentMapper.updateByPrimaryKey(entity);
+	}
 
 
 

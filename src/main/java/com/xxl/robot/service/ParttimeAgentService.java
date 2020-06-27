@@ -15,5 +15,12 @@ public interface ParttimeAgentService extends IBaseService<ParttimeAgentDto> {
 
 
 
+    /**
+     * 启用/禁用
+     * @param id
+     * @return
+     */
+    int doEnabled(Long id);
+
 
 }
