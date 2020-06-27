@@ -2,6 +2,7 @@ package com.xxl.robot;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -15,6 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableSwagger2
 @EnableScheduling
+@EnableEurekaClient
 @ComponentScan(basePackages={"com.xxl.*"})
 public class RobotApplication {
 	public static void main(String[] args) {
