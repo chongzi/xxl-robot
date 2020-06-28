@@ -3,12 +3,14 @@ package com.xxl.robot.time;
 import com.alibaba.fastjson.JSON;
 import com.github.binarywang.java.emoji.EmojiConverter;
 import com.xxl.robot.dto.CarQqDto;
+import com.xxl.robot.dto.CarSourceDto;
 import com.xxl.robot.entity.RobotConfig;
 import com.xxl.robot.service.*;
 import com.xxl.robot.tools.CrawlTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
@@ -36,6 +38,9 @@ public class GrabbingCarSchedule {
     private CarSourceService carSourceService;
     @Autowired
     private RobotConfigService robotConfigService;
+    @Autowired
+    public SimpMessagingTemplate template;
+
 
     /**
      * todo qq采集信息
@@ -75,6 +80,33 @@ public class GrabbingCarSchedule {
        }
 
     }
+
+
+
+    /**
+     * todo qq采集信息
+     * 表示每隔3分钟获取数据一次
+     * 至少大于1分钟
+     */
+    @Scheduled(cron = "0/5 * * * * ?")
+    public void wesocket(){
+        log.info("********************qqProces定时器启动**************************");
+        CarSourceDto dto = new CarSourceDto();
+        dto.setBasicData("\n" +
+                "车找人26号上午七八点上海回泗阳可带六人可接送18301720457\n" +
+                "\n" +
+                "【VIP优先】诚信拼车接送到位 苗子卫 ");
+        dto.setMobile("186105104200");
+        dto.setRentType((byte) 1);
+        dto.setToPlace("宿迁");
+        dto.setFromPlace("上海");
+        dto.setPersonNumber(20);
+        template.convertAndSend("/topic/notice", "测试数据"+JSON.toJSONString(dto));
+    }
+
+
+
+
 
 }
 
