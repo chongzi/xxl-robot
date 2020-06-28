@@ -16,6 +16,7 @@ import com.xxl.robot.tools.StringTools;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -41,7 +42,8 @@ public class CarSourceServiceImpl implements CarSourceService {
 
 	@Autowired
 	private CarSourceMapper carSourceMapper;
-
+	@Autowired
+	public SimpMessagingTemplate template;
 
 	@Override
 	public CarSourceDto get(Long id) {
@@ -151,8 +153,31 @@ public class CarSourceServiceImpl implements CarSourceService {
 		}
 		carSources.stream().distinct().collect(Collectors.toList());
 		carSourceMapper.insertList(carSources);
+		speedWebsocket(carSources);
 	}
 
+	@Override
+	public void speedWebsocket(List<CarSource> carSources) {
+		for(CarSource dto:carSources) {
+			StringBuffer str = new StringBuffer();
+			if (Integer.valueOf(dto.getRentType()) == 0) {
+				str.append("<div class='timeline-item' id='responseOpc'> <div class='timeline-event timeline-event-success'> <div class='timeline-heading'> <h4>");
+				str.append("【时间】" + dto.getStartTime() + "【类型】" + "人找车" + "【电话】" + dto.getMobile() + "【人数】" + dto.getPersonNumber() + "个" + "【开始地】" + dto.getToPlace() + "【目的地】" + dto.getFromPlace());
+				str.append("</h4></div><div class='timeline-body'><p>");
+				str.append("【原始数据】" + dto.getBasicData());
+				str.append("</p></div></div></div>");
+			}
+			if (Integer.valueOf(dto.getRentType()) == 1) {
+				str.append("<div class='timeline-item' id='responseOpc'> <div class='timeline-event'> <div class='timeline-heading'> <h4>");
+				str.append("【时间】" + dto.getStartTime() + "【类型】" + "人找车" + "【电话】" + dto.getMobile() + "【人数】" + dto.getPersonNumber() + "个" + "【开始地】" + dto.getToPlace() + "【目的地】" + dto.getFromPlace());
+				str.append("</h4></div><div class='timeline-body'><p>");
+				str.append("【原始数据】" + dto.getBasicData());
+				str.append("</p></div></div></div>");
+			}
+
+			template.convertAndSend("/topic/notice", str.substring(0, str.length()));
+		}
+	}
 
 
 }

@@ -21,6 +21,16 @@ public interface CarSourceService extends IBaseService<CarSourceDto> {
      */
     int insertBatch(List<CarSource> carSources);
 
-     void analysisQQ(List<String> datas);
+    /**
+     * 解析QQ信息
+     * @param datas
+     */
+    void analysisQQ(List<String> datas);
+
+    /**
+     * 时时信息
+     * @param carSources
+     */
+    void speedWebsocket(List<CarSource> carSources);
 
 }

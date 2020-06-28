@@ -38,8 +38,7 @@ public class GrabbingCarSchedule {
     private CarSourceService carSourceService;
     @Autowired
     private RobotConfigService robotConfigService;
-    @Autowired
-    public SimpMessagingTemplate template;
+
 
 
     /**
@@ -47,7 +46,7 @@ public class GrabbingCarSchedule {
      * 表示每隔3分钟获取数据一次
      * 至少大于1分钟
      */
-   //@Scheduled(cron = "0 0/2 * * * ?")
+   @Scheduled(cron = "0 0/6 * * * ?")
    public void qqCrawl(){
        log.info("********************qqProces定时器启动**************************");
        RobotConfig robotConfig = robotConfigService.getByConfigNo("39.99.210.127");
@@ -82,27 +81,6 @@ public class GrabbingCarSchedule {
     }
 
 
-
-    /**
-     * todo qq采集信息
-     * 表示每隔3分钟获取数据一次
-     * 至少大于1分钟
-     */
-    @Scheduled(cron = "0/5 * * * * ?")
-    public void wesocket(){
-        log.info("********************qqProces定时器启动**************************");
-        CarSourceDto dto = new CarSourceDto();
-        dto.setBasicData("\n" +
-                "车找人26号上午七八点上海回泗阳可带六人可接送18301720457\n" +
-                "\n" +
-                "【VIP优先】诚信拼车接送到位 苗子卫 ");
-        dto.setMobile("186105104200");
-        dto.setRentType((byte) 1);
-        dto.setToPlace("宿迁");
-        dto.setFromPlace("上海");
-        dto.setPersonNumber(20);
-        template.convertAndSend("/topic/notice", "测试数据"+JSON.toJSONString(dto));
-    }
 
 
 

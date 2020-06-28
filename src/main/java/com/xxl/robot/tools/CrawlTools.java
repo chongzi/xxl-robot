@@ -42,10 +42,10 @@ public class CrawlTools {
                         robot.delay(delayTime);
                         robot.mouseRelease(InputEvent.BUTTON1_MASK);
                         //点击右边菜单对应内容窗口
-                        robot.delay(delayTime);
+                        robot.delay(delayTime*3);
                         moveMouse(360, 100);
                         robot.mousePress(InputEvent.BUTTON1_MASK);
-                        robot.delay(delayTime*2);
+                        robot.delay(delayTime*3);
                         robot.keyPress(KeyEvent.VK_SHIFT); //按下空格键
                         moveMouse(360, 800);
                         robot.delay(delayTime*2);
