@@ -142,11 +142,6 @@ public class CarSourceServiceImpl implements CarSourceService {
 					CarSource carSource = getCarSource(result[i]);
 					if(null!=carSource){
 						carSources.add(carSource);
-//						try {
-//							save(BeanTools.sourceToTarget(carSource, CarSourceDto.class));
-//						}catch (Exception e){
-//							e.printStackTrace();
-//						}
 					}
 				}
 			}
