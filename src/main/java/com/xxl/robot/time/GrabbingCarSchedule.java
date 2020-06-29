@@ -45,9 +45,9 @@ public class GrabbingCarSchedule {
      * 表示每隔3分钟获取数据一次
      * 至少大于1分钟
      */
-    @Scheduled(cron = "0 0/3 * * * ?")
+    //@Scheduled(cron = "0 0/2 * * * ?")
     public void collectSource(){
-        log.info("********************qqProces定时器启动**************************");
+        log.info("********************collectSource()方法源始数据采集信定时器启动**************************");
         RobotConfig robotConfig = robotConfigService.getByConfigNo("39.99.210.127");
         if(null!=robotConfig&&String.valueOf(robotConfig.getEnabled()).equals("0")){
             carSourceService.analysisQQ();
@@ -62,12 +62,12 @@ public class GrabbingCarSchedule {
      * 表示每隔3分钟获取数据一次
      * 至少大于1分钟
      */
-   @Scheduled(cron = "0 0/1 * * * ?")
+  @Scheduled(cron = "0 0/3 * * * ?")
    public void qqCrawl(){
        log.info("********************qqProces定时器启动**************************");
        RobotConfig robotConfig = robotConfigService.getByConfigNo("39.99.210.127");
        if(null!=robotConfig&&String.valueOf(robotConfig.getEnabled()).equals("0")){
-           List<String> datas = CrawlTools.QQCrawl(4,300);
+           List<String> datas = CrawlTools.QQCrawl(6,300);
             carQqService.handleQQ(datas);
 
        }

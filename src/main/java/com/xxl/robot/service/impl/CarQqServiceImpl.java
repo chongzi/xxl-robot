@@ -7,13 +7,14 @@ import com.xxl.robot.dao.CarQqMapper;
 import com.xxl.robot.dto.CarQqDto;
 import com.xxl.robot.entity.CarQq;
 import com.xxl.robot.service.CarQqService;
-import com.xxl.robot.service.CarSourceService;
 import com.xxl.robot.tools.RegTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Condition;
+
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,9 +28,6 @@ public class CarQqServiceImpl implements CarQqService {
 
 	@Autowired
 	private CarQqMapper carQqMapper;
-
-	@Autowired
-	private CarSourceService carSourceService;
 
 
 	@Override

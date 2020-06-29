@@ -34,7 +34,7 @@ public class CrawlTools {
             Robot robot = new Robot();
             EmojiConverter emojiConverter = EmojiConverter.getInstance();
             for(int x=1;x<count;x++) {
-                for (int i = 1; i < 4; i++) {
+                for (int i = 1; i < 6; i++) {
                     try {
                         robot.delay(1000);
                         moveMouse(100, 63 * i);
@@ -43,11 +43,11 @@ public class CrawlTools {
                         robot.mouseRelease(InputEvent.BUTTON1_MASK);
                         //点击右边菜单对应内容窗口
                         robot.delay(delayTime*3);
-                        moveMouse(360, 100);
+                        moveMouse(360, 200);
                         robot.mousePress(InputEvent.BUTTON1_MASK);
                         robot.delay(delayTime*3);
                         robot.keyPress(KeyEvent.VK_SHIFT); //按下空格键
-                        moveMouse(360, 800);
+                        moveMouse(360, 700);
                         robot.delay(delayTime*2);
                         robot.keyRelease(KeyEvent.VK_SHIFT);
                         robot.mouseRelease(InputEvent.BUTTON1_MASK);

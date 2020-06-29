@@ -132,9 +132,9 @@ public class CarSourceServiceImpl implements CarSourceService {
 	@Override
 	public void analysisQQ(){
 		CarQqDto dto = new CarQqDto();
-		dto.setEnabled((byte) 1);
+		dto.setEnabled((byte) 0);
 		List<CarQqDto> list = carQqService.list(dto);
-		if(CollectionUtils.isEmpty(list)){
+		if(!CollectionUtils.isEmpty(list)){
 			for(CarQqDto vo:list){
 				CarSource carSource = getCarSource(vo.getContent());
 				try {
