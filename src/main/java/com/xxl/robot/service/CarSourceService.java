@@ -13,14 +13,6 @@ import java.util.List;
  */
 public interface CarSourceService extends IBaseService<CarSourceDto> {
 
-
-    /**
-     * 批量插入
-     * @param carSources
-     * @return
-     */
-    int insertBatch(List<CarSource> carSources);
-
     /**
      * 解析QQ信息
      */

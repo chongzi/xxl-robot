@@ -99,13 +99,6 @@ public class CarSourceServiceImpl implements CarSourceService {
 	}
 
 
-
-	@Override
-	public int insertBatch(List<CarSource> carSources) {
-//		return carSourceMapper.insertBatch(carSources);
-		return 0;
-	}
-
 	public CarSource getCarSource(String rowData) {
 		try {
 			CarSource carSource = new CarSource();
