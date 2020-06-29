@@ -143,10 +143,12 @@ public class CarSourceServiceImpl implements CarSourceService {
 				}catch (Exception e){
 					e.printStackTrace();
 				}
+				vo.setEnabled((byte) 1);
+				carQqService.update(vo);
 			}
-			List<Long> ids= list.stream().map(CarQqDto::getId).collect(Collectors.toList());
-			String  idss = StringUtils.join(ids.toArray(), ",");
-			carQqService.delete(idss);
+//			List<Long> ids= list.stream().map(CarQqDto::getId).collect(Collectors.toList());
+//			String  idss = StringUtils.join(ids.toArray(), ",");
+//			carQqService.delete(idss);
 		}
 
 	}
