@@ -94,28 +94,30 @@ public class CarTools {
                }
            } else {
                if (rowData.contains(CarEnum.NUMBER.getCode()) && check(CarEnum.NUMBER.getCode(), rowData)) {
-                   if (rowData.contains(CarEnum.MORNING.getCode()) || rowData.contains(CarEnum.MORNING1.getCode())) {
-                       startTime = today.plusDays(1) + " " + "08:00:00";
-                   } else if (rowData.contains(CarEnum.NOON.getCode())) {
-                       startTime = today.plusDays(1) + " " + "12:00:00";
-                   } else if (rowData.contains(CarEnum.AFTERNOON.getCode())) {
-                       startTime = today.plusDays(1) + " " + "16:00:00";
-                   } else if (rowData.contains(CarEnum.EVENING.getCode())) {
-                       startTime = today.plusDays(1) + " " + "19:00:00";
-                   }
+
                    log.info("无点------号");
                } else {
-                   if (rowData.contains(CarEnum.MORNING.getCode())) {
-                       startTime = today + " " + "08:00:00";
-                   } else if (rowData.contains(CarEnum.NOON.getCode())) {
-                       startTime = today + " " + "12:00:00";
-                   } else if (rowData.contains(CarEnum.AFTERNOON.getCode())) {
-                       startTime = today + " " + "16:00:00";
-                   } else if (rowData.contains(CarEnum.EVENING.getCode())) {
-                       startTime = today + " " + "19:00:00";
+                   if (rowData.contains(CarEnum.TOMORROW.getCode())) {
+                       today = today.plusDays(1) ;
+                    } else if (rowData.contains(CarEnum.AFTER_TOMORROW.getCode())) {
+                       today = today.plusDays(2);
                    }
-                   log.info("无点------今天");
                }
+
+               if (rowData.contains(CarEnum.MORNING.getCode()) || rowData.contains(CarEnum.MORNING1.getCode())) {
+                   startTime = today + " " + "08:00:00";
+               } else if (rowData.contains(CarEnum.NOON.getCode())) {
+                   startTime = today + " " + "12:00:00";
+               } else if (rowData.contains(CarEnum.NOON1.getCode())) {
+                   startTime = today + " " + "14:00:00";
+               } else if (rowData.contains(CarEnum.AFTERNOON.getCode())) {
+                   startTime = today + " " + "16:00:00";
+               } else if (rowData.contains(CarEnum.EVENING1.getCode())) {
+                   startTime = today + " " + "18:00:00";
+               } else if (rowData.contains(CarEnum.EVENING.getCode())) {
+                   startTime = today + " " + "19:00:00";
+               }
+               log.info("无点------今天");
 
            }
 
@@ -308,15 +310,7 @@ public class CarTools {
     //******************************************************************
 
     public static void main(String[] args){
-        String str = "【冒泡】(_灬春暖花開 15:57:13\n" +
-                "人找车，26号下午一点左右 泗阳县城回上海徐家汇，电话18202185878\n" +
-                "\n" +
-                "【传说】下一个路口，等你 22:12:13\n" +
-                "车找人，6月26明天上午泗洪到上海，途径盱眙、常州、无锡、苏州、昆山可带1人，电话、微信18221087161，诚信出行，可以接送上门☞27日下午三点左右上海回泗洪\n" +
-                "\n" +
-                "【吐槽】A surname 22:12:54\n" +
-                "车找人，27号下午宿豫回上海松江九亭，可带三人18251508218\n" +
-                "\n";
+        String str = "车找人 明天上午7－8点，泗洪到南京南站，市区，禄口机场，全程高速，诚信出行15052717819微信同号，包车随时，可以提前预约。 （当天下午南京回泗洪） 全能吃货不挑食加入本群。 【潜水】全能吃货不挑食";
          Map<String,Object> obj = analysis(str);
 
         System.out.println("to:{}"+ obj.get("to"));

@@ -26,8 +26,10 @@ public enum CarEnum {
 	MORNING("早上", "早上"),
 	MORNING1("上午", "上午"),
 	NOON("中午", "中午"),
+	NOON1("午饭", "午饭"),
 	AFTERNOON("下午", "下午"),
 	EVENING("晚上", "晚上"),
+	EVENING1("晚饭", "晚饭"),
 	POINT("点", "点"),
 	ANYTIME("随时","随时");
 

@@ -165,7 +165,7 @@ public class CarSourceServiceImpl implements CarSourceService {
 			}
 			if (Integer.valueOf(dto.getRentType()) == 1) {
 				str.append("<div class='timeline-item' id='responseOpc'> <div class='timeline-event'> <div class='timeline-heading'> <h4>");
-				str.append("【时间】" + dto.getStartTime() + "【类型】" + "人找车" + "【电话】" + dto.getMobile() + "【人数】" + dto.getPersonNumber() + "个" + "【开始地】" + dto.getToPlace() + "【目的地】" + dto.getFromPlace());
+				str.append("【时间】" + dto.getStartTime() + "【类型】" + "车找人" + "【电话】" + dto.getMobile() + "【人数】" + dto.getPersonNumber() + "个" + "【开始地】" + dto.getToPlace() + "【目的地】" + dto.getFromPlace());
 				str.append("</h4></div><div class='timeline-body'><p>");
 				str.append("【原始数据】" + dto.getBasicData());
 				str.append("</p></div></div></div>");
