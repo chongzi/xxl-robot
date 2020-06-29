@@ -23,14 +23,13 @@ public interface CarSourceService extends IBaseService<CarSourceDto> {
 
     /**
      * 解析QQ信息
-     * @param datas
      */
-    void analysisQQ(List<String> datas);
+    void analysisQQ();
 
     /**
      * 时时信息
-     * @param carSources
+     * @param dto
      */
-    void speedWebsocket(List<CarSource> carSources);
+    void speedWebsocket(CarSource dto);
 
 }

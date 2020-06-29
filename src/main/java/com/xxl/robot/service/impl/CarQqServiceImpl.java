@@ -1,32 +1,21 @@
 package com.xxl.robot.service.impl;
 
-import com.github.binarywang.java.emoji.EmojiConverter;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xxl.common.tools.BeanTools;
 import com.xxl.robot.dao.CarQqMapper;
-import com.xxl.robot.dao.CarSourceMapper;
 import com.xxl.robot.dto.CarQqDto;
-import com.xxl.robot.dto.CarSourceDto;
 import com.xxl.robot.entity.CarQq;
-import com.xxl.robot.entity.CarQq;
-import com.xxl.robot.entity.CarSource;
-import com.xxl.robot.service.CarQqService;
 import com.xxl.robot.service.CarQqService;
 import com.xxl.robot.service.CarSourceService;
-import com.xxl.robot.tools.EmojiUtil;
 import com.xxl.robot.tools.RegTools;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Condition;
-
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 /**

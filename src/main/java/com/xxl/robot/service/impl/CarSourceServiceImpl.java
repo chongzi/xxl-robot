@@ -2,11 +2,14 @@ package com.xxl.robot.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.google.common.base.Joiner;
 import com.xxl.common.tools.BeanTools;
 import com.xxl.robot.dao.CarSourceMapper;
+import com.xxl.robot.dto.CarQqDto;
 import com.xxl.robot.dto.CarSourceDto;
 import com.xxl.robot.entity.CarSource;
 import com.xxl.robot.enums.CarEnum;
+import com.xxl.robot.service.CarQqService;
 import com.xxl.robot.service.CarSourceService;
 import com.xxl.robot.time.GrabbingCarSchedule;
 import com.xxl.robot.tools.CarTools;
@@ -44,6 +47,8 @@ public class CarSourceServiceImpl implements CarSourceService {
 	private CarSourceMapper carSourceMapper;
 	@Autowired
 	public SimpMessagingTemplate template;
+	@Autowired
+	private CarQqService carQqService;
 
 	@Override
 	public CarSourceDto get(Long id) {
@@ -129,31 +134,32 @@ public class CarSourceServiceImpl implements CarSourceService {
 
 	/**
 	 * 异步分析QQ聊天数据
-	 * @param datas
 	 */
 	@Async("taskExecutor")
 	@Override
-	public void analysisQQ(List<String> datas){
-		List<CarSource> carSources = new ArrayList<>();
-		if(!CollectionUtils.isEmpty(datas)) {
-			for (String data : datas) {
-				String[] result = data.split(RegTools.TIME);
-				for(int i=0;i<result.length;i++){
-					CarSource carSource = getCarSource(result[i]);
-					if(null!=carSource){
-						carSources.add(carSource);
-					}
+	public void analysisQQ(){
+		CarQqDto dto = new CarQqDto();
+		dto.setEnabled((byte) 1);
+		List<CarQqDto> list = carQqService.list(dto);
+		if(CollectionUtils.isEmpty(list)){
+			for(CarQqDto vo:list){
+				CarSource carSource = getCarSource(vo.getContent());
+				try {
+					int i = carSourceMapper.insert(carSource);
+					speedWebsocket(carSource);
+				}catch (Exception e){
+					e.printStackTrace();
 				}
 			}
+			List<Long> ids= list.stream().map(CarQqDto::getId).collect(Collectors.toList());
+			String  idss = StringUtils.join(ids.toArray(), ",");
+			carQqService.delete(idss);
 		}
-		carSources.stream().distinct().collect(Collectors.toList());
-		carSourceMapper.insertList(carSources);
-		speedWebsocket(carSources);
+
 	}
 
 	@Override
-	public void speedWebsocket(List<CarSource> carSources) {
-		for(CarSource dto:carSources) {
+	public void speedWebsocket(CarSource dto) {
 			StringBuffer str = new StringBuffer();
 			if (Integer.valueOf(dto.getRentType()) == 0) {
 				str.append("<div class='timeline-item' id='responseOpc'> <div class='timeline-event timeline-event-success'> <div class='timeline-heading'> <h4>");
@@ -171,7 +177,6 @@ public class CarSourceServiceImpl implements CarSourceService {
 			}
 
 			template.convertAndSend("/topic/notice", str.substring(0, str.length()));
-		}
 	}
 
 
