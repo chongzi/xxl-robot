@@ -107,16 +107,17 @@ public class CrawlTools {
             for(int x=1;x<count;x++) {
                 for (int i = 1; i < 7; i++) {
                     try {
-                        robot.delay(1000);
+                        robot.delay(2000);
                         moveMouse(100, 63 * i);
+                        robot.delay(delayTime);
                         robot.mousePress(InputEvent.BUTTON1_MASK);
-                        robot.delay(300);
+                        robot.delay(delayTime);
                         robot.mouseRelease(InputEvent.BUTTON1_MASK);
                         //点击右边菜单对应内容窗口
-                        robot.delay(delayTime*2);
+                        robot.delay(delayTime*3);
                         moveMouse(360, 180);
                         robot.mousePress(InputEvent.BUTTON1_MASK);
-                        robot.delay(delayTime*2);
+                        robot.delay(delayTime*3);
                         robot.keyPress(KeyEvent.VK_CONTROL);
                         robot.keyPress(KeyEvent.VK_A);
                         robot.delay(delayTime*2);
