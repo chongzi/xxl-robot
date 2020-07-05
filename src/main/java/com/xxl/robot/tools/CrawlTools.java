@@ -115,7 +115,7 @@ public class CrawlTools {
                         robot.mouseRelease(InputEvent.BUTTON1_MASK);
                         //点击右边菜单对应内容窗口
                         robot.delay(delayTime*3);
-                        moveMouse(360, 180);
+                        moveMouse(620, 180);
                         robot.mousePress(InputEvent.BUTTON1_MASK);
                         robot.delay(delayTime*3);
                         robot.keyPress(KeyEvent.VK_CONTROL);
