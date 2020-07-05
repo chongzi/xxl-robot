@@ -40,6 +40,16 @@ public class CarSourceDto {
     private Date createDate;
     @ApiModelProperty(value="备注")
     private String remark;
+    @ApiModelProperty(value="人找车数量")
+    private Integer count0;
+    @ApiModelProperty(value="车找人数量")
+    private Integer count1;
+    @ApiModelProperty(value="总数")
+    private Integer totalNum;
+    @ApiModelProperty(value="智能数量")
+    private Integer robotNum;
+
+
 
 
 }

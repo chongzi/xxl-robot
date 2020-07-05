@@ -22,4 +22,5 @@
 	<result column="remark" property="remark"/>
 	</resultMap>
 
+
 </mapper>

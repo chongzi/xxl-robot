@@ -94,6 +94,12 @@ public class CarSourceServiceImpl implements CarSourceService {
 	private Condition getCondition(CarSourceDto dto){
 		Condition condition = new Condition(CarSource.class);
 		Condition.Criteria criteria = condition.createCriteria();
+		if(null!=dto.getStated()){
+			criteria.andEqualTo("stated",dto.getStated());
+		}
+		if(null!=dto.getRentType()){
+			criteria.andEqualTo("rentType",dto.getRentType());
+		}
 
 		return condition;
 	}
@@ -155,23 +161,22 @@ public class CarSourceServiceImpl implements CarSourceService {
 
 	@Override
 	public void speedWebsocket(CarSource dto) {
-			StringBuffer str = new StringBuffer();
-			if (Integer.valueOf(dto.getRentType()) == 0) {
-				str.append("<div class='timeline-item' id='responseOpc'> <div class='timeline-event timeline-event-success'> <div class='timeline-heading'> <h4>");
-				str.append("【时间】" + dto.getStartTime() + "【类型】" + "人找车" + "【电话】" + dto.getMobile() + "【人数】" + dto.getPersonNumber() + "个" + "【开始地】" + dto.getToPlace() + "【目的地】" + dto.getFromPlace());
-				str.append("</h4></div><div class='timeline-body'><p>");
-				str.append("【原始数据】" + dto.getBasicData());
-				str.append("</p></div></div></div>");
-			}
-			if (Integer.valueOf(dto.getRentType()) == 1) {
-				str.append("<div class='timeline-item' id='responseOpc'> <div class='timeline-event'> <div class='timeline-heading'> <h4>");
-				str.append("【时间】" + dto.getStartTime() + "【类型】" + "车找人" + "【电话】" + dto.getMobile() + "【人数】" + dto.getPersonNumber() + "个" + "【开始地】" + dto.getToPlace() + "【目的地】" + dto.getFromPlace());
-				str.append("</h4></div><div class='timeline-body'><p>");
-				str.append("【原始数据】" + dto.getBasicData());
-				str.append("</p></div></div></div>");
-			}
+		CarSource dto0 = new CarSource();
+		dto0.setRentType((byte) 0);
+		int count0 = carSourceMapper.selectCount(dto0);
 
-			template.convertAndSend("/topic/notice", str.substring(0, str.length()));
+		CarSource dto1 = new CarSource();
+		dto1.setRentType((byte) 1);
+		int count1 = carSourceMapper.selectCount(dto1);
+
+		CarSourceDto entity = BeanTools.sourceToTarget(dto,CarSourceDto.class);
+		entity.setCount0(count0);
+		entity.setCount1(count1);
+		entity.setTotalNum(count0+count1);
+		entity.setRobotNum(count0);
+		template.convertAndSend("/topic/notice", entity);
+
+
 	}
 
 

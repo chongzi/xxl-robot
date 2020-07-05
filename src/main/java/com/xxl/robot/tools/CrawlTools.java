@@ -25,6 +25,7 @@ public class CrawlTools {
 
     /**
      * todo QQ在线聊天数据爬取
+     * 操作方式：点击+shift+点击，Ctrl+C，Ctrl+V
      */
     public static List<String> QQCrawl(int count,int delayTime){
         List<String> list = new ArrayList<String>();
@@ -47,7 +48,7 @@ public class CrawlTools {
                         robot.mousePress(InputEvent.BUTTON1_MASK);
                         robot.delay(delayTime*3);
                         robot.keyPress(KeyEvent.VK_SHIFT); //按下空格键
-                        moveMouse(360, 880);
+                        moveMouse(360, 1300);
                         robot.delay(delayTime*2);
                         robot.keyRelease(KeyEvent.VK_SHIFT);
                         robot.mouseRelease(InputEvent.BUTTON1_MASK);
@@ -90,6 +91,79 @@ public class CrawlTools {
 
         return null;
    }
+
+
+    /**
+     * todo QQ在线聊天数据爬取
+     * 操作方式：点击+shift+点击，Ctrl+A
+     */
+    public static List<String> QQCrawlCtrlA(int count,int delayTime){
+        List<String> list = new ArrayList<String>();
+        list.clear();
+        try {
+            //点击左边菜单标题
+            Robot robot = new Robot();
+            EmojiConverter emojiConverter = EmojiConverter.getInstance();
+            for(int x=1;x<count;x++) {
+                for (int i = 1; i < 7; i++) {
+                    try {
+                        robot.delay(1000);
+                        moveMouse(100, 63 * i);
+                        robot.mousePress(InputEvent.BUTTON1_MASK);
+                        robot.delay(300);
+                        robot.mouseRelease(InputEvent.BUTTON1_MASK);
+                        //点击右边菜单对应内容窗口
+                        robot.delay(delayTime*2);
+                        moveMouse(360, 180);
+                        robot.mousePress(InputEvent.BUTTON1_MASK);
+                        robot.delay(delayTime*2);
+                        robot.keyPress(KeyEvent.VK_CONTROL);
+                        robot.keyPress(KeyEvent.VK_A);
+                        robot.delay(delayTime*2);
+                        robot.keyPress(KeyEvent.VK_CONTROL);
+                        robot.keyPress(KeyEvent.VK_C);
+                        robot.delay(delayTime*2);
+                        robot.mouseRelease(InputEvent.BUTTON1_MASK);
+                        robot.delay(delayTime);
+                        robot.keyRelease(KeyEvent.VK_CONTROL);
+                        robot.keyRelease(KeyEvent.VK_A);
+                        robot.delay(delayTime);
+                        robot.keyRelease(KeyEvent.VK_CONTROL);
+                        robot.keyRelease(KeyEvent.VK_C);
+                        String data = getClipboard();
+                        System.out.println("打印抓取数据******************"+data);
+                        data = emojiConverter.toAlias(data);//将聊天内容进行转义
+                        list.add(data);
+                        System.out.println("*******************************************************" + i);
+                        System.out.println(getClipboard());
+                    }catch (Exception e){
+                        log.info("QQCrawl----QQ信息抓取：｛｝");
+                        e.printStackTrace();
+                    }
+                }
+                robot.delay(delayTime);
+                moveMouse(100, 63);
+                robot.mousePress(InputEvent.BUTTON1_MASK);
+                robot.mouseWheel(2);
+                robot.delay(delayTime);
+                robot.mouseRelease(InputEvent.BUTTON1_MASK);
+                if(x==6){
+                    robot.delay(delayTime*2);
+                    moveMouse(100, 63);
+                    robot.mousePress(InputEvent.BUTTON1_MASK);
+                    robot.mouseWheel(-20);
+                    robot.delay(delayTime*2);
+                    robot.mouseRelease(InputEvent.BUTTON1_MASK);
+                }
+            }
+            return list;
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
 
 
     /**
