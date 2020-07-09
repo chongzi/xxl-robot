@@ -25,7 +25,7 @@ public class CrawlTools {
 
 
     /**
-     * todo QQ在线聊天数据爬取
+     * todo QQ在线聊天数据爬取 8s 共 9s
      */
     public static String QQCrawl(String windowName) {
         try {
@@ -64,7 +64,7 @@ public class CrawlTools {
                     robot.keyPress(KeyEvent.VK_CONTROL);
                     robot.keyPress(KeyEvent.VK_ALT);
                     robot.keyPress(KeyEvent.VK_Z);
-                    robot.delay(1000);
+                    robot.delay(500);
                     robot.keyRelease(KeyEvent.VK_CONTROL);
                     robot.keyRelease(KeyEvent.VK_ALT);
                     robot.keyRelease(KeyEvent.VK_Z);
