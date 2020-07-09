@@ -138,6 +138,7 @@ public class CarSourceServiceImpl implements CarSourceService {
 					e.printStackTrace();
 				}
 				vo.setEnabled((byte) 1);
+				vo.setUpdateDate(new Date());
 				RobotQqService.update(vo);
 			}
 //			List<Long> ids= list.stream().map(RobotQqDto::getId).collect(Collectors.toList());

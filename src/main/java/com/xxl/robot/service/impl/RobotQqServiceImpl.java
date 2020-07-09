@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Condition;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -110,6 +111,7 @@ public class RobotQqServiceImpl implements RobotQqService {
 			RobotQq dto = new RobotQq();
 			dto.setContent(result[i]);
 			dto.setEnabled((byte) 0);
+			dto.setCreateDate(new Date());
 			robotQqs.add(dto);
 		}
 		robotQqs.stream().distinct().collect(Collectors.toList());

@@ -36,7 +36,7 @@ public class GrabbingCarSchedule {
      * 表示每隔3分钟获取数据一次
      * 至少大于1分钟
      */
-   //@Scheduled(cron = "0 0/3 * * * ?")
+   @Scheduled(cron = "0 0/2 * * * ?")
     public void collectSource(){
         log.info("********************collectSource()方法源始数据采集信定时器启动**************************");
             carSourceService.analysisQQ();
@@ -50,7 +50,7 @@ public class GrabbingCarSchedule {
      * 表示每隔3分钟获取数据一次
      * 至少大于1分钟
      */
-  @Scheduled(cron = "0 0/1 * * * ?")
+  //@Scheduled(cron = "0 0/1 * * * ?")
    public void qqCrawl(){
        log.info("********************qqProces定时器启动**************************");
       List<RobotCode> codes = robotCodeService.queryDictionary("QQ_SOURCE_GROUP");
