@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping(value = "/system/RobotCode")
+@RequestMapping(value = "/robot/code")
 @Api(tags = "数据字典编服务")
 public class RobotCodeController {
 
