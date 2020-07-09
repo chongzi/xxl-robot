@@ -60,7 +60,7 @@ public class CrawlTools {
 
             } else {
                 //调出相应的QQ标题窗口
-                for (int x = 1; x < 6; x++) {
+                for (int x = 1; x < 3; x++) {
                     robot.keyPress(KeyEvent.VK_CONTROL);
                     robot.keyPress(KeyEvent.VK_ALT);
                     robot.keyPress(KeyEvent.VK_Z);
