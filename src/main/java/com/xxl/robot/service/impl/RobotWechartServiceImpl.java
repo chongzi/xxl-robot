@@ -73,5 +73,14 @@ public class RobotWechartServiceImpl implements RobotWechartService {
 	}
 
 
-
+	@Override
+	public int doEnabled(Long id) {
+		RobotWechart robotWechart = robotWechartMapper.selectByPrimaryKey(id);
+		if(robotWechart.getEnabled()==0){
+			robotWechart.setEnabled((byte) 1);
+		}else{
+			robotWechart.setEnabled((byte) 0);
+		}
+		return 0;
+	}
 }

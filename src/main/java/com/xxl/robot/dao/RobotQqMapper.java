@@ -20,7 +20,7 @@ import org.apache.ibatis.annotations.Mapper;
  *	http://www.xlxu.com
  */
 @Mapper
-public interface robotQqMapper extends IBaseMapper<RobotQq>{
+public interface RobotQqMapper extends IBaseMapper<RobotQq>{
 
 
 }

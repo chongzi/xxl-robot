@@ -9,5 +9,12 @@ import com.xxl.robot.dto.RobotWechartDto;
  */
 public interface RobotWechartService extends IBaseService<RobotWechartDto> {
 
+    /**
+     * 启用/禁用
+     * @param id
+     * @return
+     */
+    int doEnabled(Long id);
+
 
 }

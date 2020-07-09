@@ -3,9 +3,10 @@ package com.xxl.robot.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xxl.common.tools.BeanTools;
-import com.xxl.robot.dao.robotQqMapper;
+import com.xxl.robot.dao.RobotQqMapper;
 import com.xxl.robot.dto.RobotQqDto;
 import com.xxl.robot.entity.RobotQq;
+import com.xxl.robot.entity.RobotWechart;
 import com.xxl.robot.service.RobotQqService;
 import com.xxl.robot.tools.RegTools;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ import java.util.stream.Collectors;
 public class RobotQqServiceImpl implements RobotQqService {
 
 	@Autowired
-	private robotQqMapper robotQqMapper;
+	private RobotQqMapper robotQqMapper;
 
 
 	@Override
@@ -82,7 +83,7 @@ public class RobotQqServiceImpl implements RobotQqService {
     @Async("taskExecutor")
 	@Override
 	public void handleQQ(List<String> datas){
-		List<RobotQq> RobotQqs = new ArrayList<>();
+		List<RobotQq> robotQqs = new ArrayList<>();
  		if(!CollectionUtils.isEmpty(datas)) {
 			for (String data : datas) {
 				String[] result = data.split(RegTools.TIME);
@@ -90,21 +91,26 @@ public class RobotQqServiceImpl implements RobotQqService {
 					RobotQq dto = new RobotQq();
 					dto.setContent(result[i]);
 					dto.setEnabled((byte) 0);
-					RobotQqs.add(dto);
+					robotQqs.add(dto);
 				}
 			}
 		}
-		RobotQqs.stream().distinct().collect(Collectors.toList());
+		robotQqs.stream().distinct().collect(Collectors.toList());
 
-        robotQqMapper.insertList(RobotQqs);
+        robotQqMapper.insertList(robotQqs);
 
 	}
 
-
-
-
-
-
+	@Override
+	public int doEnabled(Long id) {
+		RobotQq robotQq = robotQqMapper.selectByPrimaryKey(id);
+		if(robotQq.getEnabled()==0){
+			robotQq.setEnabled((byte) 1);
+		}else{
+			robotQq.setEnabled((byte) 0);
+		}
+		return 0;
+	}
 
 
 }
