@@ -1,15 +1,12 @@
 package com.xxl.robot.dao;
 
 import com.xxl.common.dao.IBaseMapper;
-import com.xxl.robot.entity.CarQq;
+import com.xxl.robot.entity.RobotCode;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
 
 /**
  * 
- * 司机表数据库操作接口类
+ * 数据字典编码值定义表数据库操作接口类
  * <p style="display:none">modifyRecord</p>
  * <p style="display:none">version:V1.0,author:xuxuelei,date:2019-05-16 13:53:00, </p>
  * @author xuxuelei
@@ -23,7 +20,5 @@ import java.util.List;
  *	http://www.xlxu.com
  */
 @Mapper
-public interface CarQqMapper extends IBaseMapper<CarQq>{
-
-
+public interface RobotCodeMapper extends IBaseMapper<RobotCode> {
 }

@@ -1,17 +1,15 @@
 package com.xxl.robot.service;
 
 import com.xxl.common.service.IBaseService;
-import com.xxl.robot.dto.CarDriverDto;
-import com.xxl.robot.dto.CarQqDto;
-import com.xxl.robot.entity.CarQq;
+import com.xxl.robot.dto.RobotQqDto;
 
 import java.util.List;
 
 /**
  * 
- * 汽车租赁qq服务接口类接口
+ * qq服务接口类接口
  */
-public interface CarQqService extends IBaseService<CarQqDto> {
+public interface RobotQqService extends IBaseService<RobotQqDto> {
 
     /**
      * 处理QQ信息入库

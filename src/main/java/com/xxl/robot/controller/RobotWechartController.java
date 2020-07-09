@@ -2,8 +2,6 @@ package com.xxl.robot.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.xxl.common.response.BaseResponse;
-import com.xxl.robot.dto.RobotConfigDto;
-import com.xxl.robot.service.RobotConfigService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/car/wechart")
 @Api(tags = "汽车微信服务")
-public class CarWechartController {
+public class RobotWechartController {
 
     @Autowired
     private RobotConfigService robotConfigService;

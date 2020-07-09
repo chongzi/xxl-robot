@@ -9,7 +9,7 @@
 	</sql>
 
 	<!--返回MAP -->
-	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.CarQq">
+	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.RobotQq">
 		<result column="id" property="id" />
 		<result column="angent_type" property="angentType" />
 		<result column="business" property="business" />

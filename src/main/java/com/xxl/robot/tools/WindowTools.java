@@ -9,12 +9,12 @@ import com.sun.jna.platform.win32.WinDef.HWND;
  */
 public class WindowTools {
 
-
     /**
      * todo 初始化Window窗口弹出
      * @param windowName 窗口名
      */
-    public static void initWindow(String windowName){
+    public static boolean initWindow(String windowName){
+        boolean bool = false;
         HWND hwnd = getHWND(windowName);
         if (null != hwnd) {
             User32.INSTANCE.ShowWindow(hwnd, 0x03);        // SW_RESTORE
@@ -23,14 +23,11 @@ public class WindowTools {
             WinDef.RECT qqwin_rect = new WinDef.RECT();
             User32.INSTANCE.GetWindowRect(hwnd, qqwin_rect);
 
-
             int qqwin_width = qqwin_rect.right - qqwin_rect.left;
             int qqwin_height = qqwin_rect.bottom - qqwin_rect.top;
-
-
-
+           bool = true;
         }
-
+        return bool;
     }
 
 

@@ -1,13 +1,8 @@
 package com.xxl.robot.dao;
 
 import com.xxl.common.dao.IBaseMapper;
-import com.xxl.robot.entity.CarDriver;
-import com.xxl.robot.entity.CarQq;
-import com.xxl.robot.entity.CarWechart;
+import com.xxl.robot.entity.RobotWechart;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
 
 /**
  * 
@@ -25,7 +20,7 @@ import java.util.List;
  *	http://www.xlxu.com
  */
 @Mapper
-public interface CarWechartMapper extends IBaseMapper<CarWechart>  {
+public interface RobotWechartMapper extends IBaseMapper<RobotWechart>  {
       
 
 

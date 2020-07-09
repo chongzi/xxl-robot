@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xxl.robot.dao.CarDriverMapper">
+<mapper namespace="com.xxl.auth.dao.SysCodeMapper">
 
 	<!-- 通用查询结果列-->
 	<sql id="Base_Column_List">
-		id, name, mobile, driver_type, id_card, census_register, address, enabled, create_date
+		id, no, name, code_type, seq, enabled, remark, create_by, create_date, update_by, update_date
 	</sql>
 
 	<!--返回MAP -->
-	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.CarDriver">
+	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.RobotCode">
 	<result column="id" property="id"/>
+	<result column="no" property="no"/>
 	<result column="name" property="name"/>
-	<result column="mobile" property="mobile"/>
-	<result column="driver_type" property="driverType"/>
-	<result column="id_card" property="idCard"/>
-	<result column="census_register" property="censusRegister"/>
-	<result column="address" property="address"/>
+	<result column="code_type" property="codeType"/>
+	<result column="seq" property="seq"/>
 	<result column="enabled" property="enabled"/>
 	<result column="remark" property="remark"/>
 	<result column="create_date" property="createDate"/>
+	<result column="update_date" property="updateDate"/>
 	</resultMap>
 
 </mapper>

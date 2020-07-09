@@ -1,7 +1,7 @@
 package com.xxl.robot.service;
 
 import com.xxl.common.service.IBaseService;
-import com.xxl.robot.dto.CarQqDto;
+import com.xxl.robot.dto.RobotQqDto;
 import com.xxl.robot.dto.ParttimeAgentDto;
 import com.xxl.robot.entity.ParttimeAgent;
 

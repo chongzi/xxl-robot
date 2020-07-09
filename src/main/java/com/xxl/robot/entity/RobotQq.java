@@ -9,22 +9,31 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
-@Api(tags="司机qq实体类")
+@Api(tags="qq实体类")
 @Data
 @Entity
-@Table(name="car_qq")
-public class CarQq {
+@Table(name="robot_qq")
+public class RobotQq {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "主键ID")
     @Id
     private Long id;
     @ApiModelProperty(value="会话时间")
-    private Date sessionTime;
-    @ApiModelProperty(value="内容")
+    private Byte sourceType;
+    @ApiModelProperty(value="会话时间")
     private String content;
+    @ApiModelProperty(value="会话时间")
+    private String ips;
     @ApiModelProperty(value="开关")
     private Byte enabled;
+    @ApiModelProperty(value="开关")
+    private String remark;
+    @ApiModelProperty(value="会话时间")
+    private Date createDate;
+    @ApiModelProperty(value="内容")
+    private Date updateDate;
+
 
 
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxl.robot.dao.RobotWechartMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		id, source_type, content,ips,enabled,remark,create_date,update_date
+	</sql>
+
+	<!--返回MAP -->
+	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.RobotWechart">
+		<result column="id" property="id" />
+		<result column="source_type" property="sourceType" />
+		<result column="content" property="content" />
+		<result column="ips" property="ips" />
+		<result column="enabled" property="enabled" />
+		<result column="remark" property="remark" />
+		<result column="create_date" property="createDate" />
+		<result column="update_date" property="updateDate" />
+	</resultMap>
+
+
+
+
+</mapper>

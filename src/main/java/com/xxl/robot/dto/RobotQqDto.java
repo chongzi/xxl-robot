@@ -7,10 +7,12 @@ import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
+import java.util.List;
 
-@Api(tags="智能配置实体类")
+@Api(tags="qq实体类")
 @Data
-public class RobotConfigDto {
+public class RobotQqDto {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value="当前页码，默认是第一页 ")
@@ -18,15 +20,23 @@ public class RobotConfigDto {
     @ApiModelProperty(value="每页显示的记录数，默认是10 ，设置为“-1”表示不进行分页（分页无效）")
     private int pageSize;
 
-    @ApiModelProperty(value = "主键ID")
     private Long id;
-    @ApiModelProperty(value="配置编号")
-    private String configNo;
-    @ApiModelProperty(value="配置名称")
-    private String configName;
-    @ApiModelProperty(value="启用/禁用")
+    @ApiModelProperty(value="会话时间")
+    private Byte sourceType;
+    @ApiModelProperty(value="会话时间")
+    private String content;
+    @ApiModelProperty(value="会话时间")
+    private String ips;
+    @ApiModelProperty(value="开关")
     private Byte enabled;
-    @ApiModelProperty(value="备注")
+    @ApiModelProperty(value="开关")
     private String remark;
+    @ApiModelProperty(value="会话时间")
+    private Date createDate;
+    @ApiModelProperty(value="内容")
+    private Date updateDate;
+
+    List<String> datas;
+
 
 }

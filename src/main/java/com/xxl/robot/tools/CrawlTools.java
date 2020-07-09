@@ -23,11 +23,67 @@ public class CrawlTools {
 
     private Clipboard system;
 
+
     /**
      * todo QQ在线聊天数据爬取
-     * 操作方式：点击+shift+点击，Ctrl+C，Ctrl+V
      */
-    public static List<String> QQCrawl(int count,int delayTime){
+    public static String QQCrawl(String windowName,int delayTime) {
+        try {
+            //点击左边菜单标题
+            Robot robot = new Robot();
+            EmojiConverter emojiConverter = EmojiConverter.getInstance();
+            boolean bool = WindowTools.initWindow(windowName);
+            if (bool) {
+                robot.delay(1000);
+                moveMouse(620, 180);
+                robot.mousePress(InputEvent.BUTTON1_MASK);
+                robot.delay(1000);
+                robot.keyPress(KeyEvent.VK_CONTROL);
+                robot.keyPress(KeyEvent.VK_A);
+                robot.delay(2000);
+                robot.keyPress(KeyEvent.VK_CONTROL);
+                robot.keyPress(KeyEvent.VK_C);
+                robot.delay(1000);
+                robot.mouseRelease(InputEvent.BUTTON1_MASK);
+                robot.delay(1000);
+                robot.keyRelease(KeyEvent.VK_CONTROL);
+                robot.keyRelease(KeyEvent.VK_A);
+                robot.delay(1000);
+                robot.keyRelease(KeyEvent.VK_CONTROL);
+                robot.keyRelease(KeyEvent.VK_C);
+                String data = getClipboard();
+                System.out.println("打印抓取数据******************"+data);
+                data = emojiConverter.toAlias(data);//将聊天内容进行转义
+                 System.out.println("*******************************************************");
+                System.out.println(getClipboard());
+                return  data;
+
+            } else {
+                //调出相应的QQ标题窗口
+                for (int x = 1; x < 6; x++) {
+                    robot.keyPress(KeyEvent.VK_CONTROL);
+                    robot.keyPress(KeyEvent.VK_ALT);
+                    robot.keyPress(KeyEvent.VK_Z);
+                    robot.delay(1000);
+                    robot.keyRelease(KeyEvent.VK_CONTROL);
+                    robot.keyRelease(KeyEvent.VK_ALT);
+                    robot.keyRelease(KeyEvent.VK_Z);
+                }
+            }
+        }catch (Exception e){
+            log.info("QQCrawl----QQ信息抓取：｛｝");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+
+            /**
+             * todo QQ在线聊天数据爬取
+             * 操作方式：点击+shift+点击，Ctrl+C，Ctrl+V
+             */
+    public static List<String> QQCrawlC(int count,int delayTime){
         List<String> list = new ArrayList<String>();
         list.clear();
         try {

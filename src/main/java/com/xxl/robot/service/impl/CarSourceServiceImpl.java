@@ -2,21 +2,15 @@ package com.xxl.robot.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.google.common.base.Joiner;
 import com.xxl.common.tools.BeanTools;
 import com.xxl.robot.dao.CarSourceMapper;
-import com.xxl.robot.dto.CarQqDto;
+import com.xxl.robot.dto.RobotQqDto;
 import com.xxl.robot.dto.CarSourceDto;
 import com.xxl.robot.entity.CarSource;
-import com.xxl.robot.enums.CarEnum;
-import com.xxl.robot.service.CarQqService;
+import com.xxl.robot.service.RobotQqService;
 import com.xxl.robot.service.CarSourceService;
 import com.xxl.robot.time.GrabbingCarSchedule;
 import com.xxl.robot.tools.CarTools;
-import com.xxl.robot.tools.DateTools;
-import com.xxl.robot.tools.RegTools;
-import com.xxl.robot.tools.StringTools;
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -25,15 +19,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Condition;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 /**
  * 
@@ -48,7 +36,7 @@ public class CarSourceServiceImpl implements CarSourceService {
 	@Autowired
 	public SimpMessagingTemplate template;
 	@Autowired
-	private CarQqService carQqService;
+	private RobotQqService RobotQqService;
 
 	@Override
 	public CarSourceDto get(Long id) {
@@ -137,11 +125,11 @@ public class CarSourceServiceImpl implements CarSourceService {
 	@Async("taskExecutor")
 	@Override
 	public void analysisQQ(){
-		CarQqDto dto = new CarQqDto();
+		RobotQqDto dto = new RobotQqDto();
 		dto.setEnabled((byte) 0);
-		List<CarQqDto> list = carQqService.list(dto);
+		List<RobotQqDto> list = RobotQqService.list(dto);
 		if(!CollectionUtils.isEmpty(list)){
-			for(CarQqDto vo:list){
+			for(RobotQqDto vo:list){
 				CarSource carSource = getCarSource(vo.getContent());
 				try {
 					int i = carSourceMapper.insert(carSource);
@@ -150,11 +138,11 @@ public class CarSourceServiceImpl implements CarSourceService {
 					e.printStackTrace();
 				}
 				vo.setEnabled((byte) 1);
-				carQqService.update(vo);
+				RobotQqService.update(vo);
 			}
-//			List<Long> ids= list.stream().map(CarQqDto::getId).collect(Collectors.toList());
+//			List<Long> ids= list.stream().map(RobotQqDto::getId).collect(Collectors.toList());
 //			String  idss = StringUtils.join(ids.toArray(), ",");
-//			carQqService.delete(idss);
+//			RobotQqService.delete(idss);
 		}
 
 	}

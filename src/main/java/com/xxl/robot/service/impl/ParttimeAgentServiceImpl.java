@@ -6,16 +6,11 @@ import com.xxl.common.tools.BeanTools;
 import com.xxl.robot.dao.ParttimeAgentMapper;
 import com.xxl.robot.dto.ParttimeAgentDto;
 import com.xxl.robot.entity.ParttimeAgent;
-import com.xxl.robot.entity.RobotConfig;
 import com.xxl.robot.service.ParttimeAgentService;
-import com.xxl.robot.service.CarSourceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Condition;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

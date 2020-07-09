@@ -1,7 +1,7 @@
 package com.xxl.robot.dao;
 
 import com.xxl.common.dao.IBaseMapper;
-import com.xxl.robot.entity.CarDriver;
+import com.xxl.robot.entity.RobotQq;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -20,6 +20,7 @@ import org.apache.ibatis.annotations.Mapper;
  *	http://www.xlxu.com
  */
 @Mapper
-public interface CarDriverMapper extends IBaseMapper<CarDriver>  {
+public interface robotQqMapper extends IBaseMapper<RobotQq>{
+
 
 }
