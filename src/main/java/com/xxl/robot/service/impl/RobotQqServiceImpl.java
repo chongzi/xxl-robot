@@ -101,6 +101,22 @@ public class RobotQqServiceImpl implements RobotQqService {
 
 	}
 
+	@Async("taskExecutor")
+	@Override
+	public void handleQQ(String data) {
+		List<RobotQq> robotQqs = new ArrayList<>();
+		String[] result = data.split(RegTools.TIME);
+		for(int i=0;i<result.length;i++){
+			RobotQq dto = new RobotQq();
+			dto.setContent(result[i]);
+			dto.setEnabled((byte) 0);
+			robotQqs.add(dto);
+		}
+		robotQqs.stream().distinct().collect(Collectors.toList());
+
+		robotQqMapper.insertList(robotQqs);
+	}
+
 	@Override
 	public int doEnabled(Long id) {
 		RobotQq robotQq = robotQqMapper.selectByPrimaryKey(id);

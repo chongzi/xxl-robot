@@ -11,7 +11,7 @@ import com.sun.jna.platform.win32.WinDef.HWND;
  */
 public class JnaTest {
     public static void main(String[] args) {
-        CrawlTools.QQCrawl("宿迁人在上海 壹号群",100);
+        CrawlTools.QQCrawl("宿迁人在上海 壹号群");
 
     }
 

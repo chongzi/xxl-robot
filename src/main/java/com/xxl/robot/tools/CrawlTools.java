@@ -27,7 +27,7 @@ public class CrawlTools {
     /**
      * todo QQ在线聊天数据爬取
      */
-    public static String QQCrawl(String windowName,int delayTime) {
+    public static String QQCrawl(String windowName) {
         try {
             //点击左边菜单标题
             Robot robot = new Robot();

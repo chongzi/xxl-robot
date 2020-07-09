@@ -1,5 +1,6 @@
 package com.xxl.robot.time;
 
+import com.xxl.robot.entity.RobotCode;
 import com.xxl.robot.service.*;
 import com.xxl.robot.tools.CrawlTools;
 import org.slf4j.Logger;
@@ -7,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
@@ -24,6 +26,8 @@ public class GrabbingCarSchedule {
     private RobotWechartService  robotWechartService;
     @Autowired
     private CarSourceService carSourceService;
+    @Autowired
+    private RobotCodeService robotCodeService;
 
 
 
@@ -46,11 +50,18 @@ public class GrabbingCarSchedule {
      * 表示每隔3分钟获取数据一次
      * 至少大于1分钟
      */
-  @Scheduled(cron = "0 0/3 * * * ?")
+  @Scheduled(cron = "0 0/1 * * * ?")
    public void qqCrawl(){
        log.info("********************qqProces定时器启动**************************");
-           List<String> datas = CrawlTools.QQCrawlCtrlA(6,600);
-            robotQqService.handleQQ(datas);
+      List<RobotCode> codes = robotCodeService.queryDictionary("QQ_SOURCE_GROUP");
+      if(!CollectionUtils.isEmpty(codes)){
+          for(RobotCode code:codes){
+              String data = CrawlTools.QQCrawl(code.getNo());
+              robotQqService.handleQQ(data);
+          }
+      }
+
+
    }
 
 

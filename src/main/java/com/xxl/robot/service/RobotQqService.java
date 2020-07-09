@@ -19,6 +19,14 @@ public interface RobotQqService extends IBaseService<RobotQqDto> {
     void handleQQ(List<String> datas);
 
     /**
+     * 处理QQ信息入库
+     * @param data
+     * @return
+     */
+    void handleQQ(String data);
+
+
+    /**
      * 启用/禁用
      * @param id
      * @return
