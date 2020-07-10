@@ -20,7 +20,7 @@ public class RobotConfigDto {
 	@ApiModelProperty(value="编码值", required=true)
 	private String no;
 	@ApiModelProperty(value="编码类型", required=true)
-	private String codeType;
+	private String configType;
 	@ApiModelProperty(value="种类")
 	private String kind;
 	@ApiModelProperty(value="种类编码值")

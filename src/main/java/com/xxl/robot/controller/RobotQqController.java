@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/robot/qq")
+@RequestMapping(value = "/qq")
 @Api(tags = "QQ服务控制器")
 public class RobotQqController {
 

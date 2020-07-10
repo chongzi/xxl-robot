@@ -20,19 +20,19 @@ public class RobotWechartDto {
     private int pageSize;
 
     private Long id;
-    @ApiModelProperty(value="会话时间")
-    private Byte sourceType;
-    @ApiModelProperty(value="会话时间")
+    @ApiModelProperty(value="数据源类型")
+    private String sourceType;
+    @ApiModelProperty(value="内容")
     private String content;
-    @ApiModelProperty(value="会话时间")
+    @ApiModelProperty(value="主机id")
     private String ips;
     @ApiModelProperty(value="开关")
     private Byte enabled;
-    @ApiModelProperty(value="开关")
+    @ApiModelProperty(value="备注")
     private String remark;
     @ApiModelProperty(value="会话时间")
     private Date createDate;
-    @ApiModelProperty(value="内容")
+    @ApiModelProperty(value="更新时间")
     private Date updateDate;
 
 }

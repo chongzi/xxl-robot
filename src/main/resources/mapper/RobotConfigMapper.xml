@@ -5,14 +5,14 @@
 
 	<!-- 通用查询结果列-->
 	<sql id="Base_Column_List">
-		id, no, code_type,kind,kind_no, seq, enabled, remark
+		id, no, config_type,kind,kind_no, seq, enabled, remark
 	</sql>
 
 	<!--返回MAP -->
 	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.RobotConfig">
 	<result column="id" property="id"/>
 	<result column="no" property="no"/>
-	<result column="code_type" property="codeType"/>
+	<result column="config_type" property="configType"/>
 	<result column="kind" property="kind"/>
 	<result column="kind_no" property="kindNo"/>
 	<result column="seq" property="seq"/>

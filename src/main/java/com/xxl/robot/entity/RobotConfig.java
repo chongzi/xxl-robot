@@ -21,8 +21,8 @@ public class RobotConfig {
 	private Long id;
 	@ApiModelProperty(value="编码值", required=true)
 	private String no;
-	@ApiModelProperty(value="编码类型", required=true)
-	private String codeType;
+	@ApiModelProperty(value="配置类型", required=true)
+	private String configType;
 	@ApiModelProperty(value="种类")
 	private String kind;
 	@ApiModelProperty(value="种类编码值")

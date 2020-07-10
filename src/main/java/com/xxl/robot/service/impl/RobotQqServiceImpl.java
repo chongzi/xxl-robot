@@ -108,7 +108,7 @@ public class RobotQqServiceImpl implements RobotQqService {
 
 	@Async("taskExecutor")
 	@Override
-	public void handleQQ(String data) {
+	public void handleQQ(RobotConfig config,String data) {
 		List<RobotQq> robotQqs = new ArrayList<>();
 		String[] result = data.split(RegTools.TIME);
 		for(int i=0;i<result.length;i++){
@@ -140,7 +140,7 @@ public class RobotQqServiceImpl implements RobotQqService {
 		if(!CollectionUtils.isEmpty(configs)){
 			for(RobotConfig config:configs){
 				String data = CrawlTools.QQCrawl(config.getNo());
-				handleQQ(data);
+				handleQQ(config, data);
 			}
 		}
 	}

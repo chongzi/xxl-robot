@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/car/wechart")
+@RequestMapping(value = "/wechart")
 @Api(tags = "汽车微信服务")
 public class RobotWechartController {
 

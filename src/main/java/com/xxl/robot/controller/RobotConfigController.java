@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping(value = "/robot/config")
+@RequestMapping(value = "/config")
 @Api(tags = "智能配置控制器")
 public class RobotConfigController {
 
@@ -62,8 +62,8 @@ public class RobotConfigController {
 
     @PostMapping(value = "queryDictionary")
     @ApiOperation("分页查询数据字典编码值定义表")
-    public BaseResponse queryDictionary(@RequestBody String codeType) {
-        return BaseResponse.newSuccess(robotConfigService.queryDictionary(codeType));
+    public BaseResponse queryDictionary(@RequestBody String configType) {
+        return BaseResponse.newSuccess(robotConfigService.queryDictionary(configType));
     }
 
     @PostMapping("/getTypeValus")

@@ -71,8 +71,8 @@ public class RobotConfigServiceImpl implements RobotConfigService {
 	private Condition getCondition(RobotConfigDto dto){
 		Condition condition = new Condition(RobotConfig.class);
 		Condition.Criteria criteria = condition.createCriteria();
-		if(StringUtils.isNotBlank(dto.getCodeType())){
-			criteria.andLike("codeType",dto.getCodeType());
+		if(StringUtils.isNotBlank(dto.getConfigType())){
+			criteria.andLike("codeType",dto.getConfigType());
 		}
 		if(StringUtils.isNotBlank(dto.getNo())){
 			criteria.andEqualTo("no",dto.getNo());
@@ -83,7 +83,7 @@ public class RobotConfigServiceImpl implements RobotConfigService {
 	@Override
 	public List<RobotConfig> queryDictionary(String codeType) {
 		RobotConfig RobotCode = new RobotConfig();
-		RobotCode.setCodeType(codeType);
+		RobotCode.setConfigType(codeType);
 		RobotCode.setEnabled((byte) 0);
 		List<RobotConfig> beans = robotConfigMapper.select(RobotCode);
 		return beans;
@@ -95,7 +95,7 @@ public class RobotConfigServiceImpl implements RobotConfigService {
 		if (CollectionUtils.isNotEmpty(typeNos)) {
 			for (String codeType : typeNos) {
 				RobotConfig RobotCode = new RobotConfig();
-				RobotCode.setCodeType(codeType);
+				RobotCode.setConfigType(codeType);
  				List<RobotConfig> beans = robotConfigMapper.select(RobotCode);
 				map.put(codeType, beans);
 			}
