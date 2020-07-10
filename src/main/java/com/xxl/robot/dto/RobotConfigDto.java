@@ -33,5 +33,7 @@ public class RobotConfigDto {
 	private String remark;
 	@ApiModelProperty(value="智能文本框名称")
 	private String noOrName;
+	@ApiModelProperty(value="租户")
+	private Long tenantCode;
 
 }

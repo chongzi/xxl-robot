@@ -5,7 +5,7 @@
 
 	<!-- 通用查询结果列-->
 	<sql id="Base_Column_List">
-		id, stated, rent_type, start_time,to_place,from_place,mobile,basic_data,create_date,remark
+		id, stated, rent_type, start_time,to_place,from_place,mobile,basic_data,create_date,remark,tenant_code
 	</sql>
 
 	<!--返回MAP -->
@@ -20,6 +20,7 @@
 	<result column="basic_data" property="basicData"/>
 	<result column="create_date" property="createDate"/>
 	<result column="remark" property="remark"/>
+	<result column="tenant_code" property="tenantCode"/>
 	</resultMap>
 
 

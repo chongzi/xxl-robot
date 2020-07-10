@@ -116,6 +116,8 @@ public class RobotQqServiceImpl implements RobotQqService {
 			dto.setContent(result[i]);
 			dto.setEnabled((byte) 0);
 			dto.setCreateDate(new Date());
+			dto.setSourceType(config.getConfigType());
+			dto.setTenantCode(config.getTenantCode());
 			robotQqs.add(dto);
 		}
 		robotQqs.stream().distinct().collect(Collectors.toList());

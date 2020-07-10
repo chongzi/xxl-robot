@@ -5,7 +5,7 @@
 
 	<!-- 通用查询结果列 -->
 	<sql id="Base_Column_List">
-		id, angent_type, business,promotionLinks,popularize1,popularize2,popularize3,popularize4,popularize5,popularize6,pr,remark,enabled,create_date
+		id, angent_type, business,promotionLinks,popularize1,popularize2,popularize3,popularize4,popularize5,popularize6,pr,remark,enabled,create_date,tenant_code
 	</sql>
 
 	<!--返回MAP -->
@@ -24,6 +24,7 @@
 		<result column="remark" property="remark" />
 		<result column="enabled" property="enabled" />
 		<result column="create_date" property="createDate" />
+		<result column="tenant_code" property="tenantCode"/>
 	</resultMap>
 
 	

@@ -33,4 +33,7 @@ public class RobotConfig {
 	private Byte enabled;
 	@ApiModelProperty(value="备注")
 	private String remark;
+	@ApiModelProperty(value="租户")
+	private Long tenantCode;
+
 }

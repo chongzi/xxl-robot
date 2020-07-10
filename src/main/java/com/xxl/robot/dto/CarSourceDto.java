@@ -48,7 +48,8 @@ public class CarSourceDto {
     private Integer totalNum;
     @ApiModelProperty(value="智能数量")
     private Integer robotNum;
-
+    @ApiModelProperty(value="租户")
+    private Long tenantCode;
 
 
 

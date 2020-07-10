@@ -33,7 +33,8 @@ public class RobotQq {
     private Date createDate;
     @ApiModelProperty(value="更新时间")
     private Date updateDate;
-
+    @ApiModelProperty(value="租户")
+    private Long tenantCode;
 
 
 }

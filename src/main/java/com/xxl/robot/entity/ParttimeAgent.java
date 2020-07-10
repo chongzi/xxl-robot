@@ -45,6 +45,7 @@ public class ParttimeAgent {
     private Byte enabled;
     @ApiModelProperty(value="创建时间")
     private Date createDate;
-
+    @ApiModelProperty(value="租户")
+    private Long tenantCode;
 
 }
