@@ -5,9 +5,11 @@ import com.github.pagehelper.PageInfo;
 import com.xxl.common.tools.BeanTools;
 import com.xxl.robot.dao.RobotQqMapper;
 import com.xxl.robot.dto.RobotQqDto;
+import com.xxl.robot.entity.RobotConfig;
 import com.xxl.robot.entity.RobotQq;
-import com.xxl.robot.entity.RobotWechart;
+import com.xxl.robot.service.RobotConfigService;
 import com.xxl.robot.service.RobotQqService;
+import com.xxl.robot.tools.CrawlTools;
 import com.xxl.robot.tools.RegTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
@@ -28,6 +30,8 @@ public class RobotQqServiceImpl implements RobotQqService {
 
 	@Autowired
 	private RobotQqMapper robotQqMapper;
+	@Autowired
+	private RobotConfigService robotConfigService;
 
 
 	@Override
@@ -128,6 +132,17 @@ public class RobotQqServiceImpl implements RobotQqService {
 			robotQq.setEnabled((byte) 0);
 		}
 		return 0;
+	}
+
+	@Override
+	public void collectQQ() {
+		List<RobotConfig> configs = robotConfigService.queryDictionary("QQ_SOURCE_GROUP");
+		if(!CollectionUtils.isEmpty(configs)){
+			for(RobotConfig config:configs){
+				String data = CrawlTools.QQCrawl(config.getNo());
+				handleQQ(data);
+			}
+		}
 	}
 
 

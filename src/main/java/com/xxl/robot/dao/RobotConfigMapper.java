@@ -1,7 +1,7 @@
 package com.xxl.robot.dao;
 
 import com.xxl.common.dao.IBaseMapper;
-import com.xxl.robot.entity.RobotCode;
+import com.xxl.robot.entity.RobotConfig;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -20,5 +20,5 @@ import org.apache.ibatis.annotations.Mapper;
  *	http://www.xlxu.com
  */
 @Mapper
-public interface RobotCodeMapper extends IBaseMapper<RobotCode> {
+public interface RobotConfigMapper extends IBaseMapper<RobotConfig> {
 }

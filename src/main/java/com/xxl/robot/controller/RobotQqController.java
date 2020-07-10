@@ -57,4 +57,11 @@ public class RobotQqController {
         return BaseResponse.newSuccess(pageInfo.getList(), pageInfo.getTotal());
     }
 
+    @PostMapping("collectQQ")
+    @ApiOperation("QQ数据采集")
+    public BaseResponse collectQQ(@RequestBody RobotQqDto dto) {
+        robotQqService.collectQQ();
+        return BaseResponse.newSuccess();
+    }
+
 }

@@ -1,4 +1,4 @@
 package com.xxl.robot.enums;
 
-public class CodeEnum {
+public class ConfigEnum {
 }

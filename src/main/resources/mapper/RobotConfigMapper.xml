@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xxl.auth.dao.RobotCodeMapper">
+<mapper namespace="com.xxl.auth.dao.RobotConfigMapper">
 
 	<!-- 通用查询结果列-->
 	<sql id="Base_Column_List">
-		id, no, name, code_type, seq, enabled, remark, create_date, update_date
+		id, no, code_type,kind,kind_no, seq, enabled, remark
 	</sql>
 
 	<!--返回MAP -->
-	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.RobotCode">
+	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.RobotConfig">
 	<result column="id" property="id"/>
 	<result column="no" property="no"/>
-	<result column="name" property="name"/>
 	<result column="code_type" property="codeType"/>
+	<result column="kind" property="kind"/>
+	<result column="kind_no" property="kindNo"/>
 	<result column="seq" property="seq"/>
 	<result column="enabled" property="enabled"/>
 	<result column="remark" property="remark"/>
-	<result column="create_date" property="createDate"/>
-	<result column="update_date" property="updateDate"/>
 	</resultMap>
 
 </mapper>
