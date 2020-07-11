@@ -1,5 +1,6 @@
 package com.xxl.robot.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xxl.common.tools.BeanTools;
@@ -11,6 +12,8 @@ import com.xxl.robot.service.RobotConfigService;
 import com.xxl.robot.service.RobotQqService;
 import com.xxl.robot.tools.CrawlTools;
 import com.xxl.robot.tools.RegTools;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -27,6 +30,8 @@ import java.util.stream.Collectors;
  */
 @Service
 public class RobotQqServiceImpl implements RobotQqService {
+
+    private static final Logger logger = LoggerFactory.getLogger(RobotQqServiceImpl.class);
 
 	@Autowired
 	private RobotQqMapper robotQqMapper;
@@ -141,8 +146,13 @@ public class RobotQqServiceImpl implements RobotQqService {
 		List<RobotConfig> configs = robotConfigService.queryDictionary("QQ_SOURCE_GROUP");
 		if(!CollectionUtils.isEmpty(configs)){
 			for(RobotConfig config:configs){
-				String data = CrawlTools.QQCrawl(config.getNo());
-				handleQQ(config, data);
+				logger.info("***********************打印config配置：{}"+JSON.toJSONString(config));
+				try {
+					String data = CrawlTools.QQCrawl(config.getNo());
+					handleQQ(config, data);
+				}catch (Exception e){
+					logger.info("***********抓取QQ数据出错***********");
+				}
 			}
 		}
 	}

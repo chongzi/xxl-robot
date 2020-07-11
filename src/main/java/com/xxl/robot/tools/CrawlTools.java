@@ -25,7 +25,7 @@ public class CrawlTools {
 
 
     /**
-     * todo QQ在线聊天数据爬取 8s 共 9s
+     * todo QQ在线聊天数据爬取 8s 共 3.2s
      */
     public static String QQCrawl(String windowName) {
         try {
@@ -34,21 +34,21 @@ public class CrawlTools {
             EmojiConverter emojiConverter = EmojiConverter.getInstance();
             boolean bool = WindowTools.initWindow(windowName);
             if (bool) {
-                robot.delay(1000);
+                robot.delay(600);
                 moveMouse(620, 180);
                 robot.mousePress(InputEvent.BUTTON1_MASK);
-                robot.delay(1000);
+                robot.delay(500);
                 robot.keyPress(KeyEvent.VK_CONTROL);
                 robot.keyPress(KeyEvent.VK_A);
-                robot.delay(2000);
+                robot.delay(500);
                 robot.keyPress(KeyEvent.VK_CONTROL);
                 robot.keyPress(KeyEvent.VK_C);
-                robot.delay(1000);
+                robot.delay(500);
                 robot.mouseRelease(InputEvent.BUTTON1_MASK);
-                robot.delay(1000);
+                robot.delay(500);
                 robot.keyRelease(KeyEvent.VK_CONTROL);
                 robot.keyRelease(KeyEvent.VK_A);
-                robot.delay(1000);
+                robot.delay(600);
                 robot.keyRelease(KeyEvent.VK_CONTROL);
                 robot.keyRelease(KeyEvent.VK_C);
                 String data = getClipboard();
