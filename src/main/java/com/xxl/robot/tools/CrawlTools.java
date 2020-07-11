@@ -60,7 +60,6 @@ public class CrawlTools {
 
             } else {
                 //调出相应的QQ标题窗口
-                for (int x = 1; x < 3; x++) {
                     robot.keyPress(KeyEvent.VK_CONTROL);
                     robot.keyPress(KeyEvent.VK_ALT);
                     robot.keyPress(KeyEvent.VK_Z);
@@ -68,7 +67,6 @@ public class CrawlTools {
                     robot.keyRelease(KeyEvent.VK_CONTROL);
                     robot.keyRelease(KeyEvent.VK_ALT);
                     robot.keyRelease(KeyEvent.VK_Z);
-                }
             }
         }catch (Exception e){
             log.info("QQCrawl----QQ信息抓取：｛｝");
@@ -165,13 +163,13 @@ public class CrawlTools {
                     try {
                         robot.delay(2000);
                         moveMouse(100, 63 * i);
-                        robot.delay(delayTime);
+                        robot.delay(delayTime*3);
                         robot.mousePress(InputEvent.BUTTON1_MASK);
-                        robot.delay(delayTime);
+                        robot.delay(delayTime*3);
                         robot.mouseRelease(InputEvent.BUTTON1_MASK);
                         //点击右边菜单对应内容窗口
                         robot.delay(delayTime*3);
-                        moveMouse(620, 180);
+                        moveMouse(620, 210);
                         robot.mousePress(InputEvent.BUTTON1_MASK);
                         robot.delay(delayTime*3);
                         robot.keyPress(KeyEvent.VK_CONTROL);
