@@ -20,8 +20,8 @@ public class ParttimeAgentDto {
 
     @ApiModelProperty(value = "主键ID")
     private Long id;
-    @ApiModelProperty(value="推广类型")
-    private String angentType;
+    @ApiModelProperty(value="种类")
+    private String kind;
     @ApiModelProperty(value="商家")
     private String business;
     @ApiModelProperty(value="推广链接")

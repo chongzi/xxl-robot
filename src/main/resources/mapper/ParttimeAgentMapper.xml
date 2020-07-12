@@ -5,13 +5,13 @@
 
 	<!-- 通用查询结果列 -->
 	<sql id="Base_Column_List">
-		id, angent_type, business,promotionLinks,popularize1,popularize2,popularize3,popularize4,popularize5,popularize6,pr,remark,enabled,create_date,tenant_code
+		id, kind, business,promotionLinks,popularize1,popularize2,popularize3,popularize4,popularize5,popularize6,pr,remark,enabled,create_date,tenant_code
 	</sql>
 
 	<!--返回MAP -->
 	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.ParttimeAgent">
 		<result column="id" property="id" />
-		<result column="angent_type" property="angentType" />
+		<result column="kind" property="kind" />
 		<result column="business" property="business" />
 		<result column="promotion_links" property="promotionLinks" />
 		<result column="popularize1" property="popularize1" />

@@ -1144,7 +1144,6 @@ public class RegionTools {
         list.add("深圳");
         list.add("罗湖");
         list.add("福田");
-        list.add("南山");
         list.add("宝安");
         list.add("龙岗");
         list.add("盐田");

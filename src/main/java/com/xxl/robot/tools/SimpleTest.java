@@ -19,6 +19,7 @@ public class SimpleTest {
             }
         }.start();
 
+        
         rb.delay(3000);
 
         // 设置开始菜单的大概位置

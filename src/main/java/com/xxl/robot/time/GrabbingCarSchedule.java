@@ -44,7 +44,7 @@ public class GrabbingCarSchedule {
      * 表示每隔3分钟获取数据一次
      * 至少大于1分钟
      */
-  @Scheduled(cron = "0 0/1 * * * ?")
+  //@Scheduled(cron = "0 0/1 * * * ?")
   //@Scheduled(cron = "0/30 * * * * ?")
    public void qqCrawl(){
        log.info("********************qqProces定时器启动**************************");
@@ -54,6 +54,16 @@ public class GrabbingCarSchedule {
 
 
 
+    /**
+     * todo qq自动发送
+     * 表示每隔3分钟获取数据一次
+     * 至少大于1分钟
+     */
+    @Scheduled(cron = "0/30 * * * * ?")
+    public void qqSend(){
+        log.info("********************qqSend自动发消息定时器启动**************************");
+        robotQqService.sendQQ();
+    }
 
 
 

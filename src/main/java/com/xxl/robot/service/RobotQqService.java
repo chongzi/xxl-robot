@@ -12,6 +12,12 @@ import java.util.List;
  */
 public interface RobotQqService extends IBaseService<RobotQqDto> {
 
+
+    /**
+     * QQ初始化
+     */
+    void initQQ();
+
     /**
      * 处理QQ信息入库
      * @param datas
@@ -38,5 +44,16 @@ public interface RobotQqService extends IBaseService<RobotQqDto> {
      * qq数据信息采集
      */
     void collectQQ();
+
+
+    /**
+     * QQ发送消息
+     */
+    void sendQQ();
+
+    /**
+     * QQ自动添加
+     */
+    void addQQ();
 
 }

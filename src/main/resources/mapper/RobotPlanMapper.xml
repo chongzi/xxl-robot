@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxl.auth.dao.RobotPlanMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		id, host, kind, cron, operate, enabled, remark
+	</sql>
+
+	<!--返回MAP -->
+	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.RobotPlan">
+	<result column="id" property="id"/>
+	<result column="host" property="host"/>
+	<result column="kind" property="kind"/>
+	<result column="cron" property="cron"/>
+	<result column="operate" property="operate"/>
+	<result column="enabled" property="enabled"/>
+	<result column="remark" property="remark"/>
+	</resultMap>
+
+</mapper>
