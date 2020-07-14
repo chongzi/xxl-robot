@@ -69,10 +69,10 @@ public class RobotPlanServiceImpl implements RobotPlanService {
 		Condition condition = new Condition(RobotPlan.class);
 		Condition.Criteria criteria = condition.createCriteria();
 		if(StringUtils.isNotBlank(dto.getRobotCode())){
-			criteria.andEqualTo("robot_code",dto.getRobotCode());
+			criteria.andEqualTo("robotCode",dto.getRobotCode());
 		}
 		if(null!=dto.getOperateType()){
-			criteria.andEqualTo("operate_type",dto.getOperateType());
+			criteria.andEqualTo("operateType",dto.getOperateType());
 		}
 		if(null!=dto.getEnabled()){
 			criteria.andEqualTo("enabled",dto.getEnabled());

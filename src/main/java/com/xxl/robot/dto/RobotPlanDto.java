@@ -24,7 +24,7 @@ public class RobotPlanDto {
 	private Long id;
 	@ApiModelProperty(value="机器人编号", required=true)
 	private String robotCode;
-	@ApiModelProperty(value="种类编码值")
+	@ApiModelProperty(value="定时器")
 	private String cron;
 	@ApiModelProperty(value="操作方式（0-QQ数据采集，1-QQ自动发送，2-QQ群、好友添加 ，3-微信采集，4-微信自动发送，5-微信添加）")
 	private Byte operateType;
