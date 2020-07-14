@@ -9,6 +9,7 @@ import com.xxl.robot.entity.RobotInfo;
 import com.xxl.robot.service.RobotInfoService;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Condition;
@@ -84,7 +85,18 @@ public class RobotInfoServiceImpl implements RobotInfoService {
 		if(StringUtils.isNotBlank(dto.getName())){
 			criteria.andEqualTo("name",dto.getName());
 		}
+		if(null!=dto.getEnabled()){
+			criteria.andEqualTo("enabled",dto.getEnabled());
+		}
+
 		return condition;
+	}
+
+	@Override
+	public RobotInfoDto selectByUnique(RobotInfoDto dto) {
+		RobotInfo entity = new RobotInfo();
+		BeanUtils.copyProperties(dto,entity);
+		return BeanTools.sourceToTarget(robotConfigMapper.selectOne(entity), RobotInfoDto.class);
 	}
 
 

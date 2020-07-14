@@ -13,6 +13,10 @@ import java.util.Map;
  * 配置表服务接口类接口
  */
 public interface RobotInfoService extends IBaseService<RobotInfoDto> {
+
+
+
+	RobotInfoDto selectByUnique(RobotInfoDto dto);
 	/**
 	 * 启用/禁用
 	 * @param id

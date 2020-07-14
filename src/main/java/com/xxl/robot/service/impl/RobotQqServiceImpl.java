@@ -5,13 +5,8 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xxl.common.tools.BeanTools;
 import com.xxl.robot.dao.RobotQqMapper;
-import com.xxl.robot.dto.CarSourceDto;
-import com.xxl.robot.dto.ParttimeAgentDto;
-import com.xxl.robot.dto.RobotPlanDto;
-import com.xxl.robot.dto.RobotQqDto;
-import com.xxl.robot.entity.RobotCode;
-import com.xxl.robot.entity.RobotPlan;
-import com.xxl.robot.entity.RobotQq;
+import com.xxl.robot.dto.*;
+import com.xxl.robot.entity.*;
 import com.xxl.robot.service.*;
 import com.xxl.robot.tools.CrawlTools;
 import com.xxl.robot.tools.HostTools;
@@ -45,12 +40,16 @@ public class RobotQqServiceImpl implements RobotQqService {
 	@Autowired
 	private RobotCodeService robotConfigService;
     @Autowired
-	private ParttimeAgentService parttimeAgentService;
-    @Autowired
 	private RobotPlanService robotPlanService;
     @Autowired
 	@Lazy
 	private CarSourceService carSourceService;
+    @Autowired
+	private RobotPopularizeService robotPopularizeService;
+	@Autowired
+	private RobotInfoService robotInfoService;
+
+
 
 	@Override
 	public RobotQqDto get(Long id) {
@@ -132,7 +131,7 @@ public class RobotQqServiceImpl implements RobotQqService {
 
 	@Async("taskExecutor")
 	@Override
-	public void handleQQ(RobotCode config, String data) {
+	public void handleQQ(RobotCode code, String data) {
 		List<RobotQq> robotQqs = new ArrayList<>();
 		String[] result = data.split(RegTools.TIME);
 		for(int i=0;i<result.length;i++){
@@ -140,9 +139,7 @@ public class RobotQqServiceImpl implements RobotQqService {
 			dto.setContent(result[i]);
 			dto.setEnabled((byte) 0);
 			dto.setCreateDate(new Date());
-			dto.setSourceType(config.getKind());
-			dto.setTenantCode(config.getTenantCode());
-			robotQqs.add(dto);
+  			robotQqs.add(dto);
 		}
 		robotQqs.stream().distinct().collect(Collectors.toList());
 
@@ -164,11 +161,11 @@ public class RobotQqServiceImpl implements RobotQqService {
 	public void collectQQ() {
 		List<RobotCode> configs = robotConfigService.queryDictionary("QQ_SOURCE_GROUP");
 		if(!CollectionUtils.isEmpty(configs)){
-			for(RobotCode config:configs){
-				logger.info("***********************打印config配置：{}"+JSON.toJSONString(config));
+			for(RobotCode robotCode:configs){
+				logger.info("***********************打印config配置：{}"+JSON.toJSONString(robotCode));
 				try {
-					String data = CrawlTools.QQCrawl(config.getNo());
-					handleQQ(config, data);
+					String data = CrawlTools.QQCrawl(robotCode.getName());
+					handleQQ(robotCode, data);
 				}catch (Exception e){
 					logger.info("***********抓取QQ数据出错***********");
 				}
@@ -179,17 +176,16 @@ public class RobotQqServiceImpl implements RobotQqService {
 	@Override
 	public void sendQQ() {
 		String host = HostTools.getHost();
-		RobotPlan plan = new RobotPlan();
-		plan.setEnabled((byte) 0);
-		plan.setHost(host);
-		plan.setOperate((byte) 1);
-		RobotPlanDto robotPlanDto = robotPlanService.selectByHostOperate(plan);
-		ParttimeAgentDto parttimeAgentDto = new ParttimeAgentDto();
-		parttimeAgentDto.setKind(robotPlanDto.getKind());
-		List<ParttimeAgentDto> dtos = parttimeAgentService.list(parttimeAgentDto);
+		RobotInfoDto robotInfoDto = new RobotInfoDto();
+		robotInfoDto.setEnabled((byte) 0);
+		robotInfoDto.setHost(host);
+		RobotInfoDto robotInfo = robotInfoService.selectByUnique(robotInfoDto);
+		RobotPopularizeDto robotPopularizeDto = new RobotPopularizeDto();
+		robotPopularizeDto.setServiceType(robotInfo.getServiceType());
+		List<RobotPopularizeDto> dtos = robotPopularizeService.list(robotPopularizeDto);
 		//需要发送的数据
         StringBuffer  sourceData = new StringBuffer();
-		if(StringUtils.isNotBlank(robotPlanDto.getKind())&&robotPlanDto.getKind().equals("租车")){
+		if(StringUtils.isNotBlank(robotInfo.getServiceType())&&robotInfo.getServiceType().equals("租车")){
 			CarSourceDto carSourceDto = new CarSourceDto();
 			List<CarSourceDto> carSourceDtos = carSourceService.list(carSourceDto);
 			if(!CollectionUtils.isEmpty(carSourceDtos)){
@@ -208,24 +204,24 @@ public class RobotQqServiceImpl implements RobotQqService {
 		}
         if(!CollectionUtils.isEmpty(dtos)){
 			int iRandom = (int)(1+(Math.random()*dtos.size()-1));
-			ParttimeAgentDto parttimeAgentDtoBean = dtos.get(iRandom);
-            if(StringUtils.isNotBlank(parttimeAgentDtoBean.getPopularize1())){
-				sourceData.append(parttimeAgentDtoBean.getPopularize1());
+			RobotPopularizeDto robotPopularizeDtoBean = dtos.get(iRandom);
+            if(StringUtils.isNotBlank(robotPopularizeDtoBean.getPopularize1())){
+				sourceData.append(robotPopularizeDtoBean.getPopularize1());
 			}
-			if(StringUtils.isNotBlank(parttimeAgentDtoBean.getPopularize2())){
-				sourceData.append(parttimeAgentDtoBean.getPopularize2());
+			if(StringUtils.isNotBlank(robotPopularizeDtoBean.getPopularize2())){
+				sourceData.append(robotPopularizeDtoBean.getPopularize2());
 			}
-			if(StringUtils.isNotBlank(parttimeAgentDtoBean.getPopularize3())){
-				sourceData.append(parttimeAgentDtoBean.getPopularize3());
+			if(StringUtils.isNotBlank(robotPopularizeDtoBean.getPopularize3())){
+				sourceData.append(robotPopularizeDtoBean.getPopularize3());
 			}
-			if(StringUtils.isNotBlank(parttimeAgentDtoBean.getPopularize4())){
-				sourceData.append(parttimeAgentDtoBean.getPopularize4());
+			if(StringUtils.isNotBlank(robotPopularizeDtoBean.getPopularize4())){
+				sourceData.append(robotPopularizeDtoBean.getPopularize4());
 			}
-			if(StringUtils.isNotBlank(parttimeAgentDtoBean.getPopularize5())){
-				sourceData.append(parttimeAgentDtoBean.getPopularize5());
+			if(StringUtils.isNotBlank(robotPopularizeDtoBean.getPopularize5())){
+				sourceData.append(robotPopularizeDtoBean.getPopularize5());
 			}
-			if(StringUtils.isNotBlank(parttimeAgentDtoBean.getPopularize6())){
-				sourceData.append(parttimeAgentDtoBean.getPopularize6());
+			if(StringUtils.isNotBlank(robotPopularizeDtoBean.getPopularize6())){
+				sourceData.append(robotPopularizeDtoBean.getPopularize6());
 			}
 
 		}
@@ -234,7 +230,7 @@ public class RobotQqServiceImpl implements RobotQqService {
 			for(RobotCode config:configs){
 				logger.info("***********************打印config配置：{}"+JSON.toJSONString(config));
 				try {
-					 SendTools.QQSend(config.getNo(),sourceData.toString());
+					 SendTools.QQSend(config.getName(),sourceData.toString());
 
 				}catch (Exception e){
 					logger.info("***********QQ数据自动发送出错***********");
