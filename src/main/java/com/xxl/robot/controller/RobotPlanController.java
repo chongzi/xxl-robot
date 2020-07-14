@@ -2,7 +2,9 @@ package com.xxl.robot.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.xxl.common.response.BaseResponse;
+import com.xxl.robot.dto.RobotPlanDto;
 import com.xxl.robot.dto.RobotQqDto;
+import com.xxl.robot.service.RobotPlanService;
 import com.xxl.robot.service.RobotQqService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,43 +19,43 @@ import java.util.List;
 public class RobotPlanController {
 
     @Autowired
-    private RobotQqService robotQqService;
+    private RobotPlanService robotPlanService;
 
     @GetMapping
     @ApiOperation("详情")
     public BaseResponse get(Long id) {
-        return BaseResponse.newSuccess(robotQqService.get(id));
+        return BaseResponse.newSuccess(robotPlanService.get(id));
     }
 
     @PostMapping
     @ApiOperation("新增")
-    public BaseResponse save(@RequestBody RobotQqDto dto) {
-        return BaseResponse.newSuccess(robotQqService.save(dto));
+    public BaseResponse save(@RequestBody RobotPlanDto dto) {
+        return BaseResponse.newSuccess(robotPlanService.save(dto));
     }
 
     @PutMapping
     @ApiOperation("更新")
-    public BaseResponse update(@RequestBody RobotQqDto dto) {
-        return BaseResponse.newSuccess(robotQqService.update(dto));
+    public BaseResponse update(@RequestBody RobotPlanDto dto) {
+        return BaseResponse.newSuccess(robotPlanService.update(dto));
     }
 
     @DeleteMapping
     @ApiOperation("删除")
     public BaseResponse delete(@RequestBody String ids) {
-        return BaseResponse.newSuccess(robotQqService.delete(ids));
+        return BaseResponse.newSuccess(robotPlanService.delete(ids));
     }
 
     @PostMapping("list")
     @ApiOperation("全部查询")
-    public BaseResponse list(@RequestBody RobotQqDto dto) {
-        List<RobotQqDto> dtos = robotQqService.list(dto);
+    public BaseResponse list(@RequestBody RobotPlanDto dto) {
+        List<RobotPlanDto> dtos = robotPlanService.list(dto);
         return BaseResponse.newSuccess(dtos);
     }
 
     @PostMapping("page")
     @ApiOperation("分页查询")
-    public BaseResponse page(@RequestBody RobotQqDto dto) {
-        PageInfo<RobotQqDto> pageInfo = robotQqService.page(dto,dto.getPageIndex(),dto.getPageSize());
+    public BaseResponse page(@RequestBody RobotPlanDto dto) {
+        PageInfo<RobotPlanDto> pageInfo = robotPlanService.page(dto,dto.getPageIndex(),dto.getPageSize());
         return BaseResponse.newSuccess(pageInfo.getList(), pageInfo.getTotal());
     }
 

@@ -1,8 +1,8 @@
 package com.xxl.robot.service;
 
 import com.xxl.common.service.IBaseService;
-import com.xxl.robot.dto.RobotConfigDto;
-import com.xxl.robot.entity.RobotConfig;
+import com.xxl.robot.dto.RobotCodeDto;
+import com.xxl.robot.entity.RobotCode;
 
 import java.util.List;
 import java.util.Map;
@@ -11,14 +11,14 @@ import java.util.Map;
  * 
  * 配置表服务接口类接口
  */
-public interface RobotConfigService extends IBaseService<RobotConfigDto> {
+public interface RobotCodeService extends IBaseService<RobotCodeDto> {
 
 	/**
 	 * 根据类型获取字典信息
 	 * @param codeType
 	 * @return
 	 */
-	List<RobotConfig> queryDictionary(String codeType);
+	List<RobotCode> queryDictionary(String codeType);
 
 	/**
 	 *

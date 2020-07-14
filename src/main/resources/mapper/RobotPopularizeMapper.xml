@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xxl.robot.dao.ParttimeAgentMapper">
+<mapper namespace="com.xxl.robot.dao.RobotPopularizeMapper">
 
 	<!-- 通用查询结果列 -->
 	<sql id="Base_Column_List">
-		id, kind, business,promotionLinks,popularize1,popularize2,popularize3,popularize4,popularize5,popularize6,pr,remark,enabled,create_date,tenant_code
+		id, service_type, business,promotionLinks,popularize1,popularize2,popularize3,popularize4,popularize5,popularize6,enabled
 	</sql>
 
 	<!--返回MAP -->
-	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.ParttimeAgent">
+	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.RobotPopularize">
 		<result column="id" property="id" />
-		<result column="kind" property="kind" />
+		<result column="service_type" property="serviceType" />
 		<result column="business" property="business" />
 		<result column="promotion_links" property="promotionLinks" />
 		<result column="popularize1" property="popularize1" />
@@ -20,11 +20,7 @@
 		<result column="popularize4" property="popularize4" />
 		<result column="popularize5" property="popularize5" />
 		<result column="popularize6" property="popularize6" />
-		<result column="pr" property="pr" />
-		<result column="remark" property="remark" />
 		<result column="enabled" property="enabled" />
-		<result column="create_date" property="createDate" />
-		<result column="tenant_code" property="tenantCode"/>
 	</resultMap>
 
 	

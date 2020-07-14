@@ -1,4 +1,4 @@
-package com.xxl.robot.entity;
+package com.xxl.robot.dto;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
@@ -9,18 +9,19 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
-@Api(tags="兼职-代理推广实体类")
+@Api(tags="推广实体类")
 @Data
-@Entity
-@Table(name="parttime_agent")
-public class ParttimeAgent {
+public class RobotPopularizeDto {
     private static final long serialVersionUID = 1L;
+    @ApiModelProperty(value="当前页码，默认是第一页 ")
+    private int pageIndex;
+    @ApiModelProperty(value="每页显示的记录数，默认是10 ，设置为“-1”表示不进行分页（分页无效）")
+    private int pageSize;
 
     @ApiModelProperty(value = "主键ID")
-    @Id
     private Long id;
-    @ApiModelProperty(value="种类")
-    private String kind;
+    @ApiModelProperty(value="服务类型")
+    private String serviceType;
     @ApiModelProperty(value="商家")
     private String business;
     @ApiModelProperty(value="推广链接")
@@ -37,15 +38,8 @@ public class ParttimeAgent {
     private String popularize5;
     @ApiModelProperty(value="推广语6")
     private String popularize6;
-    @ApiModelProperty(value="权重")
-    private int pr;
-    @ApiModelProperty(value="备注")
-    private String remark;
     @ApiModelProperty(value="开关")
     private Byte enabled;
-    @ApiModelProperty(value="创建时间")
-    private Date createDate;
-    @ApiModelProperty(value="租户")
-    private Long tenantCode;
+
 
 }

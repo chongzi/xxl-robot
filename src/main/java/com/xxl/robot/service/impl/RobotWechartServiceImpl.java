@@ -6,7 +6,7 @@ import com.xxl.common.tools.BeanTools;
 import com.xxl.robot.dao.RobotWechartMapper;
 import com.xxl.robot.dto.RobotWechartDto;
 import com.xxl.robot.entity.RobotWechart;
-import com.xxl.robot.service.RobotConfigService;
+import com.xxl.robot.service.RobotCodeService;
 import com.xxl.robot.service.RobotWechartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +23,7 @@ public class RobotWechartServiceImpl implements RobotWechartService {
 	@Autowired
 	private RobotWechartMapper robotWechartMapper;
 	@Autowired
-	private RobotConfigService robotConfigService;
+	private RobotCodeService robotConfigService;
 
 
 	@Override

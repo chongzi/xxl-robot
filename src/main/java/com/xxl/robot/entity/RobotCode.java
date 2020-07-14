@@ -9,31 +9,29 @@ import javax.persistence.Table;
 import java.util.Date;
 
 
-@Api(tags="配置表实体类")
+@Api(tags="数据字典表实体类")
 @Data
 @Entity
-@Table(name="robot_config")
-public class RobotConfig {
+@Table(name="robot_code")
+public class RobotCode {
 	private static final long serialVersionUID = 1L;
 
 	@ApiModelProperty(value = "主键ID")
 	@Id
 	private Long id;
 	@ApiModelProperty(value="编码值", required=true)
-	private String no;
+	private String code;
 	@ApiModelProperty(value="配置类型", required=true)
-	private String configType;
-	@ApiModelProperty(value="种类")
-	private String kind;
-	@ApiModelProperty(value="种类编码值")
-	private String kindNo;
+	private String codeType;
+	@ApiModelProperty(value="编码名")
+	private String name;
 	@ApiModelProperty(value="顺序号")
 	private Byte seq;
 	@ApiModelProperty(value="是否启用（0-启用，1-禁用）", required=true)
 	private Byte enabled;
 	@ApiModelProperty(value="备注")
 	private String remark;
-	@ApiModelProperty(value="租户")
-	private Long tenantCode;
+	@ApiModelProperty(value="创建时间")
+	private Date createDate;
 
 }

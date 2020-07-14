@@ -1,12 +1,12 @@
 package com.xxl.robot.dao;
 
 import com.xxl.common.dao.IBaseMapper;
-import com.xxl.robot.entity.RobotConfig;
+import com.xxl.robot.entity.RobotPopularize;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
  * 
- * 数据字典编码值定义表数据库操作接口类
+ * 司机表数据库操作接口类
  * <p style="display:none">modifyRecord</p>
  * <p style="display:none">version:V1.0,author:xuxuelei,date:2019-05-16 13:53:00, </p>
  * @author xuxuelei
@@ -20,5 +20,7 @@ import org.apache.ibatis.annotations.Mapper;
  *	http://www.xlxu.com
  */
 @Mapper
-public interface RobotConfigMapper extends IBaseMapper<RobotConfig> {
+public interface RobotPopularizeMapper extends IBaseMapper<RobotPopularize>{
+
+
 }

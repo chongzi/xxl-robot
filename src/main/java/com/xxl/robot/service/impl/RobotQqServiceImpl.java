@@ -9,7 +9,7 @@ import com.xxl.robot.dto.CarSourceDto;
 import com.xxl.robot.dto.ParttimeAgentDto;
 import com.xxl.robot.dto.RobotPlanDto;
 import com.xxl.robot.dto.RobotQqDto;
-import com.xxl.robot.entity.RobotConfig;
+import com.xxl.robot.entity.RobotCode;
 import com.xxl.robot.entity.RobotPlan;
 import com.xxl.robot.entity.RobotQq;
 import com.xxl.robot.service.*;
@@ -29,7 +29,6 @@ import tk.mybatis.mapper.entity.Condition;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
 
 /**
@@ -44,7 +43,7 @@ public class RobotQqServiceImpl implements RobotQqService {
 	@Autowired
 	private RobotQqMapper robotQqMapper;
 	@Autowired
-	private RobotConfigService robotConfigService;
+	private RobotCodeService robotConfigService;
     @Autowired
 	private ParttimeAgentService parttimeAgentService;
     @Autowired
@@ -105,7 +104,7 @@ public class RobotQqServiceImpl implements RobotQqService {
 
 	@Override
 	public void initQQ() {
-		List<RobotConfig> configs = robotConfigService.queryDictionary("QQ_SOURCE_GROUP");
+		List<RobotCode> configs = robotConfigService.queryDictionary("QQ_SOURCE_GROUP");
 
 	}
 
@@ -133,7 +132,7 @@ public class RobotQqServiceImpl implements RobotQqService {
 
 	@Async("taskExecutor")
 	@Override
-	public void handleQQ(RobotConfig config,String data) {
+	public void handleQQ(RobotCode config, String data) {
 		List<RobotQq> robotQqs = new ArrayList<>();
 		String[] result = data.split(RegTools.TIME);
 		for(int i=0;i<result.length;i++){
@@ -163,9 +162,9 @@ public class RobotQqServiceImpl implements RobotQqService {
 
 	@Override
 	public void collectQQ() {
-		List<RobotConfig> configs = robotConfigService.queryDictionary("QQ_SOURCE_GROUP");
+		List<RobotCode> configs = robotConfigService.queryDictionary("QQ_SOURCE_GROUP");
 		if(!CollectionUtils.isEmpty(configs)){
-			for(RobotConfig config:configs){
+			for(RobotCode config:configs){
 				logger.info("***********************打印config配置：{}"+JSON.toJSONString(config));
 				try {
 					String data = CrawlTools.QQCrawl(config.getNo());
@@ -230,9 +229,9 @@ public class RobotQqServiceImpl implements RobotQqService {
 			}
 
 		}
-		List<RobotConfig> configs = robotConfigService.queryDictionary("QQ_SOURCE_GROUP");
+		List<RobotCode> configs = robotConfigService.queryDictionary("QQ_SOURCE_GROUP");
 		if(!CollectionUtils.isEmpty(configs)){
-			for(RobotConfig config:configs){
+			for(RobotCode config:configs){
 				logger.info("***********************打印config配置：{}"+JSON.toJSONString(config));
 				try {
 					 SendTools.QQSend(config.getNo(),sourceData.toString());

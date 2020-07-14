@@ -5,20 +5,19 @@
 
 	<!-- 通用查询结果列-->
 	<sql id="Base_Column_List">
-		id, no, config_type,kind,kind_no, seq, enabled, remark,tenant_code
+		id, code, code_type,name, seq, enabled, remark,create_date
 	</sql>
 
 	<!--返回MAP -->
-	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.RobotConfig">
+	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.RobotCode">
 	<result column="id" property="id"/>
-	<result column="no" property="no"/>
-	<result column="config_type" property="configType"/>
-	<result column="kind" property="kind"/>
-	<result column="kind_no" property="kindNo"/>
+	<result column="code" property="code"/>
+	<result column="code_type" property="codeType"/>
+	<result column="name" property="name"/>
 	<result column="seq" property="seq"/>
 	<result column="enabled" property="enabled"/>
 	<result column="remark" property="remark"/>
-	<result column="tenant_code" property="tenantCode"/>
+	<result column="create_date" property="createDate"/>
 	</resultMap>
 
 </mapper>

@@ -1,12 +1,13 @@
 package com.xxl.robot.dao;
 
 import com.xxl.common.dao.IBaseMapper;
-import com.xxl.robot.entity.ParttimeAgent;
+import com.xxl.robot.entity.RobotCode;
+import com.xxl.robot.entity.RobotInfo;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
  * 
- * 司机表数据库操作接口类
+ * 数据字典编码值定义表数据库操作接口类
  * <p style="display:none">modifyRecord</p>
  * <p style="display:none">version:V1.0,author:xuxuelei,date:2019-05-16 13:53:00, </p>
  * @author xuxuelei
@@ -20,7 +21,5 @@ import org.apache.ibatis.annotations.Mapper;
  *	http://www.xlxu.com
  */
 @Mapper
-public interface ParttimeAgentMapper extends IBaseMapper<ParttimeAgent>{
-
-
+public interface RobotInfoMapper extends IBaseMapper<RobotInfo> {
 }
