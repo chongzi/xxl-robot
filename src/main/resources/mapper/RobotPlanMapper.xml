@@ -5,16 +5,18 @@
 
 	<!-- 通用查询结果列-->
 	<sql id="Base_Column_List">
-		id, host, kind, cron, operate, enabled, remark
+		id, robot_code,cron,operate_type,account,pwd,url,enabled,remark,create_date
 	</sql>
 
 	<!--返回MAP -->
 	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.RobotPlan">
 	<result column="id" property="id"/>
-	<result column="host" property="host"/>
-	<result column="kind" property="kind"/>
+	<result column="robot_code" property="robotCode"/>
 	<result column="cron" property="cron"/>
-	<result column="operate" property="operate"/>
+	<result column="operate_type" property="operateType"/>
+	<result column="account" property="account"/>
+	<result column="pwd" property="pwd"/>
+	<result column="url" property="url"/>
 	<result column="enabled" property="enabled"/>
 	<result column="remark" property="remark"/>
 	</resultMap>
