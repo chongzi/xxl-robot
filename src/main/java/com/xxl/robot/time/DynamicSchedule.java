@@ -1,119 +1,100 @@
 package com.xxl.robot.time;
 
-import com.xxl.robot.dto.RobotInfoDto;
-import com.xxl.robot.dto.RobotPlanDto;
-import com.xxl.robot.entity.RobotInfo;
-import com.xxl.robot.service.RobotInfoService;
-import com.xxl.robot.service.RobotPlanService;
-import com.xxl.robot.tools.HostTools;
-import io.lettuce.core.dynamic.support.ReflectionUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.xxl.robot.tools.BeanTimeTools;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.Trigger;
-import org.springframework.scheduling.TriggerContext;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.config.ScheduledTaskRegistrar;
-import org.springframework.scheduling.support.CronTrigger;
-import org.springframework.stereotype.Component;
-
-import java.lang.reflect.Method;
-import java.util.Date;
-import java.util.List;
+import org.springframework.scheduling.SchedulingException;
+import org.springframework.scheduling.TaskScheduler;
+import org.springframework.scheduling.config.TriggerTask;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ScheduledFuture;
 
 /**
  * todo 动态加载数据库执行定时器流程
  *
  *
  */
-@Component
-public class DynamicSchedule implements SchedulingConfigurer {
-    private static final Logger LOGGER = LoggerFactory.getLogger(DynamicSchedule.class);
 
-    @Autowired
-    private RobotInfoService robotInfoService;
-    @Autowired
-    private RobotPlanService robotPlanService;
+@Configuration
+public class DynamicSchedule implements SchedulingConfigurer {
+    private ScheduledTaskRegistrar taskRegistrar;
+    private Set<ScheduledFuture<?>> scheduledFutures = null;
+    private Map<String, ScheduledFuture<?>> taskFutures = new ConcurrentHashMap<>();
 
     @Override
-    public void configureTasks(ScheduledTaskRegistrar scheduledTaskRegistrar) {
-        RobotInfoDto robotInfoDto = new RobotInfoDto();
-        robotInfoDto.setHost(HostTools.getHost());
-        RobotInfoDto robotInfo = robotInfoService.selectByUnique(robotInfoDto);
-        RobotPlanDto robotPlanDto = new RobotPlanDto();
-        robotPlanDto.setEnabled((byte) 0);
-        if(null!=robotInfo){
-            robotPlanDto.setRobotCode(robotInfo.getRobotCode());
-        }
-        List<RobotPlanDto>  dtos = robotPlanService.list(robotPlanDto);
-
-        try {
-//            dtos.forEach(entity->{
-//                if(Byte.valueOf(entity.getOperateType()).equals("0")){
-//
-//                }
-                scheduledTaskRegistrar.addTriggerTask(
-                        //1.添加任务内容(Runnable)，可以为方法
-                        () ->{
-                            LOGGER.info("**************************定时器执行计划*************"+dtos.get(0).getCron());
-
-                        },
-                        //2.设置执行周期(Trigger)
-                        triggerContext -> {
-                            //2.3 返回执行周期(Date)
-                            return new CronTrigger(dtos.get(0).getCron()).nextExecutionTime(triggerContext);
-                        }
-                );
-//            });
-
-        }catch (Exception e){
-            LOGGER.info("**********************定时器执行出现异常:{}*********************"+e.toString());
-        }
+    public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {
+        this.taskRegistrar = taskRegistrar;
+        System.out.println(inited());
     }
 
+    @SuppressWarnings("unchecked")
+    private Set<ScheduledFuture<?>> getScheduledFutures() {
+        if (scheduledFutures == null) {
+            try {
+                // spring版本不同选用不同字段scheduledFutures
+                scheduledFutures = (Set<ScheduledFuture<?>>) BeanTimeTools.getProperty(taskRegistrar, "scheduledTasks");
+            } catch (NoSuchFieldException e) {
+                throw new SchedulingException("not found scheduledFutures field.");
+            }
+        }
+        return scheduledFutures;
+    }
 
+    /**
+     * 添加任务
+     */
+    public void addTriggerTask(String taskId, TriggerTask triggerTask) {
+        if (taskFutures.containsKey(taskId)) {
+            throw new SchedulingException("the taskId[" + taskId + "] was added.");
+        }
+        TaskScheduler scheduler = taskRegistrar.getScheduler();
+        ScheduledFuture<?> future = scheduler.schedule(triggerTask.getRunnable(), triggerTask.getTrigger());
+        getScheduledFutures().add(future);
+        taskFutures.put(taskId, future);
+    }
 
-//    /**
-//     * runnable
-//     * @param scheduleConfig
-//     * @return
-//     */
-//    private Runnable getRunnable(RobotPlanDto robotPlanDto){
-//        return new Runnable() {
-//            @Override
-//            public void run() {
-//                Class<?> clazz;
-//                try {
-//                    clazz = Class.forName(scheduleConfig.getClassName());
-//                    String className = lowerFirstCapse(clazz.getSimpleName());
-//                    Object bean = (Object) ApplicationContextHelper.getBean(className);
-//                    Method method = ReflectionUtils.findMethod(bean.getClass(), scheduleConfig.getMethod());
-//                    ReflectionUtils.invokeMethod(method, bean);
-//                } catch (ClassNotFoundException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        };
-//    }
-//
-//
-//    /**
-//     * Trigger
-//     * @param robotPlanDto
-//     * @return
-//     */
-//    private Trigger getTrigger(RobotPlanDto robotPlanDto){
-//        return new Trigger() {
-//            @Override
-//            public Date nextExecutionTime(TriggerContext triggerContext) {
-//                CronTrigger trigger = new CronTrigger(robotPlanDto.getCron());
-//                Date nextExec = trigger.nextExecutionTime(triggerContext);
-//                return nextExec;
-//            }
-//        };
-//
-//    }
+    /**
+     * 取消任务
+     */
+    public void cancelTriggerTask(String taskId) {
+        ScheduledFuture<?> future = taskFutures.get(taskId);
+        if (future != null) {
+            future.cancel(true);
+        }
+        taskFutures.remove(taskId);
+        getScheduledFutures().remove(future);
+    }
 
+    /**
+     * 重置任务
+     */
+    public void resetTriggerTask(String taskId, TriggerTask triggerTask) {
+        cancelTriggerTask(taskId);
+        addTriggerTask(taskId, triggerTask);
+    }
+
+    /**
+     * 任务编号
+     */
+    public Set<String> taskIds() {
+        return taskFutures.keySet();
+    }
+
+    /**
+     * 是否存在任务
+     */
+    public boolean hasTask(String taskId) {
+        return this.taskFutures.containsKey(taskId);
+    }
+
+    /**
+     * 任务调度是否已经初始化完成
+     */
+    public boolean inited() {
+        return this.taskRegistrar != null && this.taskRegistrar.getScheduler() != null;
+    }
 }
