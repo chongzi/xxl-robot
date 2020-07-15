@@ -88,9 +88,6 @@ public class CarSourceServiceImpl implements CarSourceService {
 		if(null!=dto.getRentType()){
 			criteria.andEqualTo("rentType",dto.getRentType());
 		}
-		if(null!=dto.getTenantCode()){
-			criteria.andEqualTo("tenantCode",dto.getTenantCode());
-		}
 
 		condition.orderBy("createDate").desc();
 

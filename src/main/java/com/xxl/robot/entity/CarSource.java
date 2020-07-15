@@ -42,8 +42,7 @@ public class CarSource {
     private Date createDate;
     @ApiModelProperty(value="备注")
     private String remark;
-    @ApiModelProperty(value="租户")
-    private Long tenantCode;
+
 
 
 

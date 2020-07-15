@@ -32,6 +32,7 @@ public class InitSchedule implements ApplicationRunner {
     /**
      * 程序启动完毕后,需要自启的任务
      */
+    
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
         LOGGER.info(" >>>>>> 项目启动完毕, 开启 => 需要自启的任务 开始!");
