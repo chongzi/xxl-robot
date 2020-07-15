@@ -20,6 +20,8 @@ public class CarSourceDto {
 
     @ApiModelProperty(value = "主键ID")
     private Long id;
+    @ApiModelProperty(value="机器人编号")
+    private String robotCode;
     @ApiModelProperty(value="状态(0-新增，1-接单中, 2-已接单，3-已过期，4-已取消)")
     private Byte stated;
     @ApiModelProperty(value="类型(0-人找车，1-车找人)")

@@ -6,16 +6,21 @@ import com.xxl.robot.entity.RobotInfo;
 import com.xxl.robot.service.RobotInfoService;
 import com.xxl.robot.service.RobotPlanService;
 import com.xxl.robot.tools.HostTools;
+import io.lettuce.core.dynamic.support.ReflectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.Trigger;
+import org.springframework.scheduling.TriggerContext;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 import org.springframework.scheduling.support.CronTrigger;
 import org.springframework.stereotype.Component;
 
+import java.lang.reflect.Method;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -45,25 +50,70 @@ public class DynamicSchedule implements SchedulingConfigurer {
         List<RobotPlanDto>  dtos = robotPlanService.list(robotPlanDto);
 
         try {
-            dtos.forEach(entity->{
+//            dtos.forEach(entity->{
+//                if(Byte.valueOf(entity.getOperateType()).equals("0")){
+//
+//                }
                 scheduledTaskRegistrar.addTriggerTask(
                         //1.添加任务内容(Runnable)，可以为方法
                         () ->{
-                            LOGGER.info("**************************定时器执行计划*************"+entity.getCron());
-
+                            LOGGER.info("**************************定时器执行计划*************"+dtos.get(0).getCron());
 
                         },
                         //2.设置执行周期(Trigger)
                         triggerContext -> {
                             //2.3 返回执行周期(Date)
-                            return new CronTrigger(entity.getCron()).nextExecutionTime(triggerContext);
+                            return new CronTrigger(dtos.get(0).getCron()).nextExecutionTime(triggerContext);
                         }
                 );
-            });
+//            });
 
         }catch (Exception e){
             LOGGER.info("**********************定时器执行出现异常:{}*********************"+e.toString());
         }
     }
+
+
+
+//    /**
+//     * runnable
+//     * @param scheduleConfig
+//     * @return
+//     */
+//    private Runnable getRunnable(RobotPlanDto robotPlanDto){
+//        return new Runnable() {
+//            @Override
+//            public void run() {
+//                Class<?> clazz;
+//                try {
+//                    clazz = Class.forName(scheduleConfig.getClassName());
+//                    String className = lowerFirstCapse(clazz.getSimpleName());
+//                    Object bean = (Object) ApplicationContextHelper.getBean(className);
+//                    Method method = ReflectionUtils.findMethod(bean.getClass(), scheduleConfig.getMethod());
+//                    ReflectionUtils.invokeMethod(method, bean);
+//                } catch (ClassNotFoundException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        };
+//    }
+//
+//
+//    /**
+//     * Trigger
+//     * @param robotPlanDto
+//     * @return
+//     */
+//    private Trigger getTrigger(RobotPlanDto robotPlanDto){
+//        return new Trigger() {
+//            @Override
+//            public Date nextExecutionTime(TriggerContext triggerContext) {
+//                CronTrigger trigger = new CronTrigger(robotPlanDto.getCron());
+//                Date nextExec = trigger.nextExecutionTime(triggerContext);
+//                return nextExec;
+//            }
+//        };
+//
+//    }
 
 }
