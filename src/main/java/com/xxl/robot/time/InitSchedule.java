@@ -21,9 +21,9 @@ import java.util.List;
  */
 @Component
 @Order(value = 1)
-public class ScheduledTaskRunner implements ApplicationRunner {
+public class InitSchedule implements ApplicationRunner {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ScheduledTaskRunner.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(InitSchedule.class);
 
     @Autowired
     private RobotInfoService robotInfoService;
