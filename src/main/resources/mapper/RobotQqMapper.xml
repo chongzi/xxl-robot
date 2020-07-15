@@ -5,20 +5,17 @@
 
 	<!-- 通用查询结果列 -->
 	<sql id="Base_Column_List">
-		id, source_type, content,ips,enabled,remark,create_date,update_date,tenant_code
+		id, robot_code, content, enabled, create_date,update_date
 	</sql>
 
 	<!--返回MAP -->
 	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.RobotQq">
 		<result column="id" property="id" />
-		<result column="source_type" property="sourceType" />
+		<result column="robot_code" property="robotCode" />
 		<result column="content" property="content" />
-		<result column="ips" property="ips" />
 		<result column="enabled" property="enabled" />
-		<result column="remark" property="remark" />
 		<result column="create_date" property="createDate" />
 		<result column="update_date" property="updateDate" />
-		<result column="tenant_code" property="tenantCode"/>
 	</resultMap>
 
 	
