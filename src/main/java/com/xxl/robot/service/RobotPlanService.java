@@ -23,5 +23,14 @@ public interface RobotPlanService extends IBaseService<RobotPlanDto> {
 	 */
 	RobotPlanDto selectByHostOperate(RobotPlan entity);
 
+	/**
+	 * todo 开启执行计划
+	 */
+	void handleTask(String condition, RobotPlanDto dto);
+
+	/**
+	 * todo 开启操作执行计划
+	 */
+	void handleTaskOperate(RobotPlanDto dto);
 
 }
