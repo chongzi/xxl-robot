@@ -158,13 +158,13 @@ public class RobotPlanServiceImpl implements RobotPlanService {
 		logger.info("*************定时器启动************"+dto.getCron() );
 		switch(dto.getOperateType()){
 			case 0 ://0-QQ数据采集
-				//robotQqService.collectQQ();
+				robotQqService.collectQQ();
 				break;
 			case 1 ://1-QQ自动发送
-				//robotQqService.sendQQ();
+				robotQqService.sendQQ();
 				break;
 			case 2 ://2-QQ群、好友添加
-				//robotQqService.addQQ();
+				robotQqService.addQQ();
 				break;
 			case 3 ://3-微信采集
 
