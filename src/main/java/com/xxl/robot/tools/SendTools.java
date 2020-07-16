@@ -1,6 +1,7 @@
 package com.xxl.robot.tools;
 
 import com.github.binarywang.java.emoji.EmojiConverter;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
@@ -29,6 +30,9 @@ public class SendTools {
      */
     public static void QQSend(String windowName,String dbData) {
         try {
+            if(StringUtils.isBlank(windowName)){
+                return;
+            }
             //点击左边菜单标题
             Robot robot = new Robot();
             EmojiConverter emojiConverter = EmojiConverter.getInstance();
