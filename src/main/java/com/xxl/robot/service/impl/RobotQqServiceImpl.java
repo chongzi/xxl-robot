@@ -131,11 +131,12 @@ public class RobotQqServiceImpl implements RobotQqService {
 
 	@Async("taskExecutor")
 	@Override
-	public void handleQQ(RobotCode code, String data) {
+	public void handleQQ(RobotInfoDto robotInfo, String data) {
 		List<RobotQq> robotQqs = new ArrayList<>();
 		String[] result = data.split(RegTools.TIME);
 		for(int i=0;i<result.length;i++){
 			RobotQq dto = new RobotQq();
+			dto.setRobotCode(robotInfo.getRobotCode());
 			dto.setContent(result[i]);
 			dto.setEnabled((byte) 0);
 			dto.setCreateDate(new Date());
@@ -159,13 +160,18 @@ public class RobotQqServiceImpl implements RobotQqService {
 
 	@Override
 	public void collectQQ() {
+		String host = HostTools.getHost();
+		RobotInfoDto robotInfoDto = new RobotInfoDto();
+		robotInfoDto.setEnabled((byte) 0);
+		robotInfoDto.setHost(host);
+		RobotInfoDto robotInfo = robotInfoService.selectByUnique(robotInfoDto);
 		List<RobotCode> configs = robotConfigService.queryDictionary("QQ_SOURCE_GROUP");
 		if(!CollectionUtils.isEmpty(configs)){
 			for(RobotCode robotCode:configs){
 				logger.info("***********************打印config配置：{}"+JSON.toJSONString(robotCode));
 				try {
 					String data = CrawlTools.QQCrawl(robotCode.getName());
-					handleQQ(robotCode, data);
+					handleQQ(robotInfo, data);
 				}catch (Exception e){
 					logger.info("***********抓取QQ数据出错***********");
 				}

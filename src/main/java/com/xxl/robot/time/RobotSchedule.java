@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
  * 汽车租赁方面微信，QQ数据爬取
  */
 @Component
-public class GrabbingCarSchedule {
-  private static final Logger log = LoggerFactory.getLogger(GrabbingCarSchedule.class);
+public class RobotSchedule {
+  private static final Logger log = LoggerFactory.getLogger(RobotSchedule.class);
 
     @Autowired
     private RobotQqService robotQqService;
@@ -30,7 +30,7 @@ public class GrabbingCarSchedule {
      * 表示每隔3分钟获取数据一次
      * 至少大于1分钟
      */
-   //@Scheduled(cron = "0 0/2 * * * ?")
+   @Scheduled(cron = "0 0/2 * * * ?")
     public void collectSource(){
         log.info("********************collectSource()方法源始数据采集信定时器启动**************************");
             carSourceService.analysisQQ();

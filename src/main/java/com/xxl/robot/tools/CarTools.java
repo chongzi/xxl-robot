@@ -1,7 +1,6 @@
 package com.xxl.robot.tools;
 
 import com.xxl.robot.enums.CarEnum;
-import com.xxl.robot.time.GrabbingCarSchedule;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.LoggerFactory;
 

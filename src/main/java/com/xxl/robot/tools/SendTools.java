@@ -61,7 +61,7 @@ public class SendTools {
                     robot.keyRelease(KeyEvent.VK_Z);
             }
         }catch (Exception e){
-            log.info("QQSend--QQ自动发送出现异常：{}");
+            log.info("QQSend--QQ自动发送出现异常,当前窗口windowName标题为：{}"+windowName);
             e.printStackTrace();
         }
     }

@@ -1,6 +1,7 @@
 package com.xxl.robot.service;
 
 import com.xxl.common.service.IBaseService;
+import com.xxl.robot.dto.RobotInfoDto;
 import com.xxl.robot.dto.RobotQqDto;
 import com.xxl.robot.entity.RobotCode;
 
@@ -30,7 +31,7 @@ public interface RobotQqService extends IBaseService<RobotQqDto> {
      * @param data
      * @return
      */
-    void handleQQ(RobotCode config, String data);
+    void handleQQ(RobotInfoDto robotInfo, String data);
 
 
     /**

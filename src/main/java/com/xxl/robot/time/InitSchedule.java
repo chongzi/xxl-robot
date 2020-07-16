@@ -12,6 +12,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class InitSchedule implements ApplicationRunner {
     /**
      * 程序启动完毕后,需要自启的任务
      */
-    
+
     @Override
     public void run(ApplicationArguments applicationArguments) throws Exception {
         LOGGER.info(" >>>>>> 项目启动完毕, 开启 => 需要自启的任务 开始!");
@@ -45,15 +46,13 @@ public class InitSchedule implements ApplicationRunner {
             robotPlanDto.setRobotCode(robotInfo.getRobotCode());
         }
         List<RobotPlanDto> dtos = robotPlanService.list(robotPlanDto);
-
-        try {
-            dtos.forEach((entity)->{
-                robotPlanService.handleTask("update",entity);
-            });
-
-        }catch (Exception e){
-            LOGGER.info("**********************定时器执行出现异常:{}*********************"+e.toString());
+        if(!CollectionUtils.isEmpty(dtos)){
+            for(RobotPlanDto dto :dtos){
+                robotPlanService.handleTask("update",dto);
+            }
         }
+
+
         LOGGER.info(" >>>>>> 项目启动完毕, 开启 => 需要自启的任务 结束！");
     }
 }
