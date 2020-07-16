@@ -44,14 +44,13 @@ public class InitSchedule implements ApplicationRunner {
         robotPlanDto.setEnabled((byte) 0);
         if(null!=robotInfo){
             robotPlanDto.setRobotCode(robotInfo.getRobotCode());
-        }
-        List<RobotPlanDto> dtos = robotPlanService.list(robotPlanDto);
-        if(!CollectionUtils.isEmpty(dtos)){
-            for(RobotPlanDto dto :dtos){
-                robotPlanService.handleTask("update",dto);
+            List<RobotPlanDto> dtos = robotPlanService.list(robotPlanDto);
+            if(!CollectionUtils.isEmpty(dtos)){
+                for(RobotPlanDto dto :dtos){
+                    robotPlanService.handleTask("update",dto);
+                }
             }
         }
-
 
         LOGGER.info(" >>>>>> 项目启动完毕, 开启 => 需要自启的任务 结束！");
     }
