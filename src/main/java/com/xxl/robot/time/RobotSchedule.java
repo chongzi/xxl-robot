@@ -30,7 +30,7 @@ public class RobotSchedule {
      * 表示每隔3分钟获取数据一次
      * 至少大于1分钟
      */
-   @Scheduled(cron = "0 0/2 * * * ?")
+   @Scheduled(cron = "0 0/1 * * * ?")
     public void collectSource(){
         log.info("********************collectSource()方法源始数据采集信定时器启动**************************");
             carSourceService.analysisQQ();
