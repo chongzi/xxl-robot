@@ -42,6 +42,11 @@ public interface RobotQqService extends IBaseService<RobotQqDto> {
     int doEnabled(Long id);
 
     /**
+     * 删除数据
+     */
+    void deleteQQ();
+
+    /**
      * qq数据信息采集
      */
     void collectQQ();
@@ -56,5 +61,6 @@ public interface RobotQqService extends IBaseService<RobotQqDto> {
      * QQ自动添加
      */
     void addQQ();
+
 
 }

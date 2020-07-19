@@ -101,6 +101,16 @@ public class RobotQqServiceImpl implements RobotQqService {
 		return condition;
 	}
 
+
+	@Override
+	public void deleteQQ() {
+		RobotQqDto dto = new RobotQqDto();
+		dto.setEnabled((byte) 1);
+		robotQqMapper.deleteByCondition(getCondition(dto));
+	}
+
+
+
 	@Override
 	public void initQQ() {
 		List<RobotCode> configs = robotConfigService.queryDictionary("QQ_SOURCE_GROUP");
@@ -157,6 +167,7 @@ public class RobotQqServiceImpl implements RobotQqService {
 		}
 		return 0;
 	}
+
 
 	@Override
 	public void collectQQ() {
