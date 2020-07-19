@@ -101,14 +101,14 @@ public class CarSourceServiceImpl implements CarSourceService {
 	}
 
 
-	public CarSource getCarSource(RobotInfoDto robotInfo, String rowData) {
+	public CarSource getCarSource(String robotCode, String rowData) {
 		try {
 			CarSource carSource = new CarSource();
 
             Map<String,Object> map = CarTools.analysis(rowData);
             if(null!=map) {
 				carSource.setStated((byte) 0);
-				carSource.setRobotCode(robotInfo.getRobotCode());
+				carSource.setRobotCode(robotCode);
 				carSource.setRentType(Byte.valueOf(String.valueOf(map.get("type"))));
  				carSource.setStartTime(String.valueOf(map.get("startTime")));
 				carSource.setMobile((String) map.get("mobile"));
@@ -134,18 +134,12 @@ public class CarSourceServiceImpl implements CarSourceService {
 	@Async("taskExecutor")
 	@Override
 	public void analysisQQ(){
-		String host = HostTools.getHost();
-		RobotInfoDto robotInfoDto = new RobotInfoDto();
-		robotInfoDto.setEnabled((byte) 0);
-		robotInfoDto.setHost(host);
-		RobotInfoDto robotInfo = robotInfoService.selectByUnique(robotInfoDto);
-
 		RobotQqDto dto = new RobotQqDto();
 		dto.setEnabled((byte) 0);
 		List<RobotQqDto> list = RobotQqService.list(dto);
 		if(!CollectionUtils.isEmpty(list)){
 			for(RobotQqDto vo:list){
-				CarSource carSource = getCarSource(robotInfo, vo.getContent());
+				CarSource carSource = getCarSource(vo.getRobotCode(), vo.getContent());
 				try {
 					int i = carSourceMapper.insert(carSource);
 					speedWebsocket(carSource);
