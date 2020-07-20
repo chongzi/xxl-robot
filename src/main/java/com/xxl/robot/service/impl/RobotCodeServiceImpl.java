@@ -75,6 +75,9 @@ public class RobotCodeServiceImpl implements RobotCodeService {
 			criteria.andLike("codeType",dto.getCodeType());
 		}
 		if(StringUtils.isNotBlank(dto.getCode())){
+			criteria.andEqualTo("robotCode",dto.getRobotCode());
+		}
+		if(StringUtils.isNotBlank(dto.getCode())){
 			criteria.andEqualTo("code",dto.getCode());
 		}
 		if(StringUtils.isNotBlank(dto.getName())){
@@ -117,6 +120,16 @@ public class RobotCodeServiceImpl implements RobotCodeService {
 			}
 		}
 		return robotConfigMapper.updateByPrimaryKey(entity);
+	}
+
+	@Override
+	public List<RobotCode> queryRobotCode(String robotCode, String codeType) {
+		RobotCode RobotCode = new RobotCode();
+		RobotCode.setCodeType(codeType);
+		RobotCode.setEnabled((byte) 0);
+		RobotCode.setRobotCode(robotCode);
+		List<com.xxl.robot.entity.RobotCode> beans = robotConfigMapper.select(RobotCode);
+		return beans;
 	}
 
 

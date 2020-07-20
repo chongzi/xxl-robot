@@ -37,4 +37,13 @@ public interface RobotCodeService extends IBaseService<RobotCodeDto> {
 	int doEnabled(Long id);
 
 
+	/**
+	 * 根据类型获取字典信息
+ * 	 * @param robotCode
+	 * @param codeType
+	 * @return
+	 */
+	List<RobotCode> queryRobotCode(String robotCode, String codeType);
+
+
 }

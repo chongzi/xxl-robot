@@ -5,12 +5,13 @@
 
 	<!-- 通用查询结果列-->
 	<sql id="Base_Column_List">
-		id, code, code_type,name, seq, enabled, remark,create_date
+		id, robot_code, code, code_type,name, seq, enabled, remark,create_date
 	</sql>
 
 	<!--返回MAP -->
 	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.RobotCode">
 	<result column="id" property="id"/>
+	<result column="robot_code" property="robotCode"/>
 	<result column="code" property="code"/>
 	<result column="code_type" property="codeType"/>
 	<result column="name" property="name"/>

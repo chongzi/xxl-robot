@@ -17,6 +17,8 @@ public class RobotCodeDto {
 
 	@ApiModelProperty(value = "主键ID")
 	private Long id;
+	@ApiModelProperty(value="机器人编码", required=true)
+	private String robotCode;
 	@ApiModelProperty(value="编码值", required=true)
 	private String code;
 	@ApiModelProperty(value="编码类型", required=true)

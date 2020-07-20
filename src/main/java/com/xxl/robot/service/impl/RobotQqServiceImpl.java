@@ -176,7 +176,7 @@ public class RobotQqServiceImpl implements RobotQqService {
 		robotInfoDto.setEnabled((byte) 0);
 		robotInfoDto.setHost(host);
 		RobotInfoDto robotInfo = robotInfoService.selectByUnique(robotInfoDto);
-		List<RobotCode> configs = robotConfigService.queryDictionary("QQ_SOURCE_GROUP");
+		List<RobotCode> configs = robotConfigService.queryRobotCode(robotInfo.getRobotCode(),"QQ_SOURCE_GROUP");
 		if(!CollectionUtils.isEmpty(configs)){
 			for(RobotCode robotCode:configs){
 				logger.info("***********************打印config配置：{}"+JSON.toJSONString(robotCode));
