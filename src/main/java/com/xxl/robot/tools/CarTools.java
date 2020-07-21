@@ -5,6 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -57,6 +58,17 @@ public class CarTools {
 
            //时间
            LocalDate today = LocalDate.now();
+           int year = today.getYear();
+           String expiredTime = year+"/";
+           if(rowData.contains(expiredTime)){
+               //表明有可能上过期时间
+               String newToday =  rowData.substring(rowData.indexOf(expiredTime),rowData.length()).replaceAll("/","-").trim();
+               if(newToday.length()<10){
+                   newToday = newToday.replaceAll(year+"-",year+"-0");
+               }
+               LocalDate startDate =  LocalDate.parse(newToday, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+               today = startDate;
+           }
            if (rowData.contains(CarEnum.POINT.getCode())) {
                //解析几点转时间
                String times = rowData.substring(rowData.indexOf(CarEnum.POINT.getCode()) - 2, rowData.indexOf(CarEnum.POINT.getCode()));
@@ -153,6 +165,15 @@ public class CarTools {
            if (rowData.contains(CarEnum.POSITION.getCode())) {
                try{
                    String personNumbers = rowData.substring(rowData.indexOf(CarEnum.POSITION.getCode())-1, rowData.indexOf(CarEnum.POSITION.getCode()));
+                   personNumber = numberAccount(personNumbers);
+               }catch (Exception e){};
+           }
+
+           if (rowData.contains(CarEnum.PERSON.getCode())) {
+               int index=rowData.indexOf(CarEnum.PERSON.getCode());
+               index=rowData.indexOf(CarEnum.PERSON.getCode(), index+1);
+               try{
+                   String personNumbers = rowData.substring(index-1, index);
                    personNumber = numberAccount(personNumbers);
                }catch (Exception e){};
            }
@@ -325,13 +346,17 @@ public class CarTools {
     //******************************************************************
 
     public static void main(String[] args){
-        String str = " 车找人: 预约6月30号（明天）上午上海回宿迁，豪华七座商务车，空间大，乘坐舒适，需要提前电话13951361868（微信同号），开车不方便看微信，请打电话给我握手][握手] 华哥";
+        String str = "\n" +
+                "车找人，今天20号下午5一7点左右从苏州吴江无锡江阴回沭阳，能带3人，请联系13646131668，开车不便看信息，请打电话，搬家带货都可以，包车随时可以出发，谢谢合作，每天早上5一7点沭阳去苏州，\n" +
+                "\n" +
+                "林中人 2020/7/20 ";
          Map<String,Object> obj = analysis(str);
 
         System.out.println("to:{}"+ obj.get("to"));
         System.out.println("from:{}"+ obj.get("from"));
         System.out.println("mobile:{}"+ obj.get("mobile"));
         System.out.println("startTime:{}"+ obj.get("startTime"));
+        System.out.println("personNumber:{}"+ obj.get("personNumber"));
      }
 
 
