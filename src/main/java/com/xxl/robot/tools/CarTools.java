@@ -178,6 +178,13 @@ public class CarTools {
                }catch (Exception e){};
            }
 
+           if (rowData.contains(CarEnum.PERSON.getCode())) {
+               try{
+                   String personNumbers = rowData.substring(rowData.indexOf(CarEnum.POSITION.getCode())-1, rowData.indexOf(CarEnum.POSITION.getCode()));
+                   personNumber = numberAccount(personNumbers);
+               }catch (Exception e){};
+           }
+
 
            String mobile = StringTools.getMobile(rowData);
 

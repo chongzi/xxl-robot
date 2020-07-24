@@ -12,6 +12,7 @@ import com.xxl.robot.service.RobotInfoService;
 import com.xxl.robot.service.RobotQqService;
 import com.xxl.robot.service.CarSourceService;
 import com.xxl.robot.tools.CarTools;
+import com.xxl.robot.tools.DateTools;
 import com.xxl.robot.tools.HostTools;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -83,6 +84,30 @@ public class CarSourceServiceImpl implements CarSourceService {
 		return pageInfo;
 	}
 
+
+	@Override
+	public PageInfo<CarSourceDto> subPage(CarSourceDto dto, int pageIndex, int pageSize) {
+		PageHelper.startPage(pageIndex, pageSize);
+		dto.setRentType((byte) 1);
+		if(dto.getCarSourceId()>0L){
+			CarSource carSource= carSourceMapper.selectByPrimaryKey(dto.getCarSourceId());
+			String startTime = carSource.getStartTime();
+			Date date = DateTools.stringToDate(startTime,DateTools.DATE_TIME_PATTERN);
+
+			Date planStartTime = DateTools.addDateHours(date,-2);
+			Date planEndTime = DateTools.addDateHours(date,2);
+
+			dto.setPlanStartDate(DateTools.format(planStartTime,DateTools.DATE_TIME_PATTERN));
+			dto.setPlanEndDate((DateTools.format(planEndTime,DateTools.DATE_TIME_PATTERN)));
+			dto.setToPlace(carSource.getToPlace());
+			dto.setFromPlace(carSource.getFromPlace());
+		}
+		List<CarSourceDto> beans = BeanTools.sourceToTarget(carSourceMapper.selectByCondition(getCondition(dto)),CarSourceDto.class);
+
+		PageInfo<CarSourceDto> pageInfo = new PageInfo<>(beans);
+		return pageInfo;
+	}
+
 	private Condition getCondition(CarSourceDto dto){
 		Condition condition = new Condition(CarSource.class);
 		Condition.Criteria criteria = condition.createCriteria();
@@ -92,8 +117,27 @@ public class CarSourceServiceImpl implements CarSourceService {
 		if(null!=dto.getRentType()){
 			criteria.andEqualTo("rentType",dto.getRentType());
 		}
+		if(null!=dto.getMobile()){
+			criteria.andEqualTo("mobile",dto.getMobile());
+		}
 
-		condition.orderBy("createDate").desc();
+		if(null!=dto.getToPlace()){
+			criteria.andEqualTo("toPlace",dto.getToPlace());
+		}
+		if(null!=dto.getFromPlace()){
+			criteria.andEqualTo("fromPlace",dto.getFromPlace());
+		}
+
+		if(null!=dto.getPlanStartDate()){
+			criteria.andCondition("start_time >= '"+dto.getPlanStartDate()+"'");
+		}
+
+		if(null!=dto.getPlanEndDate()){
+			criteria.andCondition("start_time <= '"+dto.getPlanEndDate()+"'");
+		}
+
+
+		condition.orderBy("startTime").desc();
 
 
 

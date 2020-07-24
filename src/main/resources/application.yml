@@ -1,5 +1,5 @@
 server:
-  port: 883
+  port: 885
   servlet:
     context-path: /robot
 
@@ -20,7 +20,7 @@ mybatis:
 eureka:
   client:
     service-url:
-      #defaultZone: http://47.92.205.190:880/eureka
+       #defaultZone: http://47.92.205.190:880/eureka
       defaultZone: http://localhost:880/eureka
   instance:
     prefer-ip-address: true
@@ -28,4 +28,4 @@ eureka:
 
 logging:
   level:
-    com.xxl.robot.mapper: trace
+    com.xxl.robot.dao: debug

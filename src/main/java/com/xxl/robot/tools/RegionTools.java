@@ -242,7 +242,7 @@ public class RegionTools {
         list.add("庆元");
         list.add("龙泉");
         //安徽省
-        list.add("安徽");
+        /**    list.add("安徽");
         list.add("合肥");
         list.add("瑶海");
         list.add("庐阳");
@@ -1370,7 +1370,7 @@ public class RegionTools {
 
 
 
-        list.add("海南");
+       list.add("海南");
         list.add("海口");
         list.add("秀英");
         list.add("龙华");
@@ -1627,7 +1627,7 @@ public class RegionTools {
         list.add("越西");
         list.add("甘洛");
         list.add("美姑");
-        list.add("雷波");
+        list.add("雷波");**/
 
 
         if(list.contains(code)){

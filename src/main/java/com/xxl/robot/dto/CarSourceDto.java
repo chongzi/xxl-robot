@@ -51,6 +51,12 @@ public class CarSourceDto {
     @ApiModelProperty(value="智能数量")
     private Integer robotNum;
 
+    @ApiModelProperty(value="开始时间")
+    private String planStartDate;
+    @ApiModelProperty(value="结束时间")
+    private String planEndDate;
+
+    private Long carSourceId;
 
 
 
