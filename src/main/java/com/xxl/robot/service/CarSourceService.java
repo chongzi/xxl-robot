@@ -1,5 +1,6 @@
 package com.xxl.robot.service;
 
+import com.github.pagehelper.PageInfo;
 import com.xxl.common.service.IBaseService;
 import com.xxl.robot.dto.CarSourceDto;
 import com.xxl.robot.entity.CarSource;
@@ -20,5 +21,9 @@ public interface CarSourceService extends IBaseService<CarSourceDto> {
      * @param dto
      */
     void speedWebsocket(CarSource dto);
+
+
+    PageInfo<CarSourceDto> subPage(CarSourceDto dto, int pageIndex, int pageSize);
+
 
 }

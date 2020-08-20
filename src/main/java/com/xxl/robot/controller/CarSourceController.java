@@ -58,5 +58,12 @@ public class CarSourceController {
     }
 
 
+    @PostMapping("subPage")
+    @ApiOperation("子分页查询")
+    public BaseResponse subPage(@RequestBody CarSourceDto dto) {
+        PageInfo<CarSourceDto> pageInfo = carSourceService.subPage(dto,dto.getPageIndex(),dto.getPageSize());
+        return BaseResponse.newSuccess(pageInfo.getList(), pageInfo.getTotal());
+    }
+
 
 }

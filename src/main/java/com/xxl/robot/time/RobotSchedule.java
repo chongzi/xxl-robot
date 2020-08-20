@@ -33,7 +33,7 @@ public class RobotSchedule {
      * 表示每隔3分钟获取数据一次
      * 至少大于1分钟
      */
-   ///@Scheduled(cron = "0 0/3 * * * ?")
+   //@Scheduled(cron = "0 0/3 * * * ?")
     public void collectSource(){
         log.info("********************collectSource()方法源始数据采集信定时器启动**************************");
             carSourceService.analysisQQ();
@@ -46,7 +46,7 @@ public class RobotSchedule {
      * 表示每隔30分钟获取数据一次
      * 至少大于1分钟
      */
-     //@Scheduled(cron = "0 0/10 * * * ?")
+     @Scheduled(cron = "0 0/20 * * * ?")
     public void deleteQQSource(){
         log.info("********************deleteQQSource()方法删除QQ爬取来的数据定时器启动**************************");
           robotQqService.deleteQQ();
