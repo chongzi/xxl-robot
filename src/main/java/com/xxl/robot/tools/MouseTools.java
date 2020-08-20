@@ -13,6 +13,34 @@ import javax.swing.ImageIcon;
 public class MouseTools {
 
     /**
+     * todo 常规操作(传过来数据 点击输入并回车操作)
+     *
+     */
+    public static void normalEvent(String operateData){
+        try {
+            //点击左边菜单标题
+            Robot robot = new Robot();
+            robot.delay(2000);
+            ClipboardTools.setClipboard(operateData);
+            robot.mousePress(InputEvent.BUTTON1_MASK);
+            robot.delay(100);
+            robot.mouseRelease(InputEvent.BUTTON1_MASK);
+            robot.delay(100);
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_V);
+            robot.delay(100);
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.delay(200);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+            robot.keyRelease(KeyEvent.VK_V);
+            robot.keyRelease(KeyEvent.VK_ENTER);
+
+        }catch (Exception e){
+
+        }
+    }
+
+    /**
      * 鼠标单击（左击）,要双击就连续调用
      *
      * @param r
@@ -137,5 +165,8 @@ public class MouseTools {
         ImageIcon icon = new ImageIcon(fullScreenImage);
         return icon;
     }
+
+
+
 
 }

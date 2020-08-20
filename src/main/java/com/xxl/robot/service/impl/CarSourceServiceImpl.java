@@ -172,7 +172,9 @@ public class CarSourceServiceImpl implements CarSourceService {
 		entity.setCount1(count1);
 		entity.setTotalNum(count0+count1);
 		entity.setRobotNum(count0);
-		template.convertAndSend("/topic/notice", entity);
+		if(entity.getRentType().equals(Byte.valueOf("0"))){
+			template.convertAndSend("/topic/notice", entity);
+		}
 
 
 	}
