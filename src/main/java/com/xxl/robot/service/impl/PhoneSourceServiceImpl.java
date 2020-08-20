@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Condition;
 
+import java.awt.*;
 import java.util.List;
 
 /**
@@ -31,25 +32,46 @@ public class PhoneSourceServiceImpl implements PhoneSourceService {
 
 	@Override
 	public void handleRobot1() {
-		log.info("0.调取CMD窗口");
-		try{
-		   Runtime.getRuntime().exec("cmd /k start cmd.exe /k ");
-	    }catch (Exception e){}
+		try {
+			Robot robot = new Robot();
 
-		log.info("1.进入adb shell连接手机命令");
-		String operateData1 = "adb shell";
-		MouseTools.normalEvent(operateData1);
-		sleep(6000);
-		log.info("2.打开app所在集合窗口");
-		PhoneCodeDto dto2 = phoneCodeService.getUnique("phone001","点点新闻","window");
-		String operateData2 = "input tap "+ dto2.getPositionX() +" " +dto2.getPositionY();
-		MouseTools.normalEvent(operateData2);
-		sleep(6000);
-		log.info("3.打开app程序");
-		PhoneCodeDto dto3 = phoneCodeService.getUnique("phone001","点点新闻","window");
-		String operateData3 = "input tap "+ dto3.getPositionX() +" " +dto3.getPositionY();
-		MouseTools.normalEvent(operateData3);
+			log.info("0.调取CMD窗口");
+			try {
+				Runtime.getRuntime().exec("cmd /k start cmd.exe /k ");
+			} catch (Exception e) {
+			}
 
+			log.info("1.进入adb shell连接手机命令");
+			String operateData1 = "adb shell";
+			MouseTools.normalEvent(robot,operateData1);
+
+			log.info("2.打开app所在集合窗口");
+			PhoneCodeDto dto2 = phoneCodeService.getUnique("phone001", "点点新闻", "window");
+			String operateData2 = "input tap " + dto2.getPositionX() + " " + dto2.getPositionY();
+			MouseTools.normalEvent(robot,operateData2);
+
+			log.info("3.打开app程序");
+			PhoneCodeDto dto3 = phoneCodeService.getUnique("phone001", "点点新闻", "初始化");
+			String operateData3 = "input tap " + dto3.getPositionX() + " " + dto3.getPositionY();
+			MouseTools.normalEvent(robot, operateData3);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		}catch (Exception e){
+
+		}
 	}
 
 
