@@ -9,6 +9,7 @@ import com.xxl.robot.entity.PhoneCode;
 import com.xxl.robot.service.PhoneCodeService;
 import com.xxl.robot.service.PhoneSourceService;
 import com.xxl.robot.service.RobotInfoService;
+import com.xxl.robot.tools.AdbTools;
 import com.xxl.robot.tools.MouseTools;
 import com.xxl.robot.tools.RandomTools;
 import org.slf4j.LoggerFactory;
@@ -36,7 +37,7 @@ public class PhoneSourceServiceImpl implements PhoneSourceService {
 	public void handleRobot1() {
 		try {
 			Robot robot = new Robot();
-
+			robot.delay(6000);
 			log.info("1.调取CMD窗口");
 			try {
 				//Runtime.getRuntime().exec("cmd /k start cmd.exe /k ");
@@ -49,24 +50,35 @@ public class PhoneSourceServiceImpl implements PhoneSourceService {
 			MouseTools.normalEvent(robot,operateData2);
 
 			log.info("3.打开初始化app程序");
+			robot.delay(2000);
 			PhoneCodeDto dto3 = phoneCodeService.getUnique("phone001", "点点新闻", "init");
 			String operateData3 = "adb shell input tap " + dto3.getPositionX() + " " + dto3.getPositionY();
 			MouseTools.normalEvent(robot, operateData3);
 
-			for(int i=0;i<6;i++){
+			for(int i=0;i<30;i++){
 				log.info("4.看新闻");
 				//点击 tap
 				PhoneCodeDto dto4 = phoneCodeService.getUnique("phone001", "点点新闻", "看新闻");
 				String operateData4 = "adb shell input tap " + dto4.getPositionX() + " " + dto4.getPositionY();
 				MouseTools.normalEvent(robot, operateData4);
 
-				for(int y=0;y<6;y++) {
-
-					if(y==6){
+				for(int y=0;y<12;y++) {
+					//向下滑动
+					String operateData6 = AdbTools.down();
+					MouseTools.normalEvent(robot, operateData6);
+					if(y>9){
+						String operateData7 = AdbTools.up();
+						MouseTools.normalEvent(robot, operateData7);
+					}
+					if(y==11){
 						//点击 tap
-						PhoneCodeDto dto6 = phoneCodeService.getUnique("phone001", "点点新闻", "返回");
-						String operateData6 = "adb shell input tap " + dto6.getPositionX() + " " + dto6.getPositionY();
-						MouseTools.normalEvent(robot, operateData6);
+						String operateData8 = "adb shell input keyevent BACK";
+						MouseTools.normalEvent(robot, operateData8);
+						MouseTools.normalEvent(robot, operateData8);
+						MouseTools.normalEvent(robot, operateData8);
+
+						String operateData12 = AdbTools.down();
+						MouseTools.normalEvent(robot, operateData12);
 					}
 				}
 
