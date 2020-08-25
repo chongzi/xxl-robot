@@ -63,6 +63,7 @@ public class PhoneSourceServiceImpl implements PhoneSourceService {
 				MouseTools.normalEvent(robot, operateData4);
 
 				for(int y=0;y<12;y++) {
+					log.info("5.滑动");
 					//向下滑动
 					String operateData6 = AdbTools.down();
 					MouseTools.normalEvent(robot, operateData6);
@@ -71,14 +72,7 @@ public class PhoneSourceServiceImpl implements PhoneSourceService {
 						MouseTools.normalEvent(robot, operateData7);
 					}
 					if(y==11){
-						//点击 tap
-						String operateData8 = "adb shell input keyevent BACK";
-						MouseTools.normalEvent(robot, operateData8);
-						MouseTools.normalEvent(robot, operateData8);
-						MouseTools.normalEvent(robot, operateData8);
 
-						String operateData12 = AdbTools.down();
-						MouseTools.normalEvent(robot, operateData12);
 					}
 				}
 
