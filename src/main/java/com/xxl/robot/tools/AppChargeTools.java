@@ -58,32 +58,35 @@ public class AppChargeTools {
 
      }
 
-    public static void mediaDou(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
+    public static void mediaHuo(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
 
     }
-    public static void mediaDou(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
+    public static void mediaKuai(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
 
     }
-    public static void mediaDou(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
+    public static void mediaShua(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
 
     }
-    public static void mediaDou(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
+    public static void mediaKuaiDou(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
 
     }
-    public static void mediaDou(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
+    public static void mediaCai(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
 
     }
-    public static void mediaDou(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
-
-    }
-
-    public static void mediaDou(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
-
-    }
-    public static void mediaDou(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
+    public static void mediaXiao(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
 
     }
 
+    public static void mediaHuoHuo(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
+
+    }
+    public static void mediaZhui(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
+
+    }
+
+    public static void mediaWei(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
+
+    }
 
 
     /**

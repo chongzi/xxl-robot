@@ -12,132 +12,134 @@ import java.util.List;
  */
 public class AppMediaTools {
     private static Logger log = LoggerFactory.getLogger(AppMediaTools.class);
+
     /**
      * todo 1.app-视频用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
      * 以category分类定位，再点击用户行为,用一category下不可多次点击category,否则试为程序运行
      * 传相应的app_code对应的phoneCodeDtos
      */
-     public static void handleMedia(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
-         switch (appCode){
-             case "抖音极速版":
-                 mediaDou(robot,phoneCodeDtos,appCode);
-                 break;
-             case "火山极速版":
-                 mediaHuo(robot,phoneCodeDtos,appCode);
-                 break;
-             case "快手极速版":
-                 mediaKuai(robot,phoneCodeDtos,appCode);
-                 break;
-             case "刷宝短视频":
-                 mediaShua(robot,phoneCodeDtos,appCode);
-                 break;
-             case "快逗短视频":
-                 mediaKuaiDou(robot,phoneCodeDtos,appCode);
-                 break;
-             case "彩蛋视频":
-                 mediaCai(robot,phoneCodeDtos,appCode);
-                 break;
-             case "小吃货短视频":
-                 mediaXiao(robot,phoneCodeDtos,appCode);
-                 break;
-             case "火火视频极速版":
-                 mediaHuoHuo(robot,phoneCodeDtos,appCode);
-                 break;
-             case "追看视频":
-                 mediaZhui(robot,phoneCodeDtos,appCode);
-                 break;
-             case "微视频":
-                 mediaWei(robot,phoneCodeDtos,appCode);
-                 break;
+    public static void handleMedia(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
+        switch (appCode){
+            case "抖音极速版":
+                mediaDou(robot,phoneCodeDtos);
+                break;
+            case "火山极速版":
+                mediaHuo(robot,phoneCodeDtos);
+                break;
+            case "快手极速版":
+                mediaKuai(robot,phoneCodeDtos);
+                break;
+            case "刷宝短视频":
+                mediaShua(robot,phoneCodeDtos);
+                break;
+            case "快逗短视频":
+                mediaKuaiDou(robot,phoneCodeDtos);
+                break;
+            case "彩蛋视频":
+                mediaCai(robot,phoneCodeDtos);
+                break;
+            case "小吃货短视频":
+                mediaXiao(robot,phoneCodeDtos);
+                break;
+            case "火火视频极速版":
+                mediaHuoHuo(robot,phoneCodeDtos);
+                break;
+            case "追看视频":
+                mediaZhui(robot,phoneCodeDtos);
+                break;
+            case "微视频":
+                mediaWei(robot,phoneCodeDtos);
+                break;
 
-         }
-
-     }
-
-     public static void mediaDou(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
-
-     }
-
-    public static void mediaDou(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
-
-    }
-    public static void mediaDou(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
-
-    }
-    public static void mediaDou(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
-
-    }
-    public static void mediaDou(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
-
-    }
-    public static void mediaDou(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
-
-    }
-    public static void mediaDou(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
-
-    }
-
-    public static void mediaDou(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
-
-    }
-    public static void mediaDou(Robot robot, List<PhoneCodeDto> phoneCodeDtos, String appCode){
-
-    }
-
-
-
-    /**
-     * todo 2.app-新闻用户行为操作
-     */
-    public static void handleNews(){
-
-     }
-
-    /**
-     * todo 3.app-小说用户行为操作
-     */
-    public static void handleNovel(){
-
-     }
-
-    /**
-     * todo 4.app-步行用户行为操作
-     */
-    public static void handleWalk(){
+        }
 
     }
 
     /**
-     * todo 5.app-音乐用户行为操作
+     * todo 1.抖音极速版
+     * @param robot
+     * @param phoneCodeDtos
      */
-    public static void handleMusic(){
+    public static void mediaDou(Robot robot, List<PhoneCodeDto> phoneCodeDtos){
+        initWindow(robot,phoneCodeDtos);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 
     /**
-     * todo 6.app-充电用户行为操作
+     * todo 2.火山极速版
+     * @param robot
+     * @param phoneCodeDtos
      */
-    public static void handleCharge(){
+    public static void mediaHuo(Robot robot, List<PhoneCodeDto> phoneCodeDtos){
 
     }
 
     /**
-     * todo 7.app-睡觉用户行为操作
+     * todo 3.快手极速版
+     * @param robot
+     * @param phoneCodeDtos
      */
-    public static void handleSleep(){
+    public static void mediaKuai(Robot robot, List<PhoneCodeDto> phoneCodeDtos){
 
     }
 
     /**
-     * todo 8.app-游戏用户行为操作
+     * todo 4.刷宝短视频
+     * @param robot
+     * @param phoneCodeDtos
      */
-    public static void handleGame(){
+    public static void mediaShua(Robot robot, List<PhoneCodeDto> phoneCodeDtos){
+
+    }
+
+    /**
+     * todo 5.快逗短视频
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void mediaKuaiDou(Robot robot, List<PhoneCodeDto> phoneCodeDtos){
+
+    }
+    public static void mediaCai(Robot robot, List<PhoneCodeDto> phoneCodeDtos){
+
+    }
+    public static void mediaXiao(Robot robot, List<PhoneCodeDto> phoneCodeDtos){
+
+    }
+
+    public static void mediaHuoHuo(Robot robot, List<PhoneCodeDto> phoneCodeDtos){
+
+    }
+    public static void mediaZhui(Robot robot, List<PhoneCodeDto> phoneCodeDtos){
+
+    }
+
+    public static void mediaWei(Robot robot, List<PhoneCodeDto> phoneCodeDtos){
 
     }
 
 
 //********************************************辅助功能****************************************************************
-    public void initWindow(Robot robot, List<PhoneCodeDto> phoneCodeDtos){
+    public static void initWindow(Robot robot, List<PhoneCodeDto> phoneCodeDtos){
         log.info("2.打开app所在集合窗口");
         PhoneCodeDto dto2 =  phoneCodeDtos.stream().filter(o -> o.getAppEvent() == "window").findAny().orElse(null);
         String operateData2 = "adb shell input tap " + dto2.getPositionX() + " " + dto2.getPositionY();
