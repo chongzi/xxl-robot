@@ -12,8 +12,8 @@ import java.util.List;
  * todo 抖音视频操作
  * app-视频用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class 七猫免费小说 {
-    private static Logger log = LoggerFactory.getLogger(七猫免费小说.class);
+public class D喜马拉雅极速版 {
+    private static Logger log = LoggerFactory.getLogger(D喜马拉雅极速版.class);
 
     /**
      * todo 1.

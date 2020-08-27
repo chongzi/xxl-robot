@@ -1,4 +1,4 @@
-package com.xxl.robot.app.novel;
+package com.xxl.robot.app.media;
 
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
@@ -12,8 +12,8 @@ import java.util.List;
  * todo 抖音视频操作
  * app-视频用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class 牛角免费小说 {
-    private static Logger log = LoggerFactory.getLogger(牛角免费小说.class);
+public class A视频抖音 {
+    private static Logger log = LoggerFactory.getLogger(A视频抖音.class);
 
     /**
      * todo 1.

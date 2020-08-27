@@ -1,4 +1,4 @@
-package com.xxl.robot.app.novel;
+package com.xxl.robot.app.media;
 
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
@@ -12,8 +12,8 @@ import java.util.List;
  * todo 抖音视频操作
  * app-视频用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class 米读极速版 {
-    private static Logger log = LoggerFactory.getLogger(米读极速版.class);
+public class J视频小吃货 {
+    private static Logger log = LoggerFactory.getLogger(J视频小吃货.class);
 
     /**
      * todo 1.

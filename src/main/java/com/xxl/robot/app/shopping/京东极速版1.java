@@ -1,4 +1,4 @@
-package com.xxl.robot.app.walk;
+package com.xxl.robot.app.shopping;
 
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
@@ -12,8 +12,8 @@ import java.util.List;
  * todo 抖音视频操作
  * app-视频用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class 赚赚多 {
-    private static Logger log = LoggerFactory.getLogger(赚赚多.class);
+public class 京东极速版1 {
+    private static Logger log = LoggerFactory.getLogger(京东极速版1.class);
 
     /**
      * todo 1.
