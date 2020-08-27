@@ -353,10 +353,7 @@ public class CarTools {
     //******************************************************************
 
     public static void main(String[] args){
-        String str = "\n" +
-                "车找人，今天20号下午5一7点左右从苏州吴江无锡江阴回沭阳，能带3人，请联系13646131668，开车不便看信息，请打电话，搬家带货都可以，包车随时可以出发，谢谢合作，每天早上5一7点沭阳去苏州，\n" +
-                "\n" +
-                "林中人 2020/7/20 ";
+        String str = "人找车 明天上午沭阳塘沟到丹阳吕城 三人 18605253707\t\n";
          Map<String,Object> obj = analysis(str);
 
         System.out.println("to:{}"+ obj.get("to"));

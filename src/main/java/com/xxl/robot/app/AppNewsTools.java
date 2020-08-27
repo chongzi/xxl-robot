@@ -1,6 +1,7 @@
-package com.xxl.robot.tools;
+package com.xxl.robot.app;
 
 import com.xxl.robot.dto.PhoneCodeDto;
+import com.xxl.robot.tools.MouseTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,8 +11,8 @@ import java.util.List;
 /**
  * todo 手机综合性操作
  */
-public class AppWalkTools {
-    private static Logger log = LoggerFactory.getLogger(AppWalkTools.class);
+public class AppNewsTools {
+    private static Logger log = LoggerFactory.getLogger(AppNewsTools.class);
     /**
      * todo 1.app-视频用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
      * 以category分类定位，再点击用户行为,用一category下不可多次点击category,否则试为程序运行

@@ -3,11 +3,34 @@ package com.xxl.robot.tools;
 import com.sun.jna.platform.win32.User32;
 import com.sun.jna.platform.win32.WinDef;
 import com.sun.jna.platform.win32.WinDef.HWND;
+import com.xxl.robot.app.AppChargeTools;
+import com.xxl.robot.dto.PhoneCodeDto;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.awt.*;
+import java.util.List;
 
 /**
  * todo 自动复制，发送，截取window中程序中内容，实现模拟人工操作电脑
  */
 public class WindowTools {
+    private static Logger log = LoggerFactory.getLogger(WindowTools.class);
+
+
+    //********************************************辅助功能****************************************************************
+    public static void initWindowApp(Robot robot, List<PhoneCodeDto> phoneCodeDtos){
+        log.info("2.打开app所在集合窗口");
+        PhoneCodeDto dto2 =  phoneCodeDtos.stream().filter(o -> o.getAppEvent() == "window").findAny().orElse(null);
+        String operateData2 = "adb shell input tap " + dto2.getPositionX() + " " + dto2.getPositionY();
+        MouseTools.normalEvent(robot,operateData2);
+
+        log.info("3.打开初始化app程序");
+        robot.delay(2000);
+        PhoneCodeDto dto3 =  phoneCodeDtos.stream().filter(o -> o.getAppEvent() == "init").findAny().orElse(null);
+        String operateData3 = "adb shell input tap " + dto3.getPositionX() + " " + dto3.getPositionY();
+        MouseTools.normalEvent(robot, operateData3);
+    }
 
     /**
      * todo 初始化Window窗口弹出

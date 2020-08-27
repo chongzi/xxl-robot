@@ -1,6 +1,7 @@
-package com.xxl.robot.tools;
+package com.xxl.robot.app;
 
 import com.xxl.robot.dto.PhoneCodeDto;
+import com.xxl.robot.tools.MouseTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
