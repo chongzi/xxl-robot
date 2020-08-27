@@ -3,7 +3,6 @@ package com.xxl.robot.tools;
 import com.sun.jna.platform.win32.User32;
 import com.sun.jna.platform.win32.WinDef;
 import com.sun.jna.platform.win32.WinDef.HWND;
-import com.xxl.robot.app.AppChargeTools;
 import com.xxl.robot.dto.PhoneCodeDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

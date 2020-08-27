@@ -1,8 +1,7 @@
-package com.xxl.robot.app;
+package com.xxl.robot.app.walk;
 
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
-import com.xxl.robot.enums.AppEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,8 +12,8 @@ import java.util.List;
  * todo 抖音视频操作
  * app-视频用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class 抖音视频 {
-    private static Logger log = LoggerFactory.getLogger(抖音视频.class);
+public class 赚赚多 {
+    private static Logger log = LoggerFactory.getLogger(赚赚多.class);
 
     /**
      * todo 1.
