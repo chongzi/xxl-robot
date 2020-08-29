@@ -2,6 +2,9 @@ package com.xxl.robot.app.media;
 
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
+import com.xxl.robot.tools.AdbTools;
+import com.xxl.robot.tools.MouseTools;
+import com.xxl.robot.tools.RandomTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,18 +32,6 @@ public class E视频刷宝 {
             case AppConstants.WATCH_VIDEOS://看视频
                 handle2(robot, robotCode, appCode, event, phoneCodeDtos);
                 break;
-            case AppConstants.SLEEP://睡觉
-                handle3(robot, robotCode, appCode, event, phoneCodeDtos);
-                break;
-            case AppConstants.WALK://走路
-                handle4(robot, robotCode, appCode, event, phoneCodeDtos);
-                break;
-            case AppConstants.WATCH_ADVERT://看广告
-                handle5(robot, robotCode, appCode, event, phoneCodeDtos);
-                break;
-            case AppConstants.WATCH_NOVELS://看小说
-                handle6(robot, robotCode, appCode, event, phoneCodeDtos);
-                break;
             case AppConstants.TREASURE://开宝箱
                 handle7(robot, robotCode, appCode, event, phoneCodeDtos);
                 break;
@@ -54,9 +45,28 @@ public class E视频刷宝 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务")).findAny().orElse(null);
+        PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-签到")).findAny().orElse(null);
+        PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-清除通知")).findAny().orElse(null);
+        PhoneCodeDto dto3 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-清除")).findAny().orElse(null);
+        String operate2 = AdbTools.tap(dto2.getPositionX(),dto2.getPositionY());
+        MouseTools.normalEvent(robot,operate2);
+        robot.delay(1000);
+        String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
+        MouseTools.normalEvent(robot,operate);
+        MouseTools.normalEvent(robot,AdbTools.upPage());
 
+        robot.delay(1000);
+        String operate3 = AdbTools.tap(dto3.getPositionX(),dto3.getPositionY());
+        MouseTools.normalEvent(robot,operate3);
 
+        robot.delay(1000);
+        String operate1 = AdbTools.tap(dto1.getPositionX(),dto1.getPositionY());
+        MouseTools.normalEvent(robot,operate1);
 
+        String operateData1 = "adb shell input keyevent BACK";
+        MouseTools.normalEvent(robot,operateData1);
+        MouseTools.normalEvent(robot,operateData1);
     }
 
 
@@ -66,58 +76,41 @@ public class E视频刷宝 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页")).findAny().orElse(null);
+        PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-看视频")).findAny().orElse(null);
+        PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-点攒")).findAny().orElse(null);
+        PhoneCodeDto dto6 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-清除通知")).findAny().orElse(null);
+        String operate6 = AdbTools.tap(dto6.getPositionX(),dto6.getPositionY());
+        MouseTools.normalEvent(robot,operate6);
+        robot.delay(1000);
+
+        String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
+        MouseTools.normalEvent(robot,operate);
+        int i = RandomTools.init(20);
+        int y = RandomTools.init(20);
+        int re = RandomTools.init(20000);
+        log.info("随机值:{}"+i);
+        for(int a=0;a<i;a++){
+            robot.delay(re);
+            MouseTools.normalEvent(robot,AdbTools.downPage());
+            if(a==y){
+                robot.delay(re);
+                String operate1 = AdbTools.tap(dto2.getPositionX(),dto2.getPositionY());
+                MouseTools.normalEvent(robot,operate1);
+            }
+            if(a>y){
+                robot.delay(re);
+                MouseTools.normalEvent(robot,AdbTools.upPage());
+            }
+
+        }
 
 
-
-    }
-
-
-    /**
-     * todo 3.睡觉
-     * @param robot
-     * @param phoneCodeDtos
-     */
-    public static void handle3(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-
-
-
-    }
-
-
-    /**
-     * todo 4.走路
-     * @param robot
-     * @param phoneCodeDtos
-     */
-    public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-
-
-
-    }
-
-
-    /**
-     * todo 5.看广告
-     * @param robot
-     * @param phoneCodeDtos
-     */
-    public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-
-
+        String operateData1 = "adb shell input keyevent BACK";
+        MouseTools.normalEvent(robot,operateData1);
 
     }
 
-
-    /**
-     * todo 6.看小说
-     * @param robot
-     * @param phoneCodeDtos
-     */
-    public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-
-
-
-    }
 
 
     /**
@@ -126,9 +119,30 @@ public class E视频刷宝 {
      * @param phoneCodeDtos
      */
     public static void handle7(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务")).findAny().orElse(null);
+        PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-开宝箱")).findAny().orElse(null);
+        PhoneCodeDto dto3 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-清除")).findAny().orElse(null);
+        PhoneCodeDto dto6 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-清除通知")).findAny().orElse(null);
+        String operate6 = AdbTools.tap(dto6.getPositionX(),dto6.getPositionY());
+        MouseTools.normalEvent(robot,operate6);
+        robot.delay(1000);
 
+        String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
+        MouseTools.normalEvent(robot,operate);
+        MouseTools.normalEvent(robot,AdbTools.upPage());
 
+        robot.delay(1000);
+        String operate3 = AdbTools.tap(dto3.getPositionX(),dto3.getPositionY());
+        MouseTools.normalEvent(robot,operate3);
 
+        robot.delay(1000);
+        String operate1 = AdbTools.tap(dto1.getPositionX(),dto1.getPositionY());
+        MouseTools.normalEvent(robot,operate1);
+
+        robot.delay(1000);
+        String operateData1 = "adb shell input keyevent BACK";
+        MouseTools.normalEvent(robot,operateData1);
+        MouseTools.normalEvent(robot,operateData1);
     }
 
 

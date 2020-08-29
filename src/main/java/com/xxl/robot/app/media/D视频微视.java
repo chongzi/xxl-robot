@@ -2,6 +2,9 @@ package com.xxl.robot.app.media;
 
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
+import com.xxl.robot.tools.AdbTools;
+import com.xxl.robot.tools.MouseTools;
+import com.xxl.robot.tools.RandomTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,41 +26,16 @@ public class D视频微视 {
     public static void handle(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
 
         switch (event){
-            case AppConstants.CHECK_IN://签到
+
+            case AppConstants.WATCH_VIDEOS://看视频
                 handle1(robot, robotCode, appCode, event, phoneCodeDtos);
                 break;
-            case AppConstants.WATCH_VIDEOS://看视频
-                handle2(robot, robotCode, appCode, event, phoneCodeDtos);
-                break;
-            case AppConstants.SLEEP://睡觉
-                handle3(robot, robotCode, appCode, event, phoneCodeDtos);
-                break;
-            case AppConstants.WALK://走路
-                handle4(robot, robotCode, appCode, event, phoneCodeDtos);
-                break;
-            case AppConstants.WATCH_ADVERT://看广告
-                handle5(robot, robotCode, appCode, event, phoneCodeDtos);
-                break;
-            case AppConstants.WATCH_NOVELS://看小说
-                handle6(robot, robotCode, appCode, event, phoneCodeDtos);
-                break;
-            case AppConstants.TREASURE://开宝箱
-                handle7(robot, robotCode, appCode, event, phoneCodeDtos);
-                break;
+
         }
 
     }
 
-    /**
-     * todo 1.签到
-     * @param robot
-     * @param phoneCodeDtos
-     */
-    public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
 
-
-
-    }
 
 
     /**
@@ -65,71 +43,34 @@ public class D视频微视 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+    public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页")).findAny().orElse(null);
+        PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-看视频")).findAny().orElse(null);
+        PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-关注")).findAny().orElse(null);
 
+        String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
+        MouseTools.normalEvent(robot,operate);
+        int i = RandomTools.init(20);
+        int y = RandomTools.init(20);
+        int re = RandomTools.init(20000);
+        log.info("随机值:{}"+i);
+        for(int a=0;a<i;a++){
+            robot.delay(re);
+            MouseTools.normalEvent(robot,AdbTools.downPage());
+            if(a>y){
+                robot.delay(re);
+                MouseTools.normalEvent(robot,AdbTools.upPage());
+            }
+            if(a==y){
+                robot.delay(re);
+                String operate3 = AdbTools.tap(dto2.getPositionX(),dto2.getPositionY());
+                MouseTools.normalEvent(robot,operate3);
+            }
 
-
-    }
-
-
-    /**
-     * todo 3.睡觉
-     * @param robot
-     * @param phoneCodeDtos
-     */
-    public static void handle3(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-
-
-
-    }
-
-
-    /**
-     * todo 4.走路
-     * @param robot
-     * @param phoneCodeDtos
-     */
-    public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-
-
+        }
 
     }
 
-
-    /**
-     * todo 5.看广告
-     * @param robot
-     * @param phoneCodeDtos
-     */
-    public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-
-
-
-    }
-
-
-    /**
-     * todo 6.看小说
-     * @param robot
-     * @param phoneCodeDtos
-     */
-    public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-
-
-
-    }
-
-
-    /**
-     * todo 6.开宝箱
-     * @param robot
-     * @param phoneCodeDtos
-     */
-    public static void handle7(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-
-
-
-    }
 
 
 

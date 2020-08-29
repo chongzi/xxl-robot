@@ -96,17 +96,18 @@ public class A视频抖音 {
         String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
         MouseTools.normalEvent(robot,operate);
         int i = RandomTools.init(20);
+        int y = RandomTools.init(20);
         int re = RandomTools.init(20000);
         log.info("随机值:{}"+i);
         for(int a=0;a<i;a++){
             robot.delay(re);
             MouseTools.normalEvent(robot,AdbTools.downPage());
-            if(a==6){
+            if(a==y){
                 robot.delay(re);
                 String operate1 = AdbTools.tap(dto2.getPositionX(),dto2.getPositionY());
                 MouseTools.normalEvent(robot,operate1);
             }
-            if(a==10){
+            if(a>y){
                 robot.delay(re);
                 MouseTools.normalEvent(robot,AdbTools.upPage());
             }
@@ -118,7 +119,7 @@ public class A视频抖音 {
 
         }
 
-        if(i==12){
+        if(i==y){
             robot.delay(re);
             String operate0 = AdbTools.tap(dto4.getPositionX(),dto4.getPositionY());
             MouseTools.normalEvent(robot,operate0);
@@ -127,10 +128,11 @@ public class A视频抖音 {
             MouseTools.normalEvent(robot,operate1);
 
             int x = RandomTools.init(6);
+            int y1 = RandomTools.init(6);
             for(int a=0;a<x;x++){
                 robot.delay(re);
                 MouseTools.normalEvent(robot,AdbTools.downPage());
-                if(a==5){
+                if(a==y1){
                     robot.delay(re);
                     MouseTools.normalEvent(robot,AdbTools.upPage());
                 }
@@ -330,8 +332,6 @@ public class A视频抖音 {
         String operateData1 = "adb shell input keyevent BACK";
         MouseTools.normalEvent(robot,operateData1);
         MouseTools.normalEvent(robot,operateData1);
-
-
     }
 
 

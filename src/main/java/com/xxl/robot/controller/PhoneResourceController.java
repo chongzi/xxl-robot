@@ -35,5 +35,34 @@ public class PhoneResourceController {
     }
 
 
+    @GetMapping("simulatorApp3")
+    @ApiOperation("模拟火山视频操作")
+    public BaseResponse simulatorApp3() {
+        phoneSourceService.handleRobot3();
+        return BaseResponse.newSuccess();
+    }
+
+    @GetMapping("simulatorApp4")
+    @ApiOperation("模拟快手视频操作")
+    public BaseResponse simulatorApp4() {
+        phoneSourceService.handleRobot4();
+        return BaseResponse.newSuccess();
+    }
+
+    @GetMapping("simulatorApp5")
+    @ApiOperation("模拟微视视频操作")
+    public BaseResponse simulatorApp5() {
+        phoneSourceService.handleRobot5();
+        return BaseResponse.newSuccess();
+    }
+
+
+    @GetMapping("simulatorApp6")
+    @ApiOperation("模拟刷宝视频操作")
+    public BaseResponse simulatorApp6() {
+        phoneSourceService.handleRobot6();
+        return BaseResponse.newSuccess();
+    }
+
 
 }
