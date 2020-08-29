@@ -26,5 +26,6 @@ public class AppConstants {
     public static final String CHARGE = "充电";
     public static final String MUSIC = "听歌曲";
     public static final String WATCH_ADVERT = "看广告";
+    public static final String SWEEPSTAKES = "抽奖";
 
 }
