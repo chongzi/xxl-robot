@@ -107,7 +107,7 @@ public class PhoneSourceServiceImpl implements PhoneSourceService {
 
 		WindowTools.initWindowApp(robot,dtos);
 
-		A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.CHECK_IN,dtos);
+		A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.TREASURE,dtos);
 	}
 
 

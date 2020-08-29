@@ -13,4 +13,8 @@ public class RandomTools {
         int i=rand.nextInt(number);
         return i;
     }
+
+    public static void main(String[] args) {
+        System.out.println(init(10));
+    }
 }
