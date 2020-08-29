@@ -3,6 +3,8 @@ package com.xxl.robot.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xxl.common.tools.BeanTools;
+import com.xxl.robot.app.media.A视频抖音;
+import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dao.PhoneCodeMapper;
 import com.xxl.robot.dto.PhoneCodeDto;
 import com.xxl.robot.entity.PhoneCode;
@@ -12,6 +14,7 @@ import com.xxl.robot.service.RobotInfoService;
 import com.xxl.robot.tools.AdbTools;
 import com.xxl.robot.tools.MouseTools;
 import com.xxl.robot.tools.RandomTools;
+import com.xxl.robot.tools.WindowTools;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -79,18 +82,6 @@ public class PhoneSourceServiceImpl implements PhoneSourceService {
 			}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 		}catch (Exception e){
 
 		}
@@ -101,10 +92,23 @@ public class PhoneSourceServiceImpl implements PhoneSourceService {
 
 
 
+	@Override
+	public void handleRobot2() {
+		PhoneCodeDto dto = new PhoneCodeDto();
+		dto.setRobotCode("phone001");
+		dto.setAppCode("抖音极速版");
+		List<PhoneCodeDto> dtos = phoneCodeService.list(dto);
+		Robot robot = null;
+		try {
+			robot = new Robot();
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
 
+		WindowTools.initWindowApp(robot,dtos);
 
-
-
+		A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.CHECK_IN,dtos);
+	}
 
 
 }

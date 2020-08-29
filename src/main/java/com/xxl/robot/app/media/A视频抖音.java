@@ -2,6 +2,9 @@ package com.xxl.robot.app.media;
 
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
+import com.xxl.robot.tools.AdbTools;
+import com.xxl.robot.tools.MouseTools;
+import com.xxl.robot.tools.RandomTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -54,8 +57,24 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱")).findAny().orElse(null);
+        PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱-签到")).findAny().orElse(null);
+        PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱-签到-看视频")).findAny().orElse(null);
+        String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
+        MouseTools.normalEvent(robot,operate);
 
+        MouseTools.normalEvent(robot,AdbTools.downLarge());
 
+        String operate1 = AdbTools.tap(dto1.getPositionX(),dto1.getPositionY());
+        MouseTools.normalEvent(robot,operate1);
+
+        robot.delay(6000);
+        String operate2 = AdbTools.tap(dto2.getPositionX(),dto2.getPositionY());
+        MouseTools.normalEvent(robot,operate2);
+        robot.delay(31000);
+        String operateData1 = "adb shell input keyevent BACK";
+        MouseTools.normalEvent(robot,operateData1);
+        MouseTools.normalEvent(robot,operateData1);
 
     }
 
@@ -66,6 +85,60 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页")).findAny().orElse(null);
+        PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-看视频")).findAny().orElse(null);
+        PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-关注")).findAny().orElse(null);
+        PhoneCodeDto dto3 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-点攒")).findAny().orElse(null);
+        PhoneCodeDto dto4 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-发布")).findAny().orElse(null);
+        PhoneCodeDto dto5 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-发布-看视频")).findAny().orElse(null);
+
+        String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
+        MouseTools.normalEvent(robot,operate);
+        int i = RandomTools.init(10);
+        for(int a=0;a<i;a++){
+            robot.delay(6000);
+            MouseTools.normalEvent(robot,AdbTools.down());
+            if(a==5){
+                robot.delay(6000);
+                String operate1 = AdbTools.tap(dto2.getPositionX(),dto2.getPositionY());
+                MouseTools.normalEvent(robot,operate1);
+            }
+            if(a==6){
+                robot.delay(6000);
+                MouseTools.normalEvent(robot,AdbTools.up());
+            }
+            if(a==7){
+                robot.delay(6000);
+                String operate3 = AdbTools.tap(dto3.getPositionX(),dto3.getPositionY());
+                MouseTools.normalEvent(robot,operate3);
+            }
+
+        }
+
+        if(i==6){
+            robot.delay(6000);
+            String operate0 = AdbTools.tap(dto4.getPositionX(),dto4.getPositionY());
+            MouseTools.normalEvent(robot,operate0);
+            robot.delay(6000);
+            String operate1 = AdbTools.tap(dto5.getPositionX(),dto5.getPositionY());
+            MouseTools.normalEvent(robot,operate1);
+
+            int x = RandomTools.init(6);
+            for(int a=0;a<x;x++){
+                robot.delay(6000);
+                MouseTools.normalEvent(robot,AdbTools.down());
+                if(a==5){
+                    robot.delay(6000);
+                    MouseTools.normalEvent(robot,AdbTools.up());
+                }
+            }
+
+            String operateData1 = "adb shell input keyevent BACK";
+            MouseTools.normalEvent(robot,operateData1);
+            String operateData11 = "adb shell input keyevent BACK";
+            MouseTools.normalEvent(robot,operateData11);
+
+        }
 
 
 
@@ -78,8 +151,27 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle3(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱")).findAny().orElse(null);
+        PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱-睡觉赚金币")).findAny().orElse(null);
+        PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱-睡觉赚金币-我要睡觉")).findAny().orElse(null);
+        PhoneCodeDto dto3 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱-睡觉赚金币-领取金币")).findAny().orElse(null);
+        String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
+        MouseTools.normalEvent(robot,operate);
 
+        String operate1 = AdbTools.tap(dto1.getPositionX(),dto1.getPositionY());
+        MouseTools.normalEvent(robot,operate1);
 
+        robot.delay(2000);
+        String operate2 = AdbTools.tap(dto2.getPositionX(),dto2.getPositionY());
+        MouseTools.normalEvent(robot,operate2);
+        robot.delay(2000);
+        String operate3 = AdbTools.tap(dto3.getPositionX(),dto3.getPositionY());
+        MouseTools.normalEvent(robot,operate3);
+
+        String operateData1 = "adb shell input keyevent BACK";
+        MouseTools.normalEvent(robot,operateData1);
+        String operateData2 = "adb shell input keyevent BACK";
+        MouseTools.normalEvent(robot,operateData2);
 
     }
 
@@ -90,7 +182,23 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱")).findAny().orElse(null);
+        PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱-走路")).findAny().orElse(null);
+        PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱-走路-领取金币")).findAny().orElse(null);
+        String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
+        MouseTools.normalEvent(robot,operate);
 
+        String operate1 = AdbTools.tap(dto1.getPositionX(),dto1.getPositionY());
+        MouseTools.normalEvent(robot,operate1);
+
+        robot.delay(1000);
+        String operate2 = AdbTools.tap(dto2.getPositionX(),dto2.getPositionY());
+        MouseTools.normalEvent(robot,operate2);
+
+        String operateData1 = "adb shell input keyevent BACK";
+        MouseTools.normalEvent(robot,operateData1);
+        String operateData2 = "adb shell input keyevent BACK";
+        MouseTools.normalEvent(robot,operateData2);
 
 
     }
@@ -102,7 +210,20 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱")).findAny().orElse(null);
+        PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱-看广告")).findAny().orElse(null);
+        String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
+        MouseTools.normalEvent(robot,operate);
 
+        String operate1 = AdbTools.tap(dto1.getPositionX(),dto1.getPositionY());
+        MouseTools.normalEvent(robot,operate1);
+
+        robot.delay(61000);
+
+        String operateData1 = "adb shell input keyevent BACK";
+        MouseTools.normalEvent(robot,operateData1);
+        String operateData2 = "adb shell input keyevent BACK";
+        MouseTools.normalEvent(robot,operateData2);
 
 
     }
@@ -114,6 +235,56 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱")).findAny().orElse(null);
+        PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱-看小说")).findAny().orElse(null);
+        PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱-看小说-阅读")).findAny().orElse(null);
+        String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
+        MouseTools.normalEvent(robot,operate);
+
+        MouseTools.normalEvent(robot,AdbTools.up());
+        MouseTools.normalEvent(robot,AdbTools.up());
+
+        String operate1 = AdbTools.tap(dto1.getPositionX(),dto1.getPositionY());
+        MouseTools.normalEvent(robot,operate1);
+
+        MouseTools.normalEvent(robot,AdbTools.down());
+        MouseTools.normalEvent(robot,AdbTools.down());
+
+        robot.delay(3000);
+        String operate2 = AdbTools.tap(dto2.getPositionX(),dto2.getPositionY());
+        MouseTools.normalEvent(robot,operate2);
+
+        robot.delay(3000);
+        String operate3 = AdbTools.tap(dto2.getPositionX(),dto2.getPositionY());
+        MouseTools.normalEvent(robot,operate3);
+
+        int i = RandomTools.init(20);
+        int del = RandomTools.init(10000);
+        for(int a=0;a<i;a++){
+            robot.delay(del);
+            MouseTools.normalEvent(robot,AdbTools.right());
+            if(a==6){
+                robot.delay(del);
+                MouseTools.normalEvent(robot,AdbTools.left());
+            }
+
+            if(a==11){
+                robot.delay(del);
+                MouseTools.normalEvent(robot,AdbTools.left());
+            }
+
+            if(a==16){
+                robot.delay(del);
+                MouseTools.normalEvent(robot,AdbTools.left());
+            }
+
+        }
+
+        String operateData1 = "adb shell input keyevent BACK";
+        MouseTools.normalEvent(robot,operateData1);
+        MouseTools.normalEvent(robot,operateData1);
+        MouseTools.normalEvent(robot,operateData1);
+        MouseTools.normalEvent(robot,operateData1);
 
 
 
@@ -121,12 +292,28 @@ public class A视频抖音 {
 
 
     /**
-     * todo 6.开宝箱
+     * todo 7.开宝箱
      * @param robot
      * @param phoneCodeDtos
      */
     public static void handle7(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱")).findAny().orElse(null);
+        PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱-开宝箱")).findAny().orElse(null);
+        PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱-开宝箱-看视频")).findAny().orElse(null);
+        String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
+        MouseTools.normalEvent(robot,operate);
 
+        String operate1 = AdbTools.tap(dto1.getPositionX(),dto1.getPositionY());
+        MouseTools.normalEvent(robot,operate1);
+
+        robot.delay(1000);
+        String operate2 = AdbTools.tap(dto2.getPositionX(),dto2.getPositionY());
+        MouseTools.normalEvent(robot,operate2);
+
+        robot.delay(61000);
+        String operateData1 = "adb shell input keyevent BACK";
+        MouseTools.normalEvent(robot,operateData1);
+        MouseTools.normalEvent(robot,operateData1);
 
 
     }

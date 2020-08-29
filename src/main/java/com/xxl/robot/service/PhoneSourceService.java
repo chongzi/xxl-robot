@@ -12,5 +12,6 @@ public interface PhoneSourceService{
     void handleRobot1();
 
 
+    void handleRobot2();
 
 }

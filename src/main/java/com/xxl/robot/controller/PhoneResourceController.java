@@ -27,6 +27,13 @@ public class PhoneResourceController {
         return BaseResponse.newSuccess();
     }
 
+    @GetMapping("simulatorApp")
+    @ApiOperation("模拟手机操作")
+    public BaseResponse simulatorApp() {
+        phoneSourceService.handleRobot2();
+        return BaseResponse.newSuccess();
+    }
+
 
 
 }
