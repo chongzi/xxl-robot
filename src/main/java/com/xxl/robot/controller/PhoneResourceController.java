@@ -81,4 +81,13 @@ public class PhoneResourceController {
     }
 
 
+    @GetMapping("simulatorApp9")
+    @ApiOperation(" 小吃货视频操作")
+    public BaseResponse simulatorApp9() {
+        phoneSourceService.handleRobot9();
+        return BaseResponse.newSuccess();
+    }
+
+
+
 }

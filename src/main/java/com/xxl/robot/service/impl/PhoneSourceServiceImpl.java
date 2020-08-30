@@ -222,5 +222,23 @@ public class PhoneSourceServiceImpl implements PhoneSourceService {
 		G视频追看.handle(robot,"phone001","追看", AppConstants.WATCH_VIDEOS,dtos);
 	}
 
+	@Override
+	public void handleRobot9() {
+		PhoneCodeDto dto = new PhoneCodeDto();
+		dto.setRobotCode("phone001");
+		dto.setAppCode("小吃货");
+		List<PhoneCodeDto> dtos = phoneCodeService.list(dto);
+		Robot robot = null;
+		try {
+			robot = new Robot();
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+
+		WindowTools.initWindowApp(robot,dtos);
+
+		H视频小吃货.handle(robot,"phone001","小吃货", AppConstants.WATCH_VIDEOS,dtos);
+	}
+
 
 }
