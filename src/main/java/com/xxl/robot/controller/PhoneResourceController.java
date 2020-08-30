@@ -28,7 +28,7 @@ public class PhoneResourceController {
     }
 
     @GetMapping("simulatorApp")
-    @ApiOperation("模拟手机操作")
+    @ApiOperation("抖音手机操作")
     public BaseResponse simulatorApp() {
         phoneSourceService.handleRobot2();
         return BaseResponse.newSuccess();
@@ -87,6 +87,7 @@ public class PhoneResourceController {
         phoneSourceService.handleRobot9();
         return BaseResponse.newSuccess();
     }
+
 
 
 
