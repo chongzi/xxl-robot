@@ -186,5 +186,41 @@ public class PhoneSourceServiceImpl implements PhoneSourceService {
 		E视频刷宝.handle(robot,"phone001","刷宝", AppConstants.WATCH_VIDEOS,dtos);
 	}
 
+	@Override
+	public void handleRobot7() {
+		PhoneCodeDto dto = new PhoneCodeDto();
+		dto.setRobotCode("phone001");
+		dto.setAppCode("快逗");
+		List<PhoneCodeDto> dtos = phoneCodeService.list(dto);
+		Robot robot = null;
+		try {
+			robot = new Robot();
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+
+		WindowTools.initWindowApp(robot,dtos);
+
+		F视频快逗.handle(robot,"phone001","快逗", AppConstants.WATCH_VIDEOS,dtos);
+	}
+
+	@Override
+	public void handleRobot8() {
+		PhoneCodeDto dto = new PhoneCodeDto();
+		dto.setRobotCode("phone001");
+		dto.setAppCode("追看");
+		List<PhoneCodeDto> dtos = phoneCodeService.list(dto);
+		Robot robot = null;
+		try {
+			robot = new Robot();
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+
+		WindowTools.initWindowApp(robot,dtos);
+
+		G视频追看.handle(robot,"phone001","追看", AppConstants.WATCH_VIDEOS,dtos);
+	}
+
 
 }

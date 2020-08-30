@@ -12,8 +12,8 @@ import java.util.List;
  * todo 抖音视频操作
  * app-视频用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class H视频追看 {
-    private static Logger log = LoggerFactory.getLogger(H视频追看.class);
+public class H视频赚钱 {
+    private static Logger log = LoggerFactory.getLogger(H视频赚钱.class);
 
     /**
      * todo 1.

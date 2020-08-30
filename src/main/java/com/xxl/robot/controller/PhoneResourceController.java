@@ -65,4 +65,20 @@ public class PhoneResourceController {
     }
 
 
+    @GetMapping("simulatorApp7")
+    @ApiOperation("快逗视频操作")
+    public BaseResponse simulatorApp7() {
+        phoneSourceService.handleRobot7();
+        return BaseResponse.newSuccess();
+    }
+
+
+    @GetMapping("simulatorApp8")
+    @ApiOperation("追看视频操作")
+    public BaseResponse simulatorApp8() {
+        phoneSourceService.handleRobot8();
+        return BaseResponse.newSuccess();
+    }
+
+
 }

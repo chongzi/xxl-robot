@@ -37,4 +37,16 @@ public interface PhoneSourceService{
      */
     void handleRobot6();
 
+
+    /**
+     * todo 快逗
+     */
+    void handleRobot7();
+
+
+    /**
+     * todo 追看
+     */
+    void handleRobot8();
+
 }
