@@ -42,7 +42,7 @@ public class B视频火山 {
             case AppConstants.WATCH_ADVERT://看广告
                 handle5(robot, robotCode, appCode, event, phoneCodeDtos);
                 break;
-            case AppConstants.WATCH_NOVELS://看小说
+            case AppConstants.GROW://种菜
                 handle6(robot, robotCode, appCode, event, phoneCodeDtos);
                 break;
             case AppConstants.TREASURE://开宝箱
@@ -58,22 +58,21 @@ public class B视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-        PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱")).findAny().orElse(null);
-        PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱-签到")).findAny().orElse(null);
-        PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱-签到-看视频")).findAny().orElse(null);
+        String operateData = "B视频火山-签到";
+        MouseTools.normalEvent(robot,operateData);
+        PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包")).findAny().orElse(null);
+        PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包-签到-看视频")).findAny().orElse(null);
         String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
         MouseTools.normalEvent(robot,operate);
-
         MouseTools.normalEvent(robot,AdbTools.downPage());
 
-        String operate1 = AdbTools.tap(dto1.getPositionX(),dto1.getPositionY());
-        MouseTools.normalEvent(robot,operate1);
-
-        robot.delay(6000);
+        robot.delay(1000);
         String operate2 = AdbTools.tap(dto2.getPositionX(),dto2.getPositionY());
         MouseTools.normalEvent(robot,operate2);
-        robot.delay(31000);
+        robot.delay(36000);
+
         String operateData1 = "adb shell input keyevent BACK";
+        MouseTools.normalEvent(robot,operateData1);
         MouseTools.normalEvent(robot,operateData1);
         MouseTools.normalEvent(robot,operateData1);
 
@@ -86,6 +85,8 @@ public class B视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        String operateData = "B视频火山-看视频";
+        MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页")).findAny().orElse(null);
         PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-看视频")).findAny().orElse(null);
         PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-点攒")).findAny().orElse(null);
@@ -150,6 +151,8 @@ public class B视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle3(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        String operateData = "B视频火山-睡觉";
+        MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包")).findAny().orElse(null);
         PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包-睡觉")).findAny().orElse(null);
         PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包-睡觉-我要睡觉")).findAny().orElse(null);
@@ -190,6 +193,8 @@ public class B视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        String operateData = "B视频火山-走路";
+        MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包")).findAny().orElse(null);
         PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包-走路")).findAny().orElse(null);
         PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包-走路-领金币")).findAny().orElse(null);
@@ -219,6 +224,8 @@ public class B视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        String operateData = "B视频火山-看广告";
+        MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包")).findAny().orElse(null);
         PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包-看广告")).findAny().orElse(null);
         String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
@@ -228,7 +235,7 @@ public class B视频火山 {
         String operate1 = AdbTools.tap(dto1.getPositionX(),dto1.getPositionY());
         MouseTools.normalEvent(robot,operate1);
 
-        robot.delay(3600);
+        robot.delay(36000);
 
         String operateData1 = "adb shell input keyevent BACK";
         MouseTools.normalEvent(robot,operateData1);
@@ -245,6 +252,8 @@ public class B视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        String operateData = "B视频火山-种菜";
+        MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包")).findAny().orElse(null);
         PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包-种菜")).findAny().orElse(null);
         PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包-种菜-初始化-关闭")).findAny().orElse(null);
@@ -277,9 +286,11 @@ public class B视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle7(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-        PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱")).findAny().orElse(null);
-        PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱-开宝箱")).findAny().orElse(null);
-        PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱-开宝箱-看视频")).findAny().orElse(null);
+        String operateData = "B视频火山-开宝箱";
+        MouseTools.normalEvent(robot,operateData);
+        PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包")).findAny().orElse(null);
+        PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包-开宝箱")).findAny().orElse(null);
+        PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包-开宝箱-看视频")).findAny().orElse(null);
         String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
         MouseTools.normalEvent(robot,operate);
 
@@ -294,7 +305,7 @@ public class B视频火山 {
         String operateData1 = "adb shell input keyevent BACK";
         MouseTools.normalEvent(robot,operateData1);
         MouseTools.normalEvent(robot,operateData1);
-
+        MouseTools.normalEvent(robot,operateData1);
 
     }
 

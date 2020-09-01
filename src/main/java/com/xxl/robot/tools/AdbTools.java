@@ -35,10 +35,11 @@ public class AdbTools {
      * todo 向左滑动，返回操作
      */
     public static String left(){
-        int x = 600 + RandomTools.init(600);
-        int y = 100 + RandomTools.init(300);
-        int x1 = 100 + RandomTools.init(300);
-        int y1 = 600 + RandomTools.init(600);
+        int x = 10 + RandomTools.init(200);
+        int y = 300 + RandomTools.init(300);
+        int x1 = 300 + RandomTools.init(300);
+        int y1 = 800 + RandomTools.init(600);
+
         String downDraw = "adb shell input swipe "+ x + " " + y + " " + x1 +" " +y1;
 
         return  downDraw;
@@ -49,8 +50,8 @@ public class AdbTools {
      */
     public static String right(){
         int x = 600 + RandomTools.init(600);
-        int y = 100 + RandomTools.init(300);
-        int x1 = 100 + RandomTools.init(300);
+        int y = 270 + RandomTools.init(100);
+        int x1 = 10 + RandomTools.init(100);
         int y1 = 600 + RandomTools.init(600);
         String downDraw = "adb shell input swipe "+ x + " " + y + " " + x1 +" " +y1;
 

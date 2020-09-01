@@ -9,8 +9,6 @@ import com.xxl.robot.dto.PhoneCodeDto;
  */
 public interface PhoneSourceService{
 
-    void handleRobot1();
-
     /**
      * todo 抖音
      */

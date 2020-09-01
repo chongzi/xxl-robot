@@ -20,13 +20,6 @@ public class PhoneResourceController {
     @Autowired
     private PhoneSourceService phoneSourceService;
 
-    @GetMapping("simulator")
-    @ApiOperation("模拟手机操作")
-    public BaseResponse simulator() {
-        phoneSourceService.handleRobot1();
-        return BaseResponse.newSuccess();
-    }
-
     @GetMapping("simulatorApp")
     @ApiOperation("抖音手机操作")
     public BaseResponse simulatorApp() {

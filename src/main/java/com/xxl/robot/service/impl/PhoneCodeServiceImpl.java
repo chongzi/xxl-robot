@@ -42,6 +42,14 @@ public class PhoneCodeServiceImpl implements PhoneCodeService {
 		return BeanTools.sourceToTarget(phoneCodeMapper.selectOne(entity),PhoneCodeDto.class);
 	}
 
+	@Override
+	public List<PhoneCodeDto> getList(String robotCode, String appCode) {
+		PhoneCodeDto dto = new PhoneCodeDto();
+		dto.setRobotCode(robotCode);
+		dto.setAppCode(appCode);
+		List<PhoneCode> dtos = phoneCodeMapper.selectByCondition(getCondition(dto));
+		return BeanTools.sourceToTarget(dtos, PhoneCodeDto.class);
+	}
 
 
 	@Override

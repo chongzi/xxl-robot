@@ -66,6 +66,7 @@ public class A视频抖音 {
         String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
         MouseTools.normalEvent(robot,operate);
         MouseTools.normalEvent(robot,AdbTools.downPage());
+        MouseTools.normalEvent(robot,AdbTools.downPage());
 
         String operate1 = AdbTools.tap(dto1.getPositionX(),dto1.getPositionY());
         MouseTools.normalEvent(robot,operate1);
@@ -98,8 +99,8 @@ public class A视频抖音 {
 
         String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
         MouseTools.normalEvent(robot,operate);
-        int i = RandomTools.init(30);
-        int y = RandomTools.init(30);
+        int i = RandomTools.init(20);
+        int y = RandomTools.init(20);
         int re = RandomTools.init(20000);
         log.info("随机值:{}"+i);
         for(int a=0;a<i;a++){
@@ -167,7 +168,7 @@ public class A视频抖音 {
         String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
         MouseTools.normalEvent(robot,operate);
         MouseTools.normalEvent(robot,AdbTools.upPage());
-        robot.delay(RandomTools.init(1000));
+        MouseTools.normalEvent(robot,AdbTools.upPage());
         String operate1 = AdbTools.tap(dto1.getPositionX(),dto1.getPositionY());
         MouseTools.normalEvent(robot,operate1);
 
@@ -268,10 +269,9 @@ public class A视频抖音 {
         PhoneCodeDto dto3 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱-看小说-阅读-加入书架")).findAny().orElse(null);
         String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
         MouseTools.normalEvent(robot,operate);
-        MouseTools.normalEvent(robot,AdbTools.upPage());
-        MouseTools.normalEvent(robot,AdbTools.upPage());
+        MouseTools.normalEvent(robot,AdbTools.downPage());
+        MouseTools.normalEvent(robot,AdbTools.downPage());
 
-        robot.delay(RandomTools.init(1000));
         String operate1 = AdbTools.tap(dto1.getPositionX(),dto1.getPositionY());
         MouseTools.normalEvent(robot,operate1);
 
@@ -284,10 +284,10 @@ public class A视频抖音 {
         String operate3 = AdbTools.tap(dto2.getPositionX(),dto2.getPositionY());
         MouseTools.normalEvent(robot,operate3);
 
-        int i = RandomTools.init(30);
-        int j = RandomTools.init(30);
+        int i = RandomTools.init(120);
+        int j = RandomTools.init(120);
         for(int a=0;a<i;a++){
-            robot.delay(RandomTools.init(20000));
+            robot.delay(RandomTools.init(2000));
             MouseTools.normalEvent(robot,AdbTools.right());
             if(a==j){
                 robot.delay(RandomTools.init(10000));
