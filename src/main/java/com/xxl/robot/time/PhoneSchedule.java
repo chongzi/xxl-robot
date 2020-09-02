@@ -1,6 +1,7 @@
 package com.xxl.robot.time;
 
 import com.xxl.robot.app.media.A视频抖音;
+import com.xxl.robot.app.media.B视频火山;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
 import com.xxl.robot.service.*;
@@ -39,6 +40,10 @@ public class PhoneSchedule {
         log.info("********************10分钟定时器启动**************************");
        Robot robot = new Robot();
 
+        log.info("********************火山极速版**************************");
+        List<PhoneCodeDto> dtos = phoneCodeService.getList("phone001","火山极速版");
+        WindowTools.initWindowApp(robot,dtos);
+        B视频火山.handle(robot,"phone001","火山极速版", AppConstants.WATCH_ADVERT,dtos);//观看广告
 
 
     }
@@ -57,6 +62,11 @@ public class PhoneSchedule {
         WindowTools.initWindowApp(robot,dtos);
         A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.TREASURE,dtos);//夺宝
         A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.WATCH_ADVERT,dtos);//观看广告
+
+        log.info("********************火山极速版**************************");
+        List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","火山极速版");
+        WindowTools.initWindowApp(robot,dtos1);
+        B视频火山.handle(robot,"phone001","火山极速版", AppConstants.TREASURE,dtos1);//夺宝
 
 
     }
@@ -77,7 +87,15 @@ public class PhoneSchedule {
 
 
 
+    /**
+     * todo
+     * 定时器  30分钟
+     */
+    //@Scheduled(cron = "0 0/30 * * * ?")
+    public void timer30(){
+        log.info("********************30分钟定时器启动**************************");
 
+    }
 
 
 
