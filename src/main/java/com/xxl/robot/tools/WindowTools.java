@@ -19,6 +19,7 @@ public class WindowTools {
 
     //********************************************辅助功能****************************************************************
     public static void initWindowApp(Robot robot, List<PhoneCodeDto> phoneCodeDtos){
+        robot.delay(6000);
         log.info("2.打开app所在集合窗口");
         PhoneCodeDto dto2 =  phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("window")).findAny().orElse(null);
         String operateData2 = "adb shell input tap " + dto2.getPositionX() + " " + dto2.getPositionY();

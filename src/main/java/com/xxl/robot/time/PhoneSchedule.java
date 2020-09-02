@@ -27,7 +27,8 @@ public class PhoneSchedule {
     private PhoneSourceService phoneSourceService;
     @Autowired
     private PhoneCodeService phoneCodeService;
-
+    @Autowired
+    private AppMediaService aAppMediaService;
 
 
 
@@ -35,17 +36,10 @@ public class PhoneSchedule {
      * todo
      * 定时器  10分钟
      */
-   //@Scheduled(cron = "0 0/10 * * * ?")
+     @Scheduled(cron = "0 0/10 * * * ?")
     public void timer10() throws AWTException {
         log.info("********************10分钟定时器启动**************************");
-       Robot robot = new Robot();
-
-        log.info("********************火山极速版**************************");
-        List<PhoneCodeDto> dtos = phoneCodeService.getList("phone001","火山极速版");
-        WindowTools.initWindowApp(robot,dtos);
-        B视频火山.handle(robot,"phone001","火山极速版", AppConstants.WATCH_ADVERT,dtos);//观看广告
-
-
+         aAppMediaService.circulate();
     }
 
     /**

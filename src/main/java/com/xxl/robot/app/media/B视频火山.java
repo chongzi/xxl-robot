@@ -100,8 +100,8 @@ public class B视频火山 {
 
         String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
         MouseTools.normalEvent(robot,operate);
-        int i = RandomTools.init(100);
-        int c = RandomTools.init(100);
+        int i = RandomTools.init(20);
+        int c = RandomTools.init(20);
         int re = RandomTools.init(10000);
         log.info("随机值:{}"+i);
         for(int a=0;a<i;a++){

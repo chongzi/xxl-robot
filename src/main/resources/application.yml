@@ -1,5 +1,5 @@
 server:
-  port: 883
+  port: 882
   servlet:
     context-path: /robot
 
