@@ -47,9 +47,9 @@ public class PhoneSourceServiceImpl implements PhoneSourceService {
 		List<PhoneCodeDto> dtos = phoneCodeService.getList("phone001","抖音极速版");
 		WindowTools.initWindowApp(robot,dtos);
 
-       	A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.CHECK_IN,dtos);
+		A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.CHECK_IN,dtos);
 		A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.TREASURE,dtos);
-	    A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.WATCH_ADVERT,dtos);
+		A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.WATCH_ADVERT,dtos);
 		A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.SLEEP,dtos);
 		A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.WATCH_NOVELS,dtos);
 		A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.WALK,dtos);

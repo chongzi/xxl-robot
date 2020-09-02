@@ -5,6 +5,7 @@ import com.xxl.robot.dto.PhoneCodeDto;
 import com.xxl.robot.tools.AdbTools;
 import com.xxl.robot.tools.MouseTools;
 import com.xxl.robot.tools.RandomTools;
+import com.xxl.robot.tools.WindowTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -58,6 +59,7 @@ public class B视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        WindowTools.initWindowApp(robot,phoneCodeDtos);
         String operateData = "B视频火山-签到";
         MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包")).findAny().orElse(null);
@@ -76,6 +78,8 @@ public class B视频火山 {
         MouseTools.normalEvent(robot,operateData1);
         MouseTools.normalEvent(robot,operateData1);
 
+        String operateDataHome = "adb shell input keyevent 3";
+        MouseTools.normalEvent(robot,operateDataHome);
     }
 
 
@@ -85,6 +89,7 @@ public class B视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        WindowTools.initWindowApp(robot,phoneCodeDtos);
         String operateData = "B视频火山-看视频";
         MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页")).findAny().orElse(null);
@@ -135,12 +140,16 @@ public class B视频火山 {
 
             String operateData1 = "adb shell input keyevent BACK";
             MouseTools.normalEvent(robot,operateData1);
-            String operateData11 = "adb shell input keyevent BACK";
-            MouseTools.normalEvent(robot,operateData11);
+            MouseTools.normalEvent(robot,operateData1);
 
         }
 
+        String operateData1 = "adb shell input keyevent BACK";
+        MouseTools.normalEvent(robot,operateData1);
+        MouseTools.normalEvent(robot,operateData1);
 
+        String operateDataHome = "adb shell input keyevent 3";
+        MouseTools.normalEvent(robot,operateDataHome);
 
     }
 
@@ -151,6 +160,7 @@ public class B视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle3(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        WindowTools.initWindowApp(robot,phoneCodeDtos);
         String operateData = "B视频火山-睡觉";
         MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包")).findAny().orElse(null);
@@ -183,9 +193,10 @@ public class B视频火山 {
 
         String operateData1 = "adb shell input keyevent BACK";
         MouseTools.normalEvent(robot,operateData1);
-        String operateData2 = "adb shell input keyevent BACK";
-        MouseTools.normalEvent(robot,operateData2);
+        MouseTools.normalEvent(robot,operateData1);
 
+        String operateDataHome = "adb shell input keyevent 3";
+        MouseTools.normalEvent(robot,operateDataHome);
     }
 
 
@@ -195,6 +206,7 @@ public class B视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        WindowTools.initWindowApp(robot,phoneCodeDtos);
         String operateData = "B视频火山-走路";
         MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包")).findAny().orElse(null);
@@ -214,10 +226,10 @@ public class B视频火山 {
 
         String operateData1 = "adb shell input keyevent BACK";
         MouseTools.normalEvent(robot,operateData1);
-        String operateData2 = "adb shell input keyevent BACK";
-        MouseTools.normalEvent(robot,operateData2);
+        MouseTools.normalEvent(robot,operateData1);
 
-
+        String operateDataHome = "adb shell input keyevent 3";
+        MouseTools.normalEvent(robot,operateDataHome);
     }
 
 
@@ -227,6 +239,7 @@ public class B视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        WindowTools.initWindowApp(robot,phoneCodeDtos);
         String operateData = "B视频火山-看广告";
         MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包")).findAny().orElse(null);
@@ -246,6 +259,9 @@ public class B视频火山 {
         String operateData2 = "adb shell input keyevent BACK";
         MouseTools.normalEvent(robot,operateData2);
 
+        String operateDataHome = "adb shell input keyevent 3";
+        MouseTools.normalEvent(robot,operateDataHome);
+
 
     }
 
@@ -256,6 +272,7 @@ public class B视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        WindowTools.initWindowApp(robot,phoneCodeDtos);
         String operateData = "B视频火山-种菜";
         MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包")).findAny().orElse(null);
@@ -287,6 +304,8 @@ public class B视频火山 {
         MouseTools.normalEvent(robot,operateData1);
         MouseTools.normalEvent(robot,operateData1);
 
+        String operateDataHome = "adb shell input keyevent 3";
+        MouseTools.normalEvent(robot,operateDataHome);
     }
 
 
@@ -296,6 +315,8 @@ public class B视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle7(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        WindowTools.initWindowApp(robot,phoneCodeDtos);
+
         String operateData = "B视频火山-开宝箱";
         MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category红包")).findAny().orElse(null);
@@ -317,6 +338,8 @@ public class B视频火山 {
         MouseTools.normalEvent(robot,operateData1);
         MouseTools.normalEvent(robot,operateData1);
 
+        String operateDataHome = "adb shell input keyevent 3";
+        MouseTools.normalEvent(robot,operateDataHome);
     }
 
 

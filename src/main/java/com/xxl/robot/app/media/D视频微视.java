@@ -5,6 +5,7 @@ import com.xxl.robot.dto.PhoneCodeDto;
 import com.xxl.robot.tools.AdbTools;
 import com.xxl.robot.tools.MouseTools;
 import com.xxl.robot.tools.RandomTools;
+import com.xxl.robot.tools.WindowTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,6 +45,7 @@ public class D视频微视 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        WindowTools.initWindowApp(robot,phoneCodeDtos);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页")).findAny().orElse(null);
         PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-看视频")).findAny().orElse(null);
         PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-关注")).findAny().orElse(null);
@@ -68,6 +70,9 @@ public class D视频微视 {
             }
 
         }
+
+        String operateDataHome = "adb shell input keyevent 3";
+        MouseTools.normalEvent(robot,operateDataHome);
 
     }
 

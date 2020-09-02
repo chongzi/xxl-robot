@@ -5,6 +5,7 @@ import com.xxl.robot.dto.PhoneCodeDto;
 import com.xxl.robot.tools.AdbTools;
 import com.xxl.robot.tools.MouseTools;
 import com.xxl.robot.tools.RandomTools;
+import com.xxl.robot.tools.WindowTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -58,6 +59,7 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        WindowTools.initWindowApp(robot,phoneCodeDtos);
         String operateData = "A视频抖音-签到";
         MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱")).findAny().orElse(null);
@@ -79,6 +81,9 @@ public class A视频抖音 {
         MouseTools.normalEvent(robot,operateData1);
         MouseTools.normalEvent(robot,operateData1);
 
+        String operateDataHome = "adb shell input keyevent 3";
+        MouseTools.normalEvent(robot,operateDataHome);
+
     }
 
 
@@ -88,6 +93,7 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        WindowTools.initWindowApp(robot,phoneCodeDtos);
         String operateData = "A视频抖音-看视频";
         MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页")).findAny().orElse(null);
@@ -147,8 +153,12 @@ public class A视频抖音 {
             MouseTools.normalEvent(robot,operateData1);
 
         }
+        String operateData1 = "adb shell input keyevent BACK";
+        MouseTools.normalEvent(robot,operateData1);
+        MouseTools.normalEvent(robot,operateData1);
 
-
+        String operateDataHome = "adb shell input keyevent 3";
+        MouseTools.normalEvent(robot,operateDataHome);
 
     }
 
@@ -159,6 +169,7 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle3(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        WindowTools.initWindowApp(robot,phoneCodeDtos);
         String operateData = "A视频抖音-睡觉";
         MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱")).findAny().orElse(null);
@@ -192,6 +203,8 @@ public class A视频抖音 {
         String operateData2 = "adb shell input keyevent BACK";
         MouseTools.normalEvent(robot,operateData2);
 
+        String operateDataHome = "adb shell input keyevent 3";
+        MouseTools.normalEvent(robot,operateDataHome);
     }
 
 
@@ -201,6 +214,7 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        WindowTools.initWindowApp(robot,phoneCodeDtos);
         String operateData = "A视频抖音-走路";
         MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱")).findAny().orElse(null);
@@ -223,7 +237,8 @@ public class A视频抖音 {
         String operateData2 = "adb shell input keyevent BACK";
         MouseTools.normalEvent(robot,operateData2);
 
-
+        String operateDataHome = "adb shell input keyevent 3";
+        MouseTools.normalEvent(robot,operateDataHome);
     }
 
 
@@ -233,6 +248,7 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        WindowTools.initWindowApp(robot,phoneCodeDtos);
         String operateData = "A视频抖音-看广告";
         MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱")).findAny().orElse(null);
@@ -251,7 +267,8 @@ public class A视频抖音 {
         MouseTools.normalEvent(robot,operateData1);
         MouseTools.normalEvent(robot,operateData1);
 
-
+        String operateDataHome = "adb shell input keyevent 3";
+        MouseTools.normalEvent(robot,operateDataHome);
     }
 
 
@@ -261,6 +278,7 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        WindowTools.initWindowApp(robot,phoneCodeDtos);
         String operateData = "A视频抖音-看小说";
         MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱")).findAny().orElse(null);
@@ -316,7 +334,8 @@ public class A视频抖音 {
         MouseTools.normalEvent(robot,operateData1);
 
 
-
+        String operateDataHome = "adb shell input keyevent 3";
+        MouseTools.normalEvent(robot,operateDataHome);
     }
 
 
@@ -326,6 +345,7 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle7(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+        WindowTools.initWindowApp(robot,phoneCodeDtos);
         String operateData = "A视频抖音-开宝箱";
         MouseTools.normalEvent(robot,operateData);
 
@@ -351,6 +371,9 @@ public class A视频抖音 {
         String operateData1 = "adb shell input keyevent BACK";
         MouseTools.normalEvent(robot,operateData1);
         MouseTools.normalEvent(robot,operateData1);
+
+        String operateDataHome = "adb shell input keyevent 3";
+        MouseTools.normalEvent(robot,operateDataHome);
     }
 
 

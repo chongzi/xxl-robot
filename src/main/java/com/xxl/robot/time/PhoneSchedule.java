@@ -53,21 +53,8 @@ public class PhoneSchedule {
      * 定时器  20分钟
      */
     //@Scheduled(cron = "0 0/20 * * * ?")
-    public void timer20() throws AWTException {
+    public void timer20()  {
         log.info("********************20分钟定时器启动**************************");
-        Robot robot = new Robot();
-
-        log.info("********************抖音极速版**************************");
-        List<PhoneCodeDto> dtos = phoneCodeService.getList("phone001","抖音极速版");
-        WindowTools.initWindowApp(robot,dtos);
-        A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.TREASURE,dtos);//夺宝
-        A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.WATCH_ADVERT,dtos);//观看广告
-
-        log.info("********************火山极速版**************************");
-        List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","火山极速版");
-        WindowTools.initWindowApp(robot,dtos1);
-        B视频火山.handle(robot,"phone001","火山极速版", AppConstants.TREASURE,dtos1);//夺宝
-
 
     }
 
@@ -89,10 +76,10 @@ public class PhoneSchedule {
 
     /**
      * todo
-     * 定时器  30分钟
+     * 定时器  60分钟
      */
-    //@Scheduled(cron = "0 0/30 * * * ?")
-    public void timer30(){
+    //@Scheduled(cron = "0 0/60 * * * ?")
+    public void timer60(){
         log.info("********************30分钟定时器启动**************************");
 
     }
