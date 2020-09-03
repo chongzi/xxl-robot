@@ -48,6 +48,8 @@ public class C视频快手 {
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
         WindowTools.initWindowApp(robot,phoneCodeDtos);
+        String operateData = "C视频快手-签到";
+        MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页")).findAny().orElse(null);
         PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-去赚钱")).findAny().orElse(null);
         PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-去赚钱-签到")).findAny().orElse(null);
@@ -79,6 +81,8 @@ public class C视频快手 {
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
         WindowTools.initWindowApp(robot,phoneCodeDtos);
+        String operateData = "C视频快手-看视频";
+        MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category发现")).findAny().orElse(null);
         PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category发现-看视频")).findAny().orElse(null);
         PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category发现-看视频-关注")).findAny().orElse(null);
@@ -150,6 +154,8 @@ public class C视频快手 {
      */
     public static void handle3(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
         WindowTools.initWindowApp(robot,phoneCodeDtos);
+        String operateData = "C视频快手-看广告";
+        MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页")).findAny().orElse(null);
         PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-去赚钱")).findAny().orElse(null);
         PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-去赚钱-看广告")).findAny().orElse(null);

@@ -60,14 +60,25 @@ public class G视频追看 {
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
         WindowTools.initWindowApp(robot,phoneCodeDtos);
-        PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category赚钱")).findAny().orElse(null);
-        PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category赚钱-签到")).findAny().orElse(null);
-        PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category赚钱-签到-看视频")).findAny().orElse(null);
+        String operateData = "G视频追看-签到";
+        MouseTools.normalEvent(robot,operateData);
+        PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-清除")).findAny().orElse(null);
+        PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category赚钱")).findAny().orElse(null);
+        PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category赚钱-签到")).findAny().orElse(null);
+        PhoneCodeDto dto3 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category赚钱-签到-看视频")).findAny().orElse(null);
+
+        robot.delay(5000);
         String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
         MouseTools.normalEvent(robot,operate);
 
+        String operate1 = AdbTools.tap(dto1.getPositionX(),dto1.getPositionY());
+        MouseTools.normalEvent(robot,operate1);
+
         String operate2 = AdbTools.tap(dto2.getPositionX(),dto2.getPositionY());
         MouseTools.normalEvent(robot,operate2);
+
+        String operate3 = AdbTools.tap(dto3.getPositionX(),dto3.getPositionY());
+        MouseTools.normalEvent(robot,operate3);
 
         robot.delay(36000);
         String operateData1 = "adb shell input keyevent BACK";
@@ -87,6 +98,8 @@ public class G视频追看 {
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
         WindowTools.initWindowApp(robot,phoneCodeDtos);
+        String operateData = "G视频追看-看视频";
+        MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页")).findAny().orElse(null);
         PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-看视频")).findAny().orElse(null);
         PhoneCodeDto dto3 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-点攒")).findAny().orElse(null);
@@ -129,6 +142,8 @@ public class G视频追看 {
      */
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
         WindowTools.initWindowApp(robot,phoneCodeDtos);
+        String operateData = "G视频追看-领红包";
+        MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页")).findAny().orElse(null);
         PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-开宝箱")).findAny().orElse(null);
         PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-开宝箱-看广告")).findAny().orElse(null);
@@ -161,6 +176,8 @@ public class G视频追看 {
      */
     public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
         WindowTools.initWindowApp(robot,phoneCodeDtos);
+        String operateData = "G视频追看-看广告";
+        MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category赚钱")).findAny().orElse(null);
         PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category赚钱-看广告")).findAny().orElse(null);
         String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
@@ -191,6 +208,8 @@ public class G视频追看 {
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
         WindowTools.initWindowApp(robot,phoneCodeDtos);
+        String operateData = "G视频追看-抽奖";
+        MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category赚钱")).findAny().orElse(null);
         PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category赚钱-抽奖")).findAny().orElse(null);
         PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category赚钱-抽奖-领取奖励")).findAny().orElse(null);
@@ -223,6 +242,8 @@ public class G视频追看 {
      */
     public static void handle7(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
         WindowTools.initWindowApp(robot,phoneCodeDtos);
+        String operateData = "G视频追看-开宝箱";
+        MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category赚钱")).findAny().orElse(null);
         PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category赚钱-开宝箱")).findAny().orElse(null);
          String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
@@ -250,6 +271,8 @@ public class G视频追看 {
      */
     public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
         WindowTools.initWindowApp(robot,phoneCodeDtos);
+        String operateData = "G视频追看-看直播";
+        MouseTools.normalEvent(robot,operateData);
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category直播")).findAny().orElse(null);
         PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category直播-看视频")).findAny().orElse(null);
         String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
