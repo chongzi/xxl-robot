@@ -5,6 +5,7 @@ import com.xxl.robot.app.media.B视频火山;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
 import com.xxl.robot.service.*;
+import com.xxl.robot.tools.RandomTools;
 import com.xxl.robot.tools.WindowTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,11 +36,13 @@ public class PhoneSchedule {
     /**
      * todo
      * 定时器  10分钟
-     */
+     adb shell input swipe 1045 316 197 2163
+
      @Scheduled(cron = "0 0/10 * * * ?")
     public void timer10() throws AWTException {
         log.info("********************10分钟定时器启动**************************");
-         aAppMediaService.circulate();
+         aAppMediaService.start();
+
     }
 
     /**
@@ -47,8 +50,10 @@ public class PhoneSchedule {
      * 定时器  20分钟
      */
     //@Scheduled(cron = "0 0/20 * * * ?")
-    public void timer20()  {
+    public void timer20() throws AWTException {
         log.info("********************20分钟定时器启动**************************");
+        Robot robot = new Robot();
+        robot.delay(RandomTools.init(60000));
 
     }
 
@@ -58,9 +63,12 @@ public class PhoneSchedule {
      * 定时器  30分钟
      */
     //@Scheduled(cron = "0 0/30 * * * ?")
-    public void timer30(){
+    public void timer30() throws AWTException {
         log.info("********************30分钟定时器启动**************************");
+        Robot robot = new Robot();
+        robot.delay(RandomTools.init(88000));
 
+        aAppMediaService.circulate();
     }
 
 

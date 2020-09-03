@@ -5,6 +5,7 @@ import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
 import com.xxl.robot.service.AppMediaService;
 import com.xxl.robot.service.PhoneCodeService;
+import com.xxl.robot.tools.RandomTools;
 import lombok.SneakyThrows;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,9 +38,10 @@ public class AppMediaServiceImpl implements AppMediaService {
 		A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.CHECK_IN,dtos);
 		A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.SLEEP,dtos);
 
-		log.info("********************火山极速版**************************");
+/*		log.info("********************火山极速版**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","火山极速版");
 		B视频火山.handle(robot,"phone001","火山极速版", AppConstants.CHECK_IN,dtos1);
+		B视频火山.handle(robot,"phone001","火山极速版", AppConstants.SLEEP,dtos1);
 
 		log.info("********************快手极速版**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList("phone001","快手极速版");
@@ -62,7 +64,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 
 		log.info("********************小吃货**************************");
 		List<PhoneCodeDto> dtos8 = phoneCodeService.getList("phone001","小吃货");
-		H视频小吃货.handle(robot,"phone001","小吃货", AppConstants.CHECK_IN,dtos8);
+		H视频小吃货.handle(robot,"phone001","小吃货", AppConstants.CHECK_IN,dtos8);*/
 
 	}
 
@@ -119,7 +121,6 @@ public class AppMediaServiceImpl implements AppMediaService {
 	@Override
 	public void circulate() {
 		Robot robot = new Robot();
-
 		log.info("********************抖音极速版**************************");
 /*		List<PhoneCodeDto> dtos = phoneCodeService.getList("phone001","抖音极速版");
 		A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.TREASURE,dtos);//夺宝

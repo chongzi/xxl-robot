@@ -65,6 +65,12 @@ public class A视频抖音 {
         PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱")).findAny().orElse(null);
         PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱-签到")).findAny().orElse(null);
         PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱-签到-看视频")).findAny().orElse(null);
+        PhoneCodeDto dto3 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-青少年模式")).findAny().orElse(null);
+        robot.delay(RandomTools.init(6000));
+        String operateOne = AdbTools.tap(dto3.getPositionX(),dto3.getPositionY());
+        MouseTools.normalEvent(robot,operateOne);
+
+
         String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
         MouseTools.normalEvent(robot,operate);
         MouseTools.normalEvent(robot,AdbTools.downPage());
@@ -78,6 +84,7 @@ public class A视频抖音 {
         MouseTools.normalEvent(robot,operate2);
         robot.delay(31000);
         String operateData1 = "adb shell input keyevent BACK";
+        MouseTools.normalEvent(robot,operateData1);
         MouseTools.normalEvent(robot,operateData1);
         MouseTools.normalEvent(robot,operateData1);
 
