@@ -45,37 +45,50 @@ public class D视频微视 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+
+        log.info("1.动作");
+        String operate1 = "D视频微视-看视频";
+        MouseTools.normalEvent(robot,operate1);
+
+        log.info("2.初始化");
         WindowTools.initWindowApp(robot,phoneCodeDtos);
-        String operateData = "D视频微视-看视频";
-        MouseTools.normalEvent(robot,operateData);
 
-        PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页")).findAny().orElse(null);
-        PhoneCodeDto dto1 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-看视频")).findAny().orElse(null);
-        PhoneCodeDto dto2 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-关注")).findAny().orElse(null);
+        try {
+            log.info("4.步骤-1");
+            PhoneCodeDto dto41 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页")).findAny().orElse(null);
+            String operate41 = AdbTools.tap(dto41.getPositionX(), dto41.getPositionY());
+            MouseTools.normalEvent(robot, operate41);
 
-        String operate = AdbTools.tap(dto.getPositionX(),dto.getPositionY());
-        MouseTools.normalEvent(robot,operate);
-        int i = RandomTools.init(20);
-        int y = RandomTools.init(20);
-        int re = RandomTools.init(20000);
-        log.info("随机值:{}"+i);
-        for(int a=0;a<i;a++){
-            robot.delay(re);
-            MouseTools.normalEvent(robot,AdbTools.downPage());
-            if(a>y){
+            int i = RandomTools.init(20);
+            int y = RandomTools.init(20);
+            int re = RandomTools.init(20000);
+            log.info("随机值:{}" + i);
+            for (int a = 0; a < i; a++) {
                 robot.delay(re);
-                MouseTools.normalEvent(robot,AdbTools.upPage());
-            }
-            if(a==y){
-                robot.delay(re);
-                String operate3 = AdbTools.tap(dto2.getPositionX(),dto2.getPositionY());
-                MouseTools.normalEvent(robot,operate3);
-            }
+                MouseTools.normalEvent(robot, AdbTools.downPage());
+                if (a > y) {
+                    robot.delay(re);
+                    MouseTools.normalEvent(robot, AdbTools.upPage());
+                }
+                if (a == y) {
+                    robot.delay(re);
+                    PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-关注")).findAny().orElse(null);
+                    String operate42 = AdbTools.tap(dto42.getPositionX(), dto42.getPositionY());
+                    MouseTools.normalEvent(robot, operate42);
+                }
 
-        }
+            }
+        }catch (Exception e){}
 
-        String operateDataHome = "adb shell input keyevent 3";
-        MouseTools.normalEvent(robot,operateDataHome);
+        log.info("5.步骤-返回主界面");
+        String operateBackHome = "adb shell input keyevent BACK";
+        MouseTools.normalEvent(robot,operateBackHome);
+        MouseTools.normalEvent(robot,operateBackHome);
+        MouseTools.normalEvent(robot,operateBackHome);
+
+        log.info("6.步骤-退出");
+        String operateQuit = "adb shell input keyevent 3";
+        MouseTools.normalEvent(robot,operateQuit);
 
     }
 
