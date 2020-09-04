@@ -124,8 +124,6 @@ public class A视频抖音 {
             log.info("4.步骤-2");
             PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-点攒")).findAny().orElse(null);
             PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-关注")).findAny().orElse(null);
-            PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-发布")).findAny().orElse(null);
-            PhoneCodeDto dto45 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-发布-看视频")).findAny().orElse(null);
             int i = RandomTools.init(10);
             int y = RandomTools.init(10);
             int re = RandomTools.init(6000);
@@ -145,31 +143,6 @@ public class A视频抖音 {
                     String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
                     MouseTools.normalEvent(robot, operate43);
                 }
-
-            }
-
-            if (i == y) {
-                robot.delay(re);
-                String operate44 = AdbTools.tap(dto44.getPositionX(), dto44.getPositionY());
-                MouseTools.normalEvent(robot, operate44);
-                robot.delay(re);
-                String operate45 = AdbTools.tap(dto45.getPositionX(), dto45.getPositionY());
-                MouseTools.normalEvent(robot, operate45);
-
-                int x = RandomTools.init(6);
-                int y1 = RandomTools.init(6);
-                for (int a = 0; a < x; x++) {
-                    robot.delay(re);
-                    MouseTools.normalEvent(robot, AdbTools.downPage());
-                    if (a == y1) {
-                        robot.delay(re);
-                        MouseTools.normalEvent(robot, AdbTools.upPage());
-                    }
-                }
-
-                String operateData1 = "adb shell input keyevent BACK";
-                MouseTools.normalEvent(robot, operateData1);
-                MouseTools.normalEvent(robot, operateData1);
 
             }
         }catch (Exception e){
@@ -274,6 +247,7 @@ public class A视频抖音 {
             String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
             MouseTools.normalEvent(robot, operate43);
         }catch (Exception e){}
+
         log.info("5.步骤-返回主界面");
         String operateBackHome = "adb shell input keyevent BACK";
         MouseTools.normalEvent(robot,operateBackHome);
@@ -297,6 +271,7 @@ public class A视频抖音 {
 
         log.info("2.初始化");
         WindowTools.initWindowApp(robot,phoneCodeDtos);
+
         try {
             log.info("4.步骤-1");
             PhoneCodeDto dto41 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category来赚钱")).findAny().orElse(null);
@@ -311,6 +286,7 @@ public class A视频抖音 {
             MouseTools.normalEvent(robot, operate42);
             robot.delay(36000);
         }catch (Exception e){}
+
         log.info("5.步骤-返回主界面");
         String operateBackHome = "adb shell input keyevent BACK";
         MouseTools.normalEvent(robot,operateBackHome);
@@ -381,6 +357,7 @@ public class A视频抖音 {
 
             }
         }catch (Exception e){}
+
         log.info("5.步骤-返回主界面");
         String operateBackHome = "adb shell input keyevent BACK";
         MouseTools.normalEvent(robot,operateBackHome);
@@ -423,6 +400,7 @@ public class A视频抖音 {
             MouseTools.normalEvent(robot, operate42);
             robot.delay(36000);
         }catch (Exception e){}
+
         log.info("5.步骤-返回主界面");
         String operateBackHome = "adb shell input keyevent BACK";
         MouseTools.normalEvent(robot,operateBackHome);

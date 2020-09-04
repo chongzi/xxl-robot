@@ -62,7 +62,6 @@ public class D视频微视 {
             int i = RandomTools.init(20);
             int y = RandomTools.init(20);
             int re = RandomTools.init(20000);
-            log.info("随机值:{}" + i);
             for (int a = 0; a < i; a++) {
                 robot.delay(re);
                 MouseTools.normalEvent(robot, AdbTools.downPage());
