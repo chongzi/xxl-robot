@@ -19,7 +19,7 @@ public class MouseTools {
     public static void normalEvent(Robot robot, String operateData){
         try {
             //点击左边菜单标题
-            robot.delay(2700);
+            robot.delay(6000);
             ClipboardTools.setClipboard(operateData);
             robot.mousePress(InputEvent.BUTTON1_MASK);
             robot.delay(100);
