@@ -187,12 +187,15 @@ public class A视频抖音 {
         MouseTools.normalEvent(robot,operate);
         MouseTools.normalEvent(robot,AdbTools.upPage());
         MouseTools.normalEvent(robot,AdbTools.upPage());
+
+
         String operate1 = AdbTools.tap(dto1.getPositionX(),dto1.getPositionY());
         MouseTools.normalEvent(robot,operate1);
 
         robot.delay(RandomTools.init(1000));
         String operate2 = AdbTools.tap(dto2.getPositionX(),dto2.getPositionY());
         MouseTools.normalEvent(robot,operate2);
+
         robot.delay(RandomTools.init(1000));
         String operate3 = AdbTools.tap(dto3.getPositionX(),dto3.getPositionY());
         MouseTools.normalEvent(robot,operate3);
@@ -207,8 +210,7 @@ public class A视频抖音 {
 
         String operateData1 = "adb shell input keyevent BACK";
         MouseTools.normalEvent(robot,operateData1);
-        String operateData2 = "adb shell input keyevent BACK";
-        MouseTools.normalEvent(robot,operateData2);
+        MouseTools.normalEvent(robot,operateData1);
 
         String operateDataHome = "adb shell input keyevent 3";
         MouseTools.normalEvent(robot,operateDataHome);
