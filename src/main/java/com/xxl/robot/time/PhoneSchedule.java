@@ -36,9 +36,8 @@ public class PhoneSchedule {
     /**
      * todo
      * 定时器  10分钟
-     adb shell input swipe 1045 316 197 2163
-
-     @Scheduled(cron = "0 0/10 * * * ?")
+     */
+     //@Scheduled(cron = "0 0/6 * * * ?")
     public void timer10() throws AWTException {
         log.info("********************10分钟定时器启动**************************");
          aAppMediaService.start();
@@ -49,7 +48,7 @@ public class PhoneSchedule {
      * todo
      * 定时器  20分钟
      */
-    //@Scheduled(cron = "0 0/20 * * * ?")
+    @Scheduled(cron = "0 0/20 * * * ?")
     public void timer20() throws AWTException {
         log.info("********************20分钟定时器启动**************************");
         Robot robot = new Robot();
