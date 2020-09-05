@@ -48,7 +48,7 @@ public class PhoneSchedule {
      * todo
      * 定时器  20分钟
      */
-    @Scheduled(cron = "0 0/20 * * * ?")
+    //@Scheduled(cron = "0 0/20 * * * ?")
     public void timer20() throws AWTException {
         log.info("********************20分钟定时器启动**************************");
         Robot robot = new Robot();
