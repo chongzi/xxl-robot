@@ -293,25 +293,19 @@ public class A新闻今日头条 {
             MouseTools.normalEvent(robot, operate43);
             robot.delay(RandomTools.init(6000));
 
-
-
-            int i = RandomTools.init(120);
-            int j = RandomTools.init(120);
+            int i = RandomTools.init(60);
+            int j = RandomTools.init(60);
             for (int a = 0; a < i; a++) {
-                robot.delay(RandomTools.init(2000));
                 MouseTools.normalEvent(robot, AdbTools.right());
                 if (a == j) {
-                    robot.delay(RandomTools.init(10000));
                     MouseTools.normalEvent(robot, AdbTools.left());
                 }
 
                 if (a == j * 2) {
-                    robot.delay(RandomTools.init(2600));
                     MouseTools.normalEvent(robot, AdbTools.left());
                 }
 
                 if (a == j + 6) {
-                    robot.delay(RandomTools.init(1000));
                     MouseTools.normalEvent(robot, AdbTools.left());
                 }
 
@@ -453,19 +447,23 @@ public class A新闻今日头条 {
             MouseTools.normalEvent(robot, AdbTools.upPage());
 
             log.info("4.步骤-2");
-            PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category阅读")).findAny().orElse(null);
+            PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-阅读")).findAny().orElse(null);
             String operate42 = AdbTools.tap(dto42.getPositionX(), dto42.getPositionY());
             MouseTools.normalEvent(robot, operate42);
-
-            for(int i=0;i<30;i++) {
+            int a =  RandomTools.init(6);
+            for(int i=0;i<a;i++) {
                 log.info("4.步骤-2");
                 robot.delay(RandomTools.init(6000));
-                MouseTools.normalEvent(robot, AdbTools.down());
+                MouseTools.normalEvent(robot, AdbTools.downPage());
                 PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-看新闻")).findAny().orElse(null);
                 String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
                 MouseTools.normalEvent(robot, operate43);
+                for(int y=0;y<10;y++){
+                    MouseTools.normalEvent(robot, AdbTools.down());
+                }
                 String operateBackHome = "adb shell input keyevent BACK";
                 MouseTools.normalEvent(robot,operateBackHome);
+                MouseTools.normalEvent(robot, AdbTools.downPage());
             }
 
         }catch (Exception e){}
