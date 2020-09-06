@@ -30,6 +30,8 @@ public class PhoneSchedule {
     private PhoneCodeService phoneCodeService;
     @Autowired
     private AppMediaService aAppMediaService;
+    @Autowired
+    private AppNewsService appNewsService;
 
 
 
@@ -61,13 +63,14 @@ public class PhoneSchedule {
      * todo
      * 定时器  30分钟
      */
-    //@Scheduled(cron = "0 0/30 * * * ?")
+    @Scheduled(cron = "0 0/30 * * * ?")
     public void timer30() throws AWTException {
         log.info("********************30分钟定时器启动**************************");
         Robot robot = new Robot();
-        robot.delay(RandomTools.init(88000));
+        robot.delay(RandomTools.init(8000));
 
         aAppMediaService.circulate();
+        appNewsService.circulate();
     }
 
 

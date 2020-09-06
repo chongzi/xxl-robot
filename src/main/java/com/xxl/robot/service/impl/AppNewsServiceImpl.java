@@ -58,6 +58,11 @@ public class AppNewsServiceImpl implements AppNewsService {
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList("phone001","忆头条");
 		A新闻忆头条.handle(robot,"phone001","忆头条", AppConstants.CHECK_IN,dtos4);
 
+		log.info("********************慧头条**************************");
+		List<PhoneCodeDto> dtos5 = phoneCodeService.getList("phone001","慧头条");
+		A新闻忆头条.handle(robot,"phone001","慧头条", AppConstants.CHECK_IN,dtos5);
+
+
 	}
 
 	/**
@@ -111,6 +116,11 @@ public class AppNewsServiceImpl implements AppNewsService {
 		List<PhoneCodeDto> dtos3 = phoneCodeService.getList("phone001","悦头条");
 		A新闻悦头条.handle(robot,"phone001","悦头条", AppConstants.DRAW,dtos3);
 
+		log.info("********************慧头条**************************");
+		List<PhoneCodeDto> dtos5 = phoneCodeService.getList("phone001","慧头条");
+		A新闻忆头条.handle(robot,"phone001","慧头条", AppConstants.GIFT_MONEY,dtos5);
+		A新闻忆头条.handle(robot,"phone001","慧头条", AppConstants.TREASURE,dtos5);
+
 	}
 
 	/***
@@ -155,6 +165,12 @@ public class AppNewsServiceImpl implements AppNewsService {
 		log.info("********************忆头条**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList("phone001","忆头条");
 		A新闻忆头条.handle(robot,"phone001","忆头条", AppConstants.WATCH_VIDEOS,dtos4);
+
+		log.info("********************慧头条**************************");
+		List<PhoneCodeDto> dtos5 = phoneCodeService.getList("phone001","慧头条");
+		A新闻忆头条.handle(robot,"phone001","慧头条", AppConstants.WATCH_VIDEOS,dtos5);
+
+
 	}
 
 	@SneakyThrows
@@ -187,6 +203,10 @@ public class AppNewsServiceImpl implements AppNewsService {
 		log.info("********************忆头条**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList("phone001","忆头条");
 		A新闻忆头条.handle(robot,"phone001","忆头条", AppConstants.WATCH_NEWS,dtos4);
+
+		log.info("********************慧头条**************************");
+		List<PhoneCodeDto> dtos5 = phoneCodeService.getList("phone001","慧头条");
+		A新闻忆头条.handle(robot,"phone001","慧头条", AppConstants.WATCH_NEWS,dtos5);
 
 	}
 

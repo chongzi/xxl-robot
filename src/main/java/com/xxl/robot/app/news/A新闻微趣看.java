@@ -15,8 +15,8 @@ import java.time.LocalTime;
 import java.util.List;
 
 /**
- * todo 抖音视频操作
- * app-视频用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
+ * todo A新闻微趣看操作
+ * app-用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
 public class A新闻微趣看 {
     private static Logger log = LoggerFactory.getLogger(A新闻微趣看.class);
@@ -96,6 +96,7 @@ public class A新闻微趣看 {
         app.setCategory("category任务");
         app.setEvent("category任务-签到");
         app.setEventAdvert("category任务-签到-看广告");
+        app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -106,11 +107,7 @@ public class A新闻微趣看 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category小视频");
-        app.setEvent("category小视频-看视频");
-        app.setEventStart("category小视频-看视频-start");
-        app.setEventStart("category小视频-看视频-点攒");
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+
 
     }
 
@@ -121,7 +118,12 @@ public class A新闻微趣看 {
      * @param phoneCodeDtos
      */
     public static void handle3(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category小视频");
+        app.setEvent("category小视频-看视频");
+        app.setEventStart("category小视频-看视频-start");
+        app.setEventStart("category小视频-看视频-点攒");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -134,6 +136,7 @@ public class A新闻微趣看 {
         app.setCategory("category头条");
         app.setEvent("category头条-看新闻");
         app.setEventStart("category头条-看新闻-start");
+        app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -144,7 +147,11 @@ public class A新闻微趣看 {
      * @param phoneCodeDtos
      */
     public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category我的");
+        app.setEvent("category我的-看小说");
+        app.setEventStart("category我的-看小说-start");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -154,7 +161,11 @@ public class A新闻微趣看 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category任务");
+        app.setEvent("category任务-看广告");
+        app.setEventAdvert("category任务-看广告-start");
+        app.setUpDown(1);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -173,7 +184,10 @@ public class A新闻微趣看 {
      * @param phoneCodeDtos
      */
     public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category头条");
+        app.setEvent("category头条-领红包");
+        app.setEventAdvert("category头条-领红包-看广告");
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -185,7 +199,11 @@ public class A新闻微趣看 {
      * @param phoneCodeDtos
      */
     public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category任务");
+        app.setEvent("category任务-开宝箱");
+        app.setEventAdvert("category任务-开宝箱-看广告");
+        app.setUpDown(1);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -195,7 +213,11 @@ public class A新闻微趣看 {
      * @param phoneCodeDtos
      */
     public static void handle10(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category我的");
+        app.setEvent("category我的-抽奖");
+        app.setEventAdvert("category我的-抽奖-看广告");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -205,7 +227,12 @@ public class A新闻微趣看 {
      * @param phoneCodeDtos
      */
     public static void handle11(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category任务");
+        app.setEvent("category任务-睡觉");
+        app.setEventStart("category任务-睡觉-start");
+        app.setEventStart1("category任务-睡觉-start1");
+        app.setUpDown(1);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -214,7 +241,11 @@ public class A新闻微趣看 {
      * @param phoneCodeDtos
      */
     public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category任务");
+        app.setEvent("category任务-走路");
+        app.setEventStart("category任务-走路-start");
+        app.setUpDown(1);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
