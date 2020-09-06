@@ -1,10 +1,7 @@
 package com.xxl.robot.service.impl;
 
 import com.xxl.robot.app.media.*;
-import com.xxl.robot.app.news.A新闻今日头条;
-import com.xxl.robot.app.news.A新闻悦头条;
-import com.xxl.robot.app.news.A新闻点点新闻;
-import com.xxl.robot.app.news.A新闻趣头条;
+import com.xxl.robot.app.news.*;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
@@ -57,6 +54,10 @@ public class AppNewsServiceImpl implements AppNewsService {
 		List<PhoneCodeDto> dtos3 = phoneCodeService.getList("phone001","悦头条");
 		A新闻悦头条.handle(robot,"phone001","悦头条", AppConstants.CHECK_IN,dtos3);
 
+		log.info("********************忆头条**************************");
+		List<PhoneCodeDto> dtos4 = phoneCodeService.getList("phone001","忆头条");
+		A新闻忆头条.handle(robot,"phone001","忆头条", AppConstants.CHECK_IN,dtos4);
+
 	}
 
 	/**
@@ -83,6 +84,8 @@ public class AppNewsServiceImpl implements AppNewsService {
 		log.info("********************悦头条**************************");
 		List<PhoneCodeDto> dtos3 = phoneCodeService.getList("phone001","悦头条");
 		A新闻悦头条.handle(robot,"phone001","悦头条", AppConstants.WATCH_NEWS,dtos3);
+
+
 
 	}
 
@@ -147,7 +150,11 @@ public class AppNewsServiceImpl implements AppNewsService {
 
 		log.info("********************趣头条**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","趣头条");
-		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.WATCH_NEWS,dtos1);
+		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.WATCH_VIDEOS,dtos1);
+
+		log.info("********************忆头条**************************");
+		List<PhoneCodeDto> dtos4 = phoneCodeService.getList("phone001","忆头条");
+		A新闻忆头条.handle(robot,"phone001","忆头条", AppConstants.WATCH_VIDEOS,dtos4);
 	}
 
 	@SneakyThrows
@@ -177,6 +184,9 @@ public class AppNewsServiceImpl implements AppNewsService {
 		List<PhoneCodeDto> dtos3 = phoneCodeService.getList("phone001","悦头条");
 		A新闻悦头条.handle(robot,"phone001","悦头条", AppConstants.WATCH_NEWS,dtos3);
 
+		log.info("********************忆头条**************************");
+		List<PhoneCodeDto> dtos4 = phoneCodeService.getList("phone001","忆头条");
+		A新闻忆头条.handle(robot,"phone001","忆头条", AppConstants.WATCH_NEWS,dtos4);
 
 	}
 
