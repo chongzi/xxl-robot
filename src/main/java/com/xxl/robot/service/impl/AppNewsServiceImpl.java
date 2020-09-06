@@ -2,11 +2,14 @@ package com.xxl.robot.service.impl;
 
 import com.xxl.robot.app.media.*;
 import com.xxl.robot.app.news.A新闻今日头条;
+import com.xxl.robot.app.news.A新闻趣头条;
 import com.xxl.robot.constants.AppConstants;
+import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
 import com.xxl.robot.service.AppMediaService;
 import com.xxl.robot.service.AppNewsService;
 import com.xxl.robot.service.PhoneCodeService;
+import com.xxl.robot.tools.AppUserTools;
 import lombok.SneakyThrows;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +42,10 @@ public class AppNewsServiceImpl implements AppNewsService {
 		A新闻今日头条.handle(robot,"phone001","今日头条", AppConstants.CHECK_IN,dtos);
 		A新闻今日头条.handle(robot,"phone001","今日头条", AppConstants.SLEEP,dtos);
 
-
+		log.info("********************趣头条**************************");
+		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","趣头条");
+		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.CHECK_IN,dtos1);
+		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.SLEEP,dtos1);
 
 	}
 
@@ -55,9 +61,10 @@ public class AppNewsServiceImpl implements AppNewsService {
 		List<PhoneCodeDto> dtos = phoneCodeService.getList("phone001","今日头条");
 		A新闻今日头条.handle(robot,"phone001","今日头条", AppConstants.EAT,dtos);//吃饭
 		A新闻今日头条.handle(robot,"phone001","今日头条", AppConstants.DRAW,dtos);//抽奖
-		A新闻今日头条.handle(robot,"phone001","今日头条", AppConstants.WATCH_NOVELS,dtos);//看小说
-		A新闻今日头条.handle(robot,"phone001","今日头条", AppConstants.WATCH_NEWS,dtos);//看新闻
 
+		log.info("********************趣头条**************************");
+		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","趣头条");
+		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.WATCH_NOVELS,dtos1);
 
 	}
 
@@ -71,8 +78,13 @@ public class AppNewsServiceImpl implements AppNewsService {
 		log.info("********************今日头条**************************");
  		List<PhoneCodeDto> dtos = phoneCodeService.getList("phone001","今日头条");
 		A新闻今日头条.handle(robot,"phone001","今日头条", AppConstants.TREASURE,dtos);//夺宝
-		A新闻今日头条.handle(robot,"phone001","今日头条", AppConstants.WATCH_NEWS,dtos);//看新闻
 
+		log.info("********************趣头条**************************");
+		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","趣头条");
+		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.GIFT_MONEY,dtos1);
+		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.TREASURE,dtos1);
+		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.WATCH_ADVERT,dtos1);
+		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.DRAW,dtos1);
 
 	}
 
@@ -97,24 +109,43 @@ public class AppNewsServiceImpl implements AppNewsService {
 		A新闻今日头条.handle(robot,"phone001","今日头条", AppConstants.WALK,dtos);
 		A新闻今日头条.handle(robot,"phone001","今日头条", AppConstants.SLEEP,dtos);
 
+		log.info("********************趣头条**************************");
+		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","趣头条");
+		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.SLEEP,dtos1);
+		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.WALK,dtos1);
 
 	}
 
 	//*******************************************以下操作只能得取少量金币*******************************************************
 
+	@SneakyThrows
 	@Override
 	public void watchMedia() {
+		Robot robot = new Robot();
 
+		log.info("********************趣头条**************************");
+		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","趣头条");
+		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.WATCH_NEWS,dtos1);
 	}
 
+	@SneakyThrows
 	@Override
 	public void watchNovels() {
+		Robot robot = new Robot();
 
+		log.info("********************趣头条**************************");
+		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","趣头条");
+		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.WATCH_NOVELS,dtos1);
 	}
 
+	@SneakyThrows
 	@Override
 	public void watchNews() {
+		Robot robot = new Robot();
 
+		log.info("********************趣头条**************************");
+		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","趣头条");
+		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.WATCH_NEWS,dtos1);
 	}
 
 	@Override
