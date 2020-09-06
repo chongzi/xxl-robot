@@ -7,10 +7,12 @@ public class AppConstants {
 
     public static final String CHECK_IN = "签到";
     public static final String WATCH_VIDEOS = "看视频";
+    public static final String WATCH_VIDEOS_SMALL = "看小视频";
     public static final String CONCERN = "关注";
     public static final String GIVE_UP = "点赞";
     public static final String COLLECT = "收藏";
     public static final String COMMENT = "评论";
+
     public static final String TREASURE = "开宝箱";
     public static final String GROW = "种菜";
     public static final String WALK = "走路";
@@ -27,6 +29,6 @@ public class AppConstants {
     public static final String MUSIC = "听歌曲";
     public static final String WATCH_ADVERT = "看广告";
     public static final String SWEEPSTAKES = "抽奖";
-    public static final String GIFT_MONEY = "拆红包";
+    public static final String GIFT_MONEY = "领红包";
     public static final String DIRECT = "直播";
 }

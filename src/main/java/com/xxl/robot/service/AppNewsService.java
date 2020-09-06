@@ -33,6 +33,28 @@ public interface AppNewsService {
     public void end();
 
 
+//*******************************************以下操作只能得取少量金币*******************************************************
+
+    /**
+     * todo 看视频
+     */
+    public void watchMedia();
+
+    /**
+     * todo 看小说
+     */
+    public void watchNovels();
+
+    /**
+     * todo 看新闻
+     */
+    public void watchNews();
+
+    /**
+     * todo 其它
+     */
+    public void other();
+
 
 
 }

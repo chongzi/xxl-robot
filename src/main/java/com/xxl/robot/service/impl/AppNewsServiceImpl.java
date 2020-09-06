@@ -100,5 +100,27 @@ public class AppNewsServiceImpl implements AppNewsService {
 
 	}
 
+	//*******************************************以下操作只能得取少量金币*******************************************************
+
+	@Override
+	public void watchMedia() {
+
+	}
+
+	@Override
+	public void watchNovels() {
+
+	}
+
+	@Override
+	public void watchNews() {
+
+	}
+
+	@Override
+	public void other() {
+
+	}
+
 
 }
