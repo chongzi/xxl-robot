@@ -2,6 +2,8 @@ package com.xxl.robot.service.impl;
 
 import com.xxl.robot.app.media.*;
 import com.xxl.robot.app.news.A新闻今日头条;
+import com.xxl.robot.app.news.A新闻悦头条;
+import com.xxl.robot.app.news.A新闻点点新闻;
 import com.xxl.robot.app.news.A新闻趣头条;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
@@ -47,6 +49,14 @@ public class AppNewsServiceImpl implements AppNewsService {
 		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.CHECK_IN,dtos1);
 		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.SLEEP,dtos1);
 
+		log.info("********************点点新闻**************************");
+		List<PhoneCodeDto> dtos2 = phoneCodeService.getList("phone001","点点");
+		A新闻点点新闻.handle(robot,"phone001","点点", AppConstants.CHECK_IN,dtos2);
+
+		log.info("********************悦头条**************************");
+		List<PhoneCodeDto> dtos3 = phoneCodeService.getList("phone001","悦头条");
+		A新闻悦头条.handle(robot,"phone001","悦头条", AppConstants.CHECK_IN,dtos3);
+
 	}
 
 	/**
@@ -65,6 +75,14 @@ public class AppNewsServiceImpl implements AppNewsService {
 		log.info("********************趣头条**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","趣头条");
 		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.WATCH_NOVELS,dtos1);
+
+		log.info("********************点点新闻**************************");
+		List<PhoneCodeDto> dtos2 = phoneCodeService.getList("phone001","点点");
+		A新闻点点新闻.handle(robot,"phone001","点点", AppConstants.WATCH_NEWS,dtos2);
+
+		log.info("********************悦头条**************************");
+		List<PhoneCodeDto> dtos3 = phoneCodeService.getList("phone001","悦头条");
+		A新闻悦头条.handle(robot,"phone001","悦头条", AppConstants.WATCH_NEWS,dtos3);
 
 	}
 
@@ -85,6 +103,10 @@ public class AppNewsServiceImpl implements AppNewsService {
 		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.TREASURE,dtos1);
 		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.WATCH_ADVERT,dtos1);
 		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.DRAW,dtos1);
+
+		log.info("********************悦头条**************************");
+		List<PhoneCodeDto> dtos3 = phoneCodeService.getList("phone001","悦头条");
+		A新闻悦头条.handle(robot,"phone001","悦头条", AppConstants.DRAW,dtos3);
 
 	}
 
@@ -146,6 +168,16 @@ public class AppNewsServiceImpl implements AppNewsService {
 		log.info("********************趣头条**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","趣头条");
 		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.WATCH_NEWS,dtos1);
+
+		log.info("********************点点新闻**************************");
+		List<PhoneCodeDto> dtos2 = phoneCodeService.getList("phone001","点点");
+		A新闻点点新闻.handle(robot,"phone001","点点", AppConstants.WATCH_NEWS,dtos2);
+
+		log.info("********************悦头条**************************");
+		List<PhoneCodeDto> dtos3 = phoneCodeService.getList("phone001","悦头条");
+		A新闻悦头条.handle(robot,"phone001","悦头条", AppConstants.WATCH_NEWS,dtos3);
+
+
 	}
 
 	@Override
