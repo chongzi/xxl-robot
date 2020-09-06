@@ -69,12 +69,6 @@ public class D视频微视 {
                     robot.delay(re);
                     MouseTools.normalEvent(robot, AdbTools.upPage());
                 }
-                if (a == y) {
-                    robot.delay(re);
-                    PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-关注")).findAny().orElse(null);
-                    String operate42 = AdbTools.tap(dto42.getPositionX(), dto42.getPositionY());
-                    MouseTools.normalEvent(robot, operate42);
-                }
 
             }
         }catch (Exception e){}

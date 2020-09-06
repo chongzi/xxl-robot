@@ -112,12 +112,6 @@ public class F视频快逗 {
             for (int a = 0; a < i; a++) {
                 robot.delay(re);
                 MouseTools.normalEvent(robot, AdbTools.downPage());
-                if (a == y) {
-                    robot.delay(re);
-                    PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-关注")).findAny().orElse(null);
-                    String operate42 = AdbTools.tap(dto42.getPositionX(), dto42.getPositionY());
-                    MouseTools.normalEvent(robot, operate42);
-                }
                 if (a > y) {
                     robot.delay(re);
                     MouseTools.normalEvent(robot, AdbTools.upPage());

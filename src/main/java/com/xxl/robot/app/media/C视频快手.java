@@ -111,12 +111,6 @@ public class C视频快手 {
             for (int a = 0; a < i; a++) {
                 robot.delay(re);
                 MouseTools.normalEvent(robot, AdbTools.downPage());
-                if (a == 6) {
-                    robot.delay(re);
-                    PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category发现-看视频-关注")).findAny().orElse(null);
-                    String operate42 = AdbTools.tap(dto42.getPositionX(), dto42.getPositionY());
-                    MouseTools.normalEvent(robot, operate1);
-                }
                 if (a == 10) {
                     robot.delay(re);
                     MouseTools.normalEvent(robot, AdbTools.upPage());

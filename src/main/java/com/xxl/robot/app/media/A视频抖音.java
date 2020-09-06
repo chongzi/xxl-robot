@@ -124,7 +124,6 @@ public class A视频抖音 {
 
             log.info("4.步骤-2");
             PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-点攒")).findAny().orElse(null);
-            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-关注")).findAny().orElse(null);
             int i = RandomTools.init(10);
             int y = RandomTools.init(10);
             int re = RandomTools.init(6000);
@@ -138,11 +137,6 @@ public class A视频抖音 {
                 if (a > y) {
                     robot.delay(re);
                     MouseTools.normalEvent(robot, AdbTools.upPage());
-                }
-                if (a == 16) {
-                    robot.delay(re);
-                    String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
-                    MouseTools.normalEvent(robot, operate43);
                 }
 
             }

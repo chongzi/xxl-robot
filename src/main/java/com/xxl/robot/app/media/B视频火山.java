@@ -132,30 +132,6 @@ public class B视频火山 {
 
             }
 
-            if (i > c) {
-                robot.delay(re);
-                PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category推荐")).findAny().orElse(null);
-                String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
-                MouseTools.normalEvent(robot, operate43);
-
-                PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category推荐-看视频")).findAny().orElse(null);
-                String operate44 = AdbTools.tap(dto44.getPositionX(), dto44.getPositionY());
-                MouseTools.normalEvent(robot, operate44);
-
-                int x = RandomTools.init(16);
-                for (int a = 0; a < x; x++) {
-                    robot.delay(re);
-                    MouseTools.normalEvent(robot, AdbTools.downPage());
-                    if (a == c) {
-                        robot.delay(re);
-                        MouseTools.normalEvent(robot, AdbTools.upPage());
-                    }
-                }
-                String operateData1 = "adb shell input keyevent BACK";
-                MouseTools.normalEvent(robot, operateData1);
-                MouseTools.normalEvent(robot, operateData1);
-
-            }
         }catch (Exception e){}
 
         log.info("5.步骤-返回主界面");
