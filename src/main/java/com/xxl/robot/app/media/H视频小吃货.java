@@ -204,7 +204,7 @@ public class H视频小吃货 {
      */
     public static void handle7(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
         log.info("1.动作");
-        String operate1 = "G视频追看-拆红包";
+        String operate1 = "H视频小吃货-拆红包";
         MouseTools.normalEvent(robot,operate1);
 
         log.info("2.初始化");

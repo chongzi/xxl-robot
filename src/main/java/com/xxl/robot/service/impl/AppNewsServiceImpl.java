@@ -146,8 +146,9 @@ public class AppNewsServiceImpl implements AppNewsService {
 
 		log.info("********************趣头条**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","趣头条");
-		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.SLEEP,dtos1);
 		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.WALK,dtos1);
+		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.SLEEP,dtos1);
+
 
 	}
 

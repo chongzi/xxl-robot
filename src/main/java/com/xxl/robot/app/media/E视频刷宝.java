@@ -160,11 +160,6 @@ public class E视频刷宝 {
      */
     public static void handle7(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
 
-
-
-
-
-
         log.info("1.动作");
         String operate1 = "E视频刷宝-开宝箱";
         MouseTools.normalEvent(robot,operate1);

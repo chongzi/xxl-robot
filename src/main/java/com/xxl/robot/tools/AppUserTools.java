@@ -140,7 +140,7 @@ public class AppUserTools {
             if(null!=dto43) {
                 String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
                 MouseTools.normalEvent(robot, operate43);
-                robot.delay(36000);
+                robot.delay(50000);
             }
 
         }catch (Exception e){}
@@ -309,7 +309,7 @@ public class AppUserTools {
             if(null!=dto42) {
                 String operate42 = AdbTools.tap(dto42.getPositionX(), dto42.getPositionY());
                 MouseTools.normalEvent(robot, operate42);
-                robot.delay(36000);
+                robot.delay(50000);
             }
 
         }catch (Exception e){}
@@ -341,7 +341,7 @@ public class AppUserTools {
             if(null!=dto43) {
                 String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
                 MouseTools.normalEvent(robot, operate43);
-                robot.delay(36000);
+                robot.delay(50000);
             }
 
         }catch (Exception e){}
@@ -363,7 +363,7 @@ public class AppUserTools {
             if(null!=dto43) {
                 String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
                 MouseTools.normalEvent(robot, operate43);
-                robot.delay(36000);
+                robot.delay(50000);
             }
 
         }catch (Exception e){}
@@ -383,7 +383,7 @@ public class AppUserTools {
             if(null!=dto43) {
                 String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
                 MouseTools.normalEvent(robot, operate43);
-                robot.delay(36000);
+                robot.delay(50000);
             }
 
         }catch (Exception e){}

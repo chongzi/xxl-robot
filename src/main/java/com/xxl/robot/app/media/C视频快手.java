@@ -176,7 +176,7 @@ public class C视频快手 {
     public static void handle3(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
 
         log.info("1.动作");
-        String operate1 = "B视频火山-看广告";
+        String operate1 = "C视频快手-看广告";
         MouseTools.normalEvent(robot,operate1);
 
         log.info("2.初始化");

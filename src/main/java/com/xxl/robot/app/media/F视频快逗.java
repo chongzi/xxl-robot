@@ -93,7 +93,7 @@ public class F视频快逗 {
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos) {
         log.info("1.动作");
-        String operate1 = "F视频快逗-签到";
+        String operate1 = "F视频快逗-看视频";
         MouseTools.normalEvent(robot,operate1);
 
         log.info("2.初始化");
