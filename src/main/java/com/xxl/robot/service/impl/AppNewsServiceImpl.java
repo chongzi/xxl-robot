@@ -66,6 +66,10 @@ public class AppNewsServiceImpl implements AppNewsService {
 		List<PhoneCodeDto> dtos7 = phoneCodeService.getList("phone001","蚂蚁看点");
 		A新闻蚂蚁看点.handle(robot,"phone001","蚂蚁看点", AppConstants.CHECK_IN,dtos7);
 
+		log.info("********************趣新闻**************************");
+		List<PhoneCodeDto> dtos8 = phoneCodeService.getList("phone001","趣新闻");
+		A新闻趣新闻.handle(robot,"phone001","趣新闻", AppConstants.CHECK_IN,dtos8);
+
 
 	}
 
@@ -103,7 +107,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 	}
 
 	/**
-	 * todo 循环执行领金币
+	 * todo 循环执行领金币(夺宝，领红包，开宝箱，看广告，抽奖)
 	 */
 	@SneakyThrows
 	@Override
@@ -135,6 +139,13 @@ public class AppNewsServiceImpl implements AppNewsService {
 		A新闻蚂蚁看点.handle(robot,"phone001","蚂蚁看点", AppConstants.TREASURE,dtos7);
 		A新闻蚂蚁看点.handle(robot,"phone001","蚂蚁看点", AppConstants.WATCH_ADVERT,dtos7);
 		A新闻蚂蚁看点.handle(robot,"phone001","蚂蚁看点", AppConstants.DRAW,dtos7);
+
+		log.info("********************趣新闻**************************");
+		List<PhoneCodeDto> dtos8 = phoneCodeService.getList("phone001","趣新闻");
+		A新闻趣新闻.handle(robot,"phone001","趣新闻", AppConstants.TREASURE,dtos8);
+		A新闻趣新闻.handle(robot,"phone001","趣新闻", AppConstants.WATCH_ADVERT,dtos8);
+		A新闻趣新闻.handle(robot,"phone001","趣新闻", AppConstants.GIFT_MONEY,dtos8);
+
 	}
 
 	/***
@@ -183,7 +194,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 
 		log.info("********************慧头条**************************");
 		List<PhoneCodeDto> dtos5 = phoneCodeService.getList("phone001","慧头条");
-		A新闻忆头条.handle(robot,"phone001","慧头条", AppConstants.WATCH_VIDEOS,dtos5);
+		A新闻慧头条.handle(robot,"phone001","慧头条", AppConstants.WATCH_VIDEOS,dtos5);
 
 
 	}
@@ -221,7 +232,11 @@ public class AppNewsServiceImpl implements AppNewsService {
 
 		log.info("********************慧头条**************************");
 		List<PhoneCodeDto> dtos5 = phoneCodeService.getList("phone001","慧头条");
-		A新闻忆头条.handle(robot,"phone001","慧头条", AppConstants.WATCH_NEWS,dtos5);
+		A新闻慧头条.handle(robot,"phone001","慧头条", AppConstants.WATCH_NEWS,dtos5);
+
+		log.info("********************趣新闻**************************");
+		List<PhoneCodeDto> dtos8 = phoneCodeService.getList("phone001","趣新闻");
+		A新闻趣新闻.handle(robot,"phone001","趣新闻", AppConstants.WATCH_NEWS,dtos8);
 
 	}
 
