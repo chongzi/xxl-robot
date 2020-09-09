@@ -3,6 +3,8 @@ package com.xxl.robot.tools;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
+import net.sf.jsqlparser.expression.StringValue;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -114,6 +116,8 @@ public class AppUserTools {
             case AppConstants.MONEY_TREE://摇钱树
                 handle18(robot, phoneCodeDtos, app);
                 break;
+            default://back
+                handle19(robot, phoneCodeDtos, app);
         }
 
         log.info("5.步骤-返回主界面");
@@ -312,6 +316,16 @@ public class AppUserTools {
                 robot.delay(50000);
             }
 
+            log.info("5.步骤-返回主界面");
+            String operateBackHome = "adb shell input keyevent BACK";
+            MouseTools.normalEvent(robot,operateBackHome);
+
+            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart())).findAny().orElse(null);
+            if(null!=dto43) {
+                String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
+                MouseTools.normalEvent(robot, operate43);
+            }
+
         }catch (Exception e){}
 
     }
@@ -433,6 +447,17 @@ public class AppUserTools {
                 MouseTools.normalEvent(robot, operate43);
             }
 
+
+            log.info("5.步骤-返回主界面");
+            String operateBackHome = "adb shell input keyevent BACK";
+            MouseTools.normalEvent(robot,operateBackHome);
+
+            PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart1())).findAny().orElse(null);
+            if(null!=dto44) {
+                String operate44 = AdbTools.tap(dto44.getPositionX(), dto44.getPositionY());
+                MouseTools.normalEvent(robot, operate44);
+            }
+
         }catch (Exception e){}
 
     }
@@ -538,6 +563,56 @@ public class AppUserTools {
         try {
             log.info("4.步骤-事件-开始执行");
             PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart())).findAny().orElse(null);
+            if(null!=dto43) {
+                String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
+                MouseTools.normalEvent(robot, operate43);
+            }
+
+        }catch (Exception e){}
+
+    }
+
+    /**
+     * todo 19.刮奖
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle19(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app){
+        try {
+            log.info("4.步骤-事件-开始执行");
+            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart())).findAny().orElse(null);
+            if(null!=dto43) {
+                for(int i=0;i<10;i++) {
+                    int x = 100*i + Integer.valueOf(dto43.getPositionX());
+                    String operate43 = AdbTools.tapDraw(String.valueOf(x), dto43.getPositionY());
+                    MouseTools.normalEvent(robot, operate43);
+                }
+            }
+
+            PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart1())).findAny().orElse(null);
+            if(null!=dto44) {
+                String operate44 = AdbTools.tap(dto44.getPositionX(), dto44.getPositionY());
+                MouseTools.normalEvent(robot, operate44);
+            }
+
+        }catch (Exception e){}
+
+    }
+
+
+    /**
+     * todo 20.事件返回
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle20(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app){
+        try {
+            log.info("5.步骤-返回主界面");
+            String operateBackHome = "adb shell input keyevent BACK";
+            MouseTools.normalEvent(robot,operateBackHome);
+
+            log.info("4.步骤-事件-返回");
+            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventBack())).findAny().orElse(null);
             if(null!=dto43) {
                 String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
                 MouseTools.normalEvent(robot, operate43);

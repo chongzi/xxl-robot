@@ -94,6 +94,21 @@ public class AdbTools {
         return  tap;
     }
 
+
+    /**
+     * todo 刮奖，正常操作
+     */
+    public static String tapDraw(String x, String y){
+        int y1 = 1000+Integer.valueOf(y);
+
+        String draw = "adb shell input swipe "+ x + " " + y + " " + x +" " +y1;
+
+        return draw;
+    }
+
+
+
+
     public static  void main(String args[]){
         System.out.println(up());
     }
