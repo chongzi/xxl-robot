@@ -30,6 +30,10 @@ public class AppDto {
     private String eventStart3;
     @ApiModelProperty(value="动作-返回")
     private String eventBack;
+    @ApiModelProperty(value="动作-返回")
+    private String eventBack1;
+    @ApiModelProperty(value="动作-返回")
+    private String eventBack2;
 
     @ApiModelProperty(value="向上/向下")
     private int upDown = 0;

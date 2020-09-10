@@ -120,6 +120,19 @@ public class AppUserTools {
                 handle19(robot, phoneCodeDtos, app);
         }
 
+        PhoneCodeDto dto45 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventBack())).findAny().orElse(null);
+        if(null!=dto45) {
+            String operate45 = AdbTools.tap(dto45.getPositionX(), dto45.getPositionY());
+            MouseTools.normalEvent(robot, operate45);
+        }
+
+        PhoneCodeDto dto46 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventBack1())).findAny().orElse(null);
+        if(null!=dto46) {
+            String operate46 = AdbTools.tap(dto46.getPositionX(), dto46.getPositionY());
+            MouseTools.normalEvent(robot, operate46);
+        }
+
+
         log.info("5.步骤-返回主界面");
         String operateBackHome = "adb shell input keyevent BACK";
         MouseTools.normalEvent(robot,operateBackHome);
@@ -146,6 +159,8 @@ public class AppUserTools {
                 MouseTools.normalEvent(robot, operate43);
                 robot.delay(50000);
             }
+
+
 
         }catch (Exception e){}
 
@@ -177,6 +192,8 @@ public class AppUserTools {
                 }
 
             }
+
+
         }catch (Exception e){
 
         }
@@ -216,6 +233,9 @@ public class AppUserTools {
                 }
 
             }
+
+
+
         }catch (Exception e){
 
         }
@@ -251,6 +271,8 @@ public class AppUserTools {
                 MouseTools.normalEvent(robot,operateBackHome);
 
             }
+
+
 
         }catch (Exception e){}
 
@@ -296,6 +318,7 @@ public class AppUserTools {
                 }
 
             }
+
         }catch (Exception e){}
 
     }
@@ -314,16 +337,6 @@ public class AppUserTools {
                 String operate42 = AdbTools.tap(dto42.getPositionX(), dto42.getPositionY());
                 MouseTools.normalEvent(robot, operate42);
                 robot.delay(50000);
-            }
-
-            log.info("5.步骤-返回主界面");
-            String operateBackHome = "adb shell input keyevent BACK";
-            MouseTools.normalEvent(robot,operateBackHome);
-
-            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart())).findAny().orElse(null);
-            if(null!=dto43) {
-                String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
-                MouseTools.normalEvent(robot, operate43);
             }
 
         }catch (Exception e){}
