@@ -213,8 +213,8 @@ public class A步行多多 {
     public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category走走");
         app.setEvent("category走走-走路");
-        app.setEventStart("category走走-走路-start");
-        app.setEventStart1("category走走-走路-start1");
+        app.setEventStep("category走走-走路-start");
+        app.setEventStep1("category走走-走路-start1");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -284,8 +284,8 @@ public class A步行多多 {
         for(int i=0;i<10;i++) {
             app.setCategory("category福利");
             app.setEvent("category福利-刮奖");
-            app.setEventStart("category福利-刮奖-start");
-            app.setEventStart1("category福利-刮奖-start1");
+            app.setEventStep("category福利-刮奖-start");
+            app.setEventStep1("category福利-刮奖-start1");
             app.setUpDown(0);
             AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
         }

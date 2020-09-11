@@ -344,8 +344,8 @@ public class A步行步数 {
         for(int i=0;i<10;i++) {
             app.setCategory("category福利");
             app.setEvent("category福利-刮奖");
-            app.setEventStart("category福利-刮奖-start");
-            app.setEventStart1("category福利-刮奖-start1");
+            app.setEventStep("category福利-刮奖-start");
+            app.setEventStep1("category福利-刮奖-start1");
             app.setUpDown(0);
             AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
         }

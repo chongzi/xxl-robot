@@ -119,7 +119,7 @@ public class A新闻慧头条 {
     public static void handle3(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category视频");
         app.setEvent("category视频-看视频");
-        app.setEventStart("category视频-看视频-start");
+        app.setEventStep("category视频-看视频-start");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -133,7 +133,7 @@ public class A新闻慧头条 {
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category头条");
         app.setEvent("category头条-看新闻");
-        app.setEventStart("category头条-看新闻-start");
+        app.setEventStep("category头条-看新闻-start");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }

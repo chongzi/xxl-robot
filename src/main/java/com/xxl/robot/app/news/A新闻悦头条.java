@@ -129,7 +129,7 @@ public class A新闻悦头条 {
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category头条");
         app.setEvent("category头条-看新闻");
-        app.setEventStart("category头条-看新闻-start");
+        app.setEventStep("category头条-看新闻-start");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }

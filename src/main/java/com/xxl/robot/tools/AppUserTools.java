@@ -53,13 +53,19 @@ public class AppUserTools {
             }
         }
 
-        log.info("4.步骤-事件");
-        PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEvent())).findAny().orElse(null);
+        log.info("4.步骤-事件前清除");
+        PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventClear())).findAny().orElse(null);
         if(null!=dto42) {
             String operate42 = AdbTools.tap(dto42.getPositionX(), dto42.getPositionY());
             MouseTools.normalEvent(robot, operate42);
         }
 
+        log.info("4.步骤-事件");
+        PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEvent())).findAny().orElse(null);
+        if(null!=dto43) {
+            String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
+            MouseTools.normalEvent(robot, operate43);
+        }
 
         switch (event){
             case AppConstants.CHECK_IN://签到
@@ -116,8 +122,11 @@ public class AppUserTools {
             case AppConstants.MONEY_TREE://摇钱树
                 handle18(robot, phoneCodeDtos, app);
                 break;
-            default://back
+            case AppConstants.SCRATCH_CARD://刮奖
                 handle19(robot, phoneCodeDtos, app);
+                break;
+            default://back
+                handle20(robot, phoneCodeDtos, app);
         }
 
         PhoneCodeDto dto45 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventBack())).findAny().orElse(null);
@@ -190,8 +199,8 @@ public class AppUserTools {
                     robot.delay(re);
                     MouseTools.normalEvent(robot, AdbTools.upPage());
                 }
-
             }
+
 
 
         }catch (Exception e){
@@ -214,7 +223,7 @@ public class AppUserTools {
             for (int a = 0; a < i; a++) {
                 robot.delay(re);
                 log.info("4.步骤-事件-开始执行");
-                PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart())).findAny().orElse(null);
+                PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep())).findAny().orElse(null);
                 if(null!=dto43) {
                     String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
                     MouseTools.normalEvent(robot, operate43);
@@ -233,7 +242,6 @@ public class AppUserTools {
                 }
 
             }
-
 
 
         }catch (Exception e){
@@ -258,10 +266,11 @@ public class AppUserTools {
                 MouseTools.normalEvent(robot, AdbTools.downPage());
 
                 log.info("4.步骤-事件-开始执行");
-                PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart() )).findAny().orElse(null);
-                String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
-                MouseTools.normalEvent(robot, operate43);
-
+                PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep() )).findAny().orElse(null);
+                if(null!=dto43) {
+                    String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
+                    MouseTools.normalEvent(robot, operate43);
+                }
                 if (a == y) {
                     robot.delay(re);
                     MouseTools.normalEvent(robot, AdbTools.upPage());
@@ -287,13 +296,13 @@ public class AppUserTools {
     public static void handle5(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app){
         try {
             log.info("4.步骤-事件-开始执行");
-            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart())).findAny().orElse(null);
+            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep())).findAny().orElse(null);
             String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
             MouseTools.normalEvent(robot, operate43);
             robot.delay(RandomTools.init(6000));
 
             log.info("4.步骤-事件-开始执行1");
-            PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart1())).findAny().orElse(null);
+            PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep1())).findAny().orElse(null);
             String operate44 = AdbTools.tap(dto44.getPositionX(), dto44.getPositionY());
             MouseTools.normalEvent(robot, operate44);
 
@@ -337,6 +346,19 @@ public class AppUserTools {
                 String operate42 = AdbTools.tap(dto42.getPositionX(), dto42.getPositionY());
                 MouseTools.normalEvent(robot, operate42);
                 robot.delay(50000);
+            }
+
+            log.info("4.步骤-事件-step");
+            PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep())).findAny().orElse(null);
+            if(null!=dto44) {
+                String operate44 = AdbTools.tap(dto44.getPositionX(), dto44.getPositionY());
+                MouseTools.normalEvent(robot, operate44);
+            }
+            log.info("4.步骤-事件-step1");
+            PhoneCodeDto dto45 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep1())).findAny().orElse(null);
+            if(null!=dto45) {
+                String operate45 = AdbTools.tap(dto45.getPositionX(), dto45.getPositionY());
+                MouseTools.normalEvent(robot, operate45);
             }
 
         }catch (Exception e){}
@@ -392,7 +414,18 @@ public class AppUserTools {
                 MouseTools.normalEvent(robot, operate43);
                 robot.delay(50000);
             }
-
+            log.info("4.步骤-事件-step");
+            PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep())).findAny().orElse(null);
+            if(null!=dto44) {
+                String operate44 = AdbTools.tap(dto44.getPositionX(), dto44.getPositionY());
+                MouseTools.normalEvent(robot, operate44);
+            }
+            log.info("4.步骤-事件-step1");
+            PhoneCodeDto dto45 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep1())).findAny().orElse(null);
+            if(null!=dto45) {
+                String operate45 = AdbTools.tap(dto45.getPositionX(), dto45.getPositionY());
+                MouseTools.normalEvent(robot, operate45);
+            }
         }catch (Exception e){}
 
     }
@@ -412,6 +445,18 @@ public class AppUserTools {
                 MouseTools.normalEvent(robot, operate43);
                 robot.delay(50000);
             }
+            log.info("4.步骤-事件-step");
+            PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep())).findAny().orElse(null);
+            if(null!=dto44) {
+                String operate44 = AdbTools.tap(dto44.getPositionX(), dto44.getPositionY());
+                MouseTools.normalEvent(robot, operate44);
+            }
+            log.info("4.步骤-事件-step1");
+            PhoneCodeDto dto45 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep1())).findAny().orElse(null);
+            if(null!=dto45) {
+                String operate45 = AdbTools.tap(dto45.getPositionX(), dto45.getPositionY());
+                MouseTools.normalEvent(robot, operate45);
+            }
 
         }catch (Exception e){}
 
@@ -426,12 +471,12 @@ public class AppUserTools {
     public static void handle11(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app){
         try {
             log.info("4.步骤-事件-开始执行");
-            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart())).findAny().orElse(null);
+            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep())).findAny().orElse(null);
             String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
             MouseTools.normalEvent(robot, operate43);
 
             log.info("4.步骤-事件-开始执行1");
-            PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart1())).findAny().orElse(null);
+            PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep1())).findAny().orElse(null);
             String operate44 = AdbTools.tap(dto44.getPositionX(), dto44.getPositionY());
             MouseTools.normalEvent(robot, operate44);
 
@@ -454,21 +499,10 @@ public class AppUserTools {
     public static void handle12(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app){
         try {
             log.info("4.步骤-事件-开始执行");
-            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart())).findAny().orElse(null);
+            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep())).findAny().orElse(null);
             if(null!=dto43) {
                 String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
                 MouseTools.normalEvent(robot, operate43);
-            }
-
-
-            log.info("5.步骤-返回主界面");
-            String operateBackHome = "adb shell input keyevent BACK";
-            MouseTools.normalEvent(robot,operateBackHome);
-
-            PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart1())).findAny().orElse(null);
-            if(null!=dto44) {
-                String operate44 = AdbTools.tap(dto44.getPositionX(), dto44.getPositionY());
-                MouseTools.normalEvent(robot, operate44);
             }
 
         }catch (Exception e){}
@@ -484,7 +518,7 @@ public class AppUserTools {
     public static void handle13(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app){
         try {
             log.info("4.步骤-事件-开始执行");
-            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart())).findAny().orElse(null);
+            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep())).findAny().orElse(null);
             if(null!=dto43) {
                 String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
                 MouseTools.normalEvent(robot, operate43);
@@ -503,7 +537,7 @@ public class AppUserTools {
     public static void handle14(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app){
         try {
             log.info("4.步骤-事件-开始执行");
-            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart())).findAny().orElse(null);
+            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep())).findAny().orElse(null);
             if(null!=dto43) {
                 String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
                 MouseTools.normalEvent(robot, operate43);
@@ -521,7 +555,7 @@ public class AppUserTools {
     public static void handle15(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app){
         try {
             log.info("4.步骤-事件-开始执行");
-            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart())).findAny().orElse(null);
+            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep())).findAny().orElse(null);
             if(null!=dto43) {
                 String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
                 MouseTools.normalEvent(robot, operate43);
@@ -539,7 +573,7 @@ public class AppUserTools {
     public static void handle16(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app){
         try {
             log.info("4.步骤-事件-开始执行");
-            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart())).findAny().orElse(null);
+            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep())).findAny().orElse(null);
             if(null!=dto43) {
                 String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
                 MouseTools.normalEvent(robot, operate43);
@@ -557,7 +591,7 @@ public class AppUserTools {
     public static void handle17(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app){
         try {
             log.info("4.步骤-事件-开始执行");
-            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart())).findAny().orElse(null);
+            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep())).findAny().orElse(null);
             if(null!=dto43) {
                 String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
                 MouseTools.normalEvent(robot, operate43);
@@ -575,7 +609,7 @@ public class AppUserTools {
     public static void handle18(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app){
         try {
             log.info("4.步骤-事件-开始执行");
-            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart())).findAny().orElse(null);
+            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep())).findAny().orElse(null);
             if(null!=dto43) {
                 String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
                 MouseTools.normalEvent(robot, operate43);
@@ -593,7 +627,7 @@ public class AppUserTools {
     public static void handle19(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app){
         try {
             log.info("4.步骤-事件-开始执行");
-            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart())).findAny().orElse(null);
+            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep())).findAny().orElse(null);
             if(null!=dto43) {
                 for(int i=0;i<10;i++) {
                     int x = 100*i + Integer.valueOf(dto43.getPositionX());
@@ -602,7 +636,7 @@ public class AppUserTools {
                 }
             }
 
-            PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStart1())).findAny().orElse(null);
+            PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep1())).findAny().orElse(null);
             if(null!=dto44) {
                 String operate44 = AdbTools.tap(dto44.getPositionX(), dto44.getPositionY());
                 MouseTools.normalEvent(robot, operate44);

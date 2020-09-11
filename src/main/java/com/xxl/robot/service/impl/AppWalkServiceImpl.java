@@ -2,6 +2,7 @@ package com.xxl.robot.service.impl;
 
 import com.xxl.robot.app.news.*;
 import com.xxl.robot.app.walk.A步行多多;
+import com.xxl.robot.app.walk.A步行走走赚;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
 import com.xxl.robot.service.AppNewsService;
@@ -42,7 +43,13 @@ public class AppWalkServiceImpl implements AppWalkService {
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","步数赚");
 		A步行多多.handle(robot,"phone001","步数赚", AppConstants.CHECK_IN,dtos1);
 
+		log.info("********************步步宝赚**************************");
+		List<PhoneCodeDto> dtos2 = phoneCodeService.getList("phone001","步步宝");
+		A步行多多.handle(robot,"phone001","步步宝", AppConstants.CHECK_IN,dtos2);
 
+		log.info("********************走走赚**************************");
+		List<PhoneCodeDto> dtos3 = phoneCodeService.getList("phone001","走走赚");
+		A步行走走赚.handle(robot,"phone001","走走赚", AppConstants.CHECK_IN,dtos3);
 
 	}
 
@@ -75,6 +82,21 @@ public class AppWalkServiceImpl implements AppWalkService {
 		A步行多多.handle(robot,"phone001","步数赚", AppConstants.WALK,dtos1);
 		A步行多多.handle(robot,"phone001","步数赚", AppConstants.GIFT_MONEY,dtos1);
 
+		log.info("********************步步宝赚**************************");
+		List<PhoneCodeDto> dtos2 = phoneCodeService.getList("phone001","步步宝");
+		A步行多多.handle(robot,"phone001","步步宝", AppConstants.GIFT_MONEY,dtos2);
+		A步行多多.handle(robot,"phone001","步步宝", AppConstants.TREASURE,dtos2);
+		A步行多多.handle(robot,"phone001","步步宝", AppConstants.DRAW,dtos2);
+		A步行多多.handle(robot,"phone001","步步宝", AppConstants.WALK,dtos2);
+
+		log.info("********************走走赚**************************");
+		List<PhoneCodeDto> dtos3 = phoneCodeService.getList("phone001","走走赚");
+		A步行走走赚.handle(robot,"phone001","步步宝", AppConstants.GIFT_MONEY,dtos3);
+		A步行走走赚.handle(robot,"phone001","步步宝", AppConstants.TREASURE,dtos3);
+		A步行走走赚.handle(robot,"phone001","步步宝", AppConstants.DRAW,dtos3);
+		A步行走走赚.handle(robot,"phone001","步步宝", AppConstants.WALK,dtos3);
+		A步行走走赚.handle(robot,"phone001","步步宝", AppConstants.WATCH_ADVERT,dtos3);
+		A步行走走赚.handle(robot,"phone001","步步宝", AppConstants.DRINK_WATER,dtos3);
 	}
 
 	/***

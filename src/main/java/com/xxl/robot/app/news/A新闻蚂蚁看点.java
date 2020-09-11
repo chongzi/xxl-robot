@@ -132,7 +132,7 @@ public class A新闻蚂蚁看点 {
         app.setClear("category看点-清除");
         app.setCategory("category看点");
         app.setEvent("category看点-看新闻");
-        app.setEventStart("category看点-看新闻-start");
+        app.setEventStep("category看点-看新闻-start");
         app.setUpDown(1);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }

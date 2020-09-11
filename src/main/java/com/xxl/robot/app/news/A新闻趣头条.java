@@ -109,8 +109,8 @@ public class A新闻趣头条 {
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category小视频");
         app.setEvent("category小视频-看视频");
-        app.setEventStart("category小视频-看视频-start");
-        app.setEventStart("category小视频-看视频-点攒");
+        app.setEventStep("category小视频-看视频-start");
+        app.setEventStep("category小视频-看视频-点攒");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
 
@@ -135,7 +135,7 @@ public class A新闻趣头条 {
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category头条");
         app.setEvent("category头条-看新闻");
-        app.setEventStart("category头条-看新闻-start");
+        app.setEventStep("category头条-看新闻-start");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -149,7 +149,7 @@ public class A新闻趣头条 {
     public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category我的");
         app.setEvent("category我的-看小说");
-        app.setEventStart("category我的-看小说-start");
+        app.setEventStep("category我的-看小说-start");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -229,8 +229,8 @@ public class A新闻趣头条 {
     public static void handle11(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category任务");
         app.setEvent("category任务-睡觉");
-        app.setEventStart("category任务-睡觉-start");
-        app.setEventStart1("category任务-睡觉-start1");
+        app.setEventStep("category任务-睡觉-start");
+        app.setEventStep1("category任务-睡觉-start1");
         app.setUpDown(1);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -243,7 +243,7 @@ public class A新闻趣头条 {
     public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category任务");
         app.setEvent("category任务-走路");
-        app.setEventStart("category任务-走路-start");
+        app.setEventStep("category任务-走路-start");
         app.setUpDown(1);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
