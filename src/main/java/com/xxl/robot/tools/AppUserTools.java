@@ -392,6 +392,12 @@ public class AppUserTools {
                 MouseTools.normalEvent(robot, operate43);
                 robot.delay(50000);
             }
+            PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep())).findAny().orElse(null);
+            if(null!=dto44) {
+                String operate44 = AdbTools.tap(dto44.getPositionX(), dto44.getPositionY());
+                MouseTools.normalEvent(robot, operate44);
+            }
+
 
         }catch (Exception e){}
 

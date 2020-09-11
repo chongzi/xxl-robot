@@ -37,5 +37,7 @@ public class AppDto {
     @ApiModelProperty(value="向上/向下")
     private int upDown = 0;
 
+    @ApiModelProperty(value="向左/向右｛1-向左，2-向右｝")
+    private int leftRight = 0;
 
 }
