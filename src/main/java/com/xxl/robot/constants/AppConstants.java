@@ -32,4 +32,23 @@ public class AppConstants {
     public static final String GIFT_MONEY = "领红包";
     public static final String DIRECT = "直播";
     public static final String SCRATCH_CARD = "刮奖";
+    public static final String SEARCH = "搜索";
+
+//***********************************定制化************************************************
+    public static final String OTHER_QINGXIANG_WATCH_VIDEOS = "睛象看视频";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

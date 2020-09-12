@@ -125,8 +125,12 @@ public class AppUserTools {
             case AppConstants.SCRATCH_CARD://刮奖
                 handle19(robot, phoneCodeDtos, app);
                 break;
-            default://back
+            case AppConstants.SEARCH://搜索
                 handle20(robot, phoneCodeDtos, app);
+                break;
+            case AppConstants.OTHER_QINGXIANG_WATCH_VIDEOS://睛象浏览器
+                handle21(robot, phoneCodeDtos, app);
+                break;
         }
 
         PhoneCodeDto dto45 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventBack())).findAny().orElse(null);
@@ -161,6 +165,13 @@ public class AppUserTools {
      */
     public static void handle1(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app){
         try {
+
+            log.info("4.步骤-事件-看广告辅助");
+            PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventAdvertStep())).findAny().orElse(null);
+            if(null!=dto44) {
+                String operate44 = AdbTools.tap(dto44.getPositionX(), dto44.getPositionY());
+                MouseTools.normalEvent(robot, operate44);
+            }
             log.info("4.步骤-事件-看广告");
             PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventAdvert())).findAny().orElse(null);
             if(null!=dto43) {
@@ -258,8 +269,8 @@ public class AppUserTools {
      */
     public static void handle4(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app){
         try {
-            int i = RandomTools.init(20);
-            int y = RandomTools.init(20);
+            int i = RandomTools.init(10);
+            int y = RandomTools.init(10);
             int re = RandomTools.init(6000);
             for (int a = 0; a < i; a++) {
                 robot.delay(re);
@@ -271,6 +282,12 @@ public class AppUserTools {
                     String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
                     MouseTools.normalEvent(robot, operate43);
                 }
+                PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep1() )).findAny().orElse(null);
+                if(null!=dto44) {
+                    String operate44 = AdbTools.tap(dto44.getPositionX(), dto44.getPositionY());
+                    MouseTools.normalEvent(robot, operate44);
+                }
+
                 if (a == y) {
                     robot.delay(re);
                     MouseTools.normalEvent(robot, AdbTools.upPage());
@@ -632,13 +649,20 @@ public class AppUserTools {
      */
     public static void handle19(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app){
         try {
+            PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventClear())).findAny().orElse(null);
+            if(null!=dto42) {
+                String operate42 = AdbTools.tap(dto42.getPositionX(), dto42.getPositionY());
+                MouseTools.normalEvent(robot, operate42);
+            }
+
+
             log.info("4.步骤-事件-开始执行");
             PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep())).findAny().orElse(null);
             if(null!=dto43) {
-                for(int i=0;i<10;i++) {
+                for(int i=0;i<8;i++) {
                     int x = 100*i + Integer.valueOf(dto43.getPositionX());
                     String operate43 = AdbTools.tapDraw(String.valueOf(x), dto43.getPositionY());
-                    MouseTools.normalEvent(robot, operate43);
+                    MouseTools.fastNormalEvent(robot, operate43);
                 }
             }
 
@@ -654,25 +678,101 @@ public class AppUserTools {
 
 
     /**
-     * todo 20.事件返回
+     * todo 20.搜索
      * @param robot
      * @param phoneCodeDtos
      */
     public static void handle20(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app){
         try {
-            log.info("5.步骤-返回主界面");
-            String operateBackHome = "adb shell input keyevent BACK";
-            MouseTools.normalEvent(robot,operateBackHome);
-
-            log.info("4.步骤-事件-返回");
-            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventBack())).findAny().orElse(null);
+            log.info("4.步骤-事件-开始执行");
+            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventSearchClear())).findAny().orElse(null);
             if(null!=dto43) {
                 String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
                 MouseTools.normalEvent(robot, operate43);
+                MouseTools.normalEvent(robot, operate43);
+                String str = "每个人的成功都不会是偶然，" +
+                        "只有敢于尝试，因为好的赚钱之路，永远掌握在少数人的手里，也没有人会因为10不要以为只有在高级写字楼里工作的白领才有机会月收入2万，" +
+                        "其实还有很多不起眼却很赚钱的小生意！下面是有可能月入2万的10个小生意，有些没人注意的暴利行业，欢迎阅0元而破产，却有很多人用100元跟着团队发家致富，" +
+                        "只要你不贪，每天赚300—5000不是问题！只要100元起步，超高收益，超高回报率，操作简单，免学费，无押金，不收取任何做婚庆生意利润很高，在小城市负责一场婚礼" +
+                        "早餐店的生意也是比较火爆的，毕竟民以食为天早餐是每天必吃的一餐，按照现在的消费水平平均一人就得消费8元到19元左右。其中最低利润在5元一人，如果店面大那可以接待更多食客" +
+                        "大概在6千到1万左右，更别说在大城市里面。婚庆公司有专门的婚庆团队每个人做好自己的事情，其自媒体需要很长时间" +
+                        "的运营和持续的创作优质的原创文章出来，因为自媒体靠阅读量和广告收益赚钱的。如果文章写得好就有很多粉丝，那样长期下来收益就不会低中有" +
+                        "主持人和摄影师以及婚礼场地设计师等，这个行业的成本不高，利润很惊人团队每人月收入过万不是梦费用" +
+                        "现在很多年轻人聚会喜欢吃烧烤，喝喝啤酒什么的。所以晚上很多烧烤店的生意非常火爆。一些食物的成本低但是利润很高。如果在学校附近开个烧烤店收入还是不错的" +
+                        "在的年轻人喜欢喝奶茶和咖啡等饮品，而这些奶茶的价格在10元以上，利润很高。如果是学校附近或者步行街的奶茶店都是排着长长的队，老板生意火爆着呢，是月入2万的10个小生" +
+                        "婴店的利润高，抓哟是来源于产品包装和知名度。而且母婴店品种多小孩子的奶粉和用品以及服装、零食、配饰、儿网上赚钱已经不再是秘密，现在越来越多的人加入到网上赚钱的行列中， " +
+                        "但是还有很多人一直在摸索，没有找到简单快捷的赚钱之道。 赚钱之道永远掌握在少数人手里" +
+                        "童玩具等很齐全。这些 东西的价格并不便宜，比网上要贵很多但是生意依然火想要赚钱，那么你就应该有自己独有投" +
+                        "资技巧，除了要有技巧以外还要有投。资前的充分准备，所谓的准备就是你对今天开奖的充分了解，想要做到百战百胜这真的是很难，不过十盘赢7-8盘这个还是能通过各种准备来帮你达到";
+                int i = RandomTools.init(400);
+                AdbTools.text(str.substring(i,i+6));
             }
+
+            PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventSearch())).findAny().orElse(null);
+            if(null!=dto44) {
+                String operate44 = AdbTools.tap(dto44.getPositionX(), dto44.getPositionY());
+                MouseTools.normalEvent(robot, operate44);
+            }
+
+            PhoneCodeDto dto45 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep())).findAny().orElse(null);
+            if(null!=dto45) {
+                String operate45 = AdbTools.tap(dto45.getPositionX(), dto45.getPositionY());
+                MouseTools.normalEvent(robot, operate45);
+            }
+
+
 
         }catch (Exception e){}
 
     }
+
+
+
+
+    /**
+     * todo 21.晴象看视频
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle21(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app){
+        try {
+            int i = RandomTools.init(20);
+            int y = RandomTools.init(20);
+            int re = RandomTools.init(6000);
+            for (int a = 0; a < i; a++) {
+
+                PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventBack() )).findAny().orElse(null);
+                if(null!=dto43) {
+                    String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
+                    MouseTools.normalEvent(robot, operate43);
+                }
+
+                robot.delay(re);
+                MouseTools.normalEvent(robot, AdbTools.downPage());
+                if (a == y) {
+                    log.info("4.步骤-事件-点攒");
+                    PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventGiveUP() )).findAny().orElse(null);
+                    if(null!=dto44) {
+                        String operate44 = AdbTools.tap(dto44.getPositionX(), dto43.getPositionY());
+                        MouseTools.normalEvent(robot, operate44);
+                    }
+                }
+                if (a > y) {
+                    robot.delay(re);
+                    MouseTools.normalEvent(robot, AdbTools.upPage());
+                }
+            }
+
+
+
+        }catch (Exception e){
+
+        }
+
+    }
+
+
+
+
 
 }

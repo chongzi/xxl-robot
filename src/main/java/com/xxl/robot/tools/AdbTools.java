@@ -106,7 +106,13 @@ public class AdbTools {
         return draw;
     }
 
-
+    /**
+     * todo 输入正常操作
+     */
+    public static String text(String str){
+        String text = "adb shell input text " + str;
+        return  text;
+    }
 
 
     public static  void main(String args[]){

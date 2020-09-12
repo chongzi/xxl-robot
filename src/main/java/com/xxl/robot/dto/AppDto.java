@@ -17,6 +17,8 @@ public class AppDto {
     private String eventClear;
     @ApiModelProperty(value="动作")
     private String event;
+    @ApiModelProperty(value="动作-辅助")
+    private String eventAdvertStep;
     @ApiModelProperty(value="动作-看广告")
     private String eventAdvert;
     @ApiModelProperty(value="动作-点攒")
@@ -27,6 +29,12 @@ public class AppDto {
     private String eventStep1;
     @ApiModelProperty(value="动作-步骤2")
     private String eventStep2;
+
+    @ApiModelProperty(value="动作-搜索清除")
+    private String eventSearchClear;
+    @ApiModelProperty(value="动作-返回")
+    private String eventSearch;
+
     @ApiModelProperty(value="动作-返回")
     private String eventBack;
     @ApiModelProperty(value="动作-返回1")
