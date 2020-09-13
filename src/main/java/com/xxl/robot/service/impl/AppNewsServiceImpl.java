@@ -70,6 +70,10 @@ public class AppNewsServiceImpl implements AppNewsService {
 		List<PhoneCodeDto> dtos8 = phoneCodeService.getList("phone001","趣新闻");
 		A新闻趣新闻.handle(robot,"phone001","趣新闻", AppConstants.CHECK_IN,dtos8);
 
+		log.info("********************快看点**************************");
+		List<PhoneCodeDto> dtos9 = phoneCodeService.getList("phone001","快看点");
+		A新闻快看点.handle(robot,"phone001","快看点", AppConstants.CHECK_IN,dtos9);
+
 
 	}
 
@@ -104,6 +108,13 @@ public class AppNewsServiceImpl implements AppNewsService {
 		A新闻蚂蚁看点.handle(robot,"phone001","蚂蚁看点", AppConstants.TREASURE,dtos7);
 		A新闻蚂蚁看点.handle(robot,"phone001","蚂蚁看点", AppConstants.WATCH_ADVERT,dtos7);
 		A新闻蚂蚁看点.handle(robot,"phone001","蚂蚁看点", AppConstants.DRAW,dtos7);
+
+		log.info("********************快看点**************************");
+		List<PhoneCodeDto> dtos9 = phoneCodeService.getList("phone001","快看点");
+		A新闻快看点.handle(robot,"phone001","快看点", AppConstants.WATCH_ADVERT,dtos9);
+		A新闻快看点.handle(robot,"phone001","快看点", AppConstants.DRAW,dtos9);
+		A新闻快看点.handle(robot,"phone001","快看点", AppConstants.GIFT_MONEY,dtos9);
+
 	}
 
 	/**
@@ -146,6 +157,11 @@ public class AppNewsServiceImpl implements AppNewsService {
 		A新闻趣新闻.handle(robot,"phone001","趣新闻", AppConstants.WATCH_ADVERT,dtos8);
 		A新闻趣新闻.handle(robot,"phone001","趣新闻", AppConstants.GIFT_MONEY,dtos8);
 
+		log.info("********************快看点**************************");
+		List<PhoneCodeDto> dtos9 = phoneCodeService.getList("phone001","快看点");
+		A新闻快看点.handle(robot,"phone001","快看点", AppConstants.WATCH_ADVERT,dtos9);
+		A新闻快看点.handle(robot,"phone001","快看点", AppConstants.DRAW,dtos9);
+		A新闻快看点.handle(robot,"phone001","快看点", AppConstants.GIFT_MONEY,dtos9);
 	}
 
 	/***

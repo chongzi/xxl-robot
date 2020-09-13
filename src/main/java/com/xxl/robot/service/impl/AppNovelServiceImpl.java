@@ -7,6 +7,7 @@ import com.xxl.robot.app.novel.A小说米读;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
 import com.xxl.robot.service.AppBrowserService;
+import com.xxl.robot.service.AppNovelService;
 import com.xxl.robot.service.PhoneCodeService;
 import lombok.SneakyThrows;
 import org.slf4j.LoggerFactory;
@@ -21,7 +22,7 @@ import java.util.List;
  * todo app-视频服务接口类接口
  */
 @Service
-public class AppNovelServiceImpl implements AppBrowserService {
+public class AppNovelServiceImpl implements AppNovelService {
 	private static final org.slf4j.Logger log = LoggerFactory.getLogger(AppNovelServiceImpl.class);
 
 	@Autowired

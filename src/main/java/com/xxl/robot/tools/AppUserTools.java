@@ -137,6 +137,9 @@ public class AppUserTools {
         if(null!=dto45) {
             String operate45 = AdbTools.tap(dto45.getPositionX(), dto45.getPositionY());
             MouseTools.normalEvent(robot, operate45);
+            String operateBackHome = "adb shell input keyevent BACK";
+            MouseTools.normalEvent(robot,operateBackHome);
+            MouseTools.normalEvent(robot, operate45);
         }
 
         PhoneCodeDto dto46 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventBack1())).findAny().orElse(null);
@@ -150,7 +153,7 @@ public class AppUserTools {
         String operateBackHome = "adb shell input keyevent BACK";
         MouseTools.normalEvent(robot,operateBackHome);
         MouseTools.normalEvent(robot,operateBackHome);
-        MouseTools.normalEvent(robot,operateBackHome);
+       // MouseTools.normalEvent(robot,operateBackHome);
 
         log.info("6.步骤-退出");
         String operateQuit = "adb shell input keyevent 3";
@@ -655,6 +658,21 @@ public class AppUserTools {
                 MouseTools.normalEvent(robot, operate42);
             }
 
+            PhoneCodeDto dto422 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventAdvertStep())).findAny().orElse(null);
+            if(null!=dto422) {
+                for(int i=0;i<8;i++) {
+                    int x = 100*i + Integer.valueOf(dto422.getPositionX());
+                    String operate422 = AdbTools.tapDraw(String.valueOf(x), dto422.getPositionY());
+                    MouseTools.fastNormalEvent(robot, operate422);
+                }
+            }
+
+            PhoneCodeDto dto4222 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventAdvert())).findAny().orElse(null);
+            if(null!=dto4222) {
+                    String operate4222 = AdbTools.tap(dto4222.getPositionX(), dto4222.getPositionY());
+                    MouseTools.normalEvent(robot, operate4222);
+                    robot.delay(27000);
+            }
 
             log.info("4.步骤-事件-开始执行");
             PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep())).findAny().orElse(null);
