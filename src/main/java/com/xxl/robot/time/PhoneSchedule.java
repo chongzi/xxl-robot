@@ -83,7 +83,7 @@ public class PhoneSchedule {
      * todo
      * 定时器  60分钟
      */
-    @Scheduled(cron = "0 0/59 * * * ?")
+   // @Scheduled(cron = "0 0/59 * * * ?")
     @SneakyThrows
     public void timer60(){
         log.info("********************30分钟定时器启动**************************");

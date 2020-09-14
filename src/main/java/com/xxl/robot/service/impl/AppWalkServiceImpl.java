@@ -89,9 +89,9 @@ public class AppWalkServiceImpl implements AppWalkService {
 		Robot robot = new Robot();
 		log.info("********************多多步**************************");
 		List<PhoneCodeDto> dtos = phoneCodeService.getList("phone001","多多步");
-		A步行多多.handle(robot,"phone001","多多步", AppConstants.WATCH_ADVERT,dtos);
+		//A步行多多.handle(robot,"phone001","多多步", AppConstants.WATCH_ADVERT,dtos);
 		A步行多多.handle(robot,"phone001","多多步", AppConstants.GIFT_MONEY,dtos);
-		A步行多多.handle(robot,"phone001","多多步", AppConstants.SCRATCH_CARD,dtos);
+		//A步行多多.handle(robot,"phone001","多多步", AppConstants.SCRATCH_CARD,dtos);
 
 
 		/*log.info("********************步数赚**************************");
