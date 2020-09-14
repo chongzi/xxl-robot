@@ -48,6 +48,9 @@ public class A步行多多 {
                 break;
             case AppConstants.GIFT_MONEY://领红包
                 handle8(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                handle81(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                handle82(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                handle83(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.TREASURE://开宝箱
                 handle9(robot, robotCode, appCode, event, phoneCodeDtos, app);
@@ -149,7 +152,8 @@ public class A步行多多 {
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category赚赚");
         app.setEvent("category赚赚-看广告");
-        app.setEventAdvert("category赚赚-看广告-start");
+        app.setEventAdvert("category赚赚-看广告-advert");
+        app.setEventBack("category福利-刮奖-back");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -170,9 +174,51 @@ public class A步行多多 {
      * @param phoneCodeDtos
      */
     public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category走走");
+        app.setEvent("category走走-左上方红包");
+        app.setEventAdvert("category走走-左上方红包-advert");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
+    /**
+     * todo 8.领红包(操作流程：1-点击红包，2-看广告)
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle81(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setCategory("category走走");
+        app.setEvent("category走走-左下方红包");
+        app.setEventAdvert("category走走-左下方红包-advert");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+    }
+
+    /**
+     * todo 8.领红包(操作流程：1-点击红包，2-看广告)
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle82(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setCategory("category走走");
+        app.setEvent("category走走-右上方红包");
+        app.setEventAdvert("category走走-右上方红包-advert");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+    }
+
+    /**
+     * todo 8.领红包(操作流程：1-点击红包，2-看广告)
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle83(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setCategory("category走走");
+        app.setEvent("category走走-右下方红包");
+        app.setEventAdvert("category走走-右下方红包-advert");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+    }
 
 
 
@@ -213,8 +259,7 @@ public class A步行多多 {
     public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category走走");
         app.setEvent("category走走-走路");
-        app.setEventStep("category走走-走路-start");
-        app.setEventStep1("category走走-走路-start1");
+        app.setEventStep("category走走-走路-advert");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -281,11 +326,10 @@ public class A步行多多 {
      * @param phoneCodeDtos
      */
     public static void handle19(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        for(int i=0;i<10;i++) {
+        for(int i=0;i<6;i++) {
             app.setCategory("category福利");
             app.setEvent("category福利-刮奖");
-            app.setEventStep("category福利-刮奖-start");
-            app.setEventStep1("category福利-刮奖-start1");
+            app.setEventAdvertStep("category福利-刮奖-advertstep");
             app.setUpDown(0);
             AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
         }

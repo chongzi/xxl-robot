@@ -90,9 +90,11 @@ public class AppWalkServiceImpl implements AppWalkService {
 		log.info("********************多多步**************************");
 		List<PhoneCodeDto> dtos = phoneCodeService.getList("phone001","多多步");
 		A步行多多.handle(robot,"phone001","多多步", AppConstants.WATCH_ADVERT,dtos);
+		A步行多多.handle(robot,"phone001","多多步", AppConstants.GIFT_MONEY,dtos);
 		A步行多多.handle(robot,"phone001","多多步", AppConstants.SCRATCH_CARD,dtos);
 
-		log.info("********************步数赚**************************");
+
+		/*log.info("********************步数赚**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","步数赚");
 		A步行多多.handle(robot,"phone001","步数赚", AppConstants.WATCH_ADVERT,dtos1);
 		A步行多多.handle(robot,"phone001","步数赚", AppConstants.WALK,dtos1);
@@ -139,7 +141,7 @@ public class AppWalkServiceImpl implements AppWalkService {
 		A步行步多多.handle(robot,"phone001","一起来走路", AppConstants.GIFT_MONEY,dtos7);
 		A步行步多多.handle(robot,"phone001","一起来走路", AppConstants.WATCH_ADVERT,dtos7);
 		A步行步多多.handle(robot,"phone001","一起来走路", AppConstants.SCRATCH_CARD,dtos7);
-		A步行步多多.handle(robot,"phone001","一起来走路", AppConstants.WALK,dtos7);
+		A步行步多多.handle(robot,"phone001","一起来走路", AppConstants.WALK,dtos7);*/
 
 
 	}

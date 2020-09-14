@@ -138,6 +138,16 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 
 	}
 
+	@Override
+	public void circulate500() {
+
+	}
+
+	@Override
+	public void circulate200() {
+
+	}
+
 	/***
 	 * todo 玩游戏
 	 */

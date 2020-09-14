@@ -18,9 +18,21 @@ public interface AppBrowserService {
     public void  one();
 
     /**
-     * todo 循环执行领金币
+     * todo 循环执行领金币 1分钟产生1000金币
      */
     public void circulate();
+
+    /**
+     * todo 循环执行领金币 1分钟产生500金币
+     */
+    public void circulate500();
+
+
+    /**
+     * todo 循环执行领金币 1分钟产生200金币
+     */
+    public void circulate200();
+
     /***
      * todo 玩游戏
      */
