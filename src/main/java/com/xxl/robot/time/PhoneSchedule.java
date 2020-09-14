@@ -7,6 +7,7 @@ import com.xxl.robot.dto.PhoneCodeDto;
 import com.xxl.robot.service.*;
 import com.xxl.robot.tools.RandomTools;
 import com.xxl.robot.tools.WindowTools;
+import lombok.SneakyThrows;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,8 @@ public class PhoneSchedule {
     private AppMediaService aAppMediaService;
     @Autowired
     private AppNewsService appNewsService;
+    @Autowired
+    private AppBrowserService appBrowserService;
 
 
 
@@ -76,16 +79,18 @@ public class PhoneSchedule {
 
 
 
-
-
     /**
      * todo
      * 定时器  60分钟
      */
-    //@Scheduled(cron = "0 0/60 * * * ?")
+    @Scheduled(cron = "0 0/59 * * * ?")
+    @SneakyThrows
     public void timer60(){
         log.info("********************30分钟定时器启动**************************");
+        Robot robot = new Robot();
+        robot.delay(RandomTools.init(8000));
 
+        appBrowserService.circulate();
     }
 
 

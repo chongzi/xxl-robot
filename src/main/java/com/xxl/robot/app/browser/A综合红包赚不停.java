@@ -27,7 +27,6 @@ public class A综合红包赚不停 {
         switch (event){
             case AppConstants.CHECK_IN://签到
                 handle1(robot, robotCode, appCode, event, phoneCodeDtos, app);
-                handle101(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.WATCH_VIDEOS://看视频（看视频，看广告-点攒）
                 handle2(robot, robotCode, appCode, event, phoneCodeDtos, app);
@@ -51,6 +50,8 @@ public class A综合红包赚不停 {
                 handle8(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 handle81(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 handle82(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                handle83(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                handle84(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.TREASURE://开宝箱
                 handle9(robot, robotCode, appCode, event, phoneCodeDtos, app);
@@ -98,20 +99,13 @@ public class A综合红包赚不停 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category红包多多");
+        app.setEvent("category红包多多-签到");
+        app.setEventAdvert("category红包多多-签到-advert");
+        app.setEventBack("category红包多多-签到-back");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
-
-    /**
-     * todo 11.签到打卡
-     * @param robot
-     * @param phoneCodeDtos
-     */
-    public static void handle101(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
-    }
-
-
-
 
 
     /**
@@ -183,7 +177,7 @@ public class A综合红包赚不停 {
 
 
     /**
-     * todo 8.领红包(操作流程：1-点击红包，2-看广告)
+     * todo 8领红包(操作流程：1-点击红包，2-看广告)
      * @param robot
      * @param phoneCodeDtos
      */
@@ -193,30 +187,56 @@ public class A综合红包赚不停 {
         app.setEventAdvertStep("category手气红包-领红包-advertstep");
         app.setEventAdvert("category手气红包-领红包-advert");
         app.setEventBack("category手气红包-领红包-back");
-        app.setEventBack1("category手气红包-领红包-back1");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
     /**
-     * todo 8.category运动-摇红包(操作流程：1-点击红包，2-看广告)
+     * todo 8.1 category红包多多-时段红包(操作流程：1-点击红包，2-看广告)
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle83(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setCategory("category红包多多");
+        app.setEvent("category红包多多-时段红包");
+        app.setEventAdvert("category红包多多-时段红包-advert");
+        app.setEventBack("category红包多多-时段红包-back");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+    }
+
+
+    /**
+     * todo 8.2  category红包多多-视频红包(操作流程：1-点击红包，2-看广告)
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle84(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setCategory("category红包多多");
+        app.setEvent("category红包多多-视频红包");
+        app.setEventAdvert("category红包多多-视频红包-advert");
+        app.setEventBack("category红包多多-视频红包-back");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+    }
+
+    /**
+     * todo 8.3 category运动-摇红包(操作流程：1-点击红包，2-看广告)
      * @param robot
      * @param phoneCodeDtos
      */
     public static void handle81(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category手气红包");
-        app.setEvent("category手气红包-抽红包");
-        app.setEventAdvertStep("category手气红包-抽红包-advertstep");
-        app.setEventAdvert("category手气红包-抽红包-advert");
-        app.setEventBack("category手气红包-抽红包-back");
-        app.setEventBack1("category手气红包-抽红包-back1");
+        app.setCategory("category抽红包");
+        app.setEvent("category抽红包-抽红包");
+        app.setEventAdvert("category抽红包-抽红包-advert");
+        app.setEventBack("category抽红包-抽红包-back");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
-     * todo 8.category运动-摇红包(操作流程：1-点击红包，2-看广告)
+     * todo 8.24 category运动-摇红包(操作流程：1-点击红包，2-看广告)
      * @param robot
      * @param phoneCodeDtos
      */
@@ -226,10 +246,11 @@ public class A综合红包赚不停 {
         app.setEventAdvertStep("category红包多多-找红包-advertstep");
         app.setEventAdvert("category红包多多-找红包-advert");
         app.setEventBack("category红包多多-找红包-back");
-        app.setEventBack1("category红包多多-找红包-back1");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
+
+
 
 
     /**
@@ -253,7 +274,6 @@ public class A综合红包赚不停 {
         app.setEventStep("category赚钱-抽奖-advertstep");
         app.setEventAdvert("category赚钱-抽奖-advert");
         app.setEventBack("category赚钱-抽奖-back");
-        app.setEventBack1("category赚钱-抽奖-back1");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
