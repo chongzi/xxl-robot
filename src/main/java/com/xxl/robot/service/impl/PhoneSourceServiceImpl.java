@@ -1,7 +1,6 @@
 package com.xxl.robot.service.impl;
 
 import com.xxl.robot.app.media.*;
-import com.xxl.robot.app.news.A视频抖音;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
 import com.xxl.robot.service.PhoneCodeService;
