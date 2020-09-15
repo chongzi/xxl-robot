@@ -96,10 +96,10 @@ public class A步行步数 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setClear("category全局-清除");
         app.setCategory("category赚赚");
         app.setEvent("category赚赚-签到");
         app.setEventAdvert("category赚赚-签到");
-        app.setClear("category全局-清除");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -151,10 +151,10 @@ public class A步行步数 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setClear("category全局-清除");
         app.setCategory("category赚赚");
         app.setEvent("category赚赚-看广告");
-        app.setEventAdvert("category赚赚-看广告-看广告");
-        app.setClear("category全局-清除");
+        app.setEventAdvert("category赚赚-看广告-advert");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -175,10 +175,10 @@ public class A步行步数 {
      * @param phoneCodeDtos
      */
     public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setClear("category全局-清除");
         app.setCategory("category首页");
         app.setEvent("category首页-领红包");
-        app.setEventAdvert("category首页-领红包-看广告");
-        app.setClear("category全局-清除");
+        app.setEventAdvert("category首页-领红包-advert");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -189,10 +189,10 @@ public class A步行步数 {
      * @param phoneCodeDtos
      */
     public static void handle81(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setClear("category全局-清除");
         app.setCategory("category首页");
         app.setEvent("category首页-领视频红包");
-        app.setEventAdvert("category首页-领视频红包-看广告");
-        app.setClear("category全局-清除");
+        app.setEventAdvert("category首页-领视频红包-advert");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -203,18 +203,15 @@ public class A步行步数 {
      * @param phoneCodeDtos
      */
     public static void handle82(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setClear("category全局-清除");
         app.setCategory("category首页");
         app.setEvent("category首页-领每日红包");
-        app.setEventAdvert("category首页-领每日红包-看广告");
-        app.setClear("category全局-清除");
+        app.setEventAdvert("category首页-领每日红包-advert");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
 
-        app.setEventAdvert("category首页-领每日红包-看广告1");
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
         for(int i=0;i<6;i++){
             AdbTools.left();
-            app.setClear("category全局-清除");
             AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
         }
 
@@ -257,11 +254,11 @@ public class A步行步数 {
      * @param phoneCodeDtos
      */
     public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setClear("category全局-清除");
         app.setCategory("category首页");
         app.setEvent("category首页-走路步数");
-        app.setEventAdvert("category首页-走路步数-看广告");
+        app.setEventAdvert("category首页-走路步数-advert");
         app.setUpDown(0);
-        app.setClear("category全局-清除");
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -271,11 +268,11 @@ public class A步行步数 {
      * @param phoneCodeDtos
      */
     public static void handle121(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setClear("category全局-清除");
         app.setCategory("category首页");
         app.setEvent("category首页-走路视频步数");
-        app.setEventAdvert("category首页-走路视频步数-看广告");
+        app.setEventAdvert("category首页-走路视频步数-advert");
         app.setUpDown(0);
-        app.setClear("category全局-清除");
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -341,14 +338,7 @@ public class A步行步数 {
      * @param phoneCodeDtos
      */
     public static void handle19(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        for(int i=0;i<10;i++) {
-            app.setCategory("category福利");
-            app.setEvent("category福利-刮奖");
-            app.setEventStep("category福利-刮奖-start");
-            app.setEventStep1("category福利-刮奖-start1");
-            app.setUpDown(0);
-            AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
-        }
+
     }
 
 

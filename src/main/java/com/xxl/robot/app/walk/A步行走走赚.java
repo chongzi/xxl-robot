@@ -92,7 +92,7 @@ public class A步行走走赚 {
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category赚钱");
         app.setEvent("category赚钱-签到");
-        app.setEventAdvert("category赚钱-签到-看广告");
+        app.setEventAdvert("category赚钱-签到-advert");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -145,11 +145,10 @@ public class A步行走走赚 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category任务");
+        app.setCategory("category赚钱");
         app.setEvent("category赚钱-视频广告");
         app.setEventAdvert("category赚钱-视频广告-advert");
         app.setEventBack("category赚钱-视频广告-back");
-        app.setEventBack1("category赚钱-视频广告-back1");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -183,8 +182,8 @@ public class A步行走走赚 {
     public static void handle81(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category赚钱");
         app.setEvent("category赚钱-摇红包");
-        app.setEventAdvert("category赚钱-摇红包-advert");
-        app.setEventBack("category赚钱-摇红包-back");
+        app.setEventStep("category赚钱-摇红包-step");
+        app.setUpDown(1);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -200,8 +199,7 @@ public class A步行走走赚 {
         app.setEvent("category赚钱-开宝箱");
         app.setEventAdvert("category赚钱-开宝箱-advert");
         app.setEventBack("category赚钱-开宝箱-back");
-        app.setEventBack1("category赚钱-开宝箱-back1");
-        app.setUpDown(1);
+         app.setUpDown(1);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 

@@ -36,6 +36,7 @@ public class A步行步步宝 {
                 break;
             case AppConstants.WATCH_NEWS://看新闻
                 handle4(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                handle41(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.WATCH_NOVELS://看小说
                 handle5(robot, robotCode, appCode, event, phoneCodeDtos, app);
@@ -91,7 +92,7 @@ public class A步行步步宝 {
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category首页");
         app.setEvent("category首页-签到");
-        app.setEventAdvert("category首页-签到-看广告");
+        app.setEventAdvert("category首页-签到-advert");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -127,6 +128,20 @@ public class A步行步步宝 {
         app.setCategory("category看看");
         app.setEvent("category看看-看新闻");
         app.setEventStep("category看看-看新闻");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+    }
+
+    /**
+     * todo 4.看新闻
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle41(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setCategory("category看看");
+        app.setEvent("category首页-看看赚");
+        app.setEventStep("category首页-看看赚-step");
+        app.setEventBack("category首页-看看赚-back");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -171,7 +186,6 @@ public class A步行步步宝 {
         app.setEvent("category首页-领红包");
         app.setEventAdvert("category首页-领红包-advert");
         app.setEventBack("category首页-领红包-back");
-        app.setEventBack1("category首页-领红包-back1");
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -184,12 +198,7 @@ public class A步行步步宝 {
      * @param phoneCodeDtos
      */
     public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category首页");
-        app.setEvent("category首页-看看赚");
-        app.setEventStep("category首页-看看赚-step");
-        app.setEventBack("category首页-看看赚-back");
-        app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+
     }
 
 
@@ -202,7 +211,6 @@ public class A步行步步宝 {
         app.setCategory("category首页");
         app.setEvent("category首页-抽奖");
         app.setEventStep("category首页-抽奖-step");
-        app.setEventBack("category首页-抽奖-back");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -223,12 +231,7 @@ public class A步行步步宝 {
      * @param phoneCodeDtos
      */
     public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category任务");
-        app.setEvent("category首页-走路步数");
-        app.setEventAdvert("category首页-走路步数-advert");
-        app.setEventBack("category首页-走路步数-back");
-        app.setUpDown(1);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+
     }
 
 

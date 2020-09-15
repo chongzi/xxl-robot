@@ -96,7 +96,6 @@ public class A步行步步赚钱7 {
         app.setCategory("category运动");
         app.setEvent("category运动-签到");
         app.setEventAdvert("category运动-签到-step");
-        app.setEventBack("category运动-签到-back");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -181,15 +180,7 @@ public class A步行步步赚钱7 {
      * @param phoneCodeDtos
      */
     public static void handle81(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category运动");
-        app.setEvent("category运动-摇红包");
-        app.setEventAdvert("category运动-摇红包-advert");
-        app.setEventStep("category运动-摇红包-step");
-        app.setEventStep1("category运动-摇红包-step1");
-        app.setEventStep2("category运动-摇红包-step2");
-        app.setEventBack("category运动-摇红包-back");
-        app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+
     }
 
 

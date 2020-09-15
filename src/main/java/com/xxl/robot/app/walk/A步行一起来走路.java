@@ -42,6 +42,7 @@ public class A步行一起来走路 {
                 break;
             case AppConstants.WATCH_ADVERT://看广告
                 handle6(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                handle61(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.PALY_GAMES://玩游戏
                 handle7(robot, robotCode, appCode, event, phoneCodeDtos, app);
@@ -96,7 +97,6 @@ public class A步行一起来走路 {
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category走走");
         app.setEvent("category走走-签到");
-        app.setEventBack("category走走-签到-back");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -164,7 +164,6 @@ public class A步行一起来走路 {
         app.setCategory("category福利");
         app.setEvent("category福利-红心广告");
         app.setEventAdvert("category福利-红心广告-advert");
-        app.setEventBack("category走走-红心广告-back");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -186,7 +185,8 @@ public class A步行一起来走路 {
      */
     public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category走走");
-        app.setEvent("category走走-金币红包1");
+        app.setEvent("category走走-左上方红包");
+        app.setEventAdvert("category走走-左上方红包-advert");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -199,7 +199,8 @@ public class A步行一起来走路 {
      */
     public static void handle81(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category走走");
-        app.setEvent("category走走-金币红包2");
+        app.setEvent("category走走-左下方红包");
+        app.setEventAdvert("category走走-左下方红包-advert");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -211,7 +212,8 @@ public class A步行一起来走路 {
      */
     public static void handle82(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category走走");
-        app.setEvent("category走走-金币红包3");
+        app.setEvent("category走走-右上方红包");
+        app.setEventAdvert("category走走-右上方红包-advert");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -233,11 +235,7 @@ public class A步行一起来走路 {
      * @param phoneCodeDtos
      */
     public static void handle10(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category运动");
-        app.setEvent("category运动-抽奖");
-        app.setEventAdvert("category运动-抽奖-advert");
-        app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+
     }
 
 
@@ -256,10 +254,8 @@ public class A步行一起来走路 {
      * @param phoneCodeDtos
      */
     public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category运动");
-        app.setEvent("category运动-走路");
-        app.setEventStep("category运动-走路-step");
-        app.setEventStep1("category运动-走路-step1");
+        app.setCategory("category走走");
+        app.setEvent("category走走-走路");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -326,10 +322,10 @@ public class A步行一起来走路 {
      * @param phoneCodeDtos
      */
     public static void handle19(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        for(int i=0;i<10;i++) {
+        for(int i=0;i<6;i++) {
             app.setCategory("category走走");
             app.setEvent("category走走-刮卡");
-            app.setEventStep("category走走-刮卡-step");
+            app.setEventAdvertStep("category走走-刮卡-advertstep");
             app.setEventBack("category走走-刮卡-back");
             app.setUpDown(0);
             AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);

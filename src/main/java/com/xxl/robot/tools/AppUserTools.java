@@ -193,7 +193,7 @@ public class AppUserTools {
             if(null!=dto47) {
                 String operate47 = AdbTools.tap(dto47.getPositionX(), dto47.getPositionY());
                 MouseTools.normalEvent(robot, operate47);
-                robot.delay(50000);
+                robot.delay(36000);
             }
 
 
@@ -394,7 +394,7 @@ public class AppUserTools {
             if(null!=dto47) {
                 String operate47 = AdbTools.tap(dto47.getPositionX(), dto47.getPositionY());
                 MouseTools.normalEvent(robot, operate47);
-                robot.delay(50000);
+                robot.delay(36000);
             }
 
         }catch (Exception e){}
@@ -446,7 +446,7 @@ public class AppUserTools {
             if(null!=dto47) {
                 String operate47 = AdbTools.tap(dto47.getPositionX(), dto47.getPositionY());
                 MouseTools.normalEvent(robot, operate47);
-                robot.delay(50000);
+                robot.delay(36000);
             }
 
 
@@ -486,7 +486,7 @@ public class AppUserTools {
             if(null!=dto47) {
                 String operate47 = AdbTools.tap(dto47.getPositionX(), dto47.getPositionY());
                 MouseTools.normalEvent(robot, operate47);
-                robot.delay(50000);
+                robot.delay(36000);
             }
 
         }catch (Exception e){}
@@ -526,7 +526,7 @@ public class AppUserTools {
             if(null!=dto47) {
                 String operate47 = AdbTools.tap(dto47.getPositionX(), dto47.getPositionY());
                 MouseTools.normalEvent(robot, operate47);
-                robot.delay(50000);
+                robot.delay(36000);
             }
 
 
@@ -593,7 +593,7 @@ public class AppUserTools {
             if(null!=dto47) {
                 String operate47 = AdbTools.tap(dto47.getPositionX(), dto47.getPositionY());
                 MouseTools.normalEvent(robot, operate47);
-                robot.delay(50000);
+                robot.delay(36000);
             }
 
 
@@ -632,7 +632,7 @@ public class AppUserTools {
             if(null!=dto47) {
                 String operate47 = AdbTools.tap(dto47.getPositionX(), dto47.getPositionY());
                 MouseTools.normalEvent(robot, operate47);
-                robot.delay(50000);
+                robot.delay(36000);
             }
 
         }catch (Exception e){}
@@ -669,7 +669,7 @@ public class AppUserTools {
             if(null!=dto47) {
                 String operate47 = AdbTools.tap(dto47.getPositionX(), dto47.getPositionY());
                 MouseTools.normalEvent(robot, operate47);
-                robot.delay(50000);
+                robot.delay(36000);
             }
 
         }catch (Exception e){}
@@ -705,7 +705,7 @@ public class AppUserTools {
             if(null!=dto47) {
                 String operate47 = AdbTools.tap(dto47.getPositionX(), dto47.getPositionY());
                 MouseTools.normalEvent(robot, operate47);
-                robot.delay(50000);
+                robot.delay(36000);
             }
 
         }catch (Exception e){}
@@ -741,7 +741,7 @@ public class AppUserTools {
             if(null!=dto47) {
                 String operate47 = AdbTools.tap(dto47.getPositionX(), dto47.getPositionY());
                 MouseTools.normalEvent(robot, operate47);
-                robot.delay(50000);
+                robot.delay(36000);
             }
 
         }catch (Exception e){}
@@ -777,7 +777,7 @@ public class AppUserTools {
             if(null!=dto47) {
                 String operate47 = AdbTools.tap(dto47.getPositionX(), dto47.getPositionY());
                 MouseTools.normalEvent(robot, operate47);
-                robot.delay(50000);
+                robot.delay(36000);
             }
 
         }catch (Exception e){}
@@ -813,7 +813,7 @@ public class AppUserTools {
             if(null!=dto47) {
                 String operate47 = AdbTools.tap(dto47.getPositionX(), dto47.getPositionY());
                 MouseTools.normalEvent(robot, operate47);
-                robot.delay(50000);
+                robot.delay(36000);
             }
         }catch (Exception e){}
 

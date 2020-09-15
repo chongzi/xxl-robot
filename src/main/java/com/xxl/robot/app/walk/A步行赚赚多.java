@@ -92,7 +92,6 @@ public class A步行赚赚多 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("全局清除");
         app.setCategory("category赚赚");
         app.setEvent("category赚赚-签到");
         app.setEventAdvert("category赚赚-签到-advert");
@@ -148,7 +147,6 @@ public class A步行赚赚多 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("全局清除");
         app.setCategory("category赚赚");
         app.setEvent("category赚赚-看视频广告");
         app.setEventAdvert("category赚赚-看视频广告-advert");
@@ -195,13 +193,7 @@ public class A步行赚赚多 {
      * @param phoneCodeDtos
      */
     public static void handle10(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("全局清除");
-        app.setCategory("category抽大奖");
-        app.setEvent("category抽大奖-抽奖");
-        app.setEventBack("category抽大奖-back");
-        app.setEventBack("category抽大奖-back1");
-        app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+
     }
 
 
@@ -220,13 +212,7 @@ public class A步行赚赚多 {
      * @param phoneCodeDtos
      */
     public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("全局清除");
-        app.setCategory("category走路赚");
-        app.setEventClear("category赚赚-清除");
-        app.setEvent("category走路赚-走路");
-        app.setEventBack("category走路赚-走路-back");
-        app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+
     }
 
 
@@ -292,8 +278,7 @@ public class A步行赚赚多 {
      */
     public static void handle19(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
-        for(int i=0;i<10;i++) {
-            app.setClear("全局清除");
+        for(int i=0;i<2;i++) {
             app.setCategory("category试手气");
             app.setEvent("category试手气-刮奖");
             app.setEventStep("category试手气-刮奖-step");

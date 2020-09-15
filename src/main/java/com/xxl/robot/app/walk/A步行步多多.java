@@ -95,6 +95,7 @@ public class A步行步多多 {
         app.setCategory("category赚赚");
         app.setEvent("category赚赚-签到");
         app.setEventAdvert("category赚赚-签到-advert");
+        app.setEventBack("category赚赚-签到-back");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }

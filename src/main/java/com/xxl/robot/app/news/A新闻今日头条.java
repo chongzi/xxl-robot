@@ -1,21 +1,18 @@
 package com.xxl.robot.app.news;
 
 import com.xxl.robot.constants.AppConstants;
+import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
-import com.xxl.robot.tools.AdbTools;
-import com.xxl.robot.tools.MouseTools;
-import com.xxl.robot.tools.RandomTools;
-import com.xxl.robot.tools.WindowTools;
+import com.xxl.robot.tools.AppUserTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
-import java.time.LocalTime;
 import java.util.List;
 
 /**
- * todo 抖音视频操作
- * app-视频用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
+ * todo A新闻今日头条
+ * app-用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
 public class A新闻今日头条 {
     private static Logger log = LoggerFactory.getLogger(A新闻今日头条.class);
@@ -26,34 +23,64 @@ public class A新闻今日头条 {
      * 传相应的app_code对应的phoneCodeDtos
      */
     public static void handle(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-
+        AppDto app = new AppDto();
         switch (event){
             case AppConstants.CHECK_IN://签到
-                handle1(robot, robotCode, appCode, event, phoneCodeDtos);
+                handle1(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
-            case AppConstants.WATCH_VIDEOS://看视频
-                handle2(robot, robotCode, appCode, event, phoneCodeDtos);
+            case AppConstants.WATCH_VIDEOS://看视频（看视频，看广告-点攒）
+                handle2(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
-            case AppConstants.SLEEP://睡觉
-                handle3(robot, robotCode, appCode, event, phoneCodeDtos);
-                break;
-            case AppConstants.WALK://走路
-                handle4(robot, robotCode, appCode, event, phoneCodeDtos);
-                break;
-            case AppConstants.DRAW://抽奖
-                handle5(robot, robotCode, appCode, event, phoneCodeDtos);
-                break;
-            case AppConstants.WATCH_NOVELS://看小说
-                handle6(robot, robotCode, appCode, event, phoneCodeDtos);
-                break;
-            case AppConstants.TREASURE://开宝箱
-                handle7(robot, robotCode, appCode, event, phoneCodeDtos);
-                break;
-            case AppConstants.EAT://吃饭
-                handle8(robot, robotCode, appCode, event, phoneCodeDtos);
+            case AppConstants.WATCH_VIDEOS_SMALL://看视频（看视频，看广告-点攒）
+                handle3(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.WATCH_NEWS://看新闻
-                handle9(robot, robotCode, appCode, event, phoneCodeDtos);
+                handle4(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                break;
+            case AppConstants.WATCH_NOVELS://看小说
+                handle5(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                break;
+            case AppConstants.WATCH_ADVERT://看广告
+                handle6(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                break;
+            case AppConstants.PALY_GAMES://玩游戏
+                handle7(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                break;
+            case AppConstants.GIFT_MONEY://领红包
+                handle8(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                break;
+            case AppConstants.TREASURE://开宝箱
+                handle9(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                break;
+            case AppConstants.DRAW://抽奖
+                handle10(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                break;
+            case AppConstants.SLEEP://睡觉
+                handle11(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                break;
+            case AppConstants.WALK://走路
+                handle12(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                break;
+            case AppConstants.DRINK_WATER://喝水
+                handle13(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                break;
+            case AppConstants.CHARGE://充电
+                handle14(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                break;
+            case AppConstants.MUSIC://听歌曲
+                handle15(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                break;
+            case AppConstants.EAT://吃饭
+                handle16(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                break;
+            case AppConstants.SHARE://分享
+                handle17(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                break;
+            case AppConstants.MONEY_TREE://摇钱树
+                handle18(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                break;
+            case AppConstants.SCRATCH_CARD://刮奖
+                handle19(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
         }
 
@@ -64,38 +91,12 @@ public class A新闻今日头条 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-        log.info("1.动作");
-        String operate1 = "A新闻今日头条-签到";
-        MouseTools.normalEvent(robot,operate1);
-
-        log.info("2.初始化");
-        WindowTools.initWindowApp(robot,phoneCodeDtos);
-
-        try {
-            log.info("4.步骤-1");
-            PhoneCodeDto dto41 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务")).findAny().orElse(null);
-            String operate41 = AdbTools.tap(dto41.getPositionX(), dto41.getPositionY());
-            MouseTools.normalEvent(robot, operate41);
-
-            PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-签到-看广告")).findAny().orElse(null);
-            String operate42 = AdbTools.tap(dto42.getPositionX(), dto42.getPositionY());
-            MouseTools.normalEvent(robot, operate42);
-            robot.delay(36000);
-
-        }catch (Exception e){}
-
-        log.info("5.步骤-返回主界面");
-        String operateBackHome = "adb shell input keyevent BACK";
-        MouseTools.normalEvent(robot,operateBackHome);
-        MouseTools.normalEvent(robot,operateBackHome);
-
-        log.info("6.步骤-退出");
-        String operateQuit = "adb shell input keyevent 3";
-        MouseTools.normalEvent(robot,operateQuit);
-
-
-
+    public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setCategory("category任务");
+        app.setEvent("category任务-签到");
+        app.setEventAdvert("category任务-签到-advert");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -104,379 +105,202 @@ public class A新闻今日头条 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-
-
+    public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
 
     /**
-     * todo 3.睡觉
+     * todo 3.看小视频
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle3(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-        log.info("1.动作");
-        String operate1 = "A新闻今日头条-睡觉";
-        MouseTools.normalEvent(robot,operate1);
-
-        log.info("2.初始化");
-        WindowTools.initWindowApp(robot,phoneCodeDtos);
-
-        try {
-            log.info("4.步骤-1");
-            PhoneCodeDto dto41 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务")).findAny().orElse(null);
-            String operate41 = AdbTools.tap(dto41.getPositionX(), dto41.getPositionY());
-            MouseTools.normalEvent(robot, operate41);
-            MouseTools.normalEvent(robot, AdbTools.upPage());
-            MouseTools.normalEvent(robot, AdbTools.upPage());
-
-            log.info("4.步骤-2");
-            PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-睡觉")).findAny().orElse(null);
-            String operate42 = AdbTools.tap(dto42.getPositionX(), dto42.getPositionY());
-            MouseTools.normalEvent(robot, operate42);
-
-            log.info("4.步骤-3");
-            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-睡觉-我要睡觉")).findAny().orElse(null);
-            String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
-            MouseTools.normalEvent(robot, operate43);
-
-            log.info("4.步骤-4");
-            PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-睡觉-领取金币")).findAny().orElse(null);
-            String operate44 = AdbTools.tap(dto44.getPositionX(), dto44.getPositionY());
-            MouseTools.normalEvent(robot, operate44);
-
-            LocalTime now = LocalTime.now();
-            int hour = now.getHour();
-            if (hour < 20) {
-                robot.delay(RandomTools.init(1000));
-                MouseTools.normalEvent(robot, operate43);
-            }
-        }catch (Exception e){}
-
-        log.info("5.步骤-返回主界面");
-        String operateBackHome = "adb shell input keyevent BACK";
-        MouseTools.normalEvent(robot,operateBackHome);
-        MouseTools.normalEvent(robot,operateBackHome);
-        MouseTools.normalEvent(robot,operateBackHome);
-
-        log.info("6.步骤-退出");
-        String operateQuit = "adb shell input keyevent 3";
-        MouseTools.normalEvent(robot,operateQuit);
-
+    public static void handle3(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
 
     /**
-     * todo 4.走路
+     * todo 4.看新闻
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+    public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setCategory("category任务");
+        app.setEvent("category任务-阅读");
+        app.setEventStep("category任务-阅读-step");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+    }
 
-        log.info("1.动作");
-        String operate1 = "A新闻今日头条-走路";
-        MouseTools.normalEvent(robot,operate1);
 
-        log.info("2.初始化");
-        WindowTools.initWindowApp(robot,phoneCodeDtos);
-        try {
-            log.info("4.步骤-1");
-            PhoneCodeDto dto41 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务")).findAny().orElse(null);
-            String operate41 = AdbTools.tap(dto41.getPositionX(), dto41.getPositionY());
-            MouseTools.normalEvent(robot, operate41);
-            MouseTools.normalEvent(robot, AdbTools.upPage());
+    /**
+     * todo 5.看小说
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setCategory("category任务");
+        app.setEvent("category任务-看小说");
+        app.setEventStep("category任务-看小说-step");
+        app.setEventStep1("category任务-看小说-step1");
+        app.setUpDown(1);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+    }
 
-            log.info("4.步骤-2");
-            PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-走路")).findAny().orElse(null);
-            String operate42 = AdbTools.tap(dto42.getPositionX(), dto42.getPositionY());
-            MouseTools.normalEvent(robot, operate42);
 
-            log.info("4.步骤-3");
-            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-走路-领金币")).findAny().orElse(null);
-            String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
-            MouseTools.normalEvent(robot, operate43);
-        }catch (Exception e){}
+    /**
+     * todo 6.看广告
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
-        log.info("5.步骤-返回主界面");
-        String operateBackHome = "adb shell input keyevent BACK";
-        MouseTools.normalEvent(robot,operateBackHome);
-        MouseTools.normalEvent(robot,operateBackHome);
+    }
 
-        log.info("6.步骤-退出");
-        String operateQuit = "adb shell input keyevent 3";
-        MouseTools.normalEvent(robot,operateQuit);
-
+    /**
+     * todo 7.玩游戏
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle7(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
 
     /**
-     * todo 5.抽奖
+     * todo 8.领红包(操作流程：1-点击红包，2-看广告)
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+    public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
-        log.info("1.动作");
-        String operate1 = "A新闻今日头条-抽奖";
-        MouseTools.normalEvent(robot,operate1);
-
-        log.info("2.初始化");
-        WindowTools.initWindowApp(robot,phoneCodeDtos);
-        try {
-            log.info("4.步骤-1");
-            PhoneCodeDto dto41 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务")).findAny().orElse(null);
-            String operate41 = AdbTools.tap(dto41.getPositionX(), dto41.getPositionY());
-            MouseTools.normalEvent(robot, operate41);
-            MouseTools.normalEvent(robot, AdbTools.upPage());
-
-            log.info("4.步骤-2");
-            PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-抽奖")).findAny().orElse(null);
-            String operate42 = AdbTools.tap(dto42.getPositionX(), dto42.getPositionY());
-            MouseTools.normalEvent(robot, operate42);
-
-            log.info("4.步骤-3");
-            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-抽奖-领金币")).findAny().orElse(null);
-            String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
-            MouseTools.normalEvent(robot, operate43);
-
-        }catch (Exception e){}
-
-        log.info("5.步骤-返回主界面");
-        String operateBackHome = "adb shell input keyevent BACK";
-        MouseTools.normalEvent(robot,operateBackHome);
-        MouseTools.normalEvent(robot,operateBackHome);
-        MouseTools.normalEvent(robot,operateBackHome);
-
-        log.info("6.步骤-退出");
-        String operateQuit = "adb shell input keyevent 3";
-        MouseTools.normalEvent(robot,operateQuit);
+    }
 
 
+
+    /**
+     * todo 9.开宝箱
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setCategory("category任务");
+        app.setEvent("category任务-开宝箱");
+        app.setEventAdvert("category任务-开宝箱-advert");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+    }
+
+
+    /**
+     * todo 10.抽奖
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle10(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setCategory("category任务");
+        app.setEvent("category任务-抽手机");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+    }
+
+
+    /**
+     * todo 11.睡觉
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle11(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setCategory("category任务");
+        app.setEvent("category任务-睡觉");
+        app.setEventStep("category任务-睡觉-step");
+        //app.setEventStep1("category任务-睡觉-step1");
+        app.setEventAdvert("category任务-睡觉-advert");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+    }
+
+    /**
+     * todo 12.走路
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setCategory("category任务");
+        app.setEvent("category任务-走路");
+        app.setEventStep("category任务-走路-step");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+    }
+
+
+    /**
+     * todo 13.喝水
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle13(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
 
     /**
-     * todo 6.看小说
+     * todo 14.充电
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-        log.info("1.动作");
-        String operate1 = "A新闻今日头条-看小说";
-        MouseTools.normalEvent(robot,operate1);
-
-        log.info("2.初始化");
-        WindowTools.initWindowApp(robot,phoneCodeDtos);
-        try {
-            log.info("4.步骤-1");
-            PhoneCodeDto dto41 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务")).findAny().orElse(null);
-            String operate41 = AdbTools.tap(dto41.getPositionX(), dto41.getPositionY());
-            MouseTools.normalEvent(robot, operate41);
-            MouseTools.normalEvent(robot, AdbTools.downPage());
-            MouseTools.normalEvent(robot, AdbTools.downPage());
-            MouseTools.normalEvent(robot, AdbTools.downPage());
-
-            log.info("4.步骤-2");
-            PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-看小说")).findAny().orElse(null);
-            String operate42 = AdbTools.tap(dto42.getPositionX(), dto42.getPositionY());
-            MouseTools.normalEvent(robot, operate42);
-            MouseTools.normalEvent(robot, AdbTools.downPage());
-
-            log.info("4.步骤-3");
-            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-看小说-立即阅读")).findAny().orElse(null);
-            String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
-            MouseTools.normalEvent(robot, operate43);
-            robot.delay(RandomTools.init(6000));
-
-            int i = RandomTools.init(60);
-            int j = RandomTools.init(60);
-            for (int a = 0; a < i; a++) {
-                MouseTools.normalEvent(robot, AdbTools.right());
-                if (a == j) {
-                    MouseTools.normalEvent(robot, AdbTools.left());
-                }
-
-                if (a == j * 2) {
-                    MouseTools.normalEvent(robot, AdbTools.left());
-                }
-
-                if (a == j + 6) {
-                    MouseTools.normalEvent(robot, AdbTools.left());
-                }
-
-            }
-
-            log.info("4.步骤-4");
-            PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-看小说-立即阅读-加入书架")).findAny().orElse(null);
-            String operate44 = AdbTools.tap(dto44.getPositionX(), dto44.getPositionY());
-            MouseTools.normalEvent(robot, operate44);
-
-
-        }catch (Exception e){}
-
-        log.info("5.步骤-返回主界面");
-        String operateBackHome = "adb shell input keyevent BACK";
-        MouseTools.normalEvent(robot,operateBackHome);
-        MouseTools.normalEvent(robot,operateBackHome);
-        MouseTools.normalEvent(robot,operateBackHome);
-
-        log.info("6.步骤-退出");
-        String operateQuit = "adb shell input keyevent 3";
-        MouseTools.normalEvent(robot,operateQuit);
-
-
-    }
-
-
-    /**
-     * todo 7.开宝箱
-     * @param robot
-     * @param phoneCodeDtos
-     */
-    public static void handle7(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-        log.info("1.动作");
-        String operate1 = "A新闻头条-开宝箱";
-        MouseTools.normalEvent(robot,operate1);
-
-        log.info("2.初始化");
-        WindowTools.initWindowApp(robot,phoneCodeDtos);
-        try {
-            log.info("4.步骤-1");
-            PhoneCodeDto dto = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务")).findAny().orElse(null);
-            String operate = AdbTools.tap(dto.getPositionX(), dto.getPositionY());
-            MouseTools.normalEvent(robot, operate);
-            MouseTools.normalEvent(robot, AdbTools.downPage());
-            MouseTools.normalEvent(robot, AdbTools.downPage());
-
-            log.info("4.步骤-1");
-            PhoneCodeDto dto41 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-开宝箱")).findAny().orElse(null);
-            String operate41 = AdbTools.tap(dto41.getPositionX(), dto41.getPositionY());
-            MouseTools.normalEvent(robot, operate41);
-
-            log.info("4.步骤-2");
-            PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-开宝箱-看广告")).findAny().orElse(null);
-            String operate42 = AdbTools.tap(dto42.getPositionX(), dto42.getPositionY());
-            MouseTools.normalEvent(robot, operate42);
-            robot.delay(36000);
-
-        }catch (Exception e){}
-
-        log.info("5.步骤-返回主界面");
-        String operateBackHome = "adb shell input keyevent BACK";
-        MouseTools.normalEvent(robot,operateBackHome);
-        MouseTools.normalEvent(robot,operateBackHome);
-
-        log.info("6.步骤-退出");
-        String operateQuit = "adb shell input keyevent 3";
-        MouseTools.normalEvent(robot,operateQuit);
-
-
-    }
-
-
-    /**
-     * todo 8.吃饭
-     * @param robot
-     * @param phoneCodeDtos
-     */
-    public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-        log.info("1.动作");
-        String operate1 = "A新闻今日头条-吃饭";
-        MouseTools.normalEvent(robot,operate1);
-
-        log.info("2.初始化");
-        WindowTools.initWindowApp(robot,phoneCodeDtos);
-        try {
-            log.info("4.步骤-1");
-            PhoneCodeDto dto41 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务")).findAny().orElse(null);
-            String operate41 = AdbTools.tap(dto41.getPositionX(), dto41.getPositionY());
-            MouseTools.normalEvent(robot, operate41);
-            MouseTools.normalEvent(robot, AdbTools.upPage());
-
-            log.info("4.步骤-2");
-            PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-吃饭")).findAny().orElse(null);
-            String operate42 = AdbTools.tap(dto42.getPositionX(), dto42.getPositionY());
-            MouseTools.normalEvent(robot, operate42);
-
-            log.info("4.步骤-3");
-            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-吃饭-领金币")).findAny().orElse(null);
-            String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
-            MouseTools.normalEvent(robot, operate43);
-
-            log.info("4.步骤-4");
-            PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-吃饭-领金币-看广告")).findAny().orElse(null);
-            String operate44 = AdbTools.tap(dto44.getPositionX(), dto44.getPositionY());
-            MouseTools.normalEvent(robot, operate44);
-
-        }catch (Exception e){}
-
-        log.info("5.步骤-返回主界面");
-        String operateBackHome = "adb shell input keyevent BACK";
-        MouseTools.normalEvent(robot,operateBackHome);
-        MouseTools.normalEvent(robot,operateBackHome);
-
-        log.info("6.步骤-退出");
-        String operateQuit = "adb shell input keyevent 3";
-        MouseTools.normalEvent(robot,operateQuit);
-
+    public static void handle14(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
     /**
-     * todo 9.看新闻
+     * todo 15.听歌曲
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-        log.info("1.动作");
-        String operate1 = "A新闻今日头条-看新闻";
-        MouseTools.normalEvent(robot,operate1);
+    public static void handle15(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
-        log.info("2.初始化");
-        WindowTools.initWindowApp(robot,phoneCodeDtos);
-        try {
-            log.info("4.步骤-1");
-            PhoneCodeDto dto41 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务")).findAny().orElse(null);
-            String operate41 = AdbTools.tap(dto41.getPositionX(), dto41.getPositionY());
-            MouseTools.normalEvent(robot, operate41);
-            MouseTools.normalEvent(robot, AdbTools.upPage());
+    }
 
-            log.info("4.步骤-2");
-            PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category任务-阅读")).findAny().orElse(null);
-            String operate42 = AdbTools.tap(dto42.getPositionX(), dto42.getPositionY());
-            MouseTools.normalEvent(robot, operate42);
-            int a =  RandomTools.init(6);
-            for(int i=0;i<a;i++) {
-                log.info("4.步骤-2");
-                robot.delay(RandomTools.init(6000));
-                MouseTools.normalEvent(robot, AdbTools.downPage());
-                PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("category首页-看新闻")).findAny().orElse(null);
-                String operate43 = AdbTools.tap(dto43.getPositionX(), dto43.getPositionY());
-                MouseTools.normalEvent(robot, operate43);
-                for(int y=0;y<10;y++){
-                    MouseTools.normalEvent(robot, AdbTools.down());
-                }
-                String operateBackHome = "adb shell input keyevent BACK";
-                MouseTools.normalEvent(robot,operateBackHome);
-                MouseTools.normalEvent(robot, AdbTools.downPage());
-            }
+    /**
+     * todo 16.吃饭
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle16(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setCategory("category任务");
+        app.setEvent("category任务-吃饭");
+        app.setEventAdvertStep("category任务-吃饭-advertstep");
+        app.setEventAdvert("category任务-吃饭-advert");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+    }
 
-        }catch (Exception e){}
+    /**
+     * todo 17.分享
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle17(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
-        log.info("5.步骤-返回主界面");
-        String operateBackHome = "adb shell input keyevent BACK";
-        MouseTools.normalEvent(robot,operateBackHome);
-        MouseTools.normalEvent(robot,operateBackHome);
+    }
 
-        log.info("6.步骤-退出");
-        String operateQuit = "adb shell input keyevent 3";
-        MouseTools.normalEvent(robot,operateQuit);
+    /**
+     * todo 18.摇钱树
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle18(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
+    }
+
+    /**
+     * todo 19.刮奖
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle19(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
