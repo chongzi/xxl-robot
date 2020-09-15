@@ -107,7 +107,6 @@ public class A视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
         app.setCategory("category首页");
         app.setEvent("category首页-看视频");
         app.setEventGiveUP("category首页-看视频-giveup");
@@ -152,7 +151,6 @@ public class A视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
         app.setCategory("category红包");
         app.setEvent("category红包-看广告");
         app.setEventAdvert("category红包-看广告-advert");
@@ -187,7 +185,6 @@ public class A视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
         app.setCategory("category红包");
         app.setEvent("category红包-开宝箱");
         app.setEventAdvert("category红包-开宝箱-advert");
@@ -212,7 +209,6 @@ public class A视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle11(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
         app.setCategory("category红包");
         app.setEvent("category红包-睡觉");
         app.setEventAdvertStep("category红包-睡觉-advertstep");
@@ -227,7 +223,6 @@ public class A视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
         app.setCategory("category红包");
         app.setEvent("category红包-走路");
         app.setEventStep("category红包-走路-step");
@@ -288,7 +283,6 @@ public class A视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle18(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
         app.setCategory("category红包");
         app.setEvent("category红包-摇钱树");
         app.setEventStep("category红包-摇钱树-step");

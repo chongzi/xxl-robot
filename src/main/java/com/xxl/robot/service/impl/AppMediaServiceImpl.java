@@ -140,10 +140,13 @@ public class AppMediaServiceImpl implements AppMediaService {
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList("phone001","刷宝");
 		A视频刷宝.handle(robot,"phone001","刷宝", AppConstants.TREASURE,dtos4);
 
+/*
 		log.info("********************快逗**************************");
 		List<PhoneCodeDto> dtos5 = phoneCodeService.getList("phone001","快逗");
 		F视频快逗.handle(robot,"phone001","快逗", AppConstants.WATCH_ADVERT,dtos5);
 		F视频快逗.handle(robot,"phone001","快逗", AppConstants.GIFT_MONEY,dtos5);
+*/
+/*
 
 		log.info("********************追看**************************");
 		List<PhoneCodeDto> dtos7 = phoneCodeService.getList("phone001","追看");
@@ -156,6 +159,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 		List<PhoneCodeDto> dtos8 = phoneCodeService.getList("phone001","小吃货");
 		H视频小吃货.handle(robot,"phone001","小吃货", AppConstants.WATCH_ADVERT,dtos8);
 		H视频小吃货.handle(robot,"phone001","小吃货", AppConstants.GIFT_MONEY,dtos8);
+*/
 
 	}
 

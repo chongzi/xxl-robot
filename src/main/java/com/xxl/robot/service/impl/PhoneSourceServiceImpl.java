@@ -1,6 +1,7 @@
 package com.xxl.robot.service.impl;
 
 import com.xxl.robot.app.media.*;
+import com.xxl.robot.app.news.A视频抖音;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
 import com.xxl.robot.service.PhoneCodeService;
@@ -102,7 +103,7 @@ public class PhoneSourceServiceImpl implements PhoneSourceService {
 
 		WindowTools.initWindowApp(robot,dtos);
 
-		D视频微视.handle(robot,"phone001","微视", AppConstants.WATCH_VIDEOS,dtos);
+		A视频微视.handle(robot,"phone001","微视", AppConstants.WATCH_VIDEOS,dtos);
 	}
 
 	@Override
@@ -120,7 +121,7 @@ public class PhoneSourceServiceImpl implements PhoneSourceService {
 
 		WindowTools.initWindowApp(robot,dtos);
 
-		E视频刷宝.handle(robot,"phone001","刷宝", AppConstants.WATCH_VIDEOS,dtos);
+		A视频刷宝.handle(robot,"phone001","刷宝", AppConstants.WATCH_VIDEOS,dtos);
 	}
 
 	@Override

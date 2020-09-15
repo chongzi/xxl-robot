@@ -107,7 +107,6 @@ public class A视频快手 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
         app.setCategory("category发现");
         app.setEvent("category发现-看视频");
         app.setEventGiveUP("category发现-看视频-giveup");

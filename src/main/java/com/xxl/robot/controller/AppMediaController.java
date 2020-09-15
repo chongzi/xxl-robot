@@ -26,7 +26,7 @@ public class AppMediaController {
 
 
     @GetMapping("one")
-    @ApiOperation("模拟火山视频操作")
+    @ApiOperation("模拟视频操作")
     public BaseResponse one() {
         appMediaService.one();
         return BaseResponse.newSuccess();

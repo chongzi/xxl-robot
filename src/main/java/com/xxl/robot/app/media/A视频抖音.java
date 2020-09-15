@@ -1,4 +1,4 @@
-package com.xxl.robot.app.news;
+package com.xxl.robot.app.media;
 
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
@@ -107,7 +107,6 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
         app.setCategory("category首页");
         app.setEvent("category首页-看视频");
         app.setEventGiveUP("category首页-看视频-giveup");
@@ -142,7 +141,6 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
         app.setCategory("category来赚钱");
         app.setEvent("category来赚钱-看小说");
         app.setEventStep("category来赚钱-看小说-step");
@@ -158,7 +156,6 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
         app.setCategory("category来赚钱");
         app.setEvent("category来赚钱-看广告");
         app.setEventAdvert("category来赚钱-看广告-advert");
@@ -193,7 +190,6 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
         app.setCategory("category来赚钱");
         app.setEvent("category来赚钱-开宝箱");
         app.setEventAdvert("category来赚钱-开宝箱-advert");
@@ -218,7 +214,6 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle11(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
         app.setCategory("category来赚钱");
         app.setEvent("category来赚钱-睡觉赚金币");
         app.setEventAdvertStep("category来赚钱-睡觉赚金币-advertstep");
@@ -233,7 +228,6 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
         app.setCategory("category来赚钱");
         app.setEvent("category来赚钱-走路");
         app.setEventStep("category来赚钱-走路-step");
