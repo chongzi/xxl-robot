@@ -1,6 +1,7 @@
 package com.xxl.robot.service.impl;
 
 import com.xxl.robot.app.media.*;
+import com.xxl.robot.app.news.A视频抖音;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
 import com.xxl.robot.service.AppMediaService;
@@ -49,7 +50,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 
 		log.info("********************刷宝**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList("phone001","刷宝");
-		E视频刷宝.handle(robot,"phone001","刷宝", AppConstants.CHECK_IN,dtos4);
+		A视频刷宝.handle(robot,"phone001","刷宝", AppConstants.CHECK_IN,dtos4);
 
 		log.info("********************快逗**************************");
 		List<PhoneCodeDto> dtos6 = phoneCodeService.getList("phone001","快逗");
@@ -95,7 +96,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 
 		log.info("********************刷宝**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList("phone001","刷宝");
-		E视频刷宝.handle(robot,"phone001","刷宝", AppConstants.WATCH_VIDEOS,dtos4);
+		A视频刷宝.handle(robot,"phone001","刷宝", AppConstants.WATCH_VIDEOS,dtos4);
 
 		log.info("********************快逗**************************");
 		List<PhoneCodeDto> dtos6 = phoneCodeService.getList("phone001","快逗");
@@ -135,9 +136,9 @@ public class AppMediaServiceImpl implements AppMediaService {
 		A视频快手.handle(robot,"phone001","快手极速版", AppConstants.WATCH_ADVERT,dtos2);
 
 
-		log.info("********************刷宝**************************");
+ 	log.info("********************刷宝**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList("phone001","刷宝");
-		E视频刷宝.handle(robot,"phone001","刷宝", AppConstants.TREASURE,dtos4);
+		A视频刷宝.handle(robot,"phone001","刷宝", AppConstants.TREASURE,dtos4);
 
 		log.info("********************快逗**************************");
 		List<PhoneCodeDto> dtos5 = phoneCodeService.getList("phone001","快逗");
@@ -213,7 +214,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 
 		log.info("********************刷宝**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList("phone001","刷宝");
-		E视频刷宝.handle(robot,"phone001","刷宝", AppConstants.WATCH_VIDEOS,dtos4);
+		A视频刷宝.handle(robot,"phone001","刷宝", AppConstants.WATCH_VIDEOS,dtos4);
 
 		log.info("********************快逗**************************");
 		List<PhoneCodeDto> dtos5 = phoneCodeService.getList("phone001","快逗");
