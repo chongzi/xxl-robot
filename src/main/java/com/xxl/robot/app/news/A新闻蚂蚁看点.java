@@ -96,7 +96,6 @@ public class A新闻蚂蚁看点 {
         app.setClear("category看点-清除");
         app.setCategory("category任务");
         app.setEvent("category任务-签到");
-        app.setEventAdvert("category任务-签到-看广告");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -129,10 +128,9 @@ public class A新闻蚂蚁看点 {
      * @param phoneCodeDtos
      */
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category看点-清除");
         app.setCategory("category看点");
         app.setEvent("category看点-看新闻");
-        app.setEventStep("category看点-看新闻-start");
+        app.setEventStep("category看点-看新闻-step");
         app.setUpDown(1);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -157,8 +155,8 @@ public class A新闻蚂蚁看点 {
         app.setClear("category看点-清除");
         app.setCategory("category看点");
         app.setEvent("category看点-看广告");
-        app.setEventAdvert("category看点-看广告-start");
-        app.setUpDown(1);
+        app.setEventAdvert("category看点-看广告-advert");
+        app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -181,7 +179,7 @@ public class A新闻蚂蚁看点 {
         app.setClear("category看点-清除");
         app.setCategory("category看点");
         app.setEvent("category看点-领红包");
-        app.setEventAdvert("category看点-领红包-看广告");
+        app.setEventAdvert("category看点-领红包-advert");
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -197,8 +195,8 @@ public class A新闻蚂蚁看点 {
         app.setClear("category看点-清除");
         app.setCategory("category任务");
         app.setEvent("category任务-开宝箱");
-        app.setEventAdvert("category任务-开宝箱-看广告");
-        app.setUpDown(1);
+        app.setEventAdvert("category任务-开宝箱-advert");
+        app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -212,7 +210,7 @@ public class A新闻蚂蚁看点 {
         app.setClear("category看点-清除");
         app.setCategory("category领现金");
         app.setEvent("category领现金-抽奖");
-        app.setEventAdvert("category领现金-抽奖-看广告");
+        app.setEventStep("category领现金-抽奖-step");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }

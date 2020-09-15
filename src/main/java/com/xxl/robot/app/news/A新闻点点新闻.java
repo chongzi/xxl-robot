@@ -95,7 +95,6 @@ public class A新闻点点新闻 {
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category任务");
         app.setEvent("category任务-签到");
-        app.setEventAdvert("category任务-签到-看广告");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -120,8 +119,7 @@ public class A新闻点点新闻 {
     public static void handle3(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category视频");
         app.setEvent("category视频-看视频");
-        app.setEventStep("category视频-看视频-start");
-        app.setEventStep("category视频-看视频-点攒");
+        app.setEventStep("category视频-看视频-step");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -135,7 +133,7 @@ public class A新闻点点新闻 {
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category资讯");
         app.setEvent("category资讯-看新闻");
-        app.setEventStep("category资讯-看新闻-start");
+        app.setEventStep("category资讯-看新闻-step");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }

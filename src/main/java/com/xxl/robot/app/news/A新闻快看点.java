@@ -144,11 +144,7 @@ public class A新闻快看点 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category我的");
-        app.setEvent("category我的-看广告");
-        app.setEventAdvert("category我的-看广告-advert");
-        app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+
     }
 
     /**
