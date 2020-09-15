@@ -1,29 +1,17 @@
 package com.xxl.robot.service.impl;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
-import com.xxl.common.tools.BeanTools;
 import com.xxl.robot.app.media.*;
 import com.xxl.robot.constants.AppConstants;
-import com.xxl.robot.dao.PhoneCodeMapper;
 import com.xxl.robot.dto.PhoneCodeDto;
-import com.xxl.robot.entity.PhoneCode;
 import com.xxl.robot.service.PhoneCodeService;
 import com.xxl.robot.service.PhoneSourceService;
-import com.xxl.robot.service.RobotInfoService;
-import com.xxl.robot.tools.AdbTools;
-import com.xxl.robot.tools.MouseTools;
-import com.xxl.robot.tools.RandomTools;
 import com.xxl.robot.tools.WindowTools;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
-import tk.mybatis.mapper.entity.Condition;
 
 import java.awt.*;
 import java.util.List;
-import java.util.Random;
 
 /**
  * 
@@ -70,12 +58,12 @@ public class PhoneSourceServiceImpl implements PhoneSourceService {
 		WindowTools.initWindowApp(robot,dtos);
 
 		//B视频火山.handle(robot,"phone001","火山极速版", AppConstants.CHECK_IN,dtos);
-		B视频火山.handle(robot,"phone001","火山极速版", AppConstants.TREASURE,dtos);
-		B视频火山.handle(robot,"phone001","火山极速版", AppConstants.GROW,dtos);
-		B视频火山.handle(robot,"phone001","火山极速版", AppConstants.WALK,dtos);
-		B视频火山.handle(robot,"phone001","火山极速版", AppConstants.WATCH_ADVERT,dtos);
-		B视频火山.handle(robot,"phone001","火山极速版", AppConstants.SLEEP,dtos);
-		B视频火山.handle(robot,"phone001","火山极速版", AppConstants.WATCH_VIDEOS,dtos);
+		A视频火山.handle(robot,"phone001","火山极速版", AppConstants.TREASURE,dtos);
+		A视频火山.handle(robot,"phone001","火山极速版", AppConstants.GROW,dtos);
+		A视频火山.handle(robot,"phone001","火山极速版", AppConstants.WALK,dtos);
+		A视频火山.handle(robot,"phone001","火山极速版", AppConstants.WATCH_ADVERT,dtos);
+		A视频火山.handle(robot,"phone001","火山极速版", AppConstants.SLEEP,dtos);
+		A视频火山.handle(robot,"phone001","火山极速版", AppConstants.WATCH_VIDEOS,dtos);
 	}
 
 
@@ -96,7 +84,7 @@ public class PhoneSourceServiceImpl implements PhoneSourceService {
 
 		WindowTools.initWindowApp(robot,dtos);
 
-		C视频快手.handle(robot,"phone001","快手极速版", AppConstants.WATCH_ADVERT,dtos);
+		A视频快手.handle(robot,"phone001","快手极速版", AppConstants.WATCH_ADVERT,dtos);
 	}
 
 	@Override

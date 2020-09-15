@@ -5,7 +5,6 @@ import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
 import com.xxl.robot.service.AppMediaService;
 import com.xxl.robot.service.PhoneCodeService;
-import com.xxl.robot.tools.RandomTools;
 import lombok.SneakyThrows;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,12 +39,12 @@ public class AppMediaServiceImpl implements AppMediaService {
 
 		log.info("********************火山极速版**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","火山极速版");
-		B视频火山.handle(robot,"phone001","火山极速版", AppConstants.CHECK_IN,dtos1);
-		B视频火山.handle(robot,"phone001","火山极速版", AppConstants.SLEEP,dtos1);
+		A视频火山.handle(robot,"phone001","火山极速版", AppConstants.CHECK_IN,dtos1);
+		A视频火山.handle(robot,"phone001","火山极速版", AppConstants.SLEEP,dtos1);
 
 			log.info("********************快手极速版**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList("phone001","快手极速版");
-		C视频快手.handle(robot,"phone001","快手极速版", AppConstants.CHECK_IN,dtos2);
+		A视频快手.handle(robot,"phone001","快手极速版", AppConstants.CHECK_IN,dtos2);
 
 
 		log.info("********************刷宝**************************");
@@ -83,16 +82,16 @@ public class AppMediaServiceImpl implements AppMediaService {
 
  	log.info("********************火山极速版**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","火山极速版");
-		B视频火山.handle(robot,"phone001","火山极速版", AppConstants.GROW,dtos1);
-		B视频火山.handle(robot,"phone001","火山极速版", AppConstants.WATCH_VIDEOS,dtos1);
+		A视频火山.handle(robot,"phone001","火山极速版", AppConstants.GROW,dtos1);
+		A视频火山.handle(robot,"phone001","火山极速版", AppConstants.WATCH_VIDEOS,dtos1);
 
 	 log.info("********************快手极速版**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList("phone001","快手极速版");
-		C视频快手.handle(robot,"phone001","快手极速版", AppConstants.WATCH_VIDEOS,dtos2);
+		A视频快手.handle(robot,"phone001","快手极速版", AppConstants.WATCH_VIDEOS,dtos2);
 
 		log.info("********************微视**************************");
 		List<PhoneCodeDto> dtos3 = phoneCodeService.getList("phone001","微视");
-		C视频快手.handle(robot,"phone001","微视", AppConstants.WATCH_VIDEOS,dtos3);
+		A视频快手.handle(robot,"phone001","微视", AppConstants.WATCH_VIDEOS,dtos3);
 
 		log.info("********************刷宝**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList("phone001","刷宝");
@@ -128,12 +127,12 @@ public class AppMediaServiceImpl implements AppMediaService {
 
 		log.info("********************火山极速版**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","火山极速版");
-		B视频火山.handle(robot,"phone001","火山极速版", AppConstants.TREASURE,dtos1);//夺宝
-		B视频火山.handle(robot,"phone001","火山极速版", AppConstants.WATCH_ADVERT,dtos1);//观看广告
+		A视频火山.handle(robot,"phone001","火山极速版", AppConstants.TREASURE,dtos1);//夺宝
+		A视频火山.handle(robot,"phone001","火山极速版", AppConstants.WATCH_ADVERT,dtos1);//观看广告
 
 		log.info("********************快手极速版**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList("phone001","快手极速版");
-		C视频快手.handle(robot,"phone001","快手极速版", AppConstants.WATCH_ADVERT,dtos2);
+		A视频快手.handle(robot,"phone001","快手极速版", AppConstants.WATCH_ADVERT,dtos2);
 
 
 		log.info("********************刷宝**************************");
@@ -182,8 +181,8 @@ public class AppMediaServiceImpl implements AppMediaService {
 
 		log.info("********************火山极速版**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","火山极速版");
-		B视频火山.handle(robot,"phone001","火山极速版", AppConstants.WALK,dtos1);
-		B视频火山.handle(robot,"phone001","火山极速版", AppConstants.SLEEP,dtos1);
+		A视频火山.handle(robot,"phone001","火山极速版", AppConstants.WALK,dtos1);
+		A视频火山.handle(robot,"phone001","火山极速版", AppConstants.SLEEP,dtos1);
 	}
 
 
@@ -202,15 +201,15 @@ public class AppMediaServiceImpl implements AppMediaService {
 
 		log.info("********************火山极速版**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","火山极速版");
-		B视频火山.handle(robot,"phone001","火山极速版", AppConstants.WATCH_VIDEOS,dtos1);
+		A视频火山.handle(robot,"phone001","火山极速版", AppConstants.WATCH_VIDEOS,dtos1);
 
 		log.info("********************快手极速版**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList("phone001","快手极速版");
-		C视频快手.handle(robot,"phone001","快手极速版", AppConstants.WATCH_VIDEOS,dtos2);
+		A视频快手.handle(robot,"phone001","快手极速版", AppConstants.WATCH_VIDEOS,dtos2);
 
 		log.info("********************微视**************************");
 		List<PhoneCodeDto> dtos3 = phoneCodeService.getList("phone001","微视");
-		C视频快手.handle(robot,"phone001","微视", AppConstants.WATCH_VIDEOS,dtos3);
+		A视频快手.handle(robot,"phone001","微视", AppConstants.WATCH_VIDEOS,dtos3);
 
 		log.info("********************刷宝**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList("phone001","刷宝");

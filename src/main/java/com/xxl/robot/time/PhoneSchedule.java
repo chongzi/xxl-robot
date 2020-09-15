@@ -1,21 +1,14 @@
 package com.xxl.robot.time;
 
-import com.xxl.robot.app.media.A视频抖音;
-import com.xxl.robot.app.media.B视频火山;
-import com.xxl.robot.constants.AppConstants;
-import com.xxl.robot.dto.PhoneCodeDto;
 import com.xxl.robot.service.*;
 import com.xxl.robot.tools.RandomTools;
-import com.xxl.robot.tools.WindowTools;
 import lombok.SneakyThrows;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.awt.*;
-import java.util.List;
 
 
 /**
