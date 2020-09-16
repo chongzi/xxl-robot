@@ -22,16 +22,16 @@ public class MouseTools {
             robot.delay(3600);
             ClipboardTools.setClipboard(operateData);
             robot.mousePress(InputEvent.BUTTON1_MASK);
-            robot.delay(100);
+            //robot.delay(100);
             robot.mouseRelease(InputEvent.BUTTON1_MASK);
-            robot.delay(100);
+           // robot.delay(100);
             robot.keyPress(KeyEvent.VK_CONTROL);
             robot.keyPress(KeyEvent.VK_V);
-            robot.delay(200);
+           // robot.delay(200);
             robot.keyRelease(KeyEvent.VK_CONTROL);
             robot.keyRelease(KeyEvent.VK_V);
             robot.keyPress(KeyEvent.VK_ENTER);
-            robot.delay(200);
+          //  robot.delay(200);
             robot.keyRelease(KeyEvent.VK_ENTER);
 
         }catch (Exception e){

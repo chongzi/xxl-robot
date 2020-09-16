@@ -34,14 +34,13 @@ public class AppUserTools {
             androidId = PhoneConstants.phone002;
         }
 
-        log.info("androidId:{}"+androidId);
 
         log.info("1.动作");
         String operate1 = appCode+"-"+event;
         MouseTools.fastNormalEvent(robot,operate1);
 
         log.info("2.初始化");
-        WindowTools.initWindowApp(robot,phoneCodeDtos);
+        WindowTools.initWindowApp(robot,phoneCodeDtos,androidId);
 
         log.info("3.清除");
         PhoneCodeDto dto3 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getClear())).findAny().orElse(null);
@@ -145,7 +144,7 @@ public class AppUserTools {
         }
 
         log.info("5.返回上一步");
-        String operateBack = "adb shell input keyevent BACK";
+        String operateBack = "adb -s "+androidId +" shell input keyevent BACK";
         MouseTools.fastNormalEvent(robot,operateBack);
 
         log.info("6.返回定制化");
@@ -157,7 +156,7 @@ public class AppUserTools {
         MouseTools.fastNormalEvent(robot,operateBack);
 
         log.info("7.返回主界面");
-        String operateHome = "adb shell input keyevent 3";
+        String operateHome = "adb -s "+androidId +" shell input keyevent 3";
         MouseTools.fastNormalEvent(robot,operateHome);
 
         log.info("8.调取缓存");
