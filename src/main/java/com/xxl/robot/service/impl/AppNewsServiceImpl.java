@@ -33,7 +33,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 	 */
 	@SneakyThrows
 	@Override
-	public void start() {
+	public void start(String robotCode) {
 		Robot robot = new Robot();
 
 		log.info("********************今日头条极速版**************************");
@@ -82,7 +82,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 	 */
 	@SneakyThrows
 	@Override
-	public void  section() {
+	public void  section(String robotCode) {
 		Robot robot = new Robot();
 
 	 	log.info("********************今日头条**************************");
@@ -122,7 +122,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 	 */
 	@SneakyThrows
 	@Override
-	public void circulate() {
+	public void circulate(String robotCode) {
 		Robot robot = new Robot();
 		log.info("********************今日头条**************************");
  		List<PhoneCodeDto> dtos = phoneCodeService.getList("phone001","今日头条");
@@ -142,7 +142,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 	 */
 	@SneakyThrows
 	@Override
-	public void end() {
+	public void end(String robotCode) {
 		Robot robot = new Robot();
 
 		log.info("********************今日头条**************************");
@@ -163,12 +163,12 @@ public class AppNewsServiceImpl implements AppNewsService {
 	/***
 	 * todo 玩游戏（少量金币，适合网络开启）
 	 */
-	public void playGame(){};
+	public void playGame(String robotCode){};
 
 
 	@SneakyThrows
 	@Override
-	public void watchMedia() {
+	public void watchMedia(String robotCode) {
 		Robot robot = new Robot();
 
 		log.info("********************趣头条**************************");
@@ -189,7 +189,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 
 	@SneakyThrows
 	@Override
-	public void watchNews() {
+	public void watchNews(String robotCode) {
 		Robot robot = new Robot();
 
 		log.info("********************趣头条**************************");
@@ -219,7 +219,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 	}
 
 	@Override
-	public void other() {
+	public void other(String robotCode) {
 
 	}
 

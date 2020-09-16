@@ -5,8 +5,10 @@ package com.xxl.robot.constants;
  */
 public class PhoneConstants {
 
-    public static final String CODE_1 = "a314117";
-    public static final String CODE_2 = "Q7PDU19906007551";
+    //华为10  6.21寸
+    public static final String phone001 = "Q7PDU19906007551";
+    //小米手机
+    public static final String phone002 = "a314117";
 
 
 

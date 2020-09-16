@@ -1,6 +1,7 @@
 package com.xxl.robot.controller;
 
 import com.xxl.common.response.BaseResponse;
+import com.xxl.robot.constants.PhoneConstants;
 import com.xxl.robot.service.AppNewsService;
 import com.xxl.robot.service.AppWalkService;
 import io.swagger.annotations.Api;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/app/walk")
 @Api(tags = "app-步行控制器")
 public class AppWalkController {
+    String robotCode = PhoneConstants.phone001;
 
     @Autowired
     private AppWalkService appWalkService;
@@ -21,7 +23,7 @@ public class AppWalkController {
     @GetMapping("start")
     @ApiOperation("开始")
     public BaseResponse start() {
-        appWalkService.start();
+        appWalkService.start(robotCode);
         return BaseResponse.newSuccess();
     }
 
@@ -29,14 +31,14 @@ public class AppWalkController {
     @GetMapping("section")
     @ApiOperation("执行一次")
     public BaseResponse section() {
-        appWalkService.section();
+        appWalkService.section(robotCode);
         return BaseResponse.newSuccess();
     }
 
     @GetMapping("circulate")
     @ApiOperation("循环执行")
     public BaseResponse circulate() {
-        appWalkService.circulate();
+        appWalkService.circulate(robotCode);
         return BaseResponse.newSuccess();
     }
 
@@ -44,7 +46,7 @@ public class AppWalkController {
     @GetMapping("end")
     @ApiOperation("结束")
     public BaseResponse end() {
-        appWalkService.end();
+        appWalkService.end(robotCode);
         return BaseResponse.newSuccess();
     }
 

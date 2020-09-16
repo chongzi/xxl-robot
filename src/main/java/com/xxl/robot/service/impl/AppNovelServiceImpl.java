@@ -33,7 +33,7 @@ public class AppNovelServiceImpl implements AppNovelService {
 	 */
 	@SneakyThrows
 	@Override
-	public void start() {
+	public void start(String robotCode) {
 		Robot robot = new Robot();
 
 		log.info("********************米读小说**************************");
@@ -48,7 +48,7 @@ public class AppNovelServiceImpl implements AppNovelService {
 	 */
 	@SneakyThrows
 	@Override
-	public void  section() {
+	public void  section(String robotCode) {
 		Robot robot = new Robot();
 
 
@@ -59,7 +59,7 @@ public class AppNovelServiceImpl implements AppNovelService {
 	 */
 	@SneakyThrows
 	@Override
-	public void circulate() {
+	public void circulate(String robotCode) {
 		Robot robot = new Robot();
 		log.info("********************米读小说**************************");
 		List<PhoneCodeDto> dtos = phoneCodeService.getList("phone001","\t\tlog.info(\"**********************************************\");\n");
@@ -74,7 +74,7 @@ public class AppNovelServiceImpl implements AppNovelService {
 	 */
 	@SneakyThrows
 	@Override
-	public void end() {
+	public void end(String robotCode) {
 
 
 	}
@@ -84,14 +84,14 @@ public class AppNovelServiceImpl implements AppNovelService {
 	 * todo 玩游戏
 	 */
 	@Override
-	public void playGame() {
+	public void playGame(String robotCode) {
 
 	}
 
 
 	@SneakyThrows
 	@Override
-	public void watchMedia() {
+	public void watchMedia(String robotCode) {
 		Robot robot = new Robot();
 
 
@@ -101,7 +101,7 @@ public class AppNovelServiceImpl implements AppNovelService {
 
 	@SneakyThrows
 	@Override
-	public void watchNews() {
+	public void watchNews(String robotCode) {
 		Robot robot = new Robot();
 
 
@@ -109,7 +109,7 @@ public class AppNovelServiceImpl implements AppNovelService {
 	}
 
 	@Override
-	public void other() {
+	public void other(String robotCode) {
 
 	}
 

@@ -1,6 +1,7 @@
 package com.xxl.robot.controller;
 
 import com.xxl.common.response.BaseResponse;
+import com.xxl.robot.constants.PhoneConstants;
 import com.xxl.robot.service.AppBrowserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/app/browser")
 @Api(tags = "app-步行控制器")
 public class AppBrowserController {
+    String robotCode = PhoneConstants.phone001;
+
 
     @Autowired
     private AppBrowserService appBrowserService;
@@ -20,7 +23,7 @@ public class AppBrowserController {
     @GetMapping("start")
     @ApiOperation("开始")
     public BaseResponse start() {
-        appBrowserService.start();
+        appBrowserService.start(robotCode);
         return BaseResponse.newSuccess();
     }
 
@@ -28,21 +31,21 @@ public class AppBrowserController {
     @GetMapping("section")
     @ApiOperation("执行一次")
     public BaseResponse section() {
-        appBrowserService.section();
+        appBrowserService.section(robotCode);
         return BaseResponse.newSuccess();
     }
 
     @GetMapping("circulate")
     @ApiOperation("循环执行")
     public BaseResponse circulate() {
-        appBrowserService.circulate();
+        appBrowserService.circulate(robotCode);
         return BaseResponse.newSuccess();
     }
 
     @GetMapping("end")
     @ApiOperation("结束")
     public BaseResponse end() {
-        appBrowserService.end();
+        appBrowserService.end(robotCode);
         return BaseResponse.newSuccess();
     }
 

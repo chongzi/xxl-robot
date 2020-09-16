@@ -1,5 +1,7 @@
 package com.xxl.robot.time;
 
+import com.xxl.robot.constants.PhoneConstants;
+import com.xxl.robot.entity.PhoneCode;
 import com.xxl.robot.service.*;
 import com.xxl.robot.tools.RandomTools;
 import lombok.SneakyThrows;
@@ -40,8 +42,9 @@ public class PhoneSchedule {
      */
      //@Scheduled(cron = "0 0/6 * * * ?")
     public void timer10() throws AWTException {
+        String robotCode = PhoneConstants.phone001;
         log.info("********************10分钟定时器启动**************************");
-         aAppMediaService.start();
+         aAppMediaService.start(robotCode);
 
     }
 
@@ -64,12 +67,13 @@ public class PhoneSchedule {
      */
     //@Scheduled(cron = "0 0/30 * * * ?")
     public void timer30() throws AWTException {
+        String robotCode = PhoneConstants.phone001;
         log.info("********************30分钟定时器启动**************************");
         Robot robot = new Robot();
         robot.delay(RandomTools.init(8000));
 
-        aAppMediaService.circulate();
-        appNewsService.circulate();
+        aAppMediaService.circulate(robotCode);
+        appNewsService.circulate(robotCode);
     }
 
 
@@ -82,13 +86,14 @@ public class PhoneSchedule {
      @Scheduled(cron = "0 0/59 * * * ?")
     @SneakyThrows
     public void timer60(){
+         String robotCode = PhoneConstants.phone001;
         log.info("********************60分钟定时器启动**************************");
         Robot robot = new Robot();
         robot.delay(RandomTools.init(8000));
-        appBrowserService.circulate();
-        appNewsService.circulate();
-        appWalkService.circulate();
-        appBrowserService.circulate();
+        appBrowserService.circulate(robotCode);
+        appNewsService.circulate(robotCode);
+        appWalkService.circulate(robotCode);
+        appBrowserService.circulate(robotCode);
     }
 
 

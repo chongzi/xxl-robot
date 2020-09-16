@@ -40,7 +40,7 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	 */
 	@SneakyThrows
 	@Override
-	public void start() {
+	public void start(String robotCode) {
 		Robot robot = new Robot();
 
 		log.info("********************搜狗浏览器**************************");
@@ -77,7 +77,7 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	 */
 	@SneakyThrows
 	@Override
-	public void  section() {
+	public void  section(String robotCode) {
 		Robot robot = new Robot();
 
 		log.info("********************晴象浏览器**************************");
@@ -91,7 +91,7 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	 */
 	@SneakyThrows
 	@Override
-	public void circulate() {
+	public void circulate(String robotCode) {
 		Robot robot = new Robot();
 
 		List<PhoneCodeDto> dtos = phoneCodeService.getList("phone001","搜狗浏览器");
@@ -133,7 +133,7 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	 */
 	@SneakyThrows
 	@Override
-	public void end() {
+	public void end(String robotCode) {
 		Robot robot = new Robot();
 
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","晴象浏览器");
@@ -146,7 +146,7 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	 * todo 玩游戏（少量金币，适合网络开启）
 	 */
 	@Override
-	public void playGame() {
+	public void playGame(String robotCode) {
 
 	}
 
@@ -155,7 +155,7 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	 */
 	@SneakyThrows
 	@Override
-	public void watchMedia() {
+	public void watchMedia(String robotCode) {
 		Robot robot = new Robot();
 
 	}
@@ -164,7 +164,7 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	 */
 	@SneakyThrows
 	@Override
-	public void watchNews() {
+	public void watchNews(String robotCode) {
 		Robot robot = new Robot();
 
 	}
@@ -173,7 +173,7 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	 * todo 其它（少量金币，适合网络开启）
 	 */
 	@Override
-	public void other() {
+	public void other(String robotCode) {
 
 	}
 

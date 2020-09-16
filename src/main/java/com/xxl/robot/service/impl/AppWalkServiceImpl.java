@@ -32,7 +32,7 @@ public class AppWalkServiceImpl implements AppWalkService {
 	 */
 	@SneakyThrows
 	@Override
-	public void start() {
+	public void start(String robotCode) {
 		Robot robot = new Robot();
 
 		log.info("********************多多步**************************");
@@ -74,7 +74,7 @@ public class AppWalkServiceImpl implements AppWalkService {
 	 */
 	@SneakyThrows
 	@Override
-	public void  section() {
+	public void  section(String robotCode) {
 		Robot robot = new Robot();
 
 
@@ -85,7 +85,7 @@ public class AppWalkServiceImpl implements AppWalkService {
 	 */
 	@SneakyThrows
 	@Override
-	public void circulate() {
+	public void circulate(String robotCode) {
 		Robot robot = new Robot();
 		log.info("********************多多步**************************");
 		List<PhoneCodeDto> dtos = phoneCodeService.getList("phone001","多多步");
@@ -140,7 +140,7 @@ public class AppWalkServiceImpl implements AppWalkService {
 	 */
 	@SneakyThrows
 	@Override
-	public void end() {
+	public void end(String robotCode) {
 		Robot robot = new Robot();
 		log.info("********************多多步**************************");
 		List<PhoneCodeDto> dtos = phoneCodeService.getList("phone001","多多步");
@@ -154,14 +154,14 @@ public class AppWalkServiceImpl implements AppWalkService {
 	 * todo 玩游戏
 	 */
 	@Override
-	public void playGame() {
+	public void playGame(String robotCode) {
 
 	}
 
 
 	@SneakyThrows
 	@Override
-	public void watchMedia() {
+	public void watchMedia(String robotCode) {
 		Robot robot = new Robot();
 
 
@@ -171,7 +171,7 @@ public class AppWalkServiceImpl implements AppWalkService {
 
 	@SneakyThrows
 	@Override
-	public void watchNews() {
+	public void watchNews(String robotCode) {
 		Robot robot = new Robot();
 
 
@@ -179,7 +179,7 @@ public class AppWalkServiceImpl implements AppWalkService {
 	}
 
 	@Override
-	public void other() {
+	public void other(String robotCode) {
 
 	}
 

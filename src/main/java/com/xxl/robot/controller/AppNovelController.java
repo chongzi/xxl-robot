@@ -1,6 +1,7 @@
 package com.xxl.robot.controller;
 
 import com.xxl.common.response.BaseResponse;
+import com.xxl.robot.constants.PhoneConstants;
 import com.xxl.robot.service.AppNewsService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/app/novel")
 @Api(tags = "app-小说控制器")
 public class AppNovelController {
+    String robotCode = PhoneConstants.phone001;
 
     @Autowired
     private AppNewsService appNewsService;
@@ -20,7 +22,7 @@ public class AppNovelController {
     @GetMapping("start")
     @ApiOperation("开始")
     public BaseResponse start() {
-        appNewsService.start();
+        appNewsService.start(robotCode);
         return BaseResponse.newSuccess();
     }
 
@@ -28,14 +30,14 @@ public class AppNovelController {
     @GetMapping("section")
     @ApiOperation("执行一次")
     public BaseResponse section() {
-        appNewsService.section();
+        appNewsService.section(robotCode);
         return BaseResponse.newSuccess();
     }
 
     @GetMapping("circulate")
     @ApiOperation("循环执行")
     public BaseResponse circulate() {
-        appNewsService.circulate();
+        appNewsService.circulate(robotCode);
         return BaseResponse.newSuccess();
     }
 
@@ -43,7 +45,7 @@ public class AppNovelController {
     @GetMapping("end")
     @ApiOperation("结束")
     public BaseResponse end() {
-        appNewsService.end();
+        appNewsService.end(robotCode);
         return BaseResponse.newSuccess();
     }
 
