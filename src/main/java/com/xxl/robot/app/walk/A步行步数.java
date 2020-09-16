@@ -211,7 +211,6 @@ public class A步行步数 {
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
 
         for(int i=0;i<6;i++){
-            AdbTools.left();
             AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
         }
 

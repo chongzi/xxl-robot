@@ -37,8 +37,8 @@ public class AppNovelServiceImpl implements AppNovelService {
 		Robot robot = new Robot();
 
 		log.info("********************米读小说**************************");
-		List<PhoneCodeDto> dtos = phoneCodeService.getList("phone001","米读小说");
-		A小说米读.handle(robot,"phone001","米读小说", AppConstants.CHECK_IN,dtos);
+		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"米读小说");
+		A小说米读.handle(robot,robotCode,"米读小说", AppConstants.CHECK_IN,dtos);
 
 
 	}
@@ -62,8 +62,8 @@ public class AppNovelServiceImpl implements AppNovelService {
 	public void circulate(String robotCode) {
 		Robot robot = new Robot();
 		log.info("********************米读小说**************************");
-		List<PhoneCodeDto> dtos = phoneCodeService.getList("phone001","\t\tlog.info(\"**********************************************\");\n");
-		A小说米读.handle(robot,"phone001","米读小说", AppConstants.WATCH_NOVELS,dtos);
+		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"\t\tlog.info(\"**********************************************\");\n");
+		A小说米读.handle(robot,robotCode,"米读小说", AppConstants.WATCH_NOVELS,dtos);
 
 
 	}
