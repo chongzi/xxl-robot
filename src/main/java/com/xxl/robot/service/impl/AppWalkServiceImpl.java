@@ -74,7 +74,7 @@ public class AppWalkServiceImpl implements AppWalkService {
 	 */
 	@SneakyThrows
 	@Override
-	public void  one() {
+	public void  section() {
 		Robot robot = new Robot();
 
 
@@ -134,13 +134,6 @@ public class AppWalkServiceImpl implements AppWalkService {
 
 	}
 
-	/***
-	 * todo 玩游戏
-	 */
-	@Override
-	public void playGame() {
-
-	}
 
 	/***
 	 * todo 晚上收取白天金币
@@ -157,20 +150,21 @@ public class AppWalkServiceImpl implements AppWalkService {
 
 	//*******************************************以下操作只能得取少量金币*******************************************************
 
+	/***
+	 * todo 玩游戏
+	 */
+	@Override
+	public void playGame() {
+
+	}
+
+
 	@SneakyThrows
 	@Override
 	public void watchMedia() {
 		Robot robot = new Robot();
 
 
-
-
-	}
-
-	@SneakyThrows
-	@Override
-	public void watchNovels() {
-		Robot robot = new Robot();
 
 
 	}

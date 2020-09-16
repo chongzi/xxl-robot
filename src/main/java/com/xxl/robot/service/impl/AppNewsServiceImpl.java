@@ -82,7 +82,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 	 */
 	@SneakyThrows
 	@Override
-	public void  one() {
+	public void  section() {
 		Robot robot = new Robot();
 
 	 	log.info("********************今日头条**************************");
@@ -153,13 +153,6 @@ public class AppNewsServiceImpl implements AppNewsService {
 
 	}
 
-	/***
-	 * todo 玩游戏
-	 */
-	@Override
-	public void playGame() {
-
-	}
 
 	/***
 	 * todo 晚上收取白天金币
@@ -184,6 +177,12 @@ public class AppNewsServiceImpl implements AppNewsService {
 
 	//*******************************************以下操作只能得取少量金币*******************************************************
 
+	/***
+	 * todo 玩游戏（少量金币，适合网络开启）
+	 */
+	public void playGame(){};
+
+
 	@SneakyThrows
 	@Override
 	public void watchMedia() {
@@ -204,15 +203,6 @@ public class AppNewsServiceImpl implements AppNewsService {
 
 	}
 
-	@SneakyThrows
-	@Override
-	public void watchNovels() {
-		Robot robot = new Robot();
-
-		log.info("********************趣头条**************************");
-		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","趣头条");
-		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.WATCH_NOVELS,dtos1);
-	}
 
 	@SneakyThrows
 	@Override

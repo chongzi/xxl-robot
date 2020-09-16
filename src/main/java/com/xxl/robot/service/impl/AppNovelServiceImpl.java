@@ -48,7 +48,7 @@ public class AppNovelServiceImpl implements AppNovelService {
 	 */
 	@SneakyThrows
 	@Override
-	public void  one() {
+	public void  section() {
 		Robot robot = new Robot();
 
 
@@ -68,13 +68,6 @@ public class AppNovelServiceImpl implements AppNovelService {
 
 	}
 
-	/***
-	 * todo 玩游戏
-	 */
-	@Override
-	public void playGame() {
-
-	}
 
 	/***
 	 * todo 晚上收取白天金币
@@ -87,6 +80,14 @@ public class AppNovelServiceImpl implements AppNovelService {
 	}
 
 	//*******************************************以下操作只能得取少量金币*******************************************************
+	/***
+	 * todo 玩游戏
+	 */
+	@Override
+	public void playGame() {
+
+	}
+
 
 	@SneakyThrows
 	@Override
@@ -94,14 +95,6 @@ public class AppNovelServiceImpl implements AppNovelService {
 		Robot robot = new Robot();
 
 
-
-
-	}
-
-	@SneakyThrows
-	@Override
-	public void watchNovels() {
-		Robot robot = new Robot();
 
 
 	}

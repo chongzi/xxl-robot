@@ -2,6 +2,7 @@ package com.xxl.robot.entity;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
+import io.swagger.models.auth.In;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -34,6 +35,10 @@ public class PhoneCode {
     private String positionX1;
     @ApiModelProperty(value="坐标y1位置")
     private String positionY1;
+    @ApiModelProperty(value="次数")
+    private Integer times;
+    @ApiModelProperty(value="备注")
+    private String remark;
 
 
 

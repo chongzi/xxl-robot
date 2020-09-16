@@ -72,7 +72,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 	 */
 	@SneakyThrows
 	@Override
-	public void  one() {
+	public void  section() {
 		Robot robot = new Robot();
 
 	 	log.info("********************抖音极速版**************************");
@@ -164,14 +164,6 @@ public class AppMediaServiceImpl implements AppMediaService {
 	}
 
 	/***
-	 * todo 玩游戏
-	 */
-	@Override
-	public void playGame() {
-
-	}
-
-	/***
 	 * todo 晚上收取白天金币
 	 */
 	@SneakyThrows
@@ -192,6 +184,13 @@ public class AppMediaServiceImpl implements AppMediaService {
 
 
 //*******************************************以下操作只能得取少量金币*******************************************************
+	/***
+	 * todo 玩游戏
+	 */
+	@Override
+	public void playGame() {
+
+	}
 
 	/**
 	 * todo 看视频
@@ -234,20 +233,15 @@ public class AppMediaServiceImpl implements AppMediaService {
 	}
 
 	/**
-	 * todo 看小说
-	 */
-	@Override
-	public void watchNovels() {
-
-	}
-
-	/**
 	 * todo 看新闻
 	 */
+	@SneakyThrows
 	@Override
 	public void watchNews() {
 
+
 	}
+
 
 	/**
 	 * todo 其它

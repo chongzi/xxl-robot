@@ -36,7 +36,7 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	private PhoneCodeService phoneCodeService;
 
 	/**
-	 * todo 早上收取昨晚金币（签到，领取睡觉金币）
+	 * todo 早上收取金币（用户行为：1.签到 2.领取睡觉金币）
 	 */
 	@SneakyThrows
 	@Override
@@ -73,11 +73,11 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	}
 
 	/**
-	 * todo 白天执行一次
+	 * todo 时段收取金币（用户行为：1.喝水 2.种菜 3.充电 4.吃饭）
 	 */
 	@SneakyThrows
 	@Override
-	public void  one() {
+	public void  section() {
 		Robot robot = new Robot();
 
 		log.info("********************晴象浏览器**************************");
@@ -87,7 +87,7 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	}
 
 	/**
-	 * todo 循环执行领金币(夺宝，领红包，开宝箱，看广告，抽奖)
+	 * todo 循环收取金币大于200金币（1.开宝箱 2.看广告 3.领红包 4.抽奖 5.刮卡）
 	 */
 	@SneakyThrows
 	@Override
@@ -126,26 +126,9 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 
 	}
 
-	@Override
-	public void circulate500() {
-
-	}
-
-	@Override
-	public void circulate200() {
-
-	}
 
 	/***
-	 * todo 玩游戏
-	 */
-	@Override
-	public void playGame() {
-
-	}
-
-	/***
-	 * todo 晚上收取白天金币
+	 * todo 晚上收取金币（1.收取步行金币 2.个性化一次性收取 3.分享 4.游戏）
 	 */
 	@SneakyThrows
 	@Override
@@ -158,34 +141,36 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	}
 
 	//*******************************************以下操作只能得取少量金币*******************************************************
+	/***
+	 * todo 玩游戏（少量金币，适合网络开启）
+	 */
+	@Override
+	public void playGame() {
 
+	}
+
+	/**
+	 * todo 看视频（少量金币，适合网络开启）
+	 */
 	@SneakyThrows
 	@Override
 	public void watchMedia() {
 		Robot robot = new Robot();
 
-
-
-
 	}
-
-	@SneakyThrows
-	@Override
-	public void watchNovels() {
-		Robot robot = new Robot();
-
-
-	}
-
+	/**
+	 * todo 看新闻（少量金币，适合网络开启）
+	 */
 	@SneakyThrows
 	@Override
 	public void watchNews() {
 		Robot robot = new Robot();
 
-
-
 	}
 
+	/**
+	 * todo 其它（少量金币，适合网络开启）
+	 */
 	@Override
 	public void other() {
 

@@ -6,52 +6,45 @@ package com.xxl.robot.service;
  */
 public interface AppWalkService {
 
-
     /**
-     * todo 早上收取昨晚金币（签到，领取睡觉金币）
+     * todo 早上收取金币（用户行为：1.签到 2.领取睡觉金币）
      */
     public void start();
 
     /**
-     * todo 白天执行一次
+     * todo 时段收取金币（用户行为：1.喝水 2.种菜 3.充电 4.吃饭）
      */
-    public void  one();
+    public void  section();
 
     /**
-     * todo 循环执行领金币
+     * todo 循环收取金币大于200金币（1.开宝箱 2.看广告 3.领红包 4.抽奖 5.刮卡）
      */
     public void circulate();
-    /***
-     * todo 玩游戏
-     */
-    public void playGame();
-
 
     /***
-     * todo 晚上收取白天金币
+     * todo 晚上收取金币（1.收取步行金币 2.个性化一次性收取 3.分享 4.游戏）
      */
     public void end();
 
+//**************************************************少量金币******************************************************
 
-//*******************************************以下操作只能得取少量金币*******************************************************
+    /***
+     * todo 玩游戏（少量金币，适合网络开启）
+     */
+    public void playGame();
 
     /**
-     * todo 看视频
+     * todo 看视频（少量金币，适合网络开启）
      */
     public void watchMedia();
 
     /**
-     * todo 看小说
-     */
-    public void watchNovels();
-
-    /**
-     * todo 看新闻
+     * todo 看新闻（少量金币，适合网络开启）
      */
     public void watchNews();
 
     /**
-     * todo 其它
+     * todo 其它（少量金币，适合网络开启）
      */
     public void other();
 

@@ -14,7 +14,6 @@ public class PhoneCodeDto {
     private int pageIndex;
     @ApiModelProperty(value="每页显示的记录数，默认是10 ，设置为“-1”表示不进行分页（分页无效）")
     private int pageSize;
-
     @ApiModelProperty(value = "主键ID")
     private Long id;
     @ApiModelProperty(value="机器人编号")
@@ -31,7 +30,10 @@ public class PhoneCodeDto {
     private String positionX1;
     @ApiModelProperty(value="坐标y1位置")
     private String positionY1;
-
+    @ApiModelProperty(value="次数")
+    private Integer times;
+    @ApiModelProperty(value="备注")
+    private String remark;
 
 
 }
