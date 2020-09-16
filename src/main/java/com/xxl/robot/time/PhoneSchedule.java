@@ -6,6 +6,7 @@ import lombok.SneakyThrows;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.awt.*;
@@ -28,6 +29,8 @@ public class PhoneSchedule {
     private AppNewsService appNewsService;
     @Autowired
     private AppBrowserService appBrowserService;
+    @Autowired
+    private AppWalkService appWalkService;
 
 
 
@@ -76,13 +79,15 @@ public class PhoneSchedule {
      * todo
      * 定时器  60分钟
      */
-   // @Scheduled(cron = "0 0/59 * * * ?")
+     @Scheduled(cron = "0 0/56 * * * ?")
     @SneakyThrows
     public void timer60(){
         log.info("********************30分钟定时器启动**************************");
         Robot robot = new Robot();
         robot.delay(RandomTools.init(8000));
-
+        appBrowserService.circulate();
+        appNewsService.circulate();
+        appWalkService.circulate();
         appBrowserService.circulate();
     }
 

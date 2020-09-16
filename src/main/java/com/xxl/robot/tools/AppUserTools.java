@@ -45,11 +45,11 @@ public class AppUserTools {
             String operate41 = AdbTools.tap(dto41.getPositionX(), dto41.getPositionY());
             MouseTools.normalEvent(robot, operate41);
             if(app.getUpDown()==0) {
-                MouseTools.normalEvent(robot, AdbTools.upPage());
-                MouseTools.normalEvent(robot, AdbTools.upPage());
+                MouseTools.fastNormalEvent(robot, AdbTools.upPage());
+                MouseTools.fastNormalEvent(robot, AdbTools.upPage());
             }else{
-                MouseTools.normalEvent(robot, AdbTools.downPage());
-                MouseTools.normalEvent(robot, AdbTools.downPage());
+                MouseTools.fastNormalEvent(robot, AdbTools.downPage());
+                MouseTools.fastNormalEvent(robot, AdbTools.downPage());
             }
         }
 
@@ -57,7 +57,7 @@ public class AppUserTools {
         PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventClear())).findAny().orElse(null);
         if(null!=dto42) {
             String operate42 = AdbTools.tap(dto42.getPositionX(), dto42.getPositionY());
-            MouseTools.normalEvent(robot, operate42);
+            MouseTools.fastNormalEvent(robot, operate42);
         }
 
         log.info("4.3步骤-事件");
@@ -135,30 +135,30 @@ public class AppUserTools {
 
         log.info("5.返回上一步");
         String operateBack = "adb shell input keyevent BACK";
-        MouseTools.normalEvent(robot,operateBack);
+        MouseTools.fastNormalEvent(robot,operateBack);
 
         log.info("6.返回定制化");
         PhoneCodeDto dto45 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventBack())).findAny().orElse(null);
         if(null!=dto45) {
             String operate45 = AdbTools.tap(dto45.getPositionX(), dto45.getPositionY());
-            MouseTools.normalEvent(robot, operate45);
+            MouseTools.fastNormalEvent(robot, operate45);
         }
-        MouseTools.normalEvent(robot,operateBack);
+        MouseTools.fastNormalEvent(robot,operateBack);
 
         log.info("7.返回主界面");
         String operateHome = "adb shell input keyevent 3";
-        MouseTools.normalEvent(robot,operateHome);
+        MouseTools.fastNormalEvent(robot,operateHome);
 
         log.info("8.调取缓存");
         String operateDispath = AdbTools.tap(String.valueOf(769), String.valueOf(2280));
-        MouseTools.normalEvent(robot,operateDispath);
+        MouseTools.fastNormalEvent(robot,operateDispath);
 
         log.info("9.删除缓存");
         String operateDelete = AdbTools.tap(String.valueOf(540), String.valueOf(2080));
-        MouseTools.normalEvent(robot,operateDelete);
+        MouseTools.fastNormalEvent(robot,operateDelete);
 
         log.info("10.返回主界面");
-        MouseTools.normalEvent(robot,operateHome);
+        MouseTools.fastNormalEvent(robot,operateHome);
 
 
     }

@@ -19,7 +19,7 @@ public class MouseTools {
     public static void normalEvent(Robot robot, String operateData){
         try {
             //点击左边菜单标题
-            robot.delay(6000);
+            robot.delay(3600);
             ClipboardTools.setClipboard(operateData);
             robot.mousePress(InputEvent.BUTTON1_MASK);
             robot.delay(100);
@@ -47,7 +47,7 @@ public class MouseTools {
     public static void fastNormalEvent(Robot robot, String operateData){
         try {
             //点击左边菜单标题
-            robot.delay(600);
+            robot.delay(800);
             ClipboardTools.setClipboard(operateData);
             robot.mousePress(InputEvent.BUTTON1_MASK);
             robot.delay(100);

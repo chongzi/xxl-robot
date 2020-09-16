@@ -126,42 +126,31 @@ public class AppNewsServiceImpl implements AppNewsService {
 		Robot robot = new Robot();
 		log.info("********************今日头条**************************");
  		List<PhoneCodeDto> dtos = phoneCodeService.getList("phone001","今日头条");
-		A新闻今日头条.handle(robot,"phone001","今日头条", AppConstants.TREASURE,dtos);//夺宝
+		A新闻今日头条.handle(robot,"phone001","今日头条", AppConstants.TREASURE,dtos);
 
 		log.info("********************趣头条**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","趣头条");
-		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.GIFT_MONEY,dtos1);
 		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.TREASURE,dtos1);
 		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.WATCH_ADVERT,dtos1);
-		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.DRAW,dtos1);
-
-		log.info("********************悦头条**************************");
-		List<PhoneCodeDto> dtos3 = phoneCodeService.getList("phone001","悦头条");
-		A新闻悦头条.handle(robot,"phone001","悦头条", AppConstants.DRAW,dtos3);
+		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.GIFT_MONEY,dtos1);
 
 		log.info("********************慧头条**************************");
 		List<PhoneCodeDto> dtos5 = phoneCodeService.getList("phone001","慧头条");
-		A新闻忆头条.handle(robot,"phone001","慧头条", AppConstants.GIFT_MONEY,dtos5);
 		A新闻忆头条.handle(robot,"phone001","慧头条", AppConstants.TREASURE,dtos5);
+		A新闻忆头条.handle(robot,"phone001","慧头条", AppConstants.GIFT_MONEY,dtos5);
+
 
 		log.info("********************蚂蚁看点**************************");
 		List<PhoneCodeDto> dtos7 = phoneCodeService.getList("phone001","蚂蚁看点");
-		A新闻蚂蚁看点.handle(robot,"phone001","蚂蚁看点", AppConstants.GIFT_MONEY,dtos7);
 		A新闻蚂蚁看点.handle(robot,"phone001","蚂蚁看点", AppConstants.TREASURE,dtos7);
 		A新闻蚂蚁看点.handle(robot,"phone001","蚂蚁看点", AppConstants.WATCH_ADVERT,dtos7);
-		A新闻蚂蚁看点.handle(robot,"phone001","蚂蚁看点", AppConstants.DRAW,dtos7);
 
-		log.info("********************趣新闻**************************");
-		List<PhoneCodeDto> dtos8 = phoneCodeService.getList("phone001","趣新闻");
-		A新闻趣新闻.handle(robot,"phone001","趣新闻", AppConstants.TREASURE,dtos8);
-		A新闻趣新闻.handle(robot,"phone001","趣新闻", AppConstants.WATCH_ADVERT,dtos8);
-		A新闻趣新闻.handle(robot,"phone001","趣新闻", AppConstants.GIFT_MONEY,dtos8);
 
 		log.info("********************快看点**************************");
 		List<PhoneCodeDto> dtos9 = phoneCodeService.getList("phone001","快看点");
 		A新闻快看点.handle(robot,"phone001","快看点", AppConstants.WATCH_ADVERT,dtos9);
-		A新闻快看点.handle(robot,"phone001","快看点", AppConstants.DRAW,dtos9);
 		A新闻快看点.handle(robot,"phone001","快看点", AppConstants.GIFT_MONEY,dtos9);
+
 	}
 
 	/***

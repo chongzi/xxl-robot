@@ -19,7 +19,7 @@ public class WindowTools {
 
     //********************************************辅助功能****************************************************************
     public static void initWindowApp(Robot robot, List<PhoneCodeDto> phoneCodeDtos){
-        robot.delay(4500);
+        robot.delay(1200);
         log.info("2.打开app所在集合窗口");
         PhoneCodeDto dto2 =  phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("window")).findAny().orElse(null);
         String operateData2 = "adb shell input tap " + dto2.getPositionX() + " " + dto2.getPositionY();
@@ -29,7 +29,7 @@ public class WindowTools {
         PhoneCodeDto dto3 =  phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals("init")).findAny().orElse(null);
         String operateData3 = "adb shell input tap " + dto3.getPositionX() + " " + dto3.getPositionY();
         MouseTools.normalEvent(robot, operateData3);
-        robot.delay(12000);
+        robot.delay(6600);
     }
 
     /**

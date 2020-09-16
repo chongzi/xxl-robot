@@ -89,59 +89,47 @@ public class AppWalkServiceImpl implements AppWalkService {
 		Robot robot = new Robot();
 		log.info("********************多多步**************************");
 		List<PhoneCodeDto> dtos = phoneCodeService.getList("phone001","多多步");
-		//A步行多多.handle(robot,"phone001","多多步", AppConstants.WATCH_ADVERT,dtos);
+		A步行多多.handle(robot,"phone001","多多步", AppConstants.WATCH_ADVERT,dtos);
 		A步行多多.handle(robot,"phone001","多多步", AppConstants.GIFT_MONEY,dtos);
-		//A步行多多.handle(robot,"phone001","多多步", AppConstants.SCRATCH_CARD,dtos);
 
 
-		/*log.info("********************步数赚**************************");
+		log.info("********************步数赚**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","步数赚");
 		A步行多多.handle(robot,"phone001","步数赚", AppConstants.WATCH_ADVERT,dtos1);
-		A步行多多.handle(robot,"phone001","步数赚", AppConstants.WALK,dtos1);
 		A步行多多.handle(robot,"phone001","步数赚", AppConstants.GIFT_MONEY,dtos1);
 
 		log.info("********************步步宝赚**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList("phone001","步步宝");
 		A步行多多.handle(robot,"phone001","步步宝", AppConstants.GIFT_MONEY,dtos2);
 		A步行多多.handle(robot,"phone001","步步宝", AppConstants.TREASURE,dtos2);
-		A步行多多.handle(robot,"phone001","步步宝", AppConstants.DRAW,dtos2);
-		A步行多多.handle(robot,"phone001","步步宝", AppConstants.WALK,dtos2);
+
 
 		log.info("********************走走赚**************************");
 		List<PhoneCodeDto> dtos3 = phoneCodeService.getList("phone001","走走赚");
-		A步行走走赚.handle(robot,"phone001","步步宝", AppConstants.GIFT_MONEY,dtos3);
 		A步行走走赚.handle(robot,"phone001","步步宝", AppConstants.TREASURE,dtos3);
-		A步行走走赚.handle(robot,"phone001","步步宝", AppConstants.DRAW,dtos3);
-		A步行走走赚.handle(robot,"phone001","步步宝", AppConstants.WALK,dtos3);
 		A步行走走赚.handle(robot,"phone001","步步宝", AppConstants.WATCH_ADVERT,dtos3);
+		A步行走走赚.handle(robot,"phone001","步步宝", AppConstants.GIFT_MONEY,dtos3);
+
 		A步行走走赚.handle(robot,"phone001","步步宝", AppConstants.DRINK_WATER,dtos3);
 
 		log.info("********************赚赚多**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList("phone001","赚赚多");
 		A步行赚赚多.handle(robot,"phone001","赚赚多", AppConstants.WATCH_ADVERT,dtos4);
-		A步行赚赚多.handle(robot,"phone001","赚赚多", AppConstants.SWEEPSTAKES,dtos4);
-		A步行赚赚多.handle(robot,"phone001","赚赚多", AppConstants.WALK,dtos4);
-		A步行赚赚多.handle(robot,"phone001","赚赚多", AppConstants.SCRATCH_CARD,dtos4);
 
 		log.info("********************步多多**************************");
 		List<PhoneCodeDto> dtos5 = phoneCodeService.getList("phone001","步多多");
-		A步行步多多.handle(robot,"phone001","步多多", AppConstants.WALK,dtos5);
 		A步行步多多.handle(robot,"phone001","步多多", AppConstants.TREASURE,dtos5);
-		A步行步多多.handle(robot,"phone001","步多多", AppConstants.DRINK_WATER,dtos5);
 
 
 		log.info("********************步步赚钱7**************************");
 		List<PhoneCodeDto> dtos6 = phoneCodeService.getList("phone001","步步赚钱7");
-		A步行步多多.handle(robot,"phone001","步步赚钱7", AppConstants.WALK,dtos6);
 		A步行步多多.handle(robot,"phone001","步步赚钱7", AppConstants.GIFT_MONEY,dtos6);
-		A步行步多多.handle(robot,"phone001","步步赚钱7", AppConstants.SWEEPSTAKES,dtos6);
 
 		log.info("********************一起来走路**************************");
 		List<PhoneCodeDto> dtos7 = phoneCodeService.getList("phone001","一起来走路");
-		A步行步多多.handle(robot,"phone001","一起来走路", AppConstants.GIFT_MONEY,dtos7);
 		A步行步多多.handle(robot,"phone001","一起来走路", AppConstants.WATCH_ADVERT,dtos7);
-		A步行步多多.handle(robot,"phone001","一起来走路", AppConstants.SCRATCH_CARD,dtos7);
-		A步行步多多.handle(robot,"phone001","一起来走路", AppConstants.WALK,dtos7);*/
+		A步行步多多.handle(robot,"phone001","一起来走路", AppConstants.GIFT_MONEY,dtos7);
+
 
 
 	}

@@ -122,13 +122,14 @@ public class AppMediaServiceImpl implements AppMediaService {
 		Robot robot = new Robot();
 		log.info("********************抖音极速版**************************");
  		List<PhoneCodeDto> dtos = phoneCodeService.getList("phone001","抖音极速版");
-		A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.TREASURE,dtos);//夺宝
 		A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.WATCH_ADVERT,dtos);//观看广告
+		A视频抖音.handle(robot,"phone001","抖音极速版", AppConstants.TREASURE,dtos);//夺宝
+
 
 		log.info("********************火山极速版**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","火山极速版");
-		A视频火山.handle(robot,"phone001","火山极速版", AppConstants.TREASURE,dtos1);//夺宝
 		A视频火山.handle(robot,"phone001","火山极速版", AppConstants.WATCH_ADVERT,dtos1);//观看广告
+		A视频火山.handle(robot,"phone001","火山极速版", AppConstants.TREASURE,dtos1);//夺宝
 
 		log.info("********************快手极速版**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList("phone001","快手极速版");

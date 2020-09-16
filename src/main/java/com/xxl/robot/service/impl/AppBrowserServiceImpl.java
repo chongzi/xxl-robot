@@ -101,9 +101,9 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 
  		log.info("********************晴象浏览器**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList("phone001","晴象浏览器");
+		A浏览器晴象.handle(robot,"phone001","晴象浏览器", AppConstants.GIFT_MONEY,dtos1);
  		A浏览器晴象.handle(robot,"phone001","晴象浏览器", AppConstants.DRAW,dtos1);
 		A浏览器晴象.handle(robot,"phone001","晴象浏览器", AppConstants.SCRATCH_CARD,dtos1);
-		A浏览器晴象.handle(robot,"phone001","晴象浏览器", AppConstants.GIFT_MONEY,dtos1);
 
 		log.info("********************红包赚不停**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList("phone001","红包赚不停");
@@ -111,22 +111,10 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 		A综合红包赚不停.handle(robot,"phone001","红包赚不停", AppConstants.DRAW,dtos2);
 		A综合红包赚不停.handle(robot,"phone001","红包赚不停", AppConstants.SWEEPSTAKES,dtos2);
 
-		log.info("********************A小说米读**************************");
-		List<PhoneCodeDto> dtos3 = phoneCodeService.getList("phone001","米读小说");
-		A小说米读.handle(robot,"phone001","米读小说", AppConstants.WATCH_NOVELS,dtos3);
-
 		log.info("********************番茄小说**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList("phone001","番茄小说");
-		A小说番茄.handle(robot,"phone001","番茄小说", AppConstants.WATCH_NOVELS,dtos4);
-		A小说番茄.handle(robot,"phone001","番茄小说", AppConstants.TREASURE,dtos4);
 		A小说番茄.handle(robot,"phone001","番茄小说", AppConstants.WATCH_ADVERT,dtos4);
-
-		log.info("********************奇热小说**************************");
-		List<PhoneCodeDto> dtos5 = phoneCodeService.getList("phone001","奇热小说");
-		A小说奇热.handle(robot,"phone001","奇热小说", AppConstants.WATCH_NEWS,dtos5);
-		A小说奇热.handle(robot,"phone001","奇热小说", AppConstants.DRAW,dtos5);
-		A小说奇热.handle(robot,"phone001","奇热小说", AppConstants.WATCH_ADVERT,dtos5);
-		A小说奇热.handle(robot,"phone001","奇热小说", AppConstants.GIFT_MONEY,dtos5);
+		A小说番茄.handle(robot,"phone001","番茄小说", AppConstants.TREASURE,dtos4);
 
 		log.info("********************快乐天气**************************");
 		List<PhoneCodeDto> dtos6 = phoneCodeService.getList("phone001","快乐天气");
