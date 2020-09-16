@@ -113,8 +113,9 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 
 		log.info("********************番茄小说**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList("phone001","番茄小说");
-		A小说番茄.handle(robot,"phone001","番茄小说", AppConstants.WATCH_ADVERT,dtos4);
 		A小说番茄.handle(robot,"phone001","番茄小说", AppConstants.TREASURE,dtos4);
+		A小说番茄.handle(robot,"phone001","番茄小说", AppConstants.WATCH_ADVERT,dtos4);
+
 
 		log.info("********************快乐天气**************************");
 		List<PhoneCodeDto> dtos6 = phoneCodeService.getList("phone001","快乐天气");

@@ -79,10 +79,10 @@ public class PhoneSchedule {
      * todo
      * 定时器  60分钟
      */
-     @Scheduled(cron = "0 0/56 * * * ?")
+     @Scheduled(cron = "0 0/59 * * * ?")
     @SneakyThrows
     public void timer60(){
-        log.info("********************30分钟定时器启动**************************");
+        log.info("********************60分钟定时器启动**************************");
         Robot robot = new Robot();
         robot.delay(RandomTools.init(8000));
         appBrowserService.circulate();

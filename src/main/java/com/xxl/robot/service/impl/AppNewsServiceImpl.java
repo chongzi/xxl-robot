@@ -134,23 +134,6 @@ public class AppNewsServiceImpl implements AppNewsService {
 		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.WATCH_ADVERT,dtos1);
 		A新闻趣头条.handle(robot,"phone001","趣头条", AppConstants.GIFT_MONEY,dtos1);
 
-		log.info("********************慧头条**************************");
-		List<PhoneCodeDto> dtos5 = phoneCodeService.getList("phone001","慧头条");
-		A新闻忆头条.handle(robot,"phone001","慧头条", AppConstants.TREASURE,dtos5);
-		A新闻忆头条.handle(robot,"phone001","慧头条", AppConstants.GIFT_MONEY,dtos5);
-
-
-		log.info("********************蚂蚁看点**************************");
-		List<PhoneCodeDto> dtos7 = phoneCodeService.getList("phone001","蚂蚁看点");
-		A新闻蚂蚁看点.handle(robot,"phone001","蚂蚁看点", AppConstants.TREASURE,dtos7);
-		A新闻蚂蚁看点.handle(robot,"phone001","蚂蚁看点", AppConstants.WATCH_ADVERT,dtos7);
-
-
-		log.info("********************快看点**************************");
-		List<PhoneCodeDto> dtos9 = phoneCodeService.getList("phone001","快看点");
-		A新闻快看点.handle(robot,"phone001","快看点", AppConstants.WATCH_ADVERT,dtos9);
-		A新闻快看点.handle(robot,"phone001","快看点", AppConstants.GIFT_MONEY,dtos9);
-
 	}
 
 

@@ -25,10 +25,10 @@ public class AppBrowserController {
     }
 
 
-    @GetMapping("one")
+    @GetMapping("section")
     @ApiOperation("执行一次")
-    public BaseResponse one() {
-        appBrowserService.one();
+    public BaseResponse section() {
+        appBrowserService.section();
         return BaseResponse.newSuccess();
     }
 
@@ -38,14 +38,6 @@ public class AppBrowserController {
         appBrowserService.circulate();
         return BaseResponse.newSuccess();
     }
-
-    @GetMapping("playGame")
-    @ApiOperation("玩游戏")
-    public BaseResponse playGame() {
-        appBrowserService.playGame();
-        return BaseResponse.newSuccess();
-    }
-
 
     @GetMapping("end")
     @ApiOperation("结束")

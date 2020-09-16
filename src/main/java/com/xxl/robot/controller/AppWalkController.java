@@ -26,10 +26,10 @@ public class AppWalkController {
     }
 
 
-    @GetMapping("one")
+    @GetMapping("section")
     @ApiOperation("执行一次")
-    public BaseResponse one() {
-        appWalkService.one();
+    public BaseResponse section() {
+        appWalkService.section();
         return BaseResponse.newSuccess();
     }
 
@@ -37,13 +37,6 @@ public class AppWalkController {
     @ApiOperation("循环执行")
     public BaseResponse circulate() {
         appWalkService.circulate();
-        return BaseResponse.newSuccess();
-    }
-
-    @GetMapping("playGame")
-    @ApiOperation("玩游戏")
-    public BaseResponse playGame() {
-        appWalkService.playGame();
         return BaseResponse.newSuccess();
     }
 

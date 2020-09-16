@@ -25,10 +25,10 @@ public class AppNovelController {
     }
 
 
-    @GetMapping("one")
+    @GetMapping("section")
     @ApiOperation("执行一次")
-    public BaseResponse one() {
-        appNewsService.one();
+    public BaseResponse section() {
+        appNewsService.section();
         return BaseResponse.newSuccess();
     }
 
@@ -36,13 +36,6 @@ public class AppNovelController {
     @ApiOperation("循环执行")
     public BaseResponse circulate() {
         appNewsService.circulate();
-        return BaseResponse.newSuccess();
-    }
-
-    @GetMapping("playGame")
-    @ApiOperation("玩游戏")
-    public BaseResponse playGame() {
-        appNewsService.playGame();
         return BaseResponse.newSuccess();
     }
 

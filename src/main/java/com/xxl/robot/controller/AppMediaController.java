@@ -18,37 +18,30 @@ public class AppMediaController {
     private AppMediaService appMediaService;
 
     @GetMapping("start")
-    @ApiOperation("抖音手机操作")
+    @ApiOperation("开始操作")
     public BaseResponse start() {
         appMediaService.start();
         return BaseResponse.newSuccess();
     }
 
 
-    @GetMapping("one")
-    @ApiOperation("模拟视频操作")
-    public BaseResponse one() {
-        appMediaService.one();
+    @GetMapping("section")
+    @ApiOperation("分段操作")
+    public BaseResponse section() {
+        appMediaService.section();
         return BaseResponse.newSuccess();
     }
 
     @GetMapping("circulate")
-    @ApiOperation("模拟快手视频操作")
+    @ApiOperation("循环操作")
     public BaseResponse circulate() {
         appMediaService.circulate();
         return BaseResponse.newSuccess();
     }
 
-    @GetMapping("playGame")
-    @ApiOperation("模拟微视视频操作")
-    public BaseResponse playGame() {
-        appMediaService.playGame();
-        return BaseResponse.newSuccess();
-    }
-
 
     @GetMapping("end")
-    @ApiOperation("模拟刷宝视频操作")
+    @ApiOperation("最后操作")
     public BaseResponse end() {
         appMediaService.end();
         return BaseResponse.newSuccess();
