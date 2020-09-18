@@ -23,7 +23,8 @@ public class AppWalkController {
     @GetMapping("start")
     @ApiOperation("开始")
     public BaseResponse start() {
-        appWalkService.start(robotCode);
+        appWalkService.start("phone001");
+        appWalkService.start("phone002");
         return BaseResponse.newSuccess();
     }
 
@@ -31,14 +32,16 @@ public class AppWalkController {
     @GetMapping("section")
     @ApiOperation("执行一次")
     public BaseResponse section() {
-        appWalkService.section(robotCode);
+        appWalkService.section("phone001");
+        appWalkService.section("phone002");
         return BaseResponse.newSuccess();
     }
 
     @GetMapping("circulate")
     @ApiOperation("循环执行")
     public BaseResponse circulate() {
-        appWalkService.circulate(robotCode);
+        appWalkService.circulate("phone001");
+        appWalkService.circulate("phone002");
         return BaseResponse.newSuccess();
     }
 
@@ -46,7 +49,8 @@ public class AppWalkController {
     @GetMapping("end")
     @ApiOperation("结束")
     public BaseResponse end() {
-        appWalkService.end(robotCode);
+        appWalkService.end("phone001");
+        appWalkService.end("phone002");
         return BaseResponse.newSuccess();
     }
 

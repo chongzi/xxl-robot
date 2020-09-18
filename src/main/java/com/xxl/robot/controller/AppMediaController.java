@@ -22,7 +22,8 @@ public class AppMediaController {
     @GetMapping("start")
     @ApiOperation("开始操作")
     public BaseResponse start() {
-        appMediaService.start(robotCode);
+        appMediaService.start("phone001");
+        appMediaService.start("phone002");
         return BaseResponse.newSuccess();
     }
 
@@ -30,14 +31,16 @@ public class AppMediaController {
     @GetMapping("section")
     @ApiOperation("分段操作")
     public BaseResponse section() {
-        appMediaService.section(robotCode);
+        appMediaService.start("phone001");
+        appMediaService.section("phone002");
         return BaseResponse.newSuccess();
     }
 
     @GetMapping("circulate")
     @ApiOperation("循环操作")
     public BaseResponse circulate() {
-        appMediaService.circulate(robotCode);
+        appMediaService.circulate("phone001");
+        appMediaService.circulate("phone002");
         return BaseResponse.newSuccess();
     }
 
@@ -45,7 +48,8 @@ public class AppMediaController {
     @GetMapping("end")
     @ApiOperation("最后操作")
     public BaseResponse end() {
-        appMediaService.end(robotCode);
+        appMediaService.end("phone001");
+        appMediaService.end("phone002");
         return BaseResponse.newSuccess();
     }
 

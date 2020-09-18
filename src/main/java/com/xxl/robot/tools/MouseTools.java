@@ -1,5 +1,9 @@
 package com.xxl.robot.tools;
 
+import com.xxl.robot.time.PhoneSchedule;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.Toolkit;
@@ -11,7 +15,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 public class MouseTools {
-
+    private static final Logger log = LoggerFactory.getLogger(MouseTools.class);
     /**
      * todo 常规操作(传过来数据 点击输入并回车操作)
      *
@@ -20,7 +24,7 @@ public class MouseTools {
         try {
             //点击左边菜单标题
             robot.delay(3600);
-            ClipboardTools.setClipboard(operateData);
+            /*ClipboardTools.setClipboard(operateData);
             robot.mousePress(InputEvent.BUTTON1_MASK);
             //robot.delay(100);
             robot.mouseRelease(InputEvent.BUTTON1_MASK);
@@ -32,8 +36,10 @@ public class MouseTools {
             robot.keyRelease(KeyEvent.VK_V);
             robot.keyPress(KeyEvent.VK_ENTER);
           //  robot.delay(200);
-            robot.keyRelease(KeyEvent.VK_ENTER);
-
+            robot.keyRelease(KeyEvent.VK_ENTER);*/
+            log.info(operateData);
+            Runtime.getRuntime().exec(operateData);
+            robot.delay(1200);
         }catch (Exception e){
 
         }
@@ -47,8 +53,8 @@ public class MouseTools {
     public static void fastNormalEvent(Robot robot, String operateData){
         try {
             //点击左边菜单标题
-            robot.delay(800);
-            ClipboardTools.setClipboard(operateData);
+            robot.delay(1200);
+   /*         ClipboardTools.setClipboard(operateData);
             robot.mousePress(InputEvent.BUTTON1_MASK);
             robot.delay(100);
             robot.mouseRelease(InputEvent.BUTTON1_MASK);
@@ -60,8 +66,10 @@ public class MouseTools {
             robot.keyRelease(KeyEvent.VK_V);
             robot.keyPress(KeyEvent.VK_ENTER);
             robot.delay(200);
-            robot.keyRelease(KeyEvent.VK_ENTER);
-
+            robot.keyRelease(KeyEvent.VK_ENTER);*/
+            log.info(operateData);
+            Runtime.getRuntime().exec(operateData);
+            robot.delay(1200);
         }catch (Exception e){
 
         }

@@ -3,6 +3,7 @@ package com.xxl.robot.controller;
 import com.xxl.common.response.BaseResponse;
 import com.xxl.robot.constants.PhoneConstants;
 import com.xxl.robot.service.AppNewsService;
+import com.xxl.robot.service.AppNovelService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +18,13 @@ public class AppNovelController {
     String robotCode = PhoneConstants.phone001;
 
     @Autowired
-    private AppNewsService appNewsService;
+    private AppNovelService appNovelService;
 
     @GetMapping("start")
     @ApiOperation("开始")
     public BaseResponse start() {
-        appNewsService.start(robotCode);
+        appNovelService.start("phone001");
+        appNovelService.start("phone002");
         return BaseResponse.newSuccess();
     }
 
@@ -30,14 +32,16 @@ public class AppNovelController {
     @GetMapping("section")
     @ApiOperation("执行一次")
     public BaseResponse section() {
-        appNewsService.section(robotCode);
+        appNovelService.section("phone001");
+        appNovelService.section("phone002");
         return BaseResponse.newSuccess();
     }
 
     @GetMapping("circulate")
     @ApiOperation("循环执行")
     public BaseResponse circulate() {
-        appNewsService.circulate(robotCode);
+        appNovelService.circulate("phone001");
+        appNovelService.circulate("phone002");
         return BaseResponse.newSuccess();
     }
 
@@ -45,7 +49,8 @@ public class AppNovelController {
     @GetMapping("end")
     @ApiOperation("结束")
     public BaseResponse end() {
-        appNewsService.end(robotCode);
+        appNovelService.end("phone001");
+        appNovelService.end("phone002");
         return BaseResponse.newSuccess();
     }
 

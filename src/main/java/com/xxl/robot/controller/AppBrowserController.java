@@ -23,8 +23,8 @@ public class AppBrowserController {
     @GetMapping("start")
     @ApiOperation("开始")
     public BaseResponse start() {
-        String robotCode = PhoneConstants.phone001;
-        appBrowserService.start(robotCode);
+        appBrowserService.start("phone001");
+        appBrowserService.start("phone002");
         return BaseResponse.newSuccess();
     }
 
@@ -32,8 +32,8 @@ public class AppBrowserController {
     @GetMapping("section")
     @ApiOperation("执行一次")
     public BaseResponse section() {
-        String robotCode = PhoneConstants.phone001;
-        appBrowserService.section(robotCode);
+        appBrowserService.section("phone001");
+        appBrowserService.section("phone002");
         return BaseResponse.newSuccess();
     }
 
@@ -48,8 +48,8 @@ public class AppBrowserController {
     @GetMapping("end")
     @ApiOperation("结束")
     public BaseResponse end() {
-        String robotCode = PhoneConstants.phone001;
-        appBrowserService.end(robotCode);
+        appBrowserService.end("phone001");
+        appBrowserService.end("phone002");
         return BaseResponse.newSuccess();
     }
 
