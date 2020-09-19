@@ -84,7 +84,7 @@ public class PhoneSchedule {
      * todo
      * 定时器  60分钟
      */
-     @Scheduled(cron = "0 0/20 * * * ?")
+    //@Scheduled(cron = "0 0/20 * * * ?")
     @SneakyThrows
     public void timer60(){
          String robotCode = "phone001";

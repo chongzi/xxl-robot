@@ -14,8 +14,8 @@ import java.util.List;
  * todo A新闻今日头条
  * app-用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class A视频微视 {
-    private static Logger log = LoggerFactory.getLogger(A视频微视.class);
+public class C视频微视 {
+    private static Logger log = LoggerFactory.getLogger(C视频微视.class);
 
     /**
      * todo 1.

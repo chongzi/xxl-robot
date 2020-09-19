@@ -2,10 +2,6 @@ package com.xxl.robot.app.media;
 
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
-import com.xxl.robot.tools.AdbTools;
-import com.xxl.robot.tools.MouseTools;
-import com.xxl.robot.tools.RandomTools;
-import com.xxl.robot.tools.WindowTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,8 +12,8 @@ import java.util.List;
  * todo 抖音视频操作
  * app-视频用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class H视频小吃货 {
-    private static Logger log = LoggerFactory.getLogger(H视频小吃货.class);
+public class B视频小吃货 {
+    private static Logger log = LoggerFactory.getLogger(B视频小吃货.class);
 
 
     /**

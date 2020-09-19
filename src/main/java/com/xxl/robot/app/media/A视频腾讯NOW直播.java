@@ -14,8 +14,8 @@ import java.util.List;
  * todo A新闻今日头条
  * app-用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class F视频快逗 {
-    private static Logger log = LoggerFactory.getLogger(F视频快逗.class);
+public class A视频腾讯NOW直播 {
+    private static Logger log = LoggerFactory.getLogger(A视频腾讯NOW直播.class);
 
     /**
      * todo 1.
@@ -92,11 +92,10 @@ public class F视频快逗 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
-        app.setCategory("category任务");
-        app.setEventClear("category任务-清除");
-        app.setEvent("category任务-签到");
-        app.setEventAdvert("category任务-签到-advert");
+        app.setCategory("category首页");
+        app.setEvent("category首页-签到");
+        app.setEventStep("category首页-签到-step");
+        app.setEventStep1("category首页-签到-step1");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -108,12 +107,7 @@ public class F视频快逗 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
-        app.setCategory("category首页");
-        app.setEvent("category首页-看视频");
-        app.setEventGiveUP("category首页-看视频-giveup");
-        app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+
     }
 
 
@@ -183,13 +177,7 @@ public class F视频快逗 {
      * @param phoneCodeDtos
      */
     public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
-        app.setCategory("category任务");
-        app.setEventClear("category任务-清除");
-        app.setEvent("category任务-开宝箱");
-        app.setEventAdvert("category任务-开宝箱-advert");
-        app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+
     }
 
 
@@ -218,7 +206,7 @@ public class F视频快逗 {
      * @param phoneCodeDtos
      */
     public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        ;
+
     }
 
 
@@ -274,6 +262,7 @@ public class F视频快逗 {
      * @param phoneCodeDtos
      */
     public static void handle18(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+
 
     }
 

@@ -14,8 +14,8 @@ import java.util.List;
  * todo A新闻今日头条
  * app-用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class G视频追看 {
-    private static Logger log = LoggerFactory.getLogger(G视频追看.class);
+public class A视频好看 {
+    private static Logger log = LoggerFactory.getLogger(A视频好看.class);
 
     /**
      * todo 1.
@@ -42,6 +42,7 @@ public class G视频追看 {
                 break;
             case AppConstants.WATCH_ADVERT://看广告
                 handle6(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                handle61(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.PALY_GAMES://玩游戏
                 handle7(robot, robotCode, appCode, event, phoneCodeDtos, app);
@@ -92,11 +93,10 @@ public class G视频追看 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
-        app.setCategory("category任务");
-        app.setEventClear("category任务-清除");
-        app.setEvent("category任务-签到");
-        app.setEventAdvert("category任务-签到-advert");
+        app.setCategory("category我的");
+        app.setEvent("category我的-任务中心");
+        app.setEventStep("category我的-任务中心-签到");
+        app.setEventAdvert("category我的-任务中心-签到-advert");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -108,12 +108,7 @@ public class G视频追看 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
-        app.setCategory("category首页");
-        app.setEvent("category首页-看视频");
-        app.setEventGiveUP("category首页-看视频-giveup");
-        app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+
     }
 
 
@@ -153,7 +148,26 @@ public class G视频追看 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setCategory("category我的");
+        app.setEvent("category我的-任务中心");
+        app.setEventStep("category我的-任务中心-看广告");
+        app.setEventAdvert("category我的-任务中心-看广告-advert");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+    }
 
+    /**
+     * todo 61.看广告
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle61(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setCategory("category我的");
+        app.setEvent("category我的-任务中心");
+        app.setEventStep("category我的-任务中心-看视频广告");
+        app.setEventAdvert("category我的-任务中心-看视频广告-advert");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -183,11 +197,10 @@ public class G视频追看 {
      * @param phoneCodeDtos
      */
     public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
-        app.setCategory("category任务");
-        app.setEventClear("category任务-清除");
-        app.setEvent("category任务-开宝箱");
-        app.setEventAdvert("category任务-开宝箱-advert");
+        app.setCategory("category我的");
+        app.setEvent("category我的-任务中心");
+        app.setEventStep("category我的-任务中心-开宝箱");
+        app.setEventAdvert("category我的-任务中心-开宝箱-advert");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -218,7 +231,7 @@ public class G视频追看 {
      * @param phoneCodeDtos
      */
     public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        ;
+
     }
 
 
@@ -274,6 +287,7 @@ public class G视频追看 {
      * @param phoneCodeDtos
      */
     public static void handle18(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+
 
     }
 
