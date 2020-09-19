@@ -4,9 +4,7 @@ import com.xxl.robot.app.browser.A快乐天气;
 import com.xxl.robot.app.browser.A浏览器晴象;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
-import com.xxl.robot.service.AppBrowserService;
-import com.xxl.robot.service.AppService;
-import com.xxl.robot.service.PhoneCodeService;
+import com.xxl.robot.service.*;
 import lombok.SneakyThrows;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,14 +16,22 @@ import java.util.List;
 
 /**
  *
- * todo app-视频服务接口类接口
+ * todo app-接口
  */
 @Service
 public class AppServiceImpl implements AppService {
 	private static final org.slf4j.Logger log = LoggerFactory.getLogger(AppServiceImpl.class);
 
 	@Autowired
-	private PhoneCodeService phoneCodeService;
+	private AppBrowserService appBrowserService;
+	@Autowired
+	private AppMediaService appMediaService;
+	@Autowired
+	private AppNewsService appNewsService;
+	@Autowired
+	private AppNovelService appNovelService;
+	@Autowired
+	private AppWalkService appWalkService;
 
 //**********************一种类型：签到，睡觉，步行，一次性，分享********************************************************
 	/**
@@ -34,8 +40,11 @@ public class AppServiceImpl implements AppService {
 	@SneakyThrows
 	@Override
 	public void start(String robotCode) {
-		Robot robot = new Robot();
-
+		appBrowserService.start(robotCode);
+		appMediaService.start(robotCode);
+		appNewsService.start(robotCode);
+		appNovelService.start(robotCode);
+		appWalkService.start(robotCode);
 	}
 
 
@@ -45,10 +54,11 @@ public class AppServiceImpl implements AppService {
 	@SneakyThrows
 	@Override
 	public void end(String robotCode) {
-		Robot robot = new Robot();
-
-		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"晴象浏览器");
-		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.CHECK_IN,dtos1);
+		appBrowserService.end(robotCode);
+		appMediaService.end(robotCode);
+		appNewsService.end(robotCode);
+		appNovelService.end(robotCode);
+		appWalkService.end(robotCode);
 
 	}
 
@@ -62,12 +72,11 @@ public class AppServiceImpl implements AppService {
 	@SneakyThrows
 	@Override
 	public void  section(String robotCode) {
-		Robot robot = new Robot();
-
-		log.info("********************晴象浏览器**************************");
-		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"晴象浏览器");
-		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.OTHER_QINGXIANG_WATCH_VIDEOS,dtos1);
-
+		appBrowserService.section(robotCode);
+		appMediaService.section(robotCode);
+		appNewsService.section(robotCode);
+		appNovelService.section(robotCode);
+		appWalkService.section(robotCode);
 	}
 
 
@@ -79,39 +88,11 @@ public class AppServiceImpl implements AppService {
 	@SneakyThrows
 	@Override
 	public void circulate(String robotCode) {
-		Robot robot = new Robot();
-
-	//	List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"搜狗浏览器");
-		/*A浏览器搜狗.handle(robot,robotCode,"搜狗浏览器", AppConstants.WATCH_NEWS,dtos);
-		A浏览器搜狗.handle(robot,robotCode,"搜狗浏览器", AppConstants.SEARCH,dtos);*/
-
-
- 		log.info("********************晴象浏览器**************************");
-		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"晴象浏览器");
-		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.GIFT_MONEY,dtos1);
- 		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.DRAW,dtos1);
-		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.SCRATCH_CARD,dtos1);
-
-/*		log.info("********************红包赚不停**************************");
-		List<PhoneCodeDto> dtos2 = phoneCodeService.getList(robotCode,"红包赚不停");
-		A综合红包赚不停.handle(robot,robotCode,"红包赚不停", AppConstants.GIFT_MONEY,dtos2);
-		A综合红包赚不停.handle(robot,robotCode,"红包赚不停", AppConstants.DRAW,dtos2);
-		A综合红包赚不停.handle(robot,robotCode,"红包赚不停", AppConstants.SWEEPSTAKES,dtos2);*/
-
-		/*log.info("********************番茄小说**************************");
-		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"番茄小说");
-		A小说番茄.handle(robot,robotCode,"番茄小说", AppConstants.TREASURE,dtos4);
-		A小说番茄.handle(robot,robotCode,"番茄小说", AppConstants.WATCH_ADVERT,dtos4);*/
-
-
-	/*	log.info("********************快乐天气**************************");
-		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"快乐天气");
-		A快乐天气.handle(robot,robotCode,"快乐天气", AppConstants.GIFT_MONEY,dtos6);
-		A快乐天气.handle(robot,robotCode,"快乐天气", AppConstants.DRAW,dtos6);
-		A快乐天气.handle(robot,robotCode,"快乐天气", AppConstants.SCRATCH_CARD,dtos6);*/
-
-
-
+		appBrowserService.circulate(robotCode);
+		appMediaService.circulate(robotCode);
+		appNewsService.circulate(robotCode);
+		appNovelService.circulate(robotCode);
+		appWalkService.circulate(robotCode);
 	}
 
 
@@ -121,7 +102,11 @@ public class AppServiceImpl implements AppService {
 	 */
 	@Override
 	public void playGame(String robotCode) {
-
+		appBrowserService.playGame(robotCode);
+		appMediaService.playGame(robotCode);
+		appNewsService.playGame(robotCode);
+		appNovelService.playGame(robotCode);
+		appWalkService.playGame(robotCode);
 	}
 
 //************************五种类型：看视频，看新闻，看小说********************************************************
@@ -131,7 +116,11 @@ public class AppServiceImpl implements AppService {
 	@SneakyThrows
 	@Override
 	public void watchMedia(String robotCode) {
-		Robot robot = new Robot();
+		appBrowserService.watchMedia(robotCode);
+		appMediaService.watchMedia(robotCode);
+		appNewsService.watchMedia(robotCode);
+		appNovelService.watchMedia(robotCode);
+		appWalkService.watchMedia(robotCode);
 
 	}
 	/**
@@ -140,13 +129,21 @@ public class AppServiceImpl implements AppService {
 	@SneakyThrows
 	@Override
 	public void watchNews(String robotCode) {
-		Robot robot = new Robot();
+		appBrowserService.watchNews(robotCode);
+		appMediaService.watchNews(robotCode);
+		appNewsService.watchNews(robotCode);
+		appNovelService.watchNews(robotCode);
+		appWalkService.watchNews(robotCode);
 
 	}
 
 	@Override
 	public void watchNovel(String robotCode) {
-
+		appBrowserService.watchNovel(robotCode);
+		appMediaService.watchNovel(robotCode);
+		appNewsService.watchNovel(robotCode);
+		appNovelService.watchNovel(robotCode);
+		appWalkService.watchNovel(robotCode);
 	}
 
 //************************六种类型： 抽奖 刮卡********************************************************
@@ -155,7 +152,11 @@ public class AppServiceImpl implements AppService {
 	 */
 	@Override
 	public void other(String robotCode) {
-
+		appBrowserService.other(robotCode);
+		appMediaService.other(robotCode);
+		appNewsService.other(robotCode);
+		appNovelService.other(robotCode);
+		appWalkService.other(robotCode);
 	}
 
 
