@@ -84,17 +84,16 @@ public class PhoneSchedule {
      * todo
      * 定时器  60分钟
      */
-     @Scheduled(cron = "0 0/59 * * * ?")
+     @Scheduled(cron = "0 0/20 * * * ?")
     @SneakyThrows
     public void timer60(){
-         String robotCode = PhoneConstants.phone001;
-        log.info("********************60分钟定时器启动**************************");
+         String robotCode = "phone001";
+        log.info("********************15分钟定时器启动**************************");
         Robot robot = new Robot();
-        robot.delay(RandomTools.init(8000));
-        appBrowserService.circulate(robotCode);
-        appNewsService.circulate(robotCode);
-        appWalkService.circulate(robotCode);
-        appBrowserService.circulate(robotCode);
+     appBrowserService.circulate(robotCode);
+       /** appNewsService.circulate(robotCode);*/
+       // appWalkService.circulate(robotCode);
+       // appBrowserService.circulate(robotCode);
     }
 
 

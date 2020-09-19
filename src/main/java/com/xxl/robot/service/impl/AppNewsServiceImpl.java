@@ -28,6 +28,8 @@ public class AppNewsServiceImpl implements AppNewsService {
 	@Autowired
 	private PhoneCodeService phoneCodeService;
 
+
+//**********************一种类型：签到，睡觉，步行，一次性，分享********************************************************
 	/**
 	 * todo 早上收取昨晚金币（签到，领取睡觉金币）
 	 */
@@ -76,7 +78,30 @@ public class AppNewsServiceImpl implements AppNewsService {
 
 
 	}
+	/***
+	 * todo 晚上收取白天金币
+	 */
+	@SneakyThrows
+	@Override
+	public void end(String robotCode) {
+		Robot robot = new Robot();
 
+		log.info("********************今日头条**************************");
+		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"今日头条");
+		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.WALK,dtos);
+		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.SLEEP,dtos);
+
+		log.info("********************趣头条**************************");
+		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"趣头条");
+		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.WALK,dtos1);
+		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.SLEEP,dtos1);
+
+
+	}
+
+
+
+	//************************二种类型：喝水，打卡，种菜，充电，吃饭********************************************************
 	/**
 	 * todo 白天执行一次
 	 */
@@ -117,6 +142,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 
 	}
 
+//*************************三种类型：开宝箱，看广告，领红包********************************************************
 	/**
 	 * todo 循环执行领金币(夺宝，领红包，开宝箱，看广告，抽奖)
 	 */
@@ -137,29 +163,9 @@ public class AppNewsServiceImpl implements AppNewsService {
 	}
 
 
-	/***
-	 * todo 晚上收取白天金币
-	 */
-	@SneakyThrows
-	@Override
-	public void end(String robotCode) {
-		Robot robot = new Robot();
-
-		log.info("********************今日头条**************************");
-		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"今日头条");
-		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.WALK,dtos);
-		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.SLEEP,dtos);
-
-		log.info("********************趣头条**************************");
-		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"趣头条");
-		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.WALK,dtos1);
-		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.SLEEP,dtos1);
 
 
-	}
-
-	//*******************************************以下操作只能得取少量金币*******************************************************
-
+//************************四种类型：玩游戏********************************************************
 	/***
 	 * todo 玩游戏（少量金币，适合网络开启）
 	 */
@@ -186,6 +192,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 
 	}
 
+//************************五种类型：看视频，看新闻，看小说********************************************************
 
 	@SneakyThrows
 	@Override
@@ -218,6 +225,13 @@ public class AppNewsServiceImpl implements AppNewsService {
 
 	}
 
+	@Override
+	public void watchNovel(String robotCode) {
+
+	}
+
+
+//************************六种类型： 抽奖 刮卡********************************************************
 	@Override
 	public void other(String robotCode) {
 

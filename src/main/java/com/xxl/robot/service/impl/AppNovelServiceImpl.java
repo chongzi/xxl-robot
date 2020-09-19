@@ -28,6 +28,7 @@ public class AppNovelServiceImpl implements AppNovelService {
 	@Autowired
 	private PhoneCodeService phoneCodeService;
 
+//**********************一种类型：签到，睡觉，步行，一次性，分享********************************************************
 	/**
 	 * todo 早上收取昨晚金币（签到，领取睡觉金币）
 	 */
@@ -43,6 +44,17 @@ public class AppNovelServiceImpl implements AppNovelService {
 
 	}
 
+	/***
+	 * todo 晚上收取白天金币
+	 */
+	@SneakyThrows
+	@Override
+	public void end(String robotCode) {
+
+
+	}
+
+//************************二种类型：喝水，打卡，种菜，充电，吃饭********************************************************
 	/**
 	 * todo 白天执行一次
 	 */
@@ -53,6 +65,9 @@ public class AppNovelServiceImpl implements AppNovelService {
 
 
 	}
+
+
+//*************************三种类型：开宝箱，看广告，领红包********************************************************
 
 	/**
 	 * todo 循环执行领金币(夺宝，领红包，开宝箱，看广告，抽奖)
@@ -69,17 +84,7 @@ public class AppNovelServiceImpl implements AppNovelService {
 	}
 
 
-	/***
-	 * todo 晚上收取白天金币
-	 */
-	@SneakyThrows
-	@Override
-	public void end(String robotCode) {
-
-
-	}
-
-	//*******************************************以下操作只能得取少量金币*******************************************************
+//************************四种类型：玩游戏********************************************************
 	/***
 	 * todo 玩游戏
 	 */
@@ -89,6 +94,7 @@ public class AppNovelServiceImpl implements AppNovelService {
 	}
 
 
+//************************五种类型：看视频，看新闻，看小说********************************************************
 	@SneakyThrows
 	@Override
 	public void watchMedia(String robotCode) {
@@ -108,6 +114,13 @@ public class AppNovelServiceImpl implements AppNovelService {
 
 	}
 
+	@Override
+	public void watchNovel(String robotCode) {
+
+	}
+
+
+//************************六种类型： 抽奖 刮卡********************************************************
 	@Override
 	public void other(String robotCode) {
 

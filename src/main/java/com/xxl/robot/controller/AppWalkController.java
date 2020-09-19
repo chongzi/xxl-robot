@@ -2,6 +2,7 @@ package com.xxl.robot.controller;
 
 import com.xxl.common.response.BaseResponse;
 import com.xxl.robot.constants.PhoneConstants;
+import com.xxl.robot.service.AppBrowserService;
 import com.xxl.robot.service.AppNewsService;
 import com.xxl.robot.service.AppWalkService;
 import io.swagger.annotations.Api;
@@ -19,12 +20,17 @@ public class AppWalkController {
 
     @Autowired
     private AppWalkService appWalkService;
+    @Autowired
+    private AppBrowserService appBrowserService;
 
     @GetMapping("start")
     @ApiOperation("开始")
     public BaseResponse start() {
         appWalkService.start("phone001");
         appWalkService.start("phone002");
+
+        appBrowserService.start("phone001");
+        appBrowserService.start("phone002");
         return BaseResponse.newSuccess();
     }
 
@@ -34,6 +40,7 @@ public class AppWalkController {
     public BaseResponse section() {
         appWalkService.section("phone001");
         appWalkService.section("phone002");
+
         return BaseResponse.newSuccess();
     }
 
@@ -42,6 +49,8 @@ public class AppWalkController {
     public BaseResponse circulate() {
         appWalkService.circulate("phone001");
         appWalkService.circulate("phone002");
+        appBrowserService.circulate("phone001");
+        appBrowserService.circulate("phone002");
         return BaseResponse.newSuccess();
     }
 

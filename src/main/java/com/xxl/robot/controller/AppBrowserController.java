@@ -41,7 +41,7 @@ public class AppBrowserController {
     @ApiOperation("循环执行")
     public BaseResponse circulate() {
         appBrowserService.circulate("phone001");
-        appBrowserService.circulate("phone002");
+       // appBrowserService.circulate("phone002");
         return BaseResponse.newSuccess();
     }
 

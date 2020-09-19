@@ -36,7 +36,7 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	@Autowired
 	private PhoneCodeService phoneCodeService;
 
-
+//**********************一种类型：签到，睡觉，步行，一次性，分享********************************************************
 	/**
 	 * todo 早上收取金币（用户行为：1.签到 2.领取睡觉金币）
 	 */
@@ -45,16 +45,16 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	public void start(String robotCode) {
 		Robot robot = new Robot();
 
-		log.info("********************搜狗浏览器**************************");
+	/*	log.info("********************搜狗浏览器**************************");
 		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"搜狗浏览器");
 		A浏览器搜狗.handle(robot,robotCode,"搜狗浏览器", AppConstants.CHECK_IN,dtos);
-
+*/
 		log.info("********************晴象浏览器**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"晴象浏览器");
 		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.CHECK_IN,dtos1);
 
 
-		log.info("********************A小说米读**************************");
+		/*log.info("********************A小说米读**************************");
 		List<PhoneCodeDto> dtos3 = phoneCodeService.getList(robotCode,"米读小说");
 		A小说米读.handle(robot,robotCode,"米读小说", AppConstants.CHECK_IN,dtos3);
 
@@ -66,67 +66,11 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 
 		log.info("********************奇热小说**************************");
 		List<PhoneCodeDto> dtos5 = phoneCodeService.getList(robotCode,"奇热小说");
-		A小说奇热.handle(robot,robotCode,"奇热小说", AppConstants.CHECK_IN,dtos5);
+		A小说奇热.handle(robot,robotCode,"奇热小说", AppConstants.CHECK_IN,dtos5);*/
 
 		log.info("********************快乐天气**************************");
 		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"快乐天气");
 		A快乐天气.handle(robot,robotCode,"快乐天气", AppConstants.CHECK_IN,dtos6);
-
-	}
-
-	/**
-	 * todo 时段收取金币（用户行为：1.喝水 2.种菜 3.充电 4.吃饭）
-	 */
-	@SneakyThrows
-	@Override
-	public void  section(String robotCode) {
-		Robot robot = new Robot();
-
-		log.info("********************晴象浏览器**************************");
-		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"晴象浏览器");
-		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.OTHER_QINGXIANG_WATCH_VIDEOS,dtos1);
-
-	}
-
-	/**
-	 * todo 循环收取金币大于200金币（1.开宝箱 2.看广告 3.领红包 4.抽奖 5.刮卡）
-	 */
-	@Async
-	@SneakyThrows
-	@Override
-	public void circulate(String robotCode) {
-		Robot robot = new Robot();
-
-		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"搜狗浏览器");
-		/*A浏览器搜狗.handle(robot,robotCode,"搜狗浏览器", AppConstants.WATCH_NEWS,dtos);
-		A浏览器搜狗.handle(robot,robotCode,"搜狗浏览器", AppConstants.SEARCH,dtos);*/
-
-
- 		log.info("********************晴象浏览器**************************");
-		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"晴象浏览器");
-		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.GIFT_MONEY,dtos1);
- 		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.DRAW,dtos1);
-		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.SCRATCH_CARD,dtos1);
-
-		log.info("********************红包赚不停**************************");
-		List<PhoneCodeDto> dtos2 = phoneCodeService.getList(robotCode,"红包赚不停");
-		A综合红包赚不停.handle(robot,robotCode,"红包赚不停", AppConstants.GIFT_MONEY,dtos2);
-		A综合红包赚不停.handle(robot,robotCode,"红包赚不停", AppConstants.DRAW,dtos2);
-		A综合红包赚不停.handle(robot,robotCode,"红包赚不停", AppConstants.SWEEPSTAKES,dtos2);
-
-		log.info("********************番茄小说**************************");
-		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"番茄小说");
-		A小说番茄.handle(robot,robotCode,"番茄小说", AppConstants.TREASURE,dtos4);
-		A小说番茄.handle(robot,robotCode,"番茄小说", AppConstants.WATCH_ADVERT,dtos4);
-
-
-		log.info("********************快乐天气**************************");
-		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"快乐天气");
-		A快乐天气.handle(robot,robotCode,"快乐天气", AppConstants.GIFT_MONEY,dtos6);
-		A快乐天气.handle(robot,robotCode,"快乐天气", AppConstants.DRAW,dtos6);
-		A快乐天气.handle(robot,robotCode,"快乐天气", AppConstants.SCRATCH_CARD,dtos6);
-
-
 
 	}
 
@@ -144,7 +88,70 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 
 	}
 
-	//*******************************************以下操作只能得取少量金币*******************************************************
+
+
+
+//************************二种类型：喝水，打卡，种菜，充电，吃饭********************************************************
+	/**
+	 * todo 时段收取金币（用户行为：1.喝水 2.种菜 3.充电 4.吃饭）
+	 */
+	@SneakyThrows
+	@Override
+	public void  section(String robotCode) {
+		Robot robot = new Robot();
+
+		log.info("********************晴象浏览器**************************");
+		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"晴象浏览器");
+		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.OTHER_QINGXIANG_WATCH_VIDEOS,dtos1);
+
+	}
+
+
+//*************************三种类型：开宝箱，看广告，领红包********************************************************
+	/**
+	 * todo 循环收取金币大于200金币（1.开宝箱 2.看广告 3.领红包 4.抽奖 5.刮卡）
+	 */
+	@Async
+	@SneakyThrows
+	@Override
+	public void circulate(String robotCode) {
+		Robot robot = new Robot();
+
+	//	List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"搜狗浏览器");
+		/*A浏览器搜狗.handle(robot,robotCode,"搜狗浏览器", AppConstants.WATCH_NEWS,dtos);
+		A浏览器搜狗.handle(robot,robotCode,"搜狗浏览器", AppConstants.SEARCH,dtos);*/
+
+
+ 		log.info("********************晴象浏览器**************************");
+		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"晴象浏览器");
+		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.GIFT_MONEY,dtos1);
+ 		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.DRAW,dtos1);
+		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.SCRATCH_CARD,dtos1);
+
+/*		log.info("********************红包赚不停**************************");
+		List<PhoneCodeDto> dtos2 = phoneCodeService.getList(robotCode,"红包赚不停");
+		A综合红包赚不停.handle(robot,robotCode,"红包赚不停", AppConstants.GIFT_MONEY,dtos2);
+		A综合红包赚不停.handle(robot,robotCode,"红包赚不停", AppConstants.DRAW,dtos2);
+		A综合红包赚不停.handle(robot,robotCode,"红包赚不停", AppConstants.SWEEPSTAKES,dtos2);*/
+
+		/*log.info("********************番茄小说**************************");
+		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"番茄小说");
+		A小说番茄.handle(robot,robotCode,"番茄小说", AppConstants.TREASURE,dtos4);
+		A小说番茄.handle(robot,robotCode,"番茄小说", AppConstants.WATCH_ADVERT,dtos4);*/
+
+
+	/*	log.info("********************快乐天气**************************");
+		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"快乐天气");
+		A快乐天气.handle(robot,robotCode,"快乐天气", AppConstants.GIFT_MONEY,dtos6);
+		A快乐天气.handle(robot,robotCode,"快乐天气", AppConstants.DRAW,dtos6);
+		A快乐天气.handle(robot,robotCode,"快乐天气", AppConstants.SCRATCH_CARD,dtos6);*/
+
+
+
+	}
+
+
+//************************四种类型：玩游戏********************************************************
 	/***
 	 * todo 玩游戏（少量金币，适合网络开启）
 	 */
@@ -153,6 +160,7 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 
 	}
 
+//************************五种类型：看视频，看新闻，看小说********************************************************
 	/**
 	 * todo 看视频（少量金币，适合网络开启）
 	 */
@@ -172,6 +180,12 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 
 	}
 
+	@Override
+	public void watchNovel(String robotCode) {
+
+	}
+
+//************************六种类型： 抽奖 刮卡********************************************************
 	/**
 	 * todo 其它（少量金币，适合网络开启）
 	 */

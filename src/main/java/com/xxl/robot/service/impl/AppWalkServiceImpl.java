@@ -27,6 +27,7 @@ public class AppWalkServiceImpl implements AppWalkService {
 	@Autowired
 	private PhoneCodeService phoneCodeService;
 
+//**********************一种类型：签到，睡觉，步行，一次性，分享********************************************************
 	/**
 	 * todo 早上收取昨晚金币（签到，领取睡觉金币）
 	 */
@@ -42,6 +43,7 @@ public class AppWalkServiceImpl implements AppWalkService {
 		log.info("********************步数赚**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"步数赚");
 		A步行多多.handle(robot,robotCode,"步数赚", AppConstants.CHECK_IN,dtos1);
+/*
 
 		log.info("********************步步宝赚**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList(robotCode,"步步宝");
@@ -62,6 +64,7 @@ public class AppWalkServiceImpl implements AppWalkService {
 		log.info("********************步步赚钱7**************************");
 		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"步步赚钱7");
 		A步行步多多.handle(robot,robotCode,"步步赚钱7", AppConstants.CHECK_IN,dtos6);
+*/
 
 		log.info("********************一起来走路**************************");
 		List<PhoneCodeDto> dtos7 = phoneCodeService.getList(robotCode,"一起来走路");
@@ -69,6 +72,20 @@ public class AppWalkServiceImpl implements AppWalkService {
 
 	}
 
+	/***
+	 * todo 晚上收取白天金币
+	 */
+	@SneakyThrows
+	@Override
+	public void end(String robotCode) {
+		Robot robot = new Robot();
+		log.info("********************多多步**************************");
+		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"多多步");
+		A步行多多.handle(robot,robotCode,"多多步", AppConstants.WALK,dtos);
+
+	}
+
+//************************二种类型：喝水，打卡，种菜，充电，吃饭********************************************************
 	/**
 	 * todo 白天执行一次
 	 */
@@ -80,6 +97,8 @@ public class AppWalkServiceImpl implements AppWalkService {
 
 	}
 
+
+//*************************三种类型：开宝箱，看广告，领红包********************************************************
 	/**
 	 * todo 循环执行领金币(夺宝，领红包，开宝箱，看广告，抽奖)
 	 */
@@ -98,7 +117,7 @@ public class AppWalkServiceImpl implements AppWalkService {
 		A步行多多.handle(robot,robotCode,"步数赚", AppConstants.WATCH_ADVERT,dtos1);
 		A步行多多.handle(robot,robotCode,"步数赚", AppConstants.GIFT_MONEY,dtos1);
 
-		log.info("********************步步宝赚**************************");
+	/*	log.info("********************步步宝赚**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList(robotCode,"步步宝");
 		A步行多多.handle(robot,robotCode,"步步宝", AppConstants.GIFT_MONEY,dtos2);
 		A步行多多.handle(robot,robotCode,"步步宝", AppConstants.TREASURE,dtos2);
@@ -123,33 +142,17 @@ public class AppWalkServiceImpl implements AppWalkService {
 
 		log.info("********************步步赚钱7**************************");
 		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"步步赚钱7");
-		A步行步多多.handle(robot,robotCode,"步步赚钱7", AppConstants.GIFT_MONEY,dtos6);
+		A步行步多多.handle(robot,robotCode,"步步赚钱7", AppConstants.GIFT_MONEY,dtos6);*/
 
 		log.info("********************一起来走路**************************");
 		List<PhoneCodeDto> dtos7 = phoneCodeService.getList(robotCode,"一起来走路");
 		A步行步多多.handle(robot,robotCode,"一起来走路", AppConstants.WATCH_ADVERT,dtos7);
 		A步行步多多.handle(robot,robotCode,"一起来走路", AppConstants.GIFT_MONEY,dtos7);
 
-
-
 	}
 
 
-	/***
-	 * todo 晚上收取白天金币
-	 */
-	@SneakyThrows
-	@Override
-	public void end(String robotCode) {
-		Robot robot = new Robot();
-		log.info("********************多多步**************************");
-		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"多多步");
-		A步行多多.handle(robot,robotCode,"多多步", AppConstants.WALK,dtos);
-
-	}
-
-	//*******************************************以下操作只能得取少量金币*******************************************************
-
+//************************四种类型：玩游戏********************************************************
 	/***
 	 * todo 玩游戏
 	 */
@@ -158,7 +161,7 @@ public class AppWalkServiceImpl implements AppWalkService {
 
 	}
 
-
+//************************五种类型：看视频，看新闻，看小说********************************************************
 	@SneakyThrows
 	@Override
 	public void watchMedia(String robotCode) {
@@ -178,6 +181,12 @@ public class AppWalkServiceImpl implements AppWalkService {
 
 	}
 
+	@Override
+	public void watchNovel(String robotCode) {
+
+	}
+
+//************************六种类型： 抽奖 刮卡********************************************************
 	@Override
 	public void other(String robotCode) {
 
