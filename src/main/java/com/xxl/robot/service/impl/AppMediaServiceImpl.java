@@ -224,7 +224,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 	@Override
 	public void watchMedia(String robotCode) {
 		Robot robot = new Robot();
-		log.info("********************抖音极速版**************************");
+		/*log.info("********************抖音极速版**************************");
 		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"抖音极速版");
 		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.WATCH_VIDEOS,dtos);
 
@@ -255,16 +255,16 @@ public class AppMediaServiceImpl implements AppMediaService {
 
 		log.info("********************小吃货**************************");
 		List<PhoneCodeDto> dtos8 = phoneCodeService.getList(robotCode,"小吃货");
-		B视频小吃货.handle(robot,robotCode,"小吃货", AppConstants.WATCH_VIDEOS,dtos8);
+		B视频小吃货.handle(robot,robotCode,"小吃货", AppConstants.WATCH_VIDEOS,dtos8);*/
 
 		log.info("********************抖音火山**************************");
 		List<PhoneCodeDto> dtos9 = phoneCodeService.getList(robotCode,"抖音火山");
 		A视频抖音火山.handle(robot,robotCode,"抖音火山", AppConstants.WATCH_VIDEOS,dtos9);
 
-		log.info("********************火火视频**************************");
+	/*	log.info("********************火火视频**************************");
 		List<PhoneCodeDto> dtos11 = phoneCodeService.getList(robotCode,"火火视频");
 		B视频火火.handle(robot,robotCode,"火火视频", AppConstants.WATCH_VIDEOS,dtos11);
-		B视频火火.handle(robot,robotCode,"火火视频", AppConstants.WATCH_VIDEOS_SMALL,dtos11);
+		B视频火火.handle(robot,robotCode,"火火视频", AppConstants.WATCH_VIDEOS_SMALL,dtos11);*/
 
 
 	}

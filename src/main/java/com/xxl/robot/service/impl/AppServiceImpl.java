@@ -116,11 +116,11 @@ public class AppServiceImpl implements AppService {
 	@SneakyThrows
 	@Override
 	public void watchMedia(String robotCode) {
-		appBrowserService.watchMedia(robotCode);
+		//appBrowserService.watchMedia(robotCode);
 		appMediaService.watchMedia(robotCode);
-		appNewsService.watchMedia(robotCode);
+/*		appNewsService.watchMedia(robotCode);
 		appNovelService.watchMedia(robotCode);
-		appWalkService.watchMedia(robotCode);
+		appWalkService.watchMedia(robotCode);*/
 
 	}
 	/**

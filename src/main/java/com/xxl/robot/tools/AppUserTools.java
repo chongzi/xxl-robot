@@ -221,18 +221,17 @@ public class AppUserTools {
         try {
             int i = RandomTools.init(20);
             int y = RandomTools.init(20);
-            int re = RandomTools.init(6000);
-            for (int a = 0; a < i; a++) {
-                robot.delay(re);
+            for (int a = 0; a < 1600; a++) {
+                robot.delay(RandomTools.init(6000));
                 MouseTools.normalEvent(robot, AdbTools.downPage(androidId));
-                if (a == y) {
+                 if (a == RandomTools.init(600)) {
                     log.info("4.步骤-事件-点攒");
                     PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventGiveUP() )).findAny().orElse(null);
                     String operate43 = AdbTools.tap(androidId,dto43.getPositionX(), dto43.getPositionY());
                     MouseTools.normalEvent(robot, operate43);
                 }
-                if (a > y) {
-                    robot.delay(re);
+                if (a > RandomTools.init(600)) {
+                    robot.delay(RandomTools.init(2000));
                     MouseTools.normalEvent(robot, AdbTools.upPage(androidId));
                 }
             }

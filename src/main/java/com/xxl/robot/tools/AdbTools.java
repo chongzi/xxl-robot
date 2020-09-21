@@ -64,7 +64,7 @@ public class AdbTools {
      */
     public static String downPage(String androidId){
         int x = 100 + RandomTools.init(300);
-        int y = 1600 + RandomTools.init(600);
+        int y = 1000 + RandomTools.init(600);
         int x1 = 600 + RandomTools.init(600);
         int y1 = 100 + RandomTools.init(300);
         String downDraw = "adb -s "+androidId +" shell input swipe "+ x + " " + y + " " + x1 +" " +y1;

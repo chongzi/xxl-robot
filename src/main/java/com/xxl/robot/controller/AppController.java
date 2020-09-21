@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/app/browser")
+@RequestMapping(value = "/app/robot")
 @Api(tags = "app-步行控制器")
 public class AppController {
 
@@ -40,7 +40,7 @@ public class AppController {
     @GetMapping("circulate")
     @ApiOperation("循环执行")
     public BaseResponse circulate() {
-        appService.circulate("phone001");
+        appService.circulate("phone002");
        // appBrowserService.circulate("phone002");
         return BaseResponse.newSuccess();
     }
@@ -53,5 +53,14 @@ public class AppController {
         return BaseResponse.newSuccess();
     }
 
+
+
+    @GetMapping("watchMedia")
+    @ApiOperation("看视频")
+    public BaseResponse watchMedia() {
+       // appService.watchMedia("phone001");
+        appService.watchMedia("phone002");
+        return BaseResponse.newSuccess();
+    }
 
 }
