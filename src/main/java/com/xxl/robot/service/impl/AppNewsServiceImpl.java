@@ -12,6 +12,7 @@ import com.xxl.robot.tools.AppUserTools;
 import lombok.SneakyThrows;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.awt.*;
@@ -35,6 +36,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void start(String robotCode) {
 		Robot robot = new Robot();
 
@@ -83,6 +85,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void end(String robotCode) {
 		Robot robot = new Robot();
 
@@ -107,6 +110,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void  section(String robotCode) {
 		Robot robot = new Robot();
 
@@ -148,6 +152,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void circulate(String robotCode) {
 		Robot robot = new Robot();
 		log.info("********************今日头条**************************");
@@ -169,11 +174,13 @@ public class AppNewsServiceImpl implements AppNewsService {
 	/***
 	 * todo 玩游戏（少量金币，适合网络开启）
 	 */
+	@Async
 	public void playGame(String robotCode){};
 
 
 	@SneakyThrows
 	@Override
+	@Async
 	public void watchMedia(String robotCode) {
 		Robot robot = new Robot();
 
@@ -196,6 +203,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 
 	@SneakyThrows
 	@Override
+	@Async
 	public void watchNews(String robotCode) {
 		Robot robot = new Robot();
 
@@ -226,6 +234,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 	}
 
 	@Override
+	@Async
 	public void watchNovel(String robotCode) {
 
 	}
@@ -233,6 +242,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 
 //************************六种类型： 抽奖 刮卡********************************************************
 	@Override
+	@Async
 	public void other(String robotCode) {
 
 	}

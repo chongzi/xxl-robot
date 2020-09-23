@@ -42,6 +42,7 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void start(String robotCode) {
 		Robot robot = new Robot();
 
@@ -80,6 +81,7 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void end(String robotCode) {
 		Robot robot = new Robot();
 
@@ -97,6 +99,7 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void  section(String robotCode) {
 		Robot robot = new Robot();
 
@@ -156,6 +159,7 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	 * todo 玩游戏（少量金币，适合网络开启）
 	 */
 	@Override
+	@Async
 	public void playGame(String robotCode) {
 
 	}
@@ -165,6 +169,7 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	 * todo 看视频（少量金币，适合网络开启）
 	 */
 	@SneakyThrows
+	@Async
 	@Override
 	public void watchMedia(String robotCode) {
 		Robot robot = new Robot();
@@ -174,6 +179,7 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	 * todo 看新闻（少量金币，适合网络开启）
 	 */
 	@SneakyThrows
+	@Async
 	@Override
 	public void watchNews(String robotCode) {
 		Robot robot = new Robot();
@@ -181,6 +187,7 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	}
 
 	@Override
+	@Async
 	public void watchNovel(String robotCode) {
 
 	}
@@ -190,6 +197,7 @@ public class AppBrowserServiceImpl implements AppBrowserService {
 	 * todo 其它（少量金币，适合网络开启）
 	 */
 	@Override
+	@Async
 	public void other(String robotCode) {
 
 	}

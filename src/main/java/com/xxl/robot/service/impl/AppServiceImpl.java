@@ -39,6 +39,7 @@ public class AppServiceImpl implements AppService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void start(String robotCode) {
 		appBrowserService.start(robotCode);
 		appMediaService.start(robotCode);
@@ -53,6 +54,7 @@ public class AppServiceImpl implements AppService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void end(String robotCode) {
 		appBrowserService.end(robotCode);
 		appMediaService.end(robotCode);
@@ -71,6 +73,7 @@ public class AppServiceImpl implements AppService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void  section(String robotCode) {
 		appBrowserService.section(robotCode);
 		appMediaService.section(robotCode);
@@ -101,6 +104,7 @@ public class AppServiceImpl implements AppService {
 	 * todo 玩游戏（少量金币，适合网络开启）
 	 */
 	@Override
+	@Async
 	public void playGame(String robotCode) {
 		appBrowserService.playGame(robotCode);
 		appMediaService.playGame(robotCode);
@@ -115,6 +119,7 @@ public class AppServiceImpl implements AppService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void watchMedia(String robotCode) {
 		//appBrowserService.watchMedia(robotCode);
 		appMediaService.watchMedia(robotCode);
@@ -128,6 +133,7 @@ public class AppServiceImpl implements AppService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void watchNews(String robotCode) {
 		appBrowserService.watchNews(robotCode);
 		appMediaService.watchNews(robotCode);
@@ -138,6 +144,7 @@ public class AppServiceImpl implements AppService {
 	}
 
 	@Override
+	@Async
 	public void watchNovel(String robotCode) {
 		appBrowserService.watchNovel(robotCode);
 		appMediaService.watchNovel(robotCode);
@@ -151,6 +158,7 @@ public class AppServiceImpl implements AppService {
 	 * todo 其它（少量金币，适合网络开启）
 	 */
 	@Override
+	@Async
 	public void other(String robotCode) {
 		appBrowserService.other(robotCode);
 		appMediaService.other(robotCode);

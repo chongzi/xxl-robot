@@ -8,6 +8,7 @@ import com.xxl.robot.service.PhoneCodeService;
 import lombok.SneakyThrows;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import java.awt.*;
 import java.util.List;
@@ -29,6 +30,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void start(String robotCode) {
 		Robot robot = new Robot();
 
@@ -85,6 +87,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void end(String robotCode) {
 		Robot robot = new Robot();
 
@@ -105,6 +108,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void  section(String robotCode) {
 		Robot robot = new Robot();
 
@@ -156,6 +160,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void circulate(String robotCode) {
 		Robot robot = new Robot();
 		log.info("********************抖音极速版**************************");
@@ -174,7 +179,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.WATCH_ADVERT,dtos2);
 
 
- 	log.info("********************刷宝**************************");
+ 		log.info("********************刷宝**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"刷宝");
 		B视频刷宝.handle(robot,robotCode,"刷宝", AppConstants.TREASURE,dtos4);
 
@@ -188,7 +193,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 
 		log.info("********************追看**************************");
 		List<PhoneCodeDto> dtos7 = phoneCodeService.getList(robotCode,"追看");
-		G视频追看.handle(robot,robotCode,"追看", AppConstants.WATCH_ADVERT,dtos7);
+		G视频追看.handle(robot,robotCode,"追看", AppConstants.WATCH_ADVERT,dtos7);q
 		G视频追看.handle(robot,robotCode,"追看", AppConstants.SWEEPSTAKES,dtos7);
 		G视频追看.handle(robot,robotCode,"追看", AppConstants.TREASURE,dtos7);
 		G视频追看.handle(robot,robotCode,"追看", AppConstants.GIFT_MONEY,dtos7);
@@ -212,6 +217,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 	 * todo 玩游戏
 	 */
 	@Override
+	@Async
 	public void playGame(String robotCode) {
 
 	}
@@ -222,6 +228,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void watchMedia(String robotCode) {
 		Robot robot = new Robot();
 		/*log.info("********************抖音极速版**************************");
@@ -274,6 +281,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void watchNews(String robotCode) {
 
 
@@ -283,6 +291,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 	 * todo 看小说
 	 */
 	@Override
+	@Async
 	public void watchNovel(String robotCode) {
 
 	}
@@ -292,6 +301,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 	 * todo 其它
 	 */
 	@Override
+	@Async
 	public void other(String robotCode) {
 
 	}

@@ -25,6 +25,8 @@ public class AppController {
     public BaseResponse start() {
         appService.start("phone001");
         appService.start("phone002");
+        appService.start("phone003");
+        appService.start("phone004");
         return BaseResponse.newSuccess();
     }
 
@@ -34,6 +36,8 @@ public class AppController {
     public BaseResponse section() {
         appService.section("phone001");
         appService.section("phone002");
+        appService.section("phone003");
+        appService.section("phone004");
         return BaseResponse.newSuccess();
     }
 
@@ -41,7 +45,7 @@ public class AppController {
     @ApiOperation("循环执行")
     public BaseResponse circulate() {
         appService.circulate("phone002");
-       // appBrowserService.circulate("phone002");
+        //appBrowserService.circulate("phone002");
         return BaseResponse.newSuccess();
     }
 
@@ -50,6 +54,8 @@ public class AppController {
     public BaseResponse end() {
         appService.end("phone001");
         appService.end("phone002");
+        appService.end("phone003");
+        appService.end("phone004");
         return BaseResponse.newSuccess();
     }
 
@@ -58,8 +64,10 @@ public class AppController {
     @GetMapping("watchMedia")
     @ApiOperation("看视频")
     public BaseResponse watchMedia() {
-       // appService.watchMedia("phone001");
+        appService.watchMedia("phone001");
         appService.watchMedia("phone002");
+        appService.watchMedia("phone003");
+        appService.watchMedia("phone004");
         return BaseResponse.newSuccess();
     }
 

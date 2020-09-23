@@ -11,6 +11,7 @@ import com.xxl.robot.service.PhoneCodeService;
 import lombok.SneakyThrows;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.awt.*;
@@ -33,6 +34,7 @@ public class AppWalkServiceImpl implements AppWalkService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void start(String robotCode) {
 		Robot robot = new Robot();
 
@@ -77,6 +79,7 @@ public class AppWalkServiceImpl implements AppWalkService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void end(String robotCode) {
 		Robot robot = new Robot();
 		log.info("********************多多步**************************");
@@ -91,6 +94,7 @@ public class AppWalkServiceImpl implements AppWalkService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void  section(String robotCode) {
 		Robot robot = new Robot();
 
@@ -104,6 +108,7 @@ public class AppWalkServiceImpl implements AppWalkService {
 	 */
 	@SneakyThrows
 	@Override
+	@Async
 	public void circulate(String robotCode) {
 		Robot robot = new Robot();
 		log.info("********************多多步**************************");
@@ -157,6 +162,7 @@ public class AppWalkServiceImpl implements AppWalkService {
 	 * todo 玩游戏
 	 */
 	@Override
+	@Async
 	public void playGame(String robotCode) {
 
 	}
@@ -164,6 +170,7 @@ public class AppWalkServiceImpl implements AppWalkService {
 //************************五种类型：看视频，看新闻，看小说********************************************************
 	@SneakyThrows
 	@Override
+	@Async
 	public void watchMedia(String robotCode) {
 		Robot robot = new Robot();
 
@@ -174,6 +181,7 @@ public class AppWalkServiceImpl implements AppWalkService {
 
 	@SneakyThrows
 	@Override
+	@Async
 	public void watchNews(String robotCode) {
 		Robot robot = new Robot();
 
@@ -182,12 +190,14 @@ public class AppWalkServiceImpl implements AppWalkService {
 	}
 
 	@Override
+	@Async
 	public void watchNovel(String robotCode) {
 
 	}
 
 //************************六种类型： 抽奖 刮卡********************************************************
 	@Override
+	@Async
 	public void other(String robotCode) {
 
 	}

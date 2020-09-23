@@ -32,6 +32,10 @@ public class AppUserTools {
             androidId = PhoneConstants.phone001;
         }else if(robotCode.equals("phone002")){
             androidId = PhoneConstants.phone002;
+        }else if(robotCode.equals("phone003")) {
+            androidId = PhoneConstants.phone003;
+        }else if(robotCode.equals("phone004")) {
+            androidId = PhoneConstants.phone004;
         }
 
 
