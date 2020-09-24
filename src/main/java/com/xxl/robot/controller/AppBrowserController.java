@@ -14,44 +14,74 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/app/browser")
 @Api(tags = "app-步行控制器")
 public class AppBrowserController {
-
-
-
     @Autowired
     private AppBrowserService appBrowserService;
 
+
+
+
+//************************一种类型：签到********************************************************
     @GetMapping("start")
-    @ApiOperation("开始")
+    @ApiOperation("1-签到")
     public BaseResponse start() {
         appBrowserService.start("phone001");
         appBrowserService.start("phone002");
+
         return BaseResponse.newSuccess();
     }
 
 
-    @GetMapping("section")
-    @ApiOperation("执行一次")
-    public BaseResponse section() {
-        appBrowserService.section("phone001");
-        appBrowserService.section("phone002");
+//************************二种类型：分段（一次性收取，睡觉收取，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）*****************************************
+    @GetMapping("section1")
+    @ApiOperation("2.1-早上8:00-9:00 （一次性收取，睡觉收取，吃饭，喝水，打卡，种菜，分享，游戏，充电）")
+    public BaseResponse section1() {
+        appBrowserService.section1("phone001");
+        appBrowserService.section1("phone002");
+
         return BaseResponse.newSuccess();
     }
 
-    @GetMapping("circulate")
-    @ApiOperation("循环执行")
-    public BaseResponse circulate() {
-        appBrowserService.circulate("phone001");
-       // appBrowserService.circulate("phone002");
+    @GetMapping("section2")
+    @ApiOperation("2.2-中午11：00-12:00（吃饭，喝水，打卡，种菜，分享，游戏，充电）")
+    public BaseResponse section2() {
+        appBrowserService.section2("phone001");
+        appBrowserService.section2("phone002");
         return BaseResponse.newSuccess();
     }
 
-    @GetMapping("end")
-    @ApiOperation("结束")
-    public BaseResponse end() {
-        appBrowserService.end("phone001");
-        appBrowserService.end("phone002");
+    @GetMapping("section3")
+    @ApiOperation("2.3-下午19：00-20：00（吃饭，喝水，打卡，种菜，分享，游戏，充电）")
+    public BaseResponse section3() {
+        appBrowserService.section3("phone001");
+        appBrowserService.section3("phone002");
         return BaseResponse.newSuccess();
     }
 
+    @GetMapping("section4")
+    @ApiOperation("2.4-晚上23：00-24：00（睡觉打卡，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）")
+    public BaseResponse section4() {
+        appBrowserService.section3("phone001");
+        appBrowserService.section3("phone002");
+        return BaseResponse.newSuccess();
+    }
+
+
+//*************************三种类型：循环(开宝箱，看广告，领红包,看视频，看新闻，看小说，刮卡，抽奖)********************************************************
+    @GetMapping("circulate1")
+    @ApiOperation("3.1-循环收取金币大于200金币")
+    public BaseResponse circulate1() {
+        appBrowserService.circulate1("phone001");
+        appBrowserService.circulate1("phone002");
+        return BaseResponse.newSuccess();
+    }
+
+
+    @GetMapping("circulate2")
+    @ApiOperation("3.2-循环收取金币小于200金币")
+    public BaseResponse circulate2() {
+        appBrowserService.circulate2("phone001");
+        appBrowserService.circulate2("phone002");
+        return BaseResponse.newSuccess();
+    }
 
 }

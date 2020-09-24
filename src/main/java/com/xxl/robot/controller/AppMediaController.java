@@ -19,37 +19,69 @@ public class AppMediaController {
     @Autowired
     private AppMediaService appMediaService;
 
+
+
+    //************************一种类型：签到********************************************************
     @GetMapping("start")
-    @ApiOperation("开始操作")
+    @ApiOperation("1-签到")
     public BaseResponse start() {
         appMediaService.start("phone001");
         appMediaService.start("phone002");
+
         return BaseResponse.newSuccess();
     }
 
 
-    @GetMapping("section")
-    @ApiOperation("分段操作")
-    public BaseResponse section() {
-        appMediaService.start("phone001");
-        appMediaService.section("phone002");
+    //************************二种类型：分段（一次性收取，睡觉收取，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）*****************************************
+    @GetMapping("section1")
+    @ApiOperation("2.1-早上8:00-9:00 （一次性收取，睡觉收取，吃饭，喝水，打卡，种菜，分享，游戏，充电）")
+    public BaseResponse section1() {
+        appMediaService.section1("phone001");
+        appMediaService.section1("phone002");
+
         return BaseResponse.newSuccess();
     }
 
-    @GetMapping("circulate")
-    @ApiOperation("循环操作")
-    public BaseResponse circulate() {
-        appMediaService.circulate("phone001");
-        appMediaService.circulate("phone002");
+    @GetMapping("section2")
+    @ApiOperation("2.2-中午11：00-12:00（吃饭，喝水，打卡，种菜，分享，游戏，充电）")
+    public BaseResponse section2() {
+        appMediaService.section2("phone001");
+        appMediaService.section2("phone002");
+        return BaseResponse.newSuccess();
+    }
+
+    @GetMapping("section3")
+    @ApiOperation("2.3-下午19：00-20：00（吃饭，喝水，打卡，种菜，分享，游戏，充电）")
+    public BaseResponse section3() {
+        appMediaService.section3("phone001");
+        appMediaService.section3("phone002");
+        return BaseResponse.newSuccess();
+    }
+
+    @GetMapping("section4")
+    @ApiOperation("2.4-晚上23：00-24：00（睡觉打卡，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）")
+    public BaseResponse section4() {
+        appMediaService.section3("phone001");
+        appMediaService.section3("phone002");
         return BaseResponse.newSuccess();
     }
 
 
-    @GetMapping("end")
-    @ApiOperation("最后操作")
-    public BaseResponse end() {
-        appMediaService.end("phone001");
-        appMediaService.end("phone002");
+    //*************************三种类型：循环(开宝箱，看广告，领红包,看视频，看新闻，看小说，刮卡，抽奖)********************************************************
+    @GetMapping("circulate1")
+    @ApiOperation("3.1-循环收取金币大于200金币")
+    public BaseResponse circulate1() {
+        appMediaService.circulate1("phone001");
+        appMediaService.circulate1("phone002");
+        return BaseResponse.newSuccess();
+    }
+
+
+    @GetMapping("circulate2")
+    @ApiOperation("3.2-循环收取金币小于200金币")
+    public BaseResponse circulate2() {
+        appMediaService.circulate2("phone001");
+        appMediaService.circulate2("phone002");
         return BaseResponse.newSuccess();
     }
 

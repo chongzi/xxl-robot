@@ -73,8 +73,6 @@ public class PhoneSchedule {
         Robot robot = new Robot();
         robot.delay(RandomTools.init(8000));
 
-        aAppMediaService.circulate(robotCode);
-        appNewsService.circulate(robotCode);
     }
 
 
@@ -90,8 +88,7 @@ public class PhoneSchedule {
          String robotCode = "phone001";
         log.info("********************15分钟定时器启动**************************");
         Robot robot = new Robot();
-     appBrowserService.circulate(robotCode);
-       /** appNewsService.circulate(robotCode);*/
+        /** appNewsService.circulate(robotCode);*/
        // appWalkService.circulate(robotCode);
        // appBrowserService.circulate(robotCode);
     }
