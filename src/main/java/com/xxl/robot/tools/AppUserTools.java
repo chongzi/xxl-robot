@@ -226,8 +226,9 @@ public class AppUserTools {
             int i = RandomTools.init(20);
             int y = RandomTools.init(20);
             for (int a = 0; a < 1600; a++) {
-                robot.delay(RandomTools.init(6000));
+                robot.delay(RandomTools.init(26000));
                 MouseTools.normalEvent(robot, AdbTools.downPage(androidId));
+                robot.delay(RandomTools.init(6000));
                  if (a == RandomTools.init(600)) {
                     log.info("4.步骤-事件-点攒");
                     PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventGiveUP() )).findAny().orElse(null);

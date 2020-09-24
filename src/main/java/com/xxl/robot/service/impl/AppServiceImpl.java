@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  *
- * todo app-接口
+ * todo app-统一接口
  */
 @Service
 public class AppServiceImpl implements AppService {
@@ -33,139 +33,110 @@ public class AppServiceImpl implements AppService {
 	@Autowired
 	private AppWalkService appWalkService;
 
-//**********************一种类型：签到，睡觉，步行，一次性，分享********************************************************
+
+//************************一种类型：签到********************************************************
 	/**
-	 * todo 早上收取金币（用户行为：1.签到 2.领取睡觉金币）
+	 * todo 1-签到
 	 */
 	@SneakyThrows
 	@Override
 	@Async
-	public void start(String robotCode) {
+	public void start(String robotCode){
 		appBrowserService.start(robotCode);
 		appMediaService.start(robotCode);
 		appNewsService.start(robotCode);
 		appNovelService.start(robotCode);
 		appWalkService.start(robotCode);
+
 	}
 
 
+//************************二种类型：分段（一次性收取，睡觉收取，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）*****************************************
 	/***
-	 * todo 晚上收取金币（1.收取步行金币 2.个性化一次性收取 3.分享 4.游戏）
+	 * todo 2.1-早上7:00-8:00 （一次性收取，睡觉收取，吃饭，喝水，打卡，种菜，分享，游戏，充电）
 	 */
 	@SneakyThrows
 	@Override
 	@Async
-	public void end(String robotCode) {
-		appBrowserService.end(robotCode);
-		appMediaService.end(robotCode);
-		appNewsService.end(robotCode);
-		appNovelService.end(robotCode);
-		appWalkService.end(robotCode);
-
+	public void section1(String robotCode){
+		appBrowserService.section1(robotCode);
+		appMediaService.section1(robotCode);
+		appNewsService.section1(robotCode);
+		appNovelService.section1(robotCode);
+		appWalkService.section1(robotCode);
 	}
 
-
-
-
-//************************二种类型：喝水，打卡，种菜，充电，吃饭********************************************************
 	/**
-	 * todo 时段收取金币（用户行为：1.喝水 2.种菜 3.充电 4.吃饭）
-	 */
-	@SneakyThrows
-	@Override
-	@Async
-	public void  section(String robotCode) {
-		appBrowserService.section(robotCode);
-		appMediaService.section(robotCode);
-		appNewsService.section(robotCode);
-		appNovelService.section(robotCode);
-		appWalkService.section(robotCode);
-	}
-
-
-//*************************三种类型：开宝箱，看广告，领红包********************************************************
-	/**
-	 * todo 循环收取金币大于200金币（1.开宝箱 2.看广告 3.领红包 4.抽奖 5.刮卡）
+	 * todo 2.2-中午11：00-12:00（吃饭，喝水，打卡，种菜，分享，游戏，充电）
 	 */
 	@Async
 	@SneakyThrows
 	@Override
-	public void circulate(String robotCode) {
-		appBrowserService.circulate(robotCode);
-		appMediaService.circulate(robotCode);
-		appNewsService.circulate(robotCode);
-		appNovelService.circulate(robotCode);
-		appWalkService.circulate(robotCode);
+	public void  section2(String robotCode){
+		appBrowserService.section2(robotCode);
+		appMediaService.section2(robotCode);
+		appNewsService.section2(robotCode);
+		appNovelService.section2(robotCode);
+		appWalkService.section2(robotCode);
 	}
-
-
-//************************四种类型：玩游戏********************************************************
-	/***
-	 * todo 玩游戏（少量金币，适合网络开启）
-	 */
-	@Override
-	@Async
-	public void playGame(String robotCode) {
-		appBrowserService.playGame(robotCode);
-		appMediaService.playGame(robotCode);
-		appNewsService.playGame(robotCode);
-		appNovelService.playGame(robotCode);
-		appWalkService.playGame(robotCode);
-	}
-
-//************************五种类型：看视频，看新闻，看小说********************************************************
 	/**
-	 * todo 看视频（少量金币，适合网络开启）
+	 * todo 2.3-下午19：00-20：00（吃饭，喝水，打卡，种菜，分享，游戏，充电）
+	 */
+	@Async
+	@SneakyThrows
+	@Override
+	public void  section3(String robotCode){
+		appBrowserService.section3(robotCode);
+		appMediaService.section3(robotCode);
+		appNewsService.section3(robotCode);
+		appNovelService.section3(robotCode);
+		appWalkService.section3(robotCode);
+	}
+	/**
+	 * todo 2.4-晚上23：00-24：00（睡觉打卡，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）
 	 */
 	@SneakyThrows
 	@Override
 	@Async
-	public void watchMedia(String robotCode) {
-		//appBrowserService.watchMedia(robotCode);
-		appMediaService.watchMedia(robotCode);
-/*		appNewsService.watchMedia(robotCode);
-		appNovelService.watchMedia(robotCode);
-		appWalkService.watchMedia(robotCode);*/
+	public void  section4(String robotCode){
+		appBrowserService.section4(robotCode);
+		appMediaService.section4(robotCode);
+		appNewsService.section4(robotCode);
+		appNovelService.section4(robotCode);
+		appWalkService.section4(robotCode);
 
 	}
+
+//*************************三种类型：循环(开宝箱，看广告，领红包,看视频，看新闻，看小说，刮卡，抽奖)********************************************************
 	/**
-	 * todo 看新闻（少量金币，适合网络开启）
+	 * todo 3.1-循环收取金币大于200金币
 	 */
+	@Async
 	@SneakyThrows
 	@Override
-	@Async
-	public void watchNews(String robotCode) {
-		appBrowserService.watchNews(robotCode);
-		appMediaService.watchNews(robotCode);
-		appNewsService.watchNews(robotCode);
-		appNovelService.watchNews(robotCode);
-		appWalkService.watchNews(robotCode);
-
+	public void circulate1(String robotCode){
+		appBrowserService.circulate1(robotCode);
+		appMediaService.circulate1(robotCode);
+		appNewsService.circulate1(robotCode);
+		appNovelService.circulate1(robotCode);
+		appWalkService.circulate1(robotCode);
 	}
 
-	@Override
-	@Async
-	public void watchNovel(String robotCode) {
-		appBrowserService.watchNovel(robotCode);
-		appMediaService.watchNovel(robotCode);
-		appNewsService.watchNovel(robotCode);
-		appNovelService.watchNovel(robotCode);
-		appWalkService.watchNovel(robotCode);
-	}
-
-//************************六种类型： 抽奖 刮卡********************************************************
 	/**
-	 * todo 其它（少量金币，适合网络开启）
+	 * todo 3.2-循环收取金币小于200金币
 	 */
-	@Override
 	@Async
-	public void other(String robotCode) {
-		appBrowserService.other(robotCode);
-		appMediaService.other(robotCode);
-		appNewsService.other(robotCode);
-		appNovelService.other(robotCode);
-		appWalkService.other(robotCode);
+	@SneakyThrows
+	@Override
+	public void circulate2(String robotCode){
+		appBrowserService.circulate2(robotCode);
+		appMediaService.circulate2(robotCode);
+		appNewsService.circulate2(robotCode);
+		appNovelService.circulate2(robotCode);
+		appWalkService.circulate2(robotCode);
+
 	}
+
 
 
 }

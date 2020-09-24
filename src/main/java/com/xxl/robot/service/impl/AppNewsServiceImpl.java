@@ -30,14 +30,14 @@ public class AppNewsServiceImpl implements AppNewsService {
 	private PhoneCodeService phoneCodeService;
 
 
-//**********************一种类型：签到，睡觉，步行，一次性，分享********************************************************
+//************************一种类型：签到********************************************************
 	/**
-	 * todo 早上收取昨晚金币（签到，领取睡觉金币）
+	 * todo 1-签到
 	 */
 	@SneakyThrows
 	@Override
 	@Async
-	public void start(String robotCode) {
+	public void start(String robotCode){
 		Robot robot = new Robot();
 
 		log.info("********************今日头条极速版**************************");
@@ -80,41 +80,19 @@ public class AppNewsServiceImpl implements AppNewsService {
 
 
 	}
+
+
+//************************二种类型：分段（一次性收取，睡觉收取，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）*****************************************
 	/***
-	 * todo 晚上收取白天金币
+	 * todo 2.1-早上7:00-8:00 （一次性收取，睡觉收取，吃饭，喝水，打卡，种菜，分享，游戏，充电）
 	 */
 	@SneakyThrows
 	@Override
 	@Async
-	public void end(String robotCode) {
+	public void section1(String robotCode){
 		Robot robot = new Robot();
 
 		log.info("********************今日头条**************************");
-		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"今日头条");
-		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.WALK,dtos);
-		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.SLEEP,dtos);
-
-		log.info("********************趣头条**************************");
-		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"趣头条");
-		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.WALK,dtos1);
-		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.SLEEP,dtos1);
-
-
-	}
-
-
-
-	//************************二种类型：喝水，打卡，种菜，充电，吃饭********************************************************
-	/**
-	 * todo 白天执行一次
-	 */
-	@SneakyThrows
-	@Override
-	@Async
-	public void  section(String robotCode) {
-		Robot robot = new Robot();
-
-	 	log.info("********************今日头条**************************");
 		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"今日头条");
 		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.EAT,dtos);//吃饭
 		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.DRAW,dtos);//抽奖
@@ -143,20 +121,57 @@ public class AppNewsServiceImpl implements AppNewsService {
 		A新闻快看点.handle(robot,robotCode,"快看点", AppConstants.WATCH_ADVERT,dtos9);
 		A新闻快看点.handle(robot,robotCode,"快看点", AppConstants.DRAW,dtos9);
 		A新闻快看点.handle(robot,robotCode,"快看点", AppConstants.GIFT_MONEY,dtos9);
-
 	}
 
-//*************************三种类型：开宝箱，看广告，领红包********************************************************
 	/**
-	 * todo 循环执行领金币(夺宝，领红包，开宝箱，看广告，抽奖)
+	 * todo 2.2-中午11：00-12:00（吃饭，喝水，打卡，种菜，分享，游戏，充电）
+	 */
+	@Async
+	@SneakyThrows
+	@Override
+	public void  section2(String robotCode){
+
+	}
+	/**
+	 * todo 2.3-下午19：00-20：00（吃饭，喝水，打卡，种菜，分享，游戏，充电）
+	 */
+	@Async
+	@SneakyThrows
+	@Override
+	public void  section3(String robotCode){
+
+	}
+	/**
+	 * todo 2.4-晚上23：00-24：00（睡觉打卡，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）
 	 */
 	@SneakyThrows
 	@Override
 	@Async
-	public void circulate(String robotCode) {
+	public void  section4(String robotCode){
+		Robot robot = new Robot();
+
+		log.info("********************今日头条**************************");
+		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"今日头条");
+		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.WALK,dtos);
+		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.SLEEP,dtos);
+
+		log.info("********************趣头条**************************");
+		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"趣头条");
+		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.WALK,dtos1);
+		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.SLEEP,dtos1);
+	}
+
+//*************************三种类型：循环(开宝箱，看广告，领红包,看视频，看新闻，看小说，刮卡，抽奖)********************************************************
+	/**
+	 * todo 3.1-循环收取金币大于200金币
+	 */
+	@Async
+	@SneakyThrows
+	@Override
+	public void circulate1(String robotCode){
 		Robot robot = new Robot();
 		log.info("********************今日头条**************************");
- 		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"今日头条");
+		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"今日头条");
 		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.TREASURE,dtos);
 
 		log.info("********************趣头条**************************");
@@ -167,49 +182,29 @@ public class AppNewsServiceImpl implements AppNewsService {
 
 	}
 
-
-
-
-//************************四种类型：玩游戏********************************************************
-	/***
-	 * todo 玩游戏（少量金币，适合网络开启）
+	/**
+	 * todo 3.2-循环收取金币小于200金币
 	 */
 	@Async
-	public void playGame(String robotCode){};
-
-
 	@SneakyThrows
 	@Override
-	@Async
-	public void watchMedia(String robotCode) {
+	public void circulate2(String robotCode){
 		Robot robot = new Robot();
 
 		log.info("********************趣头条**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"趣头条");
 		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.WATCH_VIDEOS,dtos1);
+		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.WATCH_NEWS,dtos1);
 
 		log.info("********************忆头条**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"忆头条");
 		A新闻忆头条.handle(robot,robotCode,"忆头条", AppConstants.WATCH_VIDEOS,dtos4);
+		A新闻忆头条.handle(robot,robotCode,"忆头条", AppConstants.WATCH_NEWS,dtos4);
 
 		log.info("********************慧头条**************************");
 		List<PhoneCodeDto> dtos5 = phoneCodeService.getList(robotCode,"慧头条");
 		A新闻慧头条.handle(robot,robotCode,"慧头条", AppConstants.WATCH_VIDEOS,dtos5);
-
-
-	}
-
-//************************五种类型：看视频，看新闻，看小说********************************************************
-
-	@SneakyThrows
-	@Override
-	@Async
-	public void watchNews(String robotCode) {
-		Robot robot = new Robot();
-
-		log.info("********************趣头条**************************");
-		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"趣头条");
-		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.WATCH_NEWS,dtos1);
+		A新闻慧头条.handle(robot,robotCode,"慧头条", AppConstants.WATCH_NEWS,dtos5);
 
 		log.info("********************点点新闻**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList(robotCode,"点点");
@@ -219,31 +214,10 @@ public class AppNewsServiceImpl implements AppNewsService {
 		List<PhoneCodeDto> dtos3 = phoneCodeService.getList(robotCode,"悦头条");
 		A新闻悦头条.handle(robot,robotCode,"悦头条", AppConstants.WATCH_NEWS,dtos3);
 
-		log.info("********************忆头条**************************");
-		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"忆头条");
-		A新闻忆头条.handle(robot,robotCode,"忆头条", AppConstants.WATCH_NEWS,dtos4);
-
-		log.info("********************慧头条**************************");
-		List<PhoneCodeDto> dtos5 = phoneCodeService.getList(robotCode,"慧头条");
-		A新闻慧头条.handle(robot,robotCode,"慧头条", AppConstants.WATCH_NEWS,dtos5);
 
 		log.info("********************趣新闻**************************");
 		List<PhoneCodeDto> dtos8 = phoneCodeService.getList(robotCode,"趣新闻");
 		A新闻趣新闻.handle(robot,robotCode,"趣新闻", AppConstants.WATCH_NEWS,dtos8);
-
-	}
-
-	@Override
-	@Async
-	public void watchNovel(String robotCode) {
-
-	}
-
-
-//************************六种类型： 抽奖 刮卡********************************************************
-	@Override
-	@Async
-	public void other(String robotCode) {
 
 	}
 

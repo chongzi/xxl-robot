@@ -1,5 +1,7 @@
 package com.xxl.robot.service.impl;
 
+import com.xxl.robot.app.browser.A快乐天气;
+import com.xxl.robot.app.browser.A浏览器晴象;
 import com.xxl.robot.app.media.*;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
@@ -24,14 +26,14 @@ public class AppMediaServiceImpl implements AppMediaService {
 	@Autowired
 	private PhoneCodeService phoneCodeService;
 
-//**********************一种类型：签到，睡觉，步行，一次性，分享********************************************************
+//************************一种类型：签到********************************************************
 	/**
-	 * todo 早上收取昨晚金币（签到，领取睡觉金币）
+	 * todo 1-签到
 	 */
 	@SneakyThrows
 	@Override
 	@Async
-	public void start(String robotCode) {
+	public void start(String robotCode){
 		Robot robot = new Robot();
 
 		log.info("********************抖音极速版**************************");
@@ -44,7 +46,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.CHECK_IN,dtos1);
 		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.SLEEP,dtos1);
 
-			log.info("********************快手极速版**************************");
+		log.info("********************快手极速版**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList(robotCode,"快手极速版");
 		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.CHECK_IN,dtos2);
 
@@ -58,7 +60,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 		B视频快逗.handle(robot,robotCode,"快逗", AppConstants.CHECK_IN,dtos6);
 
 
-			log.info("********************追看**************************");
+		log.info("********************追看**************************");
 		List<PhoneCodeDto> dtos7 = phoneCodeService.getList(robotCode,"追看");
 		B视频追看.handle(robot,robotCode,"追看", AppConstants.CHECK_IN,dtos7);
 
@@ -82,47 +84,28 @@ public class AppMediaServiceImpl implements AppMediaService {
 
 	}
 
+
+//************************二种类型：分段（一次性收取，睡觉收取，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）*****************************************
 	/***
-	 * todo 晚上收取白天金币
+	 * todo 2.1-早上7:00-8:00 （一次性收取，睡觉收取，吃饭，喝水，打卡，种菜，分享，游戏，充电）
 	 */
 	@SneakyThrows
 	@Override
 	@Async
-	public void end(String robotCode) {
+	public void section1(String robotCode){
 		Robot robot = new Robot();
 
 		log.info("********************抖音极速版**************************");
 		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"抖音极速版");
-		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.WALK,dtos);
-		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.SLEEP,dtos);
-
-		log.info("********************火山极速版**************************");
-		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"火山极速版");
-		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.WALK,dtos1);
-		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.SLEEP,dtos1);
-	}
-
-//************************二种类型：喝水，打卡，种菜，充电，吃饭********************************************************
-	/**
-	 * todo 白天执行一次
-	 */
-	@SneakyThrows
-	@Override
-	@Async
-	public void  section(String robotCode) {
-		Robot robot = new Robot();
-
-	 	log.info("********************抖音极速版**************************");
-		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"抖音极速版");
 		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.WATCH_NOVELS,dtos);
 		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.WATCH_VIDEOS,dtos);
 
- 	log.info("********************火山极速版**************************");
+		log.info("********************火山极速版**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"火山极速版");
 		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.GROW,dtos1);
 		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.WATCH_VIDEOS,dtos1);
 
-	 log.info("********************快手极速版**************************");
+		log.info("********************快手极速版**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList(robotCode,"快手极速版");
 		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.WATCH_VIDEOS,dtos2);
 
@@ -150,21 +133,58 @@ public class AppMediaServiceImpl implements AppMediaService {
 		log.info("********************火火视频**************************");
 		List<PhoneCodeDto> dtos11 = phoneCodeService.getList(robotCode,"火火视频");
 		B视频火火.handle(robot,robotCode,"火火视频", AppConstants.CHARGE,dtos11);
-
 	}
 
-
-//*************************三种类型：开宝箱，看广告，领红包********************************************************
 	/**
-	 * todo 循环执行领金币
+	 * todo 2.2-中午11：00-12:00（吃饭，喝水，打卡，种菜，分享，游戏，充电）
+	 */
+	@Async
+	@SneakyThrows
+	@Override
+	public void  section2(String robotCode){
+
+	}
+	/**
+	 * todo 2.3-下午19：00-20：00（吃饭，喝水，打卡，种菜，分享，游戏，充电）
+	 */
+	@Async
+	@SneakyThrows
+	@Override
+	public void  section3(String robotCode){
+
+	}
+	/**
+	 * todo 2.4-晚上23：00-24：00（睡觉打卡，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）
 	 */
 	@SneakyThrows
 	@Override
 	@Async
-	public void circulate(String robotCode) {
+	public void  section4(String robotCode){
+		Robot robot = new Robot();
+
+		log.info("********************抖音极速版**************************");
+		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"抖音极速版");
+		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.WALK,dtos);
+		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.SLEEP,dtos);
+
+		log.info("********************火山极速版**************************");
+		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"火山极速版");
+		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.WALK,dtos1);
+		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.SLEEP,dtos1);
+
+	}
+
+//*************************三种类型：循环(开宝箱，看广告，领红包,看视频，看新闻，看小说，刮卡，抽奖)********************************************************
+	/**
+	 * todo 3.1-循环收取金币大于200金币
+	 */
+	@Async
+	@SneakyThrows
+	@Override
+	public void circulate1(String robotCode){
 		Robot robot = new Robot();
 		log.info("********************抖音极速版**************************");
- 		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"抖音极速版");
+		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"抖音极速版");
 		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.WATCH_ADVERT,dtos);//观看广告
 		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.TREASURE,dtos);//夺宝
 
@@ -179,7 +199,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.WATCH_ADVERT,dtos2);
 
 
- 		log.info("********************刷宝**************************");
+		log.info("********************刷宝**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"刷宝");
 		B视频刷宝.handle(robot,robotCode,"刷宝", AppConstants.TREASURE,dtos4);
 
@@ -209,27 +229,16 @@ public class AppMediaServiceImpl implements AppMediaService {
 		A视频好看.handle(robot,robotCode,"好看视频", AppConstants.TREASURE,dtos12);
 		A视频好看.handle(robot,robotCode,"好看视频", AppConstants.WATCH_ADVERT,dtos12);
 
-	}
-
-
-//************************四种类型：玩游戏********************************************************
-	/***
-	 * todo 玩游戏
-	 */
-	@Override
-	@Async
-	public void playGame(String robotCode) {
 
 	}
 
-//************************五种类型：看视频，看新闻，看小说********************************************************
 	/**
-	 * todo 看视频
+	 * todo 3.2-循环收取金币小于200金币
 	 */
+	@Async
 	@SneakyThrows
 	@Override
-	@Async
-	public void watchMedia(String robotCode) {
+	public void circulate2(String robotCode){
 		Robot robot = new Robot();
 		/*log.info("********************抖音极速版**************************");
 		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"抖音极速版");
@@ -272,37 +281,6 @@ public class AppMediaServiceImpl implements AppMediaService {
 		List<PhoneCodeDto> dtos11 = phoneCodeService.getList(robotCode,"火火视频");
 		B视频火火.handle(robot,robotCode,"火火视频", AppConstants.WATCH_VIDEOS,dtos11);
 		B视频火火.handle(robot,robotCode,"火火视频", AppConstants.WATCH_VIDEOS_SMALL,dtos11);*/
-
-
-	}
-
-	/**
-	 * todo 看新闻
-	 */
-	@SneakyThrows
-	@Override
-	@Async
-	public void watchNews(String robotCode) {
-
-
-	}
-
-	/**
-	 * todo 看小说
-	 */
-	@Override
-	@Async
-	public void watchNovel(String robotCode) {
-
-	}
-
-//************************六种类型： 抽奖 刮卡********************************************************
-	/**
-	 * todo 其它
-	 */
-	@Override
-	@Async
-	public void other(String robotCode) {
 
 	}
 
