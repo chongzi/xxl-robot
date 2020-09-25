@@ -1,14 +1,12 @@
 package com.xxl.robot.service.impl;
 
-import com.xxl.robot.app.media.*;
+import com.xxl.robot.app.composite.A新闻今日头条;
+import com.xxl.robot.app.composite.A新闻趣头条;
 import com.xxl.robot.app.news.*;
 import com.xxl.robot.constants.AppConstants;
-import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
-import com.xxl.robot.service.AppMediaService;
 import com.xxl.robot.service.AppNewsService;
 import com.xxl.robot.service.PhoneCodeService;
-import com.xxl.robot.tools.AppUserTools;
 import lombok.SneakyThrows;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,15 +38,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 	public void start(String robotCode){
 		Robot robot = new Robot();
 
-		log.info("********************今日头条极速版**************************");
-		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"今日头条");
-		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.CHECK_IN,dtos);
-		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.SLEEP,dtos);
 
-		log.info("********************趣头条**************************");
-		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"趣头条");
-		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.CHECK_IN,dtos1);
-		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.SLEEP,dtos1);
 
 		log.info("********************点点新闻**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList(robotCode,"点点");
@@ -91,15 +81,6 @@ public class AppNewsServiceImpl implements AppNewsService {
 	@Async
 	public void section1(String robotCode){
 		Robot robot = new Robot();
-
-		log.info("********************今日头条**************************");
-		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"今日头条");
-		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.EAT,dtos);//吃饭
-		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.DRAW,dtos);//抽奖
-
-		log.info("********************趣头条**************************");
-		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"趣头条");
-		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.WATCH_NOVELS,dtos1);
 
 		log.info("********************点点新闻**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList(robotCode,"点点");
@@ -150,15 +131,6 @@ public class AppNewsServiceImpl implements AppNewsService {
 	public void  section4(String robotCode){
 		Robot robot = new Robot();
 
-		log.info("********************今日头条**************************");
-		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"今日头条");
-		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.WALK,dtos);
-		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.SLEEP,dtos);
-
-		log.info("********************趣头条**************************");
-		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"趣头条");
-		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.WALK,dtos1);
-		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.SLEEP,dtos1);
 	}
 
 //*************************三种类型：循环(开宝箱，看广告，领红包,看视频，看新闻，看小说，刮卡，抽奖)********************************************************
@@ -170,15 +142,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 	@Override
 	public void circulate1(String robotCode){
 		Robot robot = new Robot();
-		log.info("********************今日头条**************************");
-		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"今日头条");
-		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.TREASURE,dtos);
 
-		log.info("********************趣头条**************************");
-		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"趣头条");
-		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.TREASURE,dtos1);
-		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.WATCH_ADVERT,dtos1);
-		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.GIFT_MONEY,dtos1);
 
 	}
 
@@ -191,10 +155,6 @@ public class AppNewsServiceImpl implements AppNewsService {
 	public void circulate2(String robotCode){
 		Robot robot = new Robot();
 
-		log.info("********************趣头条**************************");
-		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"趣头条");
-		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.WATCH_VIDEOS,dtos1);
-		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.WATCH_NEWS,dtos1);
 
 		log.info("********************忆头条**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"忆头条");

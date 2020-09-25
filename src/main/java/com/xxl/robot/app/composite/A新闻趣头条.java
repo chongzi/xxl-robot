@@ -1,4 +1,4 @@
-package com.xxl.robot.app.media;
+package com.xxl.robot.app.composite;
 
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
@@ -11,11 +11,11 @@ import java.awt.*;
 import java.util.List;
 
 /**
- * todo A新闻今日头条
+ * todo A新闻趣头条操作
  * app-用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class A视频抖音 {
-    private static Logger log = LoggerFactory.getLogger(A视频抖音.class);
+public class A新闻趣头条 {
+    private static Logger log = LoggerFactory.getLogger(A新闻趣头条.class);
 
     /**
      * todo 1.
@@ -79,9 +79,6 @@ public class A视频抖音 {
             case AppConstants.MONEY_TREE://摇钱树
                 handle18(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
-            case AppConstants.SCRATCH_CARD://刮奖
-                handle19(robot, robotCode, appCode, event, phoneCodeDtos, app);
-                break;
         }
 
     }
@@ -92,10 +89,9 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
-        app.setCategory("category来赚钱");
-        app.setEvent("category来赚钱-签到");
-        app.setEventAdvert("category来赚钱-签到-advert");
+        app.setCategory("category任务");
+        app.setEvent("category任务-签到");
+        app.setEventAdvert("category任务-签到-advert");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -107,11 +103,12 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category首页");
-        app.setEvent("category首页-看视频");
-        app.setEventGiveUP("category首页-看视频-giveup");
+        app.setCategory("category小视频");
+        app.setEvent("category小视频-看视频");
+        app.setEventGiveUP("category小视频-看视频-giveup");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+
     }
 
 
@@ -131,7 +128,11 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category头条");
+        app.setEvent("category头条-看新闻");
+        app.setEventStep("category头条-看新闻-step");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -141,11 +142,10 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category来赚钱");
-        app.setEvent("category来赚钱-看小说");
-        app.setEventStep("category来赚钱-看小说-step");
-        app.setEventStep1("category来赚钱-看小说-step1");
-        app.setUpDown(1);
+        app.setCategory("category我的");
+        app.setEvent("category我的-看小说");
+        app.setEventStep("category我的-看小说-step");
+        app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -156,10 +156,10 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category来赚钱");
-        app.setEvent("category来赚钱-看广告");
-        app.setEventAdvert("category来赚钱-看广告-advert");
-        app.setUpDown(0);
+        app.setCategory("category任务");
+        app.setEvent("category任务-看广告");
+        app.setEventAdvert("category任务-看广告-advert");
+        app.setUpDown(1);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -179,8 +179,12 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category头条");
+        app.setEvent("category头条-领红包");
+        app.setEventAdvert("category头条-领红包-advert");
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
+
 
 
 
@@ -190,10 +194,10 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category来赚钱");
-        app.setEvent("category来赚钱-开宝箱");
-        app.setEventAdvert("category来赚钱-开宝箱-advert");
-        app.setUpDown(0);
+        app.setCategory("category任务");
+        app.setEvent("category任务-开宝箱");
+        app.setEventAdvert("category任务-开宝箱-advert");
+        app.setUpDown(1);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -204,7 +208,11 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle10(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category我的");
+        app.setEvent("category我的-抽奖");
+        app.setEventAdvert("category我的-抽奖-advert");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -214,11 +222,11 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle11(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category来赚钱");
-        app.setEvent("category来赚钱-睡觉赚金币");
-        app.setEventAdvertStep("category来赚钱-睡觉赚金币-advertstep");
-        app.setEventAdvert("category来赚钱-睡觉赚金币-advert");
-        app.setUpDown(0);
+        app.setCategory("category任务");
+        app.setEvent("category任务-睡觉");
+        app.setEventStep("category任务-睡觉-step");
+        app.setEventStep1("category任务-睡觉-step1");
+        app.setUpDown(1);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -228,10 +236,10 @@ public class A视频抖音 {
      * @param phoneCodeDtos
      */
     public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category来赚钱");
-        app.setEvent("category来赚钱-走路");
-        app.setEventStep("category来赚钱-走路-step");
-        app.setUpDown(0);
+        app.setCategory("category任务");
+        app.setEvent("category任务-走路");
+        app.setEventStep("category任务-走路-step");
+        app.setUpDown(1);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -291,14 +299,6 @@ public class A视频抖音 {
 
     }
 
-    /**
-     * todo 19.刮奖
-     * @param robot
-     * @param phoneCodeDtos
-     */
-    public static void handle19(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
-    }
 
 
 }

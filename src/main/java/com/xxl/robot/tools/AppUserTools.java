@@ -163,13 +163,25 @@ public class AppUserTools {
         String operateHome = "adb -s "+androidId +" shell input keyevent 3";
         MouseTools.fastNormalEvent(robot,operateHome);
 
-        log.info("8.调取缓存");
-        String operateDispath = AdbTools.tap(androidId,String.valueOf(769), String.valueOf(2280));
-        MouseTools.fastNormalEvent(robot,operateDispath);
+        if(androidId.equals(PhoneConstants.phone001)) {
+            log.info("8.调取缓存");
+            String operateDispath = AdbTools.tap(androidId, String.valueOf(769), String.valueOf(2280));
+            MouseTools.fastNormalEvent(robot, operateDispath);
 
-        log.info("9.删除缓存");
-        String operateDelete = AdbTools.tap(androidId,String.valueOf(540), String.valueOf(2080));
-        MouseTools.fastNormalEvent(robot,operateDelete);
+            log.info("9.删除缓存");
+            String operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(2080));
+            MouseTools.fastNormalEvent(robot, operateDelete);
+
+        }else if(androidId.equals(PhoneConstants.phone002)) {
+            log.info("8.调取缓存");
+            String operateDispath = AdbTools.tap(androidId, String.valueOf(320), String.valueOf(2280));
+            MouseTools.fastNormalEvent(robot, operateDispath);
+
+            log.info("9.删除缓存");
+            String operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(2000));
+            MouseTools.fastNormalEvent(robot, operateDelete);
+
+        }
 
         log.info("10.返回主界面");
         MouseTools.fastNormalEvent(robot,operateHome);

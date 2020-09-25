@@ -1,25 +1,21 @@
-package com.xxl.robot.app.novel;
+package com.xxl.robot.app.composite;
 
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
-import com.xxl.robot.tools.AdbTools;
 import com.xxl.robot.tools.AppUserTools;
-import com.xxl.robot.tools.MouseTools;
-import com.xxl.robot.tools.RandomTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
-import java.time.LocalTime;
 import java.util.List;
 
 /**
- * todo A小说奇热操作
+ * todo A新闻今日头条
  * app-用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class A小说奇热 {
-    private static Logger log = LoggerFactory.getLogger(A小说奇热.class);
+public class A视频腾讯NOW直播 {
+    private static Logger log = LoggerFactory.getLogger(A视频腾讯NOW直播.class);
 
     /**
      * todo 1.
@@ -83,6 +79,9 @@ public class A小说奇热 {
             case AppConstants.MONEY_TREE://摇钱树
                 handle18(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
+            case AppConstants.SCRATCH_CARD://刮奖
+                handle19(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                break;
         }
 
     }
@@ -93,9 +92,10 @@ public class A小说奇热 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category赚钱");
-        app.setEvent("category赚钱-签到");
-        app.setEventAdvert("category赚钱-签到-advert");
+        app.setCategory("category首页");
+        app.setEvent("category首页-签到");
+        app.setEventStep("category首页-签到-step");
+        app.setEventStep1("category首页-签到-step1");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -127,11 +127,7 @@ public class A小说奇热 {
      * @param phoneCodeDtos
      */
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category赚钱");
-        app.setEvent("category赚钱-看新闻");
-        app.setEventStep("category赚钱-看新闻-step");
-        app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+
     }
 
 
@@ -151,12 +147,7 @@ public class A小说奇热 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category赚钱");
-        app.setEvent("category赚钱-看视频广告");
-        app.setEventAdvert("category赚钱-看视频广告-advert");
-        app.setEventBack("category赚钱-看视频广告-back");
-        app.setUpDown(1);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+
     }
 
     /**
@@ -175,12 +166,8 @@ public class A小说奇热 {
      * @param phoneCodeDtos
      */
     public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category书城");
-        app.setEvent("category书城-领红包");
-        app.setEventAdvert("category书城-领红包-advert");
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
-    }
 
+    }
 
 
 
@@ -200,12 +187,7 @@ public class A小说奇热 {
      * @param phoneCodeDtos
      */
     public static void handle10(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category赚钱");
-        app.setEvent("category赚钱-抽奖");
-        app.setEventAdvert("category赚钱-抽奖-advertstep");
-        app.setEventAdvert("category赚钱-抽奖-advert");
-        app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+
     }
 
 
@@ -281,8 +263,17 @@ public class A小说奇热 {
      */
     public static void handle18(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
+
     }
 
+    /**
+     * todo 19.刮奖
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle19(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+
+    }
 
 
 }

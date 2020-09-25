@@ -1,18 +1,11 @@
 package com.xxl.robot.service.impl;
 
-import com.xxl.robot.app.browser.A快乐天气;
-import com.xxl.robot.app.browser.A浏览器晴象;
-import com.xxl.robot.constants.AppConstants;
-import com.xxl.robot.dto.PhoneCodeDto;
 import com.xxl.robot.service.*;
 import lombok.SneakyThrows;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-
-import java.awt.*;
-import java.util.List;
 
 /**
  *
@@ -22,6 +15,8 @@ import java.util.List;
 public class AppServiceImpl implements AppService {
 	private static final org.slf4j.Logger log = LoggerFactory.getLogger(AppServiceImpl.class);
 
+	@Autowired
+	private AppCompositeService appCompositeService;
 	@Autowired
 	private AppBrowserService appBrowserService;
 	@Autowired
@@ -34,6 +29,7 @@ public class AppServiceImpl implements AppService {
 	private AppWalkService appWalkService;
 
 
+
 //************************一种类型：签到********************************************************
 	/**
 	 * todo 1-签到
@@ -42,11 +38,12 @@ public class AppServiceImpl implements AppService {
 	@Override
 	@Async
 	public void start(String robotCode){
-		appBrowserService.start(robotCode);
+		appCompositeService.start(robotCode);
+		/*appBrowserService.start(robotCode);
 		appMediaService.start(robotCode);
 		appNewsService.start(robotCode);
 		appNovelService.start(robotCode);
-		appWalkService.start(robotCode);
+		appWalkService.start(robotCode);*/
 
 	}
 
@@ -59,11 +56,12 @@ public class AppServiceImpl implements AppService {
 	@Override
 	@Async
 	public void section1(String robotCode){
-		appBrowserService.section1(robotCode);
+		appCompositeService.section1(robotCode);
+		/*appBrowserService.section1(robotCode);
 		appMediaService.section1(robotCode);
 		appNewsService.section1(robotCode);
 		appNovelService.section1(robotCode);
-		appWalkService.section1(robotCode);
+		appWalkService.section1(robotCode);*/
 	}
 
 	/**
@@ -73,11 +71,12 @@ public class AppServiceImpl implements AppService {
 	@SneakyThrows
 	@Override
 	public void  section2(String robotCode){
-		appBrowserService.section2(robotCode);
+		appCompositeService.section2(robotCode);
+	/*	appBrowserService.section2(robotCode);
 		appMediaService.section2(robotCode);
 		appNewsService.section2(robotCode);
 		appNovelService.section2(robotCode);
-		appWalkService.section2(robotCode);
+		appWalkService.section2(robotCode);*/
 	}
 	/**
 	 * todo 2.3-下午19：00-20：00（吃饭，喝水，打卡，种菜，分享，游戏，充电）
@@ -86,11 +85,12 @@ public class AppServiceImpl implements AppService {
 	@SneakyThrows
 	@Override
 	public void  section3(String robotCode){
-		appBrowserService.section3(robotCode);
+		appCompositeService.section3(robotCode);
+	/*	appBrowserService.section3(robotCode);
 		appMediaService.section3(robotCode);
 		appNewsService.section3(robotCode);
 		appNovelService.section3(robotCode);
-		appWalkService.section3(robotCode);
+		appWalkService.section3(robotCode);*/
 	}
 	/**
 	 * todo 2.4-晚上23：00-24：00（睡觉打卡，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）
@@ -99,11 +99,12 @@ public class AppServiceImpl implements AppService {
 	@Override
 	@Async
 	public void  section4(String robotCode){
-		appBrowserService.section4(robotCode);
+		appCompositeService.section4(robotCode);
+		/*appBrowserService.section4(robotCode);
 		appMediaService.section4(robotCode);
 		appNewsService.section4(robotCode);
 		appNovelService.section4(robotCode);
-		appWalkService.section4(robotCode);
+		appWalkService.section4(robotCode);*/
 
 	}
 
@@ -115,11 +116,12 @@ public class AppServiceImpl implements AppService {
 	@SneakyThrows
 	@Override
 	public void circulate1(String robotCode){
-		appBrowserService.circulate1(robotCode);
+		appCompositeService.circulate1(robotCode);
+		/*appBrowserService.circulate1(robotCode);
 		appMediaService.circulate1(robotCode);
 		appNewsService.circulate1(robotCode);
 		appNovelService.circulate1(robotCode);
-		appWalkService.circulate1(robotCode);
+		appWalkService.circulate1(robotCode);*/
 	}
 
 	/**
@@ -129,11 +131,12 @@ public class AppServiceImpl implements AppService {
 	@SneakyThrows
 	@Override
 	public void circulate2(String robotCode){
-		appBrowserService.circulate2(robotCode);
+		appCompositeService.circulate2(robotCode);
+		/*appBrowserService.circulate2(robotCode);
 		appMediaService.circulate2(robotCode);
 		appNewsService.circulate2(robotCode);
 		appNovelService.circulate2(robotCode);
-		appWalkService.circulate2(robotCode);
+		appWalkService.circulate2(robotCode);*/
 
 	}
 

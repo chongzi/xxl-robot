@@ -1,4 +1,4 @@
-package com.xxl.robot.app.media;
+package com.xxl.robot.app.composite;
 
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
@@ -14,8 +14,8 @@ import java.util.List;
  * todo A新闻今日头条
  * app-用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class A视频腾讯NOW直播 {
-    private static Logger log = LoggerFactory.getLogger(A视频腾讯NOW直播.class);
+public class A视频快手 {
+    private static Logger log = LoggerFactory.getLogger(A视频快手.class);
 
     /**
      * todo 1.
@@ -92,10 +92,10 @@ public class A视频腾讯NOW直播 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setClear("category首页-clear");
         app.setCategory("category首页");
-        app.setEvent("category首页-签到");
-        app.setEventStep("category首页-签到-step");
-        app.setEventStep1("category首页-签到-step1");
+        app.setEvent("category首页-去赚钱");
+        app.setEventStep("category首页-去赚钱-签到");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -107,7 +107,11 @@ public class A视频腾讯NOW直播 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category发现");
+        app.setEvent("category发现-看视频");
+        app.setEventGiveUP("category发现-看视频-giveup");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -262,7 +266,6 @@ public class A视频腾讯NOW直播 {
      * @param phoneCodeDtos
      */
     public static void handle18(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
 
     }
 

@@ -1,12 +1,8 @@
 package com.xxl.robot.service.impl;
 
-import com.xxl.robot.app.browser.A浏览器搜狗;
-import com.xxl.robot.app.browser.A浏览器晴象;
-import com.xxl.robot.app.browser.A综合红包赚不停;
 import com.xxl.robot.app.novel.A小说米读;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
-import com.xxl.robot.service.AppBrowserService;
 import com.xxl.robot.service.AppNovelService;
 import com.xxl.robot.service.PhoneCodeService;
 import lombok.SneakyThrows;

@@ -1,4 +1,4 @@
-package com.xxl.robot.app.browser;
+package com.xxl.robot.app.composite;
 
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
@@ -11,11 +11,11 @@ import java.awt.*;
 import java.util.List;
 
 /**
- * todo A浏览器搜狗操作
+ * todo A小说番茄
  * app-用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class A浏览器搜狗 {
-    private static Logger log = LoggerFactory.getLogger(A浏览器搜狗.class);
+public class B小说番茄 {
+    private static Logger log = LoggerFactory.getLogger(B小说番茄.class);
 
     /**
      * todo 1.
@@ -79,12 +79,6 @@ public class A浏览器搜狗 {
             case AppConstants.MONEY_TREE://摇钱树
                 handle18(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
-            case AppConstants.SCRATCH_CARD://刮奖
-                handle19(robot, robotCode, appCode, event, phoneCodeDtos, app);
-                break;
-            case AppConstants.SEARCH://搜索
-                handle20(robot, robotCode, appCode, event, phoneCodeDtos, app);
-                break;
         }
 
     }
@@ -95,22 +89,10 @@ public class A浏览器搜狗 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category用户中心");
-        app.setEvent("category用户中心-活动");
-        app.setEventStep("category用户中心-活动-签到");
+        app.setCategory("category福利");
+        app.setEvent("category福利-签到");
+        app.setEventAdvert("category福利-签到-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
-        app.setEventStep("category用户中心-活动-签到1");
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
-        app.setEventStep("category用户中心-活动-签到2");
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
-        app.setEventStep("category用户中心-活动-签到3");
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
-        app.setEventStep("category用户中心-活动-签到4");
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
-        app.setEventStep("category用户中心-活动-签到5");
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
-        app.setEventStep("category用户中心-活动-签到6");
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -121,6 +103,7 @@ public class A浏览器搜狗 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+
 
     }
 
@@ -141,12 +124,7 @@ public class A浏览器搜狗 {
      * @param phoneCodeDtos
      */
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category用户中心");
-        app.setEvent("category用户中心-活动");
-        app.setEventStep("category用户中心-活动-每日阅读-step");
-        app.setEventStep1("category用户中心-活动-每日阅读-step1");
-        app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+
     }
 
 
@@ -156,7 +134,10 @@ public class A浏览器搜狗 {
      * @param phoneCodeDtos
      */
     public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category书城");
+        app.setEvent("category书城-看小说");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -166,16 +147,11 @@ public class A浏览器搜狗 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
-    }
-
-    /**
-     * todo 6.看广告
-     * @param robot
-     * @param phoneCodeDtos
-     */
-    public static void handle61(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category福利");
+        app.setEvent("category福利-看视频广告");
+        app.setEventAdvert("category福利-看视频广告-advert");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -198,15 +174,6 @@ public class A浏览器搜狗 {
     }
 
 
-    /**
-     * todo 8.category运动-摇红包(操作流程：1-点击红包，2-看广告)
-     * @param robot
-     * @param phoneCodeDtos
-     */
-    public static void handle81(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
-    }
-
 
 
     /**
@@ -215,7 +182,11 @@ public class A浏览器搜狗 {
      * @param phoneCodeDtos
      */
     public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category福利");
+        app.setEvent("category福利-开宝箱");
+        app.setEventAdvert("category福利-开宝箱-advert");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -303,32 +274,6 @@ public class A浏览器搜狗 {
 
     }
 
-    /**
-     * todo 19.刮奖
-     * @param robot
-     * @param phoneCodeDtos
-     */
-    public static void handle19(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
-    }
-
-
-
-    /**
-     * todo 20.搜索
-     * @param robot
-     * @param phoneCodeDtos
-     */
-    public static void handle20(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        for(int i=0;i<5;i++) {
-            app.setCategory("category用户中心");
-            app.setEvent("category用户中心-活动");
-            app.setEventSearchClear("category用户中心-活动-每日搜索-searchClear");
-            app.setEventSearch("category用户中心-活动-每日搜索-search");
-            app.setEventStep("category用户中心-活动-每日搜索-step");
-            AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
-        }
-    }
 
 
 }

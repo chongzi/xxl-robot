@@ -1,25 +1,21 @@
-package com.xxl.robot.app.news;
+package com.xxl.robot.app.composite;
 
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
-import com.xxl.robot.tools.AdbTools;
 import com.xxl.robot.tools.AppUserTools;
-import com.xxl.robot.tools.MouseTools;
-import com.xxl.robot.tools.RandomTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
-import java.time.LocalTime;
 import java.util.List;
 
 /**
- * todo A新闻趣头条操作
+ * todo A新闻今日头条
  * app-用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class A新闻趣头条 {
-    private static Logger log = LoggerFactory.getLogger(A新闻趣头条.class);
+public class A新闻今日头条 {
+    private static Logger log = LoggerFactory.getLogger(A新闻今日头条.class);
 
     /**
      * todo 1.
@@ -83,6 +79,9 @@ public class A新闻趣头条 {
             case AppConstants.MONEY_TREE://摇钱树
                 handle18(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
+            case AppConstants.SCRATCH_CARD://刮奖
+                handle19(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                break;
         }
 
     }
@@ -107,11 +106,6 @@ public class A新闻趣头条 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category小视频");
-        app.setEvent("category小视频-看视频");
-        app.setEventGiveUP("category小视频-看视频-giveup");
-        app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
 
     }
 
@@ -132,9 +126,9 @@ public class A新闻趣头条 {
      * @param phoneCodeDtos
      */
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category头条");
-        app.setEvent("category头条-看新闻");
-        app.setEventStep("category头条-看新闻-step");
+        app.setCategory("category任务");
+        app.setEvent("category任务-阅读");
+        app.setEventStep("category任务-阅读-step");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -146,10 +140,11 @@ public class A新闻趣头条 {
      * @param phoneCodeDtos
      */
     public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category我的");
-        app.setEvent("category我的-看小说");
-        app.setEventStep("category我的-看小说-step");
-        app.setUpDown(0);
+        app.setCategory("category任务");
+        app.setEvent("category任务-看小说");
+        app.setEventStep("category任务-看小说-step");
+        app.setEventStep1("category任务-看小说-step1");
+        app.setUpDown(1);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -160,11 +155,7 @@ public class A新闻趣头条 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category任务");
-        app.setEvent("category任务-看广告");
-        app.setEventAdvert("category任务-看广告-advert");
-        app.setUpDown(1);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+
     }
 
     /**
@@ -183,12 +174,8 @@ public class A新闻趣头条 {
      * @param phoneCodeDtos
      */
     public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category头条");
-        app.setEvent("category头条-领红包");
-        app.setEventAdvert("category头条-领红包-advert");
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
-    }
 
+    }
 
 
 
@@ -201,7 +188,7 @@ public class A新闻趣头条 {
         app.setCategory("category任务");
         app.setEvent("category任务-开宝箱");
         app.setEventAdvert("category任务-开宝箱-advert");
-        app.setUpDown(1);
+        app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -212,9 +199,8 @@ public class A新闻趣头条 {
      * @param phoneCodeDtos
      */
     public static void handle10(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category我的");
-        app.setEvent("category我的-抽奖");
-        app.setEventAdvert("category我的-抽奖-advert");
+        app.setCategory("category任务");
+        app.setEvent("category任务-抽手机");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -229,8 +215,9 @@ public class A新闻趣头条 {
         app.setCategory("category任务");
         app.setEvent("category任务-睡觉");
         app.setEventStep("category任务-睡觉-step");
-        app.setEventStep1("category任务-睡觉-step1");
-        app.setUpDown(1);
+        //app.setEventStep1("category任务-睡觉-step1");
+        app.setEventAdvert("category任务-睡觉-advert");
+        app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -243,7 +230,7 @@ public class A新闻趣头条 {
         app.setCategory("category任务");
         app.setEvent("category任务-走路");
         app.setEventStep("category任务-走路-step");
-        app.setUpDown(1);
+        app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -282,7 +269,12 @@ public class A新闻趣头条 {
      * @param phoneCodeDtos
      */
     public static void handle16(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category任务");
+        app.setEvent("category任务-吃饭");
+        app.setEventAdvertStep("category任务-吃饭-advertstep");
+        app.setEventAdvert("category任务-吃饭-advert");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -303,6 +295,14 @@ public class A新闻趣头条 {
 
     }
 
+    /**
+     * todo 19.刮奖
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle19(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+
+    }
 
 
 }
