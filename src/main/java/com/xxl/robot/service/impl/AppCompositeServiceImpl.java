@@ -5,6 +5,7 @@ import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
 import com.xxl.robot.service.AppCompositeService;
 import com.xxl.robot.service.PhoneCodeService;
+import com.xxl.robot.tools.RandomTools;
 import lombok.SneakyThrows;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -219,6 +220,8 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 	@Override
 	public void circulate1(String robotCode){
 		Robot robot = new Robot();
+		robot.delay(RandomTools.init(10000));
+
 		log.info("********************抖音极速版**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"抖音极速版");
  		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.WATCH_ADVERT,dtos1);//观看广告
@@ -226,9 +229,9 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 
 		log.info("********************火山极速版**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList(robotCode,"火山极速版");
+		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.WATCH_VIDEOS,dtos2);//看视频
 		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.WATCH_ADVERT,dtos2);//观看广告
 		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.TREASURE,dtos2);//夺宝
-		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.WATCH_VIDEOS,dtos2);//夺宝
 
 		log.info("********************快手极速版**************************");
 		List<PhoneCodeDto> dtos3 = phoneCodeService.getList(robotCode,"快手极速版");
@@ -262,7 +265,7 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		List<PhoneCodeDto> dtos8 = phoneCodeService.getList(robotCode,"火山小说");
 		A小说火山.handle(robot,robotCode,"火山小说", AppConstants.GIFT_MONEY,dtos8);
 		A小说火山.handle(robot,robotCode,"火山小说", AppConstants.WATCH_ADVERT,dtos8);
-		A小说火山.handle(robot,robotCode,"火山小说", AppConstants.SCRATCH_CARD,dtos8);
+		//A小说火山.handle(robot,robotCode,"火山小说", AppConstants.SCRATCH_CARD,dtos8);
 
 
 
@@ -275,19 +278,19 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		B小说番茄.handle(robot,robotCode,"番茄小说", AppConstants.TREASURE,dtos14);
 		B小说番茄.handle(robot,robotCode,"番茄小说", AppConstants.WATCH_ADVERT,dtos14);
 
-		log.info("********************奇热小说**************************");
+/*		log.info("********************奇热小说**************************");
 		List<PhoneCodeDto> dtos15 = phoneCodeService.getList(robotCode,"奇热小说");
 		B小说奇热.handle(robot,robotCode,"奇热小说", AppConstants.GIFT_MONEY,dtos15);
 		B小说奇热.handle(robot,robotCode,"奇热小说", AppConstants.WATCH_ADVERT,dtos15);
-		B小说奇热.handle(robot,robotCode,"奇热小说", AppConstants.SWEEPSTAKES,dtos15);
+		B小说奇热.handle(robot,robotCode,"奇热小说", AppConstants.SWEEPSTAKES,dtos15);*/
 
 
 
-		log.info("********************晴象浏览器**************************");
+	/*	log.info("********************晴象浏览器**************************");
 		List<PhoneCodeDto> dtos17 = phoneCodeService.getList(robotCode,"晴象浏览器");
 		B浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.GIFT_MONEY,dtos17);
 		B浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.DRAW,dtos17);
-		B浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.SCRATCH_CARD,dtos17);
+		B浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.SCRATCH_CARD,dtos17);*/
 
 
 
