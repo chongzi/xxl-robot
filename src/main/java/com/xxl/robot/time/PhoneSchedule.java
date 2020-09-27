@@ -103,7 +103,7 @@ public class PhoneSchedule {
     /**
      * todo 3.1-循环收取金币大于200金币
      */
-    @Scheduled(cron = "0 0/27 * * * ?")
+    @Scheduled(cron = "0 0/60 * * * ?")
     public void circulate1() throws AWTException {
         log.info("********************3.1-循环收取金币大于200金币 定时器启动**************************");
         Robot robot = new Robot();

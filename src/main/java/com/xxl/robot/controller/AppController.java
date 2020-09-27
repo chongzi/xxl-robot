@@ -24,7 +24,7 @@ public class AppController {
     public BaseResponse start() {
         appService.start("phone001");
         appService.start("phone002");
-
+        appService.start("phone003");
         return BaseResponse.newSuccess();
     }
 
@@ -35,7 +35,7 @@ public class AppController {
     public BaseResponse section1() {
         appService.section1("phone001");
         appService.section1("phone002");
-
+        appService.section1("phone003");
         return BaseResponse.newSuccess();
     }
 
@@ -44,6 +44,7 @@ public class AppController {
     public BaseResponse section2() {
         appService.section2("phone001");
         appService.section2("phone002");
+        appService.section2("phone003");
         return BaseResponse.newSuccess();
     }
 
@@ -60,6 +61,7 @@ public class AppController {
     public BaseResponse section4() {
         appService.section3("phone001");
         appService.section3("phone002");
+        appService.section3("phone003");
         return BaseResponse.newSuccess();
     }
 
@@ -70,6 +72,7 @@ public class AppController {
     public BaseResponse circulate1() {
         appService.circulate1("phone001");
         appService.circulate1("phone002");
+        appService.circulate1("phone003");
         return BaseResponse.newSuccess();
     }
 
@@ -79,6 +82,7 @@ public class AppController {
     public BaseResponse circulate2() {
         appService.circulate2("phone001");
         appService.circulate2("phone002");
+        appService.circulate2("phone003");
         return BaseResponse.newSuccess();
     }
 

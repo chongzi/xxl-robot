@@ -11,11 +11,11 @@ import java.awt.*;
 import java.util.List;
 
 /**
- * todo A微博
+ * todo A新闻QQ阅读
  * app-用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class A微博 {
-    private static Logger log = LoggerFactory.getLogger(A微博.class);
+public class B小说书旗 {
+    private static Logger log = LoggerFactory.getLogger(B小说书旗.class);
 
     /**
      * todo 1.
@@ -92,10 +92,9 @@ public class A微博 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category首页");
-        app.setClear("category首页-clear");
-        app.setEvent("category首页-签到");
-        app.setEventStep("category首页-签到-step");
+        app.setCategory("category福利");
+        app.setEvent("category福利-签到");
+        app.setEventAdvert("category福利-签到-advert");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -127,11 +126,7 @@ public class A微博 {
      * @param phoneCodeDtos
      */
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category任务");
-        app.setEvent("category任务-阅读");
-        app.setEventStep("category任务-阅读-step");
-        app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+
     }
 
 
@@ -141,7 +136,11 @@ public class A微博 {
      * @param phoneCodeDtos
      */
     public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category书城");
+        app.setEvent("category书城-看小说");
+        app.setEventStep("category书城-看小说-step");
+        app.setUpDown(1);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -151,7 +150,11 @@ public class A微博 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category福利");
+        app.setEvent("category福利-看视频广告");
+        app.setEventAdvert("category福利-看视频广告-advert");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**

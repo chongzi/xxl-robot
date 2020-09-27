@@ -11,11 +11,11 @@ import java.awt.*;
 import java.util.List;
 
 /**
- * todo A微博
+ * todo A拼多多
  * app-用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class A微博 {
-    private static Logger log = LoggerFactory.getLogger(A微博.class);
+public class A拼多多 {
+    private static Logger log = LoggerFactory.getLogger(A拼多多.class);
 
     /**
      * todo 1.

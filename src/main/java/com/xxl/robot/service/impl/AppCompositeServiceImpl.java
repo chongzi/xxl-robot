@@ -1,6 +1,5 @@
 package com.xxl.robot.service.impl;
 
-import com.xxl.robot.app.browser.A快乐天气;
 import com.xxl.robot.app.composite.*;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.PhoneCodeDto;
@@ -35,7 +34,7 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 	@Async
 	public void start(String robotCode){
 		Robot robot = new Robot();
-		log.info("********************抖音极速版**************************");
+ 		log.info("********************抖音极速版**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"抖音极速版");
 		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.CHECK_IN,dtos1);
 
@@ -55,15 +54,39 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		List<PhoneCodeDto> dtos5 = phoneCodeService.getList(robotCode,"趣头条");
 		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.CHECK_IN,dtos5);
 
+		log.info("********************搜狐资讯**************************");
+		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"搜狐资讯");
+		A新闻搜狐资讯.handle(robot,robotCode,"搜狐资讯", AppConstants.CHECK_IN,dtos6);
+
+
+
+		log.info("********************QQ阅读**************************");
+		List<PhoneCodeDto> dtos7 = phoneCodeService.getList(robotCode,"QQ阅读");
+		A小说QQ阅读.handle(robot,robotCode,"QQ阅读", AppConstants.CHECK_IN,dtos7);
+
+		log.info("********************火山小说**************************");
+		List<PhoneCodeDto> dtos8 = phoneCodeService.getList(robotCode,"火山小说");
+		A小说火山.handle(robot,robotCode,"火山小说", AppConstants.CHECK_IN,dtos8);
+
 		log.info("********************腾讯NOW直播**************************");
 		List<PhoneCodeDto> dtos9 = phoneCodeService.getList(robotCode,"腾讯NOW直播");
 		A视频腾讯NOW直播.handle(robot,robotCode,"腾讯NOW直播", AppConstants.CHECK_IN,dtos9);
 
-	 	log.info("********************搜狗浏览器**************************");
+
+
+		log.info("********************搜狗浏览器**************************");
 		List<PhoneCodeDto> dtos10 = phoneCodeService.getList(robotCode,"搜狗浏览器");
 		A浏览器搜狗.handle(robot,robotCode,"搜狗浏览器", AppConstants.CHECK_IN,dtos10);
 
+		log.info("********************拼多多**************************");
+		List<PhoneCodeDto> dtos11 = phoneCodeService.getList(robotCode,"拼多多");
+		A拼多多.handle(robot,robotCode,"拼多多",AppConstants.CHECK_IN,dtos11);
 
+
+
+		log.info("********************书旗小说**************************");
+		List<PhoneCodeDto> dtos13 = phoneCodeService.getList(robotCode,"书旗小说");
+		B小说书旗.handle(robot,robotCode,"书旗小说",AppConstants.CHECK_IN,dtos13);
 
 		log.info("********************番茄小说**************************");
 		List<PhoneCodeDto> dtos14 = phoneCodeService.getList(robotCode,"番茄小说");
@@ -72,6 +95,8 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		log.info("********************奇热小说**************************");
 		List<PhoneCodeDto> dtos15 = phoneCodeService.getList(robotCode,"奇热小说");
 		B小说奇热.handle(robot,robotCode,"奇热小说", AppConstants.CHECK_IN,dtos15);
+
+
 
 		log.info("********************晴象浏览器**************************");
 		List<PhoneCodeDto> dtos17 = phoneCodeService.getList(robotCode,"晴象浏览器");
@@ -114,6 +139,10 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		List<PhoneCodeDto> dtos5 = phoneCodeService.getList(robotCode,"趣头条");
 		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.WATCH_NOVELS,dtos5);
 
+		log.info("********************搜狐资讯**************************");
+		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"搜狐资讯");
+		A新闻搜狐资讯.handle(robot,robotCode,"搜狐资讯", AppConstants.EAT,dtos6);
+
 		log.info("********************晴象浏览器**************************");
 		List<PhoneCodeDto> dtos17 = phoneCodeService.getList(robotCode,"晴象浏览器");
 		B浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.OTHER_QINGXIANG_WATCH_VIDEOS,dtos17);
@@ -126,7 +155,11 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 	@SneakyThrows
 	@Override
 	public void  section2(String robotCode){
+		Robot robot = new Robot();
 
+		log.info("********************搜狐资讯**************************");
+		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"搜狐资讯");
+		A新闻搜狐资讯.handle(robot,robotCode,"搜狐资讯", AppConstants.EAT,dtos6);
 	}
 	/**
 	 * todo 2.3-下午19：00-20：00（吃饭，喝水，打卡，种菜，分享，游戏，充电）
@@ -135,7 +168,11 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 	@SneakyThrows
 	@Override
 	public void  section3(String robotCode){
+		Robot robot = new Robot();
 
+		log.info("********************搜狐资讯**************************");
+		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"搜狐资讯");
+		A新闻搜狐资讯.handle(robot,robotCode,"搜狐资讯", AppConstants.EAT,dtos6);
 	}
 	/**
 	 * todo 2.4-晚上23：00-24：00（睡觉打卡，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）
@@ -166,6 +203,10 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.WALK,dtos5);
 		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.SLEEP,dtos5);
 
+		log.info("********************搜狐资讯**************************");
+		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"搜狐资讯");
+		A新闻搜狐资讯.handle(robot,robotCode,"搜狐资讯", AppConstants.EAT,dtos6);
+		A新闻搜狐资讯.handle(robot,robotCode,"搜狐资讯", AppConstants.SHARE,dtos6);
 
 	}
 
@@ -180,18 +221,21 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		Robot robot = new Robot();
 		log.info("********************抖音极速版**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"抖音极速版");
-		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.WATCH_ADVERT,dtos1);//观看广告
-		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.TREASURE,dtos1);//夺宝
-
+ 		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.WATCH_ADVERT,dtos1);//观看广告
+		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.TREASURE,dtos1);//夺宝 
 
 		log.info("********************火山极速版**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList(robotCode,"火山极速版");
 		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.WATCH_ADVERT,dtos2);//观看广告
 		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.TREASURE,dtos2);//夺宝
+		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.WATCH_VIDEOS,dtos2);//夺宝
 
 		log.info("********************快手极速版**************************");
 		List<PhoneCodeDto> dtos3 = phoneCodeService.getList(robotCode,"快手极速版");
 		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.WATCH_ADVERT,dtos3);
+		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.WATCH_VIDEOS,dtos3);
+
+
 
 		log.info("********************今日头条**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"今日头条");
@@ -203,12 +247,41 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.WATCH_ADVERT,dtos5);
 		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.GIFT_MONEY,dtos5);
 
+		log.info("********************搜狐资讯**************************");
+		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"搜狐资讯");
+		A新闻搜狐资讯.handle(robot,robotCode,"搜狐资讯", AppConstants.WATCH_VIDEOS,dtos6);
 
+
+
+		log.info("********************QQ阅读**************************");
+		List<PhoneCodeDto> dtos7 = phoneCodeService.getList(robotCode,"QQ阅读");
+		A小说QQ阅读.handle(robot,robotCode,"QQ阅读", AppConstants.TREASURE,dtos7);
+		A小说QQ阅读.handle(robot,robotCode,"QQ阅读", AppConstants.WATCH_ADVERT,dtos7);
+
+		log.info("********************火山小说**************************");
+		List<PhoneCodeDto> dtos8 = phoneCodeService.getList(robotCode,"火山小说");
+		A小说火山.handle(robot,robotCode,"火山小说", AppConstants.GIFT_MONEY,dtos8);
+		A小说火山.handle(robot,robotCode,"火山小说", AppConstants.WATCH_ADVERT,dtos8);
+		A小说火山.handle(robot,robotCode,"火山小说", AppConstants.SCRATCH_CARD,dtos8);
+
+
+
+		log.info("********************书旗小说**************************");
+		List<PhoneCodeDto> dtos13 = phoneCodeService.getList(robotCode,"书旗小说");
+		B小说书旗.handle(robot,robotCode,"书旗小说",AppConstants.WATCH_ADVERT,dtos13);
 
 		log.info("********************番茄小说**************************");
 		List<PhoneCodeDto> dtos14 = phoneCodeService.getList(robotCode,"番茄小说");
 		B小说番茄.handle(robot,robotCode,"番茄小说", AppConstants.TREASURE,dtos14);
 		B小说番茄.handle(robot,robotCode,"番茄小说", AppConstants.WATCH_ADVERT,dtos14);
+
+		log.info("********************奇热小说**************************");
+		List<PhoneCodeDto> dtos15 = phoneCodeService.getList(robotCode,"奇热小说");
+		B小说奇热.handle(robot,robotCode,"奇热小说", AppConstants.GIFT_MONEY,dtos15);
+		B小说奇热.handle(robot,robotCode,"奇热小说", AppConstants.WATCH_ADVERT,dtos15);
+		B小说奇热.handle(robot,robotCode,"奇热小说", AppConstants.SWEEPSTAKES,dtos15);
+
+
 
 		log.info("********************晴象浏览器**************************");
 		List<PhoneCodeDto> dtos17 = phoneCodeService.getList(robotCode,"晴象浏览器");
@@ -230,6 +303,31 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 	@SneakyThrows
 	@Override
 	public void circulate2(String robotCode){
+		Robot robot = new Robot();
+
+		log.info("********************QQ阅读**************************");
+		List<PhoneCodeDto> dtos7 = phoneCodeService.getList(robotCode,"QQ阅读");
+		A小说QQ阅读.handle(robot,robotCode,"QQ阅读", AppConstants.WATCH_NOVELS,dtos7);
+
+		log.info("********************火山小说**************************");
+		List<PhoneCodeDto> dtos8 = phoneCodeService.getList(robotCode,"火山小说");
+		A小说火山.handle(robot,robotCode,"火山小说", AppConstants.WATCH_NOVELS,dtos8);
+
+
+
+
+		log.info("********************书旗小说**************************");
+		List<PhoneCodeDto> dtos13 = phoneCodeService.getList(robotCode,"书旗小说");
+		B小说书旗.handle(robot,robotCode,"书旗小说",AppConstants.WATCH_NOVELS,dtos13);
+
+		log.info("********************番茄小说**************************");
+		List<PhoneCodeDto> dtos14 = phoneCodeService.getList(robotCode,"番茄小说");
+		B小说番茄.handle(robot,robotCode,"番茄小说", AppConstants.WATCH_NOVELS,dtos14);
+
+		log.info("********************奇热小说**************************");
+		List<PhoneCodeDto> dtos15 = phoneCodeService.getList(robotCode,"奇热小说");
+		B小说奇热.handle(robot,robotCode,"奇热小说", AppConstants.WATCH_NOVELS,dtos15);
+
 
 	}
 

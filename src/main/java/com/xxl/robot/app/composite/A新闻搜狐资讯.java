@@ -11,11 +11,11 @@ import java.awt.*;
 import java.util.List;
 
 /**
- * todo A微博
+ * todo A新闻今日头条
  * app-用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class A微博 {
-    private static Logger log = LoggerFactory.getLogger(A微博.class);
+public class A新闻搜狐资讯 {
+    private static Logger log = LoggerFactory.getLogger(A新闻搜狐资讯.class);
 
     /**
      * todo 1.
@@ -92,10 +92,9 @@ public class A微博 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category首页");
-        app.setClear("category首页-clear");
-        app.setEvent("category首页-签到");
-        app.setEventStep("category首页-签到-step");
+        app.setCategory("category赚钱");
+        app.setEvent("category赚钱-签到");
+        app.setEventAdvert("category赚钱-签到-advert");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -107,7 +106,11 @@ public class A微博 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category视频");
+        app.setEvent("category视频-看视频");
+        app.setEventStep("category视频-看视频-step");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -127,9 +130,9 @@ public class A微博 {
      * @param phoneCodeDtos
      */
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category任务");
-        app.setEvent("category任务-阅读");
-        app.setEventStep("category任务-阅读-step");
+        app.setCategory("category首页");
+        app.setEvent("category首页-看新闻");
+        app.setEventStep("category首页-看新闻-step");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -248,7 +251,11 @@ public class A微博 {
      * @param phoneCodeDtos
      */
     public static void handle16(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category赚钱");
+        app.setEvent("category赚钱-吃早饭");
+        app.setEventAdvert("category赚钱-吃早饭-advert");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -257,7 +264,12 @@ public class A微博 {
      * @param phoneCodeDtos
      */
     public static void handle17(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category视频");
+        app.setEvent("category视频-分享");
+        app.setEventStep("category视频-分享-step");
+        app.setEventStep1("category视频-分享-step1");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**

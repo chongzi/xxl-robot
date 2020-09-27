@@ -11,7 +11,7 @@ import java.awt.*;
 import java.util.List;
 
 /**
- * todo A新闻今日头条
+ * todo A视频快手
  * app-用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
 public class A视频快手 {
@@ -93,9 +93,9 @@ public class A视频快手 {
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setClear("category首页-clear");
-        app.setCategory("category首页");
-        app.setEvent("category首页-去赚钱");
-        app.setEventStep("category首页-去赚钱-签到");
+        app.setEvent("category首页");
+        app.setEventStep("category首页-去赚钱");
+        app.setEventStep1("category首页-去赚钱-签到");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
