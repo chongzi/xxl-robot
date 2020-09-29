@@ -157,7 +157,7 @@ public class A视频抖音 {
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category来赚钱");
         app.setEvent("category来赚钱-看广告");
-       // app.setEventAdvert("category来赚钱-看广告-advert");
+        app.setEventAdvert("category来赚钱-看广告-advert");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -191,7 +191,7 @@ public class A视频抖音 {
     public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category来赚钱");
         app.setEvent("category来赚钱-开宝箱");
-        //app.setEventAdvert("category来赚钱-开宝箱-advert");
+        app.setEventAdvert("category来赚钱-开宝箱-advert");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -298,6 +298,22 @@ public class A视频抖音 {
     public static void handle19(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

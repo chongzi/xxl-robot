@@ -36,6 +36,8 @@ public class AppUserTools {
             androidId = PhoneConstants.phone003;
         }else if(robotCode.equals("phone004")) {
             androidId = PhoneConstants.phone004;
+        }else if(robotCode.equals("phone005")) {
+            androidId = PhoneConstants.phone005;
         }
 
 
@@ -187,6 +189,22 @@ public class AppUserTools {
 
             log.info("9.删除缓存");
             String operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(1860));
+            MouseTools.fastNormalEvent(robot, operateDelete);
+        }else if(androidId.equals(PhoneConstants.phone004)) {
+            log.info("8.调取缓存");
+            String operateDispath = AdbTools.tap(androidId, String.valueOf(320), String.valueOf(2090));
+            MouseTools.fastNormalEvent(robot, operateDispath);
+
+            log.info("9.删除缓存");
+            String operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(1860));
+            MouseTools.fastNormalEvent(robot, operateDelete);
+        }else if(androidId.equals(PhoneConstants.phone005)) {
+            log.info("8.调取缓存");
+            String operateDispath = "adb -s "+androidId +" shell input keyevent 84";
+            MouseTools.fastNormalEvent(robot, operateDispath);
+
+            log.info("9.删除缓存");
+            String operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(1730));
             MouseTools.fastNormalEvent(robot, operateDelete);
         }
 

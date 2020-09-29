@@ -269,14 +269,14 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 
 
 
-		log.info("********************书旗小说**************************");
+	/*	log.info("********************书旗小说**************************");
 		List<PhoneCodeDto> dtos13 = phoneCodeService.getList(robotCode,"书旗小说");
 		B小说书旗.handle(robot,robotCode,"书旗小说",AppConstants.WATCH_ADVERT,dtos13);
 
 		log.info("********************番茄小说**************************");
 		List<PhoneCodeDto> dtos14 = phoneCodeService.getList(robotCode,"番茄小说");
 		B小说番茄.handle(robot,robotCode,"番茄小说", AppConstants.TREASURE,dtos14);
-		B小说番茄.handle(robot,robotCode,"番茄小说", AppConstants.WATCH_ADVERT,dtos14);
+		B小说番茄.handle(robot,robotCode,"番茄小说", AppConstants.WATCH_ADVERT,dtos14);*/
 
 /*		log.info("********************奇热小说**************************");
 		List<PhoneCodeDto> dtos15 = phoneCodeService.getList(robotCode,"奇热小说");
