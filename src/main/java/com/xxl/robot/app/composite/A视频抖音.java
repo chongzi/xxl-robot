@@ -82,6 +82,9 @@ public class A视频抖音 {
             case AppConstants.SCRATCH_CARD://刮奖
                 handle19(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
+            case AppConstants.APP_CIRCULATE1://高速循环
+                handle880(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                break;
         }
 
     }
@@ -299,7 +302,16 @@ public class A视频抖音 {
 
     }
 
-
+    /**
+     * todo 880.高速循环
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle880(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        log.info("1.初始化看视频");
+        log.info("2.开宝箱");
+        log.info("3.开");
+    }
 
 
 

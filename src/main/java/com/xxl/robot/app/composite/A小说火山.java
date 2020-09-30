@@ -153,7 +153,7 @@ public class A小说火山 {
         app.setCategory("category赚钱");
         app.setEvent("category赚钱-看广告");
         app.setEventAdvert("category赚钱-看广告-advert");
-        app.setUpDown(0);
+        app.setUpDown(1);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -173,8 +173,8 @@ public class A小说火山 {
      * @param phoneCodeDtos
      */
     public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setCategory("category赚钱");
-        app.setEvent("category赚钱-领红包");
+        app.setCategory("category书架");
+        app.setEvent("category书架-领红包");
         app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -200,7 +200,7 @@ public class A小说火山 {
         app.setCategory("category赚钱");
         app.setEvent("category赚钱-抽奖");
         app.setEventStep("category赚钱-抽奖-step");
-        app.setUpDown(0);
+        app.setUpDown(1);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 

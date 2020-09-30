@@ -260,7 +260,7 @@ public class AppUserTools {
      */
     public static void handle2(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app,String  androidId){
         try {
-            for (int a = 0; a < RandomTools.init(6); a++) {
+            for (int a = 0; a < RandomTools.init(16); a++) {
                 robot.delay(RandomTools.init(20000));
                 MouseTools.normalEvent(robot, AdbTools.downPage(androidId));
                 robot.delay(RandomTools.init(6000));

@@ -5,6 +5,9 @@ package com.xxl.robot.constants;
  */
 public class AppConstants {
 
+    public static final String APP_CIRCULATE1 = "高速循环";
+
+
     public static final String CHECK_IN = "签到";
     public static final String WATCH_VIDEOS = "看视频";
     public static final String WATCH_VIDEOS_SMALL = "看小视频";

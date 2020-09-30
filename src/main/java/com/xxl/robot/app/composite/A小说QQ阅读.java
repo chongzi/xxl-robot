@@ -186,7 +186,11 @@ public class A小说QQ阅读 {
      * @param phoneCodeDtos
      */
     public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setCategory("category书架");
+        app.setEvent("category书架-现金中心");
+        app.setEventStep("category书架-现金中心-开宝箱");
+        app.setUpDown(0);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 

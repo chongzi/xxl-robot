@@ -159,7 +159,7 @@ public class A新闻趣头条 {
         app.setCategory("category任务");
         app.setEvent("category任务-看广告");
         app.setEventAdvert("category任务-看广告-advert");
-        app.setUpDown(1);
+        app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -197,7 +197,7 @@ public class A新闻趣头条 {
         app.setCategory("category任务");
         app.setEvent("category任务-开宝箱");
         app.setEventAdvert("category任务-开宝箱-advert");
-        app.setUpDown(1);
+        app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -226,7 +226,7 @@ public class A新闻趣头条 {
         app.setEvent("category任务-睡觉");
         app.setEventStep("category任务-睡觉-step");
         app.setEventStep1("category任务-睡觉-step1");
-        app.setUpDown(1);
+        app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
@@ -239,7 +239,7 @@ public class A新闻趣头条 {
         app.setCategory("category任务");
         app.setEvent("category任务-走路");
         app.setEventStep("category任务-走路-step");
-        app.setUpDown(1);
+        app.setUpDown(0);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
