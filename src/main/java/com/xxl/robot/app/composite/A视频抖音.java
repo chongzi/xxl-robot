@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -99,7 +100,9 @@ public class A视频抖音 {
         app.setEvent("category来赚钱-签到");
         app.setEventAdvert("category来赚钱-签到-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -113,7 +116,9 @@ public class A视频抖音 {
         app.setEvent("category首页-看视频");
         app.setEventGiveUP("category首页-看视频-giveup");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -148,7 +153,9 @@ public class A视频抖音 {
         app.setEventStep("category来赚钱-看小说-step");
         app.setEventStep1("category来赚钱-看小说-step1");
         app.setUpDown(1);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -162,7 +169,9 @@ public class A视频抖音 {
         app.setEvent("category来赚钱-看广告");
         app.setEventAdvert("category来赚钱-看广告-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
     /**
@@ -196,7 +205,9 @@ public class A视频抖音 {
         app.setEvent("category来赚钱-开宝箱");
         app.setEventAdvert("category来赚钱-开宝箱-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -221,7 +232,9 @@ public class A视频抖音 {
         app.setEventAdvertStep("category来赚钱-睡觉赚金币-advertstep");
         app.setEventAdvert("category来赚钱-睡觉赚金币-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
     /**
@@ -234,7 +247,9 @@ public class A视频抖音 {
         app.setEvent("category来赚钱-走路");
         app.setEventStep("category来赚钱-走路-step");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 

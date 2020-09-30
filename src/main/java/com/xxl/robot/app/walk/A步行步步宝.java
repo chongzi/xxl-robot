@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -94,7 +95,9 @@ public class A步行步步宝 {
         app.setEvent("category首页-签到");
         app.setEventAdvert("category首页-签到-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -129,7 +132,9 @@ public class A步行步步宝 {
         app.setEvent("category看看-看新闻");
         app.setEventStep("category看看-看新闻");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
     /**
@@ -143,7 +148,9 @@ public class A步行步步宝 {
         app.setEventStep("category首页-看看赚-step");
         app.setEventBack("category首页-看看赚-back");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -186,7 +193,9 @@ public class A步行步步宝 {
         app.setEvent("category首页-领红包");
         app.setEventAdvert("category首页-领红包-advert");
         app.setEventBack("category首页-领红包-back");
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -212,7 +221,9 @@ public class A步行步步宝 {
         app.setEvent("category首页-抽奖");
         app.setEventStep("category首页-抽奖-step");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 

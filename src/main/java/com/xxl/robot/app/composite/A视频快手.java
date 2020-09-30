@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -97,7 +98,9 @@ public class A视频快手 {
         app.setEventStep("category首页-去赚钱");
         app.setEventStep1("category首页-去赚钱-签到");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -111,7 +114,9 @@ public class A视频快手 {
         app.setEvent("category发现-看视频");
         app.setEventGiveUP("category发现-看视频-giveup");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 

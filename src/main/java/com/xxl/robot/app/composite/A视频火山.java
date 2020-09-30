@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -97,7 +98,9 @@ public class A视频火山 {
         app.setEvent("category红包-签到");
         app.setEventAdvert("category红包-签到-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -111,7 +114,9 @@ public class A视频火山 {
         app.setEvent("category首页-看视频");
         app.setEventGiveUP("category首页-看视频-giveup");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -155,7 +160,9 @@ public class A视频火山 {
         app.setEvent("category红包-看广告");
         app.setEventAdvert("category红包-看广告-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
     /**
@@ -189,7 +196,9 @@ public class A视频火山 {
         app.setEvent("category红包-开宝箱");
         app.setEventAdvert("category红包-开宝箱-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -214,7 +223,9 @@ public class A视频火山 {
         app.setEventAdvertStep("category红包-睡觉-advertstep");
         app.setEventAdvert("category红包-睡觉-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
     /**
@@ -227,7 +238,9 @@ public class A视频火山 {
         app.setEvent("category红包-走路");
         app.setEventStep("category红包-走路-step");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -287,7 +300,9 @@ public class A视频火山 {
         app.setEvent("category红包-摇钱树");
         app.setEventStep("category红包-摇钱树-step");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
 
     }
 

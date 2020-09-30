@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import java.awt.*;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -97,7 +98,9 @@ public class A小说米读 {
         app.setEvent("category福利-签到");
         app.setEventAdvert("category福利-签到-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -141,7 +144,9 @@ public class A小说米读 {
         app.setCategory("category福利");
         app.setEvent("category福利-看小说");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 

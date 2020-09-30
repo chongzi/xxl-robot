@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -100,7 +101,9 @@ public class A步行多多 {
         app.setEventAdvert("category赚赚-签到");
         app.setClear("category赚赚-清除");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -155,7 +158,9 @@ public class A步行多多 {
         app.setEventAdvert("category赚赚-看广告-advert");
         app.setEventBack("category福利-刮奖-back");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
     /**
@@ -178,7 +183,9 @@ public class A步行多多 {
         app.setEvent("category走走-左上方红包");
         app.setEventAdvert("category走走-左上方红包-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
     /**
@@ -191,7 +198,9 @@ public class A步行多多 {
         app.setEvent("category走走-左下方红包");
         app.setEventAdvert("category走走-左下方红包-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
     /**
@@ -204,7 +213,9 @@ public class A步行多多 {
         app.setEvent("category走走-右上方红包");
         app.setEventAdvert("category走走-右上方红包-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
     /**
@@ -217,7 +228,9 @@ public class A步行多多 {
         app.setEvent("category走走-右下方红包");
         app.setEventAdvert("category走走-右下方红包-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -261,7 +274,9 @@ public class A步行多多 {
         app.setEvent("category走走-走路");
         app.setEventStep("category走走-走路-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -331,7 +346,9 @@ public class A步行多多 {
             app.setEvent("category福利-刮奖");
             app.setEventAdvertStep("category福利-刮奖-advertstep");
             app.setUpDown(0);
-            AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
+            List<AppDto> apps= new ArrayList<>();
+            apps.add(app);
+            AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
         }
     }
 

@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import java.awt.*;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -96,7 +97,9 @@ public class A新闻趣新闻 {
         app.setCategory("category任务");
         app.setEvent("category任务-签到");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+           List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -131,7 +134,9 @@ public class A新闻趣新闻 {
         app.setEvent("category新闻-看新闻");
         app.setEventStep("category新闻-看新闻-step");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+           List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -155,7 +160,9 @@ public class A新闻趣新闻 {
         app.setEvent("category任务-看广告");
         app.setEventAdvert("category任务-看广告-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+           List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
     /**
@@ -176,7 +183,9 @@ public class A新闻趣新闻 {
     public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category新闻");
         app.setEvent("category新闻-领红包");
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+           List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 

@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -96,7 +97,9 @@ public class A步行赚赚多 {
         app.setEvent("category赚赚-签到");
         app.setEventAdvert("category赚赚-签到-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -152,7 +155,9 @@ public class A步行赚赚多 {
         app.setEventAdvert("category赚赚-看视频广告-advert");
         app.setEventBack("category赚赚-看视频广告-back");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
     /**
@@ -284,7 +289,10 @@ public class A步行赚赚多 {
             app.setEventStep("category试手气-刮奖-step");
             app.setEventBack("category试手气-刮奖-back");
             app.setUpDown(0);
-            AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
+            List<AppDto> apps= new ArrayList<>();
+            apps.add(app);
+            AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
         }
     }
 

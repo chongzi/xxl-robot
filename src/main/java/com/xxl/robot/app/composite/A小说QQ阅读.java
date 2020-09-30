@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -97,7 +98,9 @@ public class A小说QQ阅读 {
         app.setEventAdvertStep("category书架-现金中心-签到");
         app.setEventAdvert("category书架-现金中心-签到-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -141,7 +144,9 @@ public class A小说QQ阅读 {
         app.setEvent("category精选-看小说");
         app.setEventStep("category精选-看小说-step");
         app.setUpDown(1);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -156,7 +161,9 @@ public class A小说QQ阅读 {
         app.setEventAdvertStep("category书架-现金中心-看广告");
         app.setEventAdvert("category书架-现金中心-看广告-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
     /**
@@ -190,7 +197,9 @@ public class A小说QQ阅读 {
         app.setEvent("category书架-现金中心");
         app.setEventStep("category书架-现金中心-开宝箱");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 

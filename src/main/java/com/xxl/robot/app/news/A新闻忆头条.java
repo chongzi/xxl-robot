@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import java.awt.*;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -96,7 +97,9 @@ public class A新闻忆头条 {
         app.setCategory("category任务");
         app.setEvent("category任务-签到");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -121,7 +124,9 @@ public class A新闻忆头条 {
         app.setEvent("category视频-看视频");
         app.setEventStep("category视频-看视频-step");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -135,7 +140,9 @@ public class A新闻忆头条 {
         app.setEvent("category头条-看新闻");
         app.setEventStep("category头条-看新闻-step");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 

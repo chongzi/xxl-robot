@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -101,7 +102,9 @@ public class A步行步数 {
         app.setEvent("category赚赚-签到");
         app.setEventAdvert("category赚赚-签到");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -156,7 +159,9 @@ public class A步行步数 {
         app.setEvent("category赚赚-看广告");
         app.setEventAdvert("category赚赚-看广告-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
     /**
@@ -180,7 +185,9 @@ public class A步行步数 {
         app.setEvent("category首页-领红包");
         app.setEventAdvert("category首页-领红包-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
     /**
@@ -194,7 +201,9 @@ public class A步行步数 {
         app.setEvent("category首页-领视频红包");
         app.setEventAdvert("category首页-领视频红包-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
     /**
@@ -203,16 +212,22 @@ public class A步行步数 {
      * @param phoneCodeDtos
      */
     public static void handle82(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+/*
         app.setClear("category全局-清除");
         app.setCategory("category首页");
         app.setEvent("category首页-领每日红包");
         app.setEventAdvert("category首页-领每日红包-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
 
         for(int i=0;i<6;i++){
-            AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+            List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
         }
+*/
 
     }
 
@@ -258,7 +273,9 @@ public class A步行步数 {
         app.setEvent("category首页-走路步数");
         app.setEventAdvert("category首页-走路步数-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
     /**
@@ -272,7 +289,9 @@ public class A步行步数 {
         app.setEvent("category首页-走路视频步数");
         app.setEventAdvert("category首页-走路视频步数-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 

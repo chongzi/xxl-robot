@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -93,7 +94,9 @@ public class B小说奇热 {
         app.setEvent("category赚钱-签到");
         app.setEventAdvert("category赚钱-签到-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -127,7 +130,9 @@ public class B小说奇热 {
         app.setEvent("category赚钱-看新闻");
         app.setEventStep("category赚钱-看新闻-step");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -152,7 +157,9 @@ public class B小说奇热 {
         app.setEventAdvert("category赚钱-看视频广告-advert");
         app.setEventBack("category赚钱-看视频广告-back");
         app.setUpDown(1);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
     /**
@@ -174,7 +181,9 @@ public class B小说奇热 {
         app.setCategory("category书城");
         app.setEvent("category书城-领红包");
         app.setEventAdvert("category书城-领红包-advert");
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -201,7 +210,9 @@ public class B小说奇热 {
         app.setEventAdvert("category赚钱-抽奖-advertstep");
         app.setEventAdvert("category赚钱-抽奖-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        List<AppDto> apps= new ArrayList<>();
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
