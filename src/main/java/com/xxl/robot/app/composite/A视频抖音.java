@@ -323,8 +323,27 @@ public class A视频抖音 {
      */
     public static void handle880(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         log.info("1.初始化看视频");
+        AppDto app = new AppDto();
+        app.setCategory("category首页");
+        app.setEvent("category首页-看视频");
+        app.setEventGiveUP("category首页-看视频-giveup");
+        apps.add(app);
+
         log.info("2.开宝箱");
-        log.info("3.开");
+        AppDto app2 = new AppDto();
+        app2.setCategory("category来赚钱");
+        app2.setEvent("category来赚钱-开宝箱");
+        app2.setEventAdvert("category来赚钱-开宝箱-advert");
+        app2.setUpDown(0);
+        apps.add(app2);
+
+        log.info("3.看广告");
+        AppDto app3 = new AppDto();
+        app3.setCategory("category来赚钱");
+        app3.setEvent("category来赚钱-看广告");
+        app3.setEventAdvert("category来赚钱-看广告-advert");
+        app3.setUpDown(0);
+        apps.add(app3);
     }
 
 

@@ -83,6 +83,9 @@ public class A视频快手 {
             case AppConstants.SCRATCH_CARD://刮奖
                 handle19(robot, robotCode, appCode, event, phoneCodeDtos, apps);
                 break;
+            case AppConstants.APP_CIRCULATE1://高速循环
+                handle880(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                break;
         }
 
     }
@@ -278,6 +281,22 @@ public class A视频快手 {
      * @param phoneCodeDtos
      */
     public static void handle19(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
+
+    }
+
+    /**
+     * todo 880.高速循环
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle880(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
+        log.info("1.初始化看视频");
+        AppDto app = new AppDto();
+        app.setCategory("category发现");
+        app.setEvent("category发现-看视频");
+        app.setEventGiveUP("category发现-看视频-giveup");
+        apps.add(app);
+
 
     }
 

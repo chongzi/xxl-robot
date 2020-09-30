@@ -83,6 +83,9 @@ public class A新闻今日头条 {
             case AppConstants.SCRATCH_CARD://刮奖
                 handle19(robot, robotCode, appCode, event, phoneCodeDtos, apps);
                 break;
+            case AppConstants.APP_CIRCULATE1://高速循环
+                handle880(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                break;
         }
 
     }
@@ -130,7 +133,6 @@ public class A新闻今日头条 {
      */
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app= new AppDto();
-
         app.setCategory("category任务");
         app.setEvent("category任务-阅读");
         app.setEventStep("category任务-阅读-step");
@@ -320,6 +322,30 @@ public class A新闻今日头条 {
      */
     public static void handle19(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
 
+    }
+
+
+    /**
+     * todo 880.高速循环
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle880(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
+        log.info("2.开宝箱");
+        AppDto app2 = new AppDto();
+        app2.setCategory("category红包");
+        app2.setEvent("category红包-开宝箱");
+        app2.setEventAdvert("category红包-开宝箱-advert");
+        app2.setUpDown(0);
+        apps.add(app2);
+
+        log.info("3.看新闻");
+        AppDto app4 = new AppDto();
+        app4.setCategory("category任务");
+        app4.setEvent("category任务-阅读");
+        app4.setEventStep("category任务-阅读-step");
+        app4.setUpDown(0);
+        apps.add(app4);
     }
 
 
