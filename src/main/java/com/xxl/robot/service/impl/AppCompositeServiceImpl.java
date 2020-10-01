@@ -220,34 +220,27 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 	@Override
 	public void circulate1(String robotCode){
 		Robot robot = new Robot();
-		robot.delay(RandomTools.init(10000));
 
 		log.info("********************抖音极速版**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"抖音极速版");
-		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.WATCH_VIDEOS,dtos1);//观看视频
-		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.TREASURE,dtos1);//夺宝
- 		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.WATCH_ADVERT,dtos1);//观看广告
-
+ 		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.APP_CIRCULATE1,dtos1);//观看广告
 
 
 		log.info("********************火山极速版**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList(robotCode,"火山极速版");
-		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.WATCH_VIDEOS,dtos2);//看视频
-		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.TREASURE,dtos2);//夺宝
-		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.WATCH_ADVERT,dtos2);//观看广告
+		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.APP_CIRCULATE1,dtos2);//观看广告
 
 
 		log.info("********************快手极速版**************************");
 		List<PhoneCodeDto> dtos3 = phoneCodeService.getList(robotCode,"快手极速版");
-		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.WATCH_VIDEOS,dtos3);
-		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.WATCH_ADVERT,dtos3);
+		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.APP_CIRCULATE1,dtos3);
 
 
 
 
 		log.info("********************今日头条**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"今日头条");
-		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.TREASURE,dtos4);
+		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.APP_CIRCULATE1,dtos4);
 
 	/*	log.info("********************趣头条**************************");
 		List<PhoneCodeDto> dtos5 = phoneCodeService.getList(robotCode,"趣头条");

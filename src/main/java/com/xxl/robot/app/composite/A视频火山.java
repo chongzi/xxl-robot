@@ -327,6 +327,7 @@ public class A视频火山 {
     public static void handle880(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         log.info("1.初始化看视频");
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.WATCH_VIDEOS);
         app.setCategory("category首页");
         app.setEvent("category首页-看视频");
         app.setEventGiveUP("category首页-看视频-giveup");
@@ -335,6 +336,7 @@ public class A视频火山 {
 
         log.info("2.开宝箱");
         AppDto app2 = new AppDto();
+        app2.setOperate(AppConstants.TREASURE);
         app2.setCategory("category红包");
         app2.setEvent("category红包-开宝箱");
         app2.setEventAdvert("category红包-开宝箱-advert");
@@ -343,11 +345,13 @@ public class A视频火山 {
 
         log.info("3.看广告");
         AppDto app3 = new AppDto();
+        app3.setOperate(AppConstants.WATCH_ADVERT);
         app3.setCategory("category红包");
         app3.setEvent("category红包-看广告");
         app3.setEventAdvert("category红包-看广告-advert");
         app3.setUpDown(0);
         apps.add(app3);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 

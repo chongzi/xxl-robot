@@ -9,6 +9,9 @@ import lombok.Data;
 public class AppDto {
     private static final long serialVersionUID = 1L;
 
+    @ApiModelProperty(value="用户操作方式")
+    private String operate;
+
     @ApiModelProperty(value="全局清除")
     private String clear;
     @ApiModelProperty(value="分类")

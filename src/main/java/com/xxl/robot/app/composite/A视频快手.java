@@ -292,11 +292,12 @@ public class A视频快手 {
     public static void handle880(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         log.info("1.初始化看视频");
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.WATCH_VIDEOS);
         app.setCategory("category发现");
         app.setEvent("category发现-看视频");
         app.setEventGiveUP("category发现-看视频-giveup");
         apps.add(app);
-
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
 
     }
 

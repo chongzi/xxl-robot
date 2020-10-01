@@ -333,6 +333,7 @@ public class A新闻今日头条 {
     public static void handle880(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         log.info("2.开宝箱");
         AppDto app2 = new AppDto();
+        app2.setOperate(AppConstants.TREASURE);
         app2.setCategory("category红包");
         app2.setEvent("category红包-开宝箱");
         app2.setEventAdvert("category红包-开宝箱-advert");
@@ -341,11 +342,14 @@ public class A新闻今日头条 {
 
         log.info("3.看新闻");
         AppDto app4 = new AppDto();
+        app4.setOperate(AppConstants.WATCH_NEWS);
         app4.setCategory("category任务");
         app4.setEvent("category任务-阅读");
         app4.setEventStep("category任务-阅读-step");
         app4.setUpDown(0);
         apps.add(app4);
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
