@@ -97,6 +97,7 @@ public class A视频快手 {
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.CHECK_IN);
         app.setClear("category首页-clear");
         app.setEvent("category首页");
         app.setEventStep("category首页-去赚钱");
@@ -187,7 +188,13 @@ public class A视频快手 {
      * @param phoneCodeDtos
      */
     public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
-
+        AppDto app = new AppDto();
+        app.setClear("category首页-clear");
+        app.setEvent("category首页");
+        app.setEventStep("category首页-去赚钱");
+        app.setEventAdvertStep("category首页-去赚钱-开宝箱");
+        apps.add(app);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
     }
 
 
@@ -290,13 +297,19 @@ public class A视频快手 {
      * @param phoneCodeDtos
      */
     public static void handle880(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
-        log.info("1.初始化看视频");
         AppDto app = new AppDto();
         app.setOperate(AppConstants.WATCH_VIDEOS);
         app.setCategory("category发现");
         app.setEvent("category发现-看视频");
         app.setEventGiveUP("category发现-看视频-giveup");
         apps.add(app);
+
+        AppDto app1 = new AppDto();
+        app.setOperate(AppConstants.TREASURE);
+        app1.setEvent("category首页");
+        app1.setEventStep("category首页-去赚钱");
+        app1.setEventAdvertStep("category首页-去赚钱-开宝箱");
+        apps.add(app1);
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
 
     }

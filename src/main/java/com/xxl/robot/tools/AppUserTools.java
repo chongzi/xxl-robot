@@ -37,6 +37,8 @@ public class AppUserTools {
             androidId = PhoneConstants.phone004;
         }else if(robotCode.equals("phone005")) {
             androidId = PhoneConstants.phone005;
+        }else if(robotCode.equals("phone006")) {
+            androidId = PhoneConstants.phone006;
         }
 
 
@@ -52,6 +54,8 @@ public class AppUserTools {
         }
 
 //********************************************用户行为操作 START********************************************************
+
+        int i = 0;
         for(AppDto app:appDtos) {
             log.info("**************用户行为："+ app.getOperate() +"*********************");
             log.info("3.1清除");
@@ -60,11 +64,11 @@ public class AppUserTools {
 
             log.info("3.2 强制清除");
             PhoneCodeDto dto3 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getClear())).findAny().orElse(null);
-            if (null != dto3) {
+            if (null != dto3&&i==0) {
                 String operate3 = AdbTools.tap(androidId, dto3.getPositionX(), dto3.getPositionY());
                 MouseTools.fastNormalEvent(robot, operate3);
+                i++;
             }
-
             log.info("4.1步骤-分类");
             PhoneCodeDto dto41 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getCategory())).findAny().orElse(null);
             if (null != dto41) {

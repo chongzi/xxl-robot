@@ -91,6 +91,7 @@ public class B小说番茄 {
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.CHECK_IN);
         app.setCategory("category福利");
         app.setEvent("category福利-签到");
         app.setEventAdvert("category福利-签到-advert");

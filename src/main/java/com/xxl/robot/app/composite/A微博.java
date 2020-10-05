@@ -94,6 +94,7 @@ public class A微博 {
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.CHECK_IN);
         app.setCategory("category首页");
         app.setClear("category首页-clear");
         app.setEvent("category首页-签到");
@@ -131,6 +132,7 @@ public class A微博 {
      */
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.WATCH_NEWS);
         app.setCategory("category任务");
         app.setEvent("category任务-阅读");
         app.setEventStep("category任务-阅读-step");

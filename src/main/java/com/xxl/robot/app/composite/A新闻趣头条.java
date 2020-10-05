@@ -91,6 +91,7 @@ public class A新闻趣头条 {
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.CHECK_IN);
         app.setCategory("category任务");
         app.setEvent("category任务-签到");
         app.setEventAdvert("category任务-签到-advert");
@@ -107,6 +108,7 @@ public class A新闻趣头条 {
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.WATCH_VIDEOS);
         app.setCategory("category小视频");
         app.setEvent("category小视频-看视频");
         app.setEventGiveUP("category小视频-看视频-giveup");
@@ -134,6 +136,7 @@ public class A新闻趣头条 {
      */
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.WATCH_NEWS);
         app.setCategory("category头条");
         app.setEvent("category头条-看新闻");
         app.setEventStep("category头条-看新闻-step");
@@ -150,6 +153,7 @@ public class A新闻趣头条 {
      */
     public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.WATCH_NOVELS);
         app.setCategory("category我的");
         app.setEvent("category我的-看小说");
         app.setEventStep("category我的-看小说-step");
@@ -166,6 +170,7 @@ public class A新闻趣头条 {
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.WATCH_ADVERT);
         app.setCategory("category任务");
         app.setEvent("category任务-看广告");
         app.setEventAdvert("category任务-看广告-advert");
@@ -191,6 +196,7 @@ public class A新闻趣头条 {
      */
     public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.GIFT_MONEY);
         app.setCategory("category头条");
         app.setEvent("category头条-领红包");
         app.setEventAdvert("category头条-领红包-advert");
@@ -208,6 +214,7 @@ public class A新闻趣头条 {
      */
     public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.TREASURE);
         app.setCategory("category任务");
         app.setEvent("category任务-开宝箱");
         app.setEventAdvert("category任务-开宝箱-advert");
@@ -224,6 +231,7 @@ public class A新闻趣头条 {
      */
     public static void handle10(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.DRAW);
         app.setCategory("category我的");
         app.setEvent("category我的-抽奖");
         app.setEventAdvert("category我的-抽奖-advert");
@@ -240,6 +248,7 @@ public class A新闻趣头条 {
      */
     public static void handle11(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.SLEEP);
         app.setCategory("category任务");
         app.setEvent("category任务-睡觉");
         app.setEventStep("category任务-睡觉-step");

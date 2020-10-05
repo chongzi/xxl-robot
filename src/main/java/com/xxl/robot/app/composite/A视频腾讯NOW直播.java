@@ -94,6 +94,7 @@ public class A视频腾讯NOW直播 {
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.CHECK_IN);
         app.setCategory("category首页");
         app.setEvent("category首页-签到");
         app.setEventStep("category首页-签到-step");

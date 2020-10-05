@@ -15,7 +15,8 @@ public class PhoneConstants {
     public static final String phone004 = "A6BIDMYTZDU8TKCE";
     //小米手机
     public static final String phone005 = "L7JRWCVC5TTSAEGQ";
-
+    //小米手机 6x
+    public static final String phone006 = "a64d4bd";
 
 
 

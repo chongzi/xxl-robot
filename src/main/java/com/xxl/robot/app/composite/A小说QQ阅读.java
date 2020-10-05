@@ -97,6 +97,7 @@ public class A小说QQ阅读 {
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.CHECK_IN);
         app.setCategory("category书架");
         app.setEvent("category书架-现金中心");
         app.setEventAdvertStep("category书架-现金中心-签到");
@@ -144,6 +145,7 @@ public class A小说QQ阅读 {
      */
     public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.WATCH_NOVELS);
         app.setCategory("category精选");
         app.setEvent("category精选-看小说");
         app.setEventStep("category精选-看小说-step");
@@ -160,6 +162,7 @@ public class A小说QQ阅读 {
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.WATCH_ADVERT);
         app.setCategory("category书架");
         app.setEvent("category书架-现金中心");
         app.setEventAdvertStep("category书架-现金中心-看广告");
@@ -197,6 +200,7 @@ public class A小说QQ阅读 {
      */
     public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.TREASURE);
         app.setCategory("category书架");
         app.setEvent("category书架-现金中心");
         app.setEventStep("category书架-现金中心-开宝箱");

@@ -94,6 +94,7 @@ public class A新闻搜狐资讯 {
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.CHECK_IN);
         app.setCategory("category赚钱");
         app.setEvent("category赚钱-签到");
         app.setEventAdvert("category赚钱-签到-advert");
@@ -110,6 +111,7 @@ public class A新闻搜狐资讯 {
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.WATCH_VIDEOS);
         app.setCategory("category视频");
         app.setEvent("category视频-看视频");
         app.setEventStep("category视频-看视频-step");
@@ -136,6 +138,7 @@ public class A新闻搜狐资讯 {
      */
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.WATCH_NEWS);
         app.setCategory("category首页");
         app.setEvent("category首页-看新闻");
         app.setEventStep("category首页-看新闻-step");
@@ -259,6 +262,7 @@ public class A新闻搜狐资讯 {
      */
     public static void handle16(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.EAT);
         app.setCategory("category赚钱");
         app.setEvent("category赚钱-吃早饭");
         app.setEventAdvert("category赚钱-吃早饭-advert");
@@ -274,6 +278,7 @@ public class A新闻搜狐资讯 {
      */
     public static void handle17(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.SHARE);
         app.setCategory("category视频");
         app.setEvent("category视频-分享");
         app.setEventStep("category视频-分享-step");

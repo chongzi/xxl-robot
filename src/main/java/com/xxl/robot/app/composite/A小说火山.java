@@ -94,6 +94,7 @@ public class A小说火山 {
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.CHECK_IN);
         app.setCategory("category赚钱");
         app.setEvent("category赚钱-签到");
         app.setEventAdvert("category赚钱-签到-advert");
@@ -140,6 +141,7 @@ public class A小说火山 {
      */
     public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.WATCH_NOVELS);
         app.setCategory("category书城");
         app.setEvent("category书城-阅读");
         app.setEventStep("category书城-阅读-step");
@@ -156,6 +158,7 @@ public class A小说火山 {
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.WATCH_ADVERT);
         app.setCategory("category赚钱");
         app.setEvent("category赚钱-看广告");
         app.setEventAdvert("category赚钱-看广告-advert");
@@ -181,6 +184,7 @@ public class A小说火山 {
      */
     public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.GIFT_MONEY);
         app.setCategory("category书架");
         app.setEvent("category书架-领红包");
         app.setUpDown(0);
@@ -207,6 +211,7 @@ public class A小说火山 {
      */
     public static void handle10(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.DRAW);
         app.setCategory("category赚钱");
         app.setEvent("category赚钱-抽奖");
         app.setEventStep("category赚钱-抽奖-step");

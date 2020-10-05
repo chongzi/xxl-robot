@@ -97,6 +97,7 @@ public class A视频火山 {
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.CHECK_IN);
         app.setClear("category首页-clear");
         app.setCategory("category红包");
         app.setEvent("category红包-签到");
@@ -338,6 +339,7 @@ public class A视频火山 {
         AppDto app2 = new AppDto();
         app2.setOperate(AppConstants.TREASURE);
         app2.setCategory("category红包");
+        app2.setClear("category红包-clear");
         app2.setEvent("category红包-开宝箱");
         app2.setEventAdvert("category红包-开宝箱-advert");
         app2.setUpDown(0);
@@ -347,6 +349,7 @@ public class A视频火山 {
         AppDto app3 = new AppDto();
         app3.setOperate(AppConstants.WATCH_ADVERT);
         app3.setCategory("category红包");
+        app3.setClear("category红包-clear");
         app3.setEvent("category红包-看广告");
         app3.setEventAdvert("category红包-看广告-advert");
         app3.setUpDown(0);

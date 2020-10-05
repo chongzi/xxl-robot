@@ -91,6 +91,7 @@ public class B小说奇热 {
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.CHECK_IN);
         app.setCategory("category赚钱");
         app.setEvent("category赚钱-签到");
         app.setEventAdvert("category赚钱-签到-advert");

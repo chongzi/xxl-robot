@@ -97,6 +97,7 @@ public class A视频抖音 {
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
         AppDto app = new AppDto();
+        app.setOperate(AppConstants.CHECK_IN);
         app.setCategory("category来赚钱");
         app.setEvent("category来赚钱-签到");
         app.setEventAdvert("category来赚钱-签到-advert");

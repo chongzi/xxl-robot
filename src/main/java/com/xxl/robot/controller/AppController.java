@@ -27,6 +27,7 @@ public class AppController {
         appService.start("phone003");
         appService.start("phone004");
         appService.start("phone005");
+        appService.start("phone006");
         return BaseResponse.newSuccess();
     }
 
@@ -40,6 +41,7 @@ public class AppController {
         appService.section1("phone003");
         appService.section1("phone004");
         appService.section1("phone005");
+        appService.section1("phone006");
         return BaseResponse.newSuccess();
     }
 
@@ -51,7 +53,7 @@ public class AppController {
         appService.section2("phone003");
         appService.section2("phone004");
         appService.section2("phone005");
-
+        appService.section2("phone006");
         return BaseResponse.newSuccess();
     }
 
@@ -63,6 +65,7 @@ public class AppController {
         appService.section3("phone003");
         appService.section3("phone004");
         appService.section3("phone005");
+        appService.section3("phone006");
         return BaseResponse.newSuccess();
     }
 
@@ -74,6 +77,7 @@ public class AppController {
         appService.section3("phone003");
         appService.section3("phone004");
         appService.section3("phone005");
+        appService.section3("phone006");
         return BaseResponse.newSuccess();
     }
 
@@ -82,11 +86,12 @@ public class AppController {
     @GetMapping("circulate1")
     @ApiOperation("3.1-循环收取金币大于200金币")
     public BaseResponse circulate1() {
-/*        appService.circulate1("phone001");
-        appService.circulate1("phone002");*/
+     appService.circulate1("phone001");
+      appService.circulate1("phone002");
         appService.circulate1("phone003");
-/*       appService.circulate1("phone004");
+        /** appService.circulate1("phone004");
         appService.circulate1("phone005");*/
+        appService.circulate1("phone006");
         return BaseResponse.newSuccess();
     }
 
@@ -99,6 +104,7 @@ public class AppController {
         appService.circulate2("phone003");
         appService.circulate2("phone004");
         appService.circulate2("phone005");
+        appService.circulate2("phone006");
         return BaseResponse.newSuccess();
     }
 
