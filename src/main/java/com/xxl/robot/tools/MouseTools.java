@@ -39,7 +39,7 @@ public class MouseTools {
             robot.keyRelease(KeyEvent.VK_ENTER);*/
             log.info(operateData);
             Runtime.getRuntime().exec(operateData);
-            robot.delay(1200);
+            robot.delay(200);
         }catch (Exception e){
 
         }
@@ -69,7 +69,7 @@ public class MouseTools {
             robot.keyRelease(KeyEvent.VK_ENTER);*/
             log.info(operateData);
             Runtime.getRuntime().exec(operateData);
-            robot.delay(1200);
+            robot.delay(200);
         }catch (Exception e){
 
         }

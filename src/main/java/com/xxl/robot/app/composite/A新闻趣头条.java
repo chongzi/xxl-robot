@@ -93,7 +93,7 @@ public class A新闻趣头条 {
         AppDto app = new AppDto();
         app.setOperate(AppConstants.CHECK_IN);
         app.setCategory("category任务");
-        app.setEvent("category任务-签到");
+       // app.setEvent("category任务-签到");
         app.setEventAdvert("category任务-签到-advert");
         app.setUpDown(0);
         apps.add(app);

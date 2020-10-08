@@ -4,6 +4,7 @@ import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.constants.PhoneConstants;
 import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.CollectionUtils;
@@ -40,7 +41,9 @@ public class AppUserTools {
         }else if(robotCode.equals("phone006")) {
             androidId = PhoneConstants.phone006;
         }
-
+        log.info("0.返回主界面");
+        String operateHome = "adb -s "+androidId +" shell input keyevent 3";
+        MouseTools.fastNormalEvent(robot,operateHome);
 
         log.info("1.动作");
         String operate1 = appCode+"-"+event;
@@ -96,7 +99,9 @@ public class AppUserTools {
                 String operate43 = AdbTools.tap(androidId, dto43.getPositionX(), dto43.getPositionY());
                 MouseTools.normalEvent(robot, operate43);
             }
-
+            if(StringUtils.isBlank(app.getOperate())){
+                continue;
+            }
             switch (app.getOperate()) {
                 case AppConstants.CHECK_IN://签到
                     handle1(robot, phoneCodeDtos, app, androidId);
@@ -184,7 +189,6 @@ public class AppUserTools {
 //********************************************用户行为操作 END********************************************************
 
         log.info("7.返回主界面");
-        String operateHome = "adb -s "+androidId +" shell input keyevent 3";
         MouseTools.fastNormalEvent(robot,operateHome);
 
         log.info("8.调取缓存");

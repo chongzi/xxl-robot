@@ -13,7 +13,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * 《人工智能中心》
  *
- * @author xuxuelei
  *
  */
 @SpringBootApplication

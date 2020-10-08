@@ -44,7 +44,7 @@ package com.xxl.robot.tools;//package com.xxl.auth.tools;
 //	// **********************************根据条件修改后生成代码END*******************************************
 //
 //	/** 作者 **/
-//	private final String comment_Author = "xuxuelei";
+//	private final String comment_Author = "";
 //
 //	private static final String file_path = path + "";
 //

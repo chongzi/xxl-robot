@@ -9,8 +9,8 @@ import org.apache.ibatis.annotations.Mapper;
  * 
  * 数据字典编码值定义表数据库操作接口类
  * <p style="display:none">modifyRecord</p>
- * <p style="display:none">version:V1.0,author:xuxuelei,date:2019-05-16 13:53:00, </p>
- * @author xuxuelei
+ * <p style="display:none">version:V1.0,author:,date:2019-05-16 13:53:00, </p>
+ * @author
  * @date 2019-05-16 13:53:00
  * @since 
  * @version 

@@ -236,24 +236,22 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.APP_CIRCULATE1,dtos3);
 
 
-
-
 		log.info("********************今日头条**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"今日头条");
 		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.APP_CIRCULATE1,dtos4);
 
-	/*	log.info("********************趣头条**************************");
+	  	log.info("********************趣头条**************************");
 		List<PhoneCodeDto> dtos5 = phoneCodeService.getList(robotCode,"趣头条");
 		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.TREASURE,dtos5);
 		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.WATCH_ADVERT,dtos5);
-		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.GIFT_MONEY,dtos5);*/
+		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.GIFT_MONEY,dtos5);
 
-/*		log.info("********************搜狐资讯**************************");
+ 		log.info("********************搜狐资讯**************************");
 		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"搜狐资讯");
-		A新闻搜狐资讯.handle(robot,robotCode,"搜狐资讯", AppConstants.WATCH_VIDEOS,dtos6);*/
+		A新闻搜狐资讯.handle(robot,robotCode,"搜狐资讯", AppConstants.WATCH_VIDEOS,dtos6);
 
 
-/*
+
 		log.info("********************QQ阅读**************************");
 		List<PhoneCodeDto> dtos7 = phoneCodeService.getList(robotCode,"QQ阅读");
 		A小说QQ阅读.handle(robot,robotCode,"QQ阅读", AppConstants.TREASURE,dtos7);
@@ -262,25 +260,25 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		log.info("********************火山小说**************************");
 		List<PhoneCodeDto> dtos8 = phoneCodeService.getList(robotCode,"火山小说");
 		A小说火山.handle(robot,robotCode,"火山小说", AppConstants.GIFT_MONEY,dtos8);
-		A小说火山.handle(robot,robotCode,"火山小说", AppConstants.WATCH_ADVERT,dtos8);*/
-		//A小说火山.handle(robot,robotCode,"火山小说", AppConstants.SCRATCH_CARD,dtos8);
+		A小说火山.handle(robot,robotCode,"火山小说", AppConstants.WATCH_ADVERT,dtos8);
+		A小说火山.handle(robot,robotCode,"火山小说", AppConstants.SCRATCH_CARD,dtos8);
 
 
 
-	/*	log.info("********************书旗小说**************************");
+	 	log.info("********************书旗小说**************************");
 		List<PhoneCodeDto> dtos13 = phoneCodeService.getList(robotCode,"书旗小说");
 		B小说书旗.handle(robot,robotCode,"书旗小说",AppConstants.WATCH_ADVERT,dtos13);
 
 		log.info("********************番茄小说**************************");
 		List<PhoneCodeDto> dtos14 = phoneCodeService.getList(robotCode,"番茄小说");
 		B小说番茄.handle(robot,robotCode,"番茄小说", AppConstants.TREASURE,dtos14);
-		B小说番茄.handle(robot,robotCode,"番茄小说", AppConstants.WATCH_ADVERT,dtos14);*/
+		B小说番茄.handle(robot,robotCode,"番茄小说", AppConstants.WATCH_ADVERT,dtos14);
 
-/*		log.info("********************奇热小说**************************");
+ 	    log.info("********************奇热小说**************************");
 		List<PhoneCodeDto> dtos15 = phoneCodeService.getList(robotCode,"奇热小说");
 		B小说奇热.handle(robot,robotCode,"奇热小说", AppConstants.GIFT_MONEY,dtos15);
 		B小说奇热.handle(robot,robotCode,"奇热小说", AppConstants.WATCH_ADVERT,dtos15);
-		B小说奇热.handle(robot,robotCode,"奇热小说", AppConstants.SWEEPSTAKES,dtos15);*/
+		B小说奇热.handle(robot,robotCode,"奇热小说", AppConstants.SWEEPSTAKES,dtos15);
 
 
 

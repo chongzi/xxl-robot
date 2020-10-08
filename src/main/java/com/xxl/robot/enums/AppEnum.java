@@ -2,7 +2,7 @@ package com.xxl.robot.enums;
 
 /**
  * todo APP用户行为
- * @author xuxuelei
+ * @author
  *
  */
 public enum AppEnum {
