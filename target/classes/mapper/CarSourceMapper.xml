@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxl.robot.dao.CarSourceMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		id, robot_code,stated, rent_type, start_time,to_place,from_place,mobile,basic_data,create_date,remark
+	</sql>
+
+	<!--返回MAP -->
+	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.CarSource">
+	<result column="id" property="id"/>
+	<result column="robot_code" property="robotCode"/>
+	<result column="stated" property="stated"/>
+	<result column="rent_type" property="rentType"/>
+	<result column="start_time" property="startTime"/>
+	<result column="to_place" property="toPlace"/>
+	<result column="from_place" property="fromPlace"/>
+	<result column="mobile" property="mobile"/>
+	<result column="basic_data" property="basicData"/>
+	<result column="create_date" property="createDate"/>
+	<result column="remark" property="remark"/>
+ 	</resultMap>
+
+
+</mapper>

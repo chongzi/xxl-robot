@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xxl.robot.dao.RobotCodeMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		id, robot_code, code, code_type,name, seq, enabled, remark,create_date
+	</sql>
+
+	<!--返回MAP -->
+	<resultMap id="BaseResultMap" type="com.xxl.robot.entity.RobotCode">
+	<result column="id" property="id"/>
+	<result column="robot_code" property="robotCode"/>
+	<result column="code" property="code"/>
+	<result column="code_type" property="codeType"/>
+	<result column="name" property="name"/>
+	<result column="seq" property="seq"/>
+	<result column="enabled" property="enabled"/>
+	<result column="remark" property="remark"/>
+	<result column="create_date" property="createDate"/>
+	</resultMap>
+
+</mapper>
