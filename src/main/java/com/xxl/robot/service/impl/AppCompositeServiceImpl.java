@@ -229,7 +229,7 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.WATCH_VIDEOS,dtos3);
 		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.TREASURE,dtos3);
 		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.WATCH_ADVERT,dtos3);
-
+		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.DIRECT,dtos3);
 
 		log.info("********************今日头条**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"今日头条");

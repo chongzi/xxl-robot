@@ -83,7 +83,9 @@ public class A视频快手 {
             case AppConstants.SCRATCH_CARD://刮奖
                 handle19(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
-
+             case AppConstants.DIRECT://刮奖
+                 handle20(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                 break;
         }
 
     }
@@ -156,7 +158,13 @@ public class A视频快手 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-
+        app.setOperate(AppConstants.WATCH_ADVERT);
+        app.setClear("category首页-clear");
+        app.setEvent("category首页");
+        app.setEventStep("category首页-去赚钱");
+        app.setEventAdvertStep("category首页-去赚钱-看广告");
+        app.setEventAdvert("category首页-去赚钱-看广告-advert");
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -289,6 +297,21 @@ public class A视频快手 {
 
     }
 
+    /**
+     * todo 20.看直播
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle20(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.DIRECT);
+        app.setClear("category首页-clear");
+        app.setEvent("category首页");
+        app.setEventStep("category首页-去赚钱");
+        app.setEventAdvertStep("category首页-去赚钱-看直播");
+        app.setEventAdvert("category首页-去赚钱-看直播-advert");
+        app.setUpDown(1);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+    }
 
 
 
