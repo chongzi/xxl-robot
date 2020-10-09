@@ -25,9 +25,11 @@ public class AppController {
         appService.start("phone001");
         appService.start("phone002");
         appService.start("phone003");
-        appService.start("phone004");
-        appService.start("phone005");
-        appService.start("phone006");
+        appService.start("phone0031");
+        appService.start("phone0032");
+        appService.start("phone0033");
+        appService.start("phone0034");
+        appService.start("phone0035");
         return BaseResponse.newSuccess();
     }
 
@@ -39,9 +41,11 @@ public class AppController {
         appService.section1("phone001");
         appService.section1("phone002");
         appService.section1("phone003");
-        appService.section1("phone004");
-        appService.section1("phone005");
-        appService.section1("phone006");
+        appService.section1("phone0031");
+        appService.section1("phone0032");
+        appService.section1("phone0033");
+        appService.section1("phone0034");
+        appService.section1("phone0035");
         return BaseResponse.newSuccess();
     }
 
@@ -51,9 +55,11 @@ public class AppController {
         appService.section2("phone001");
         appService.section2("phone002");
         appService.section2("phone003");
-        appService.section2("phone004");
-        appService.section2("phone005");
-        appService.section2("phone006");
+        appService.section2("phone0031");
+        appService.section2("phone0032");
+        appService.section2("phone0033");
+        appService.section2("phone0034");
+        appService.section2("phone0035");
         return BaseResponse.newSuccess();
     }
 
@@ -63,21 +69,25 @@ public class AppController {
         appService.section3("phone001");
         appService.section3("phone002");
         appService.section3("phone003");
-        appService.section3("phone004");
-        appService.section3("phone005");
-        appService.section3("phone006");
+        appService.section3("phone0031");
+        appService.section3("phone0032");
+        appService.section3("phone0033");
+        appService.section3("phone0034");
+        appService.section3("phone0035");
         return BaseResponse.newSuccess();
     }
 
     @GetMapping("section4")
     @ApiOperation("2.4-晚上23：00-24：00（睡觉打卡，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）")
     public BaseResponse section4() {
-        appService.section3("phone001");
-        appService.section3("phone002");
-        appService.section3("phone003");
-        appService.section3("phone004");
-        appService.section3("phone005");
-        appService.section3("phone006");
+        appService.section4("phone001");
+        appService.section4("phone002");
+        appService.section4("phone003");
+        appService.section4("phone0031");
+        appService.section4("phone0032");
+        appService.section4("phone0033");
+        appService.section4("phone0034");
+        appService.section4("phone0035");
         return BaseResponse.newSuccess();
     }
 
@@ -89,9 +99,12 @@ public class AppController {
         appService.circulate1("phone001");
         appService.circulate1("phone002");
         appService.circulate1("phone003");
-        appService.circulate1("phone004");
-        appService.circulate1("phone005");
-        appService.circulate1("phone006");
+        appService.circulate1("phone0031");
+        appService.circulate1("phone0032");
+        appService.circulate1("phone0033");
+        appService.circulate1("phone0034");
+        appService.circulate1("phone0035");
+
         return BaseResponse.newSuccess();
     }
 
@@ -102,9 +115,11 @@ public class AppController {
         appService.circulate2("phone001");
         appService.circulate2("phone002");
         appService.circulate2("phone003");
-        appService.circulate2("phone004");
-        appService.circulate2("phone005");
-        appService.circulate2("phone006");
+        appService.circulate2("phone0031");
+        appService.circulate2("phone0032");
+        appService.circulate2("phone0033");
+        appService.circulate2("phone0034");
+        appService.circulate2("phone0035");
         return BaseResponse.newSuccess();
     }
 

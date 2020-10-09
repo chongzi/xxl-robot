@@ -45,7 +45,11 @@ public class PhoneCodeServiceImpl implements PhoneCodeService {
 	@Override
 	public List<PhoneCodeDto> getList(String robotCode, String appCode) {
 		PhoneCodeDto dto = new PhoneCodeDto();
-		dto.setRobotCode(robotCode);
+		if(robotCode.length()>8) {
+			dto.setRobotCode(robotCode.substring(0, robotCode.length() - 1));
+		}else{
+			dto.setRobotCode(robotCode);
+		}
 		dto.setAppCode(appCode);
 		List<PhoneCode> dtos = phoneCodeMapper.selectByCondition(getCondition(dto));
 		return BeanTools.sourceToTarget(dtos, PhoneCodeDto.class);

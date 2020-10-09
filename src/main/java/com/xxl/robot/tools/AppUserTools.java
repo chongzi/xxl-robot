@@ -27,19 +27,30 @@ public class AppUserTools {
     public static void handle(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos, AppDto app){
         try {
             log.info("robotCode:{}" + robotCode);
-            String androidIdStr = "";
+            String androidId = "";
             if (robotCode.equals("phone001")) {
-                androidIdStr = PhoneConstants.phone001;
+                androidId = PhoneConstants.phone001;
             } else if (robotCode.equals("phone002")) {
-                androidIdStr = PhoneConstants.phone002;
+                androidId = PhoneConstants.phone002;
+
+
+
+
             } else if (robotCode.equals("phone003")) {
-                androidIdStr = PhoneConstants.phone003;
+                androidId = PhoneConstants.phone003;
+            } else if (robotCode.equals("phone0031")) {
+                androidId = PhoneConstants.phone0031;
+            } else if (robotCode.equals("phone0032")) {
+                androidId = PhoneConstants.phone0032;
+            } else if (robotCode.equals("phone0033")) {
+                androidId = PhoneConstants.phone0033;
+            } else if (robotCode.equals("phone0034")) {
+                androidId = PhoneConstants.phone0034;
+            } else if (robotCode.equals("phone0035")) {
+                androidId = PhoneConstants.phone0035;
             }
 
-            if(StringUtils.isNotBlank(androidIdStr)){
-                String[] androidIdArarry  =  androidIdStr.split(",");
-                for(String androidId:androidIdArarry){
-                    if(StringUtils.isBlank(androidId)) continue;
+            if(StringUtils.isBlank(androidId))return;
 //*************************************************************业务处理  START ***************************************************************************
 
                     log.info("0.返回主界面");
@@ -58,12 +69,10 @@ public class AppUserTools {
                         operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(2080));
                     } else if (androidId.equals(PhoneConstants.phone002)) {
                         operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(2000));
-                    } else if (androidId.equals(PhoneConstants.phone003)) {
+                    } else if (androidId.equals(PhoneConstants.phone003)||androidId.equals(PhoneConstants.phone0031)
+                    ||androidId.equals(PhoneConstants.phone0032)||androidId.equals(PhoneConstants.phone0033)
+                    ||androidId.equals(PhoneConstants.phone0034)||androidId.equals(PhoneConstants.phone0035)) {
                         operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(1860));
-                    } else if (androidId.equals(PhoneConstants.phone004)) {
-                        operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(1860));
-                    } else if (androidId.equals(PhoneConstants.phone005)) {
-                        operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(1730));
                     }
                     MouseTools.fastNormalEvent(robot, operateDelete);
 
@@ -211,9 +220,6 @@ public class AppUserTools {
 
 
 
-//*************************************************************业务处理  END ***************************************************************************
-                }
-            }
 
 
         }catch (Exception e){
