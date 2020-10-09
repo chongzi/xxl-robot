@@ -66,7 +66,6 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		A新闻搜狐资讯.handle(robot,robotCode,"搜狐资讯", AppConstants.CHECK_IN,dtos6);
 
 
-
 		log.info("********************QQ阅读**************************");
 		List<PhoneCodeDto> dtos7 = phoneCodeService.getList(robotCode,"QQ阅读");
 		A小说QQ阅读.handle(robot,robotCode,"QQ阅读", AppConstants.CHECK_IN,dtos7);
@@ -80,8 +79,8 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		A视频腾讯NOW直播.handle(robot,robotCode,"腾讯NOW直播", AppConstants.CHECK_IN,dtos9);
 
 
-/*
-		log.info("********************搜狗浏览器**************************");
+
+	/*	log.info("********************搜狗浏览器**************************");
 		List<PhoneCodeDto> dtos10 = phoneCodeService.getList(robotCode,"搜狗浏览器");
 		A浏览器搜狗.handle(robot,robotCode,"搜狗浏览器", AppConstants.CHECK_IN,dtos10);*/
 
@@ -121,16 +120,10 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		log.info("********************抖音极速版**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"抖音极速版");
 		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.WATCH_NOVELS,dtos1);
-		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.WATCH_VIDEOS,dtos1);
 
 		log.info("********************火山极速版**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList(robotCode,"火山极速版");
 		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.GROW,dtos2);
-		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.WATCH_VIDEOS,dtos2);
-
-		log.info("********************快手极速版**************************");
-		List<PhoneCodeDto> dtos3 = phoneCodeService.getList(robotCode,"快手极速版");
-		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.WATCH_VIDEOS,dtos3);
 
 		log.info("********************今日头条**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"今日头条");
