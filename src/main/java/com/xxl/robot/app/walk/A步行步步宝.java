@@ -24,8 +24,9 @@ public class A步行步步宝 {
      * 传相应的app_code对应的phoneCodeDtos
      */
     public static void handle(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+
         AppDto app = new AppDto();
-        switch (event){
+         switch (event){
             case AppConstants.CHECK_IN://签到
                 handle1(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
@@ -95,9 +96,9 @@ public class A步行步步宝 {
         app.setEvent("category首页-签到");
         app.setEventAdvert("category首页-签到-advert");
         app.setUpDown(0);
-        List<AppDto> apps= new ArrayList<>();
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -132,9 +133,9 @@ public class A步行步步宝 {
         app.setEvent("category看看-看新闻");
         app.setEventStep("category看看-看新闻");
         app.setUpDown(0);
-        List<AppDto> apps= new ArrayList<>();
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -148,9 +149,9 @@ public class A步行步步宝 {
         app.setEventStep("category首页-看看赚-step");
         app.setEventBack("category首页-看看赚-back");
         app.setUpDown(0);
-        List<AppDto> apps= new ArrayList<>();
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -193,9 +194,9 @@ public class A步行步步宝 {
         app.setEvent("category首页-领红包");
         app.setEventAdvert("category首页-领红包-advert");
         app.setEventBack("category首页-领红包-back");
-        List<AppDto> apps= new ArrayList<>();
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -221,9 +222,9 @@ public class A步行步步宝 {
         app.setEvent("category首页-抽奖");
         app.setEventStep("category首页-抽奖-step");
         app.setUpDown(0);
-        List<AppDto> apps= new ArrayList<>();
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 

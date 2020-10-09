@@ -28,8 +28,9 @@ public class A新闻趣新闻 {
      * 传相应的app_code对应的phoneCodeDtos
      */
     public static void handle(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+
         AppDto app = new AppDto();
-        switch (event){
+         switch (event){
             case AppConstants.CHECK_IN://签到
                 handle1(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
@@ -97,9 +98,9 @@ public class A新闻趣新闻 {
         app.setCategory("category任务");
         app.setEvent("category任务-签到");
         app.setUpDown(0);
-           List<AppDto> apps= new ArrayList<>();
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -134,9 +135,9 @@ public class A新闻趣新闻 {
         app.setEvent("category新闻-看新闻");
         app.setEventStep("category新闻-看新闻-step");
         app.setUpDown(0);
-           List<AppDto> apps= new ArrayList<>();
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -160,9 +161,9 @@ public class A新闻趣新闻 {
         app.setEvent("category任务-看广告");
         app.setEventAdvert("category任务-看广告-advert");
         app.setUpDown(0);
-           List<AppDto> apps= new ArrayList<>();
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -183,9 +184,9 @@ public class A新闻趣新闻 {
     public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setCategory("category新闻");
         app.setEvent("category新闻-领红包");
-           List<AppDto> apps= new ArrayList<>();
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 

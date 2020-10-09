@@ -24,68 +24,66 @@ public class A小说QQ阅读 {
      * 传相应的app_code对应的phoneCodeDtos
      */
     public static void handle(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-        List<AppDto> apps= new ArrayList<>();
-        switch (event){
+           AppDto app = new AppDto();
+           switch (event){
             case AppConstants.CHECK_IN://签到
-                handle1(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                handle1(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.WATCH_VIDEOS://看视频（看视频，看广告-点攒）
-                handle2(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                handle2(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.WATCH_VIDEOS_SMALL://看视频（看视频，看广告-点攒）
-                handle3(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                handle3(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.WATCH_NEWS://看新闻
-                handle4(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                handle4(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.WATCH_NOVELS://看小说
-                handle5(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                handle5(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.WATCH_ADVERT://看广告
-                handle6(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                handle6(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.PALY_GAMES://玩游戏
-                handle7(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                handle7(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.GIFT_MONEY://领红包
-                handle8(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                handle8(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.TREASURE://开宝箱
-                handle9(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                handle9(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.DRAW://抽奖
-                handle10(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                handle10(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.SLEEP://睡觉
-                handle11(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                handle11(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.WALK://走路
-                handle12(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                handle12(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.DRINK_WATER://喝水
-                handle13(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                handle13(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.CHARGE://充电
-                handle14(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                handle14(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.MUSIC://听歌曲
-                handle15(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                handle15(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.EAT://吃饭
-                handle16(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                handle16(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.SHARE://分享
-                handle17(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                handle17(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.MONEY_TREE://摇钱树
-                handle18(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                handle18(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.SCRATCH_CARD://刮奖
-                handle19(robot, robotCode, appCode, event, phoneCodeDtos, apps);
+                handle19(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
-            case AppConstants.APP_CIRCULATE1://高速循环体
-                handle880(robot, robotCode, appCode, event, phoneCodeDtos, apps);
-                break;
+
         }
 
     }
@@ -95,16 +93,16 @@ public class A小说QQ阅读 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
-        AppDto app = new AppDto();
+    public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+
         app.setOperate(AppConstants.CHECK_IN);
         app.setCategory("category书架");
         app.setEvent("category书架-现金中心");
         app.setEventAdvertStep("category书架-现金中心-签到");
         app.setEventAdvert("category书架-现金中心-签到-advert");
         app.setUpDown(0);
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -113,7 +111,7 @@ public class A小说QQ阅读 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
+    public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
@@ -123,7 +121,7 @@ public class A小说QQ阅读 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle3(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
+    public static void handle3(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
@@ -133,7 +131,7 @@ public class A小说QQ阅读 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
+    public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
@@ -143,15 +141,15 @@ public class A小说QQ阅读 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
-        AppDto app = new AppDto();
+    public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+
         app.setOperate(AppConstants.WATCH_NOVELS);
         app.setCategory("category精选");
         app.setEvent("category精选-看小说");
         app.setEventStep("category精选-看小说-step");
         app.setUpDown(1);
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -160,16 +158,16 @@ public class A小说QQ阅读 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
-        AppDto app = new AppDto();
+    public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+
         app.setOperate(AppConstants.WATCH_ADVERT);
         app.setCategory("category书架");
         app.setEvent("category书架-现金中心");
         app.setEventAdvertStep("category书架-现金中心-看广告");
         app.setEventAdvert("category书架-现金中心-看广告-advert");
         app.setUpDown(0);
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -177,7 +175,7 @@ public class A小说QQ阅读 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle7(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
+    public static void handle7(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
@@ -187,7 +185,7 @@ public class A小说QQ阅读 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
+    public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
@@ -198,15 +196,15 @@ public class A小说QQ阅读 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
-        AppDto app = new AppDto();
+    public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+
         app.setOperate(AppConstants.TREASURE);
         app.setCategory("category书架");
         app.setEvent("category书架-现金中心");
         app.setEventStep("category书架-现金中心-开宝箱");
         app.setUpDown(0);
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -215,7 +213,7 @@ public class A小说QQ阅读 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle10(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
+    public static void handle10(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
@@ -225,7 +223,7 @@ public class A小说QQ阅读 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle11(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
+    public static void handle11(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
@@ -234,7 +232,7 @@ public class A小说QQ阅读 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
+    public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
@@ -244,7 +242,7 @@ public class A小说QQ阅读 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle13(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
+    public static void handle13(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
@@ -254,7 +252,7 @@ public class A小说QQ阅读 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle14(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
+    public static void handle14(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
@@ -263,7 +261,7 @@ public class A小说QQ阅读 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle15(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
+    public static void handle15(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
@@ -272,7 +270,7 @@ public class A小说QQ阅读 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle16(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
+    public static void handle16(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
@@ -281,7 +279,7 @@ public class A小说QQ阅读 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle17(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
+    public static void handle17(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
@@ -290,7 +288,7 @@ public class A小说QQ阅读 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle18(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
+    public static void handle18(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
@@ -299,19 +297,11 @@ public class A小说QQ阅读 {
      * @param robot
      * @param phoneCodeDtos
      */
-    public static void handle19(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
+    public static void handle19(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
 
     }
 
 
-    /**
-     * todo 19.刮奖
-     * @param robot
-     * @param phoneCodeDtos
-     */
-    public static void handle880(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,List<AppDto> apps){
-
-    }
 
 
 }

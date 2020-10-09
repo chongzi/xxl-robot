@@ -1,6 +1,7 @@
 package com.xxl.robot.app.walk;
 
 import com.xxl.robot.constants.AppConstants;
+import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +23,8 @@ public class 米来6 {
      */
     public static void handle(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
 
-        switch (event){
+        AppDto app = new AppDto();
+         switch (event){
             case AppConstants.CHECK_IN://签到
                 handle1(robot, robotCode, appCode, event, phoneCodeDtos);
                 break;

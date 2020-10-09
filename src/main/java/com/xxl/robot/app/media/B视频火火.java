@@ -24,8 +24,9 @@ public class B视频火火 {
      * 传相应的app_code对应的phoneCodeDtos
      */
     public static void handle(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+
         AppDto app = new AppDto();
-        switch (event){
+         switch (event){
             case AppConstants.CHECK_IN://签到
                 handle1(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
@@ -97,9 +98,9 @@ public class B视频火火 {
         app.setEvent("category任务-签到");
         app.setEventAdvert("category任务-签到-advert");
         app.setUpDown(0);
-        List<AppDto> apps= new ArrayList<>();
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -114,9 +115,9 @@ public class B视频火火 {
         app.setEventAdvertStep("category小视频-看视频-advertstep");
         app.setEventAdvert("category小视频-看视频-advert");
         app.setUpDown(0);
-        List<AppDto> apps= new ArrayList<>();
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -131,9 +132,9 @@ public class B视频火火 {
         app.setEventAdvertStep("category首页-看视频-advertstep");
         app.setEventAdvert("category首页-看视频-advert");
         app.setUpDown(0);
-        List<AppDto> apps= new ArrayList<>();
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -186,9 +187,9 @@ public class B视频火火 {
         app.setEvent("category任务-红包");
         app.setEventAdvert("category任务-红包-advert");
         app.setUpDown(0);
-        List<AppDto> apps= new ArrayList<>();
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -251,9 +252,9 @@ public class B视频火火 {
         app.setCategory("category任务");
         app.setEvent("category任务-充电");
         app.setUpDown(1);
-        List<AppDto> apps= new ArrayList<>();
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**

@@ -24,6 +24,8 @@ public class AppDto {
     private String eventAdvertStep;
     @ApiModelProperty(value="动作-看广告")
     private String eventAdvert;
+    @ApiModelProperty(value="动作-看广告-时间")
+    private String eventDelay;
     @ApiModelProperty(value="动作-点攒")
     private String eventGiveUP;
     @ApiModelProperty(value="动作-步骤（点击视频，阅读新闻，阅读小说）")

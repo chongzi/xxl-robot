@@ -1,6 +1,7 @@
 package com.xxl.robot.app.media;
 
 import com.xxl.robot.constants.AppConstants;
+import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,8 +23,8 @@ public class B视频小吃货 {
      * 传相应的app_code对应的phoneCodeDtos
      */
     public static void handle(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
-
-        switch (event){
+        AppDto app = new AppDto();
+         switch (event){
             case AppConstants.CHECK_IN://签到
                 handle1(robot, robotCode, appCode, event, phoneCodeDtos);
                 break;

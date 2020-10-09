@@ -28,8 +28,9 @@ public class A新闻蚂蚁看点 {
      * 传相应的app_code对应的phoneCodeDtos
      */
     public static void handle(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos){
+
         AppDto app = new AppDto();
-        switch (event){
+         switch (event){
             case AppConstants.CHECK_IN://签到
                 handle1(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
@@ -98,9 +99,9 @@ public class A新闻蚂蚁看点 {
         app.setCategory("category任务");
         app.setEvent("category任务-签到");
         app.setUpDown(0);
-        List<AppDto> apps= new ArrayList<>();
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -135,9 +136,9 @@ public class A新闻蚂蚁看点 {
         app.setEvent("category看点-看新闻");
         app.setEventStep("category看点-看新闻-step");
         app.setUpDown(1);
-        List<AppDto> apps= new ArrayList<>();
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -162,9 +163,9 @@ public class A新闻蚂蚁看点 {
         app.setEvent("category看点-看广告");
         app.setEventAdvert("category看点-看广告-advert");
         app.setUpDown(0);
-        List<AppDto> apps= new ArrayList<>();
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -187,9 +188,9 @@ public class A新闻蚂蚁看点 {
         app.setCategory("category看点");
         app.setEvent("category看点-领红包");
         app.setEventAdvert("category看点-领红包-advert");
-        List<AppDto> apps= new ArrayList<>();
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -206,9 +207,9 @@ public class A新闻蚂蚁看点 {
         app.setEvent("category任务-开宝箱");
         app.setEventAdvert("category任务-开宝箱-advert");
         app.setUpDown(0);
-        List<AppDto> apps= new ArrayList<>();
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -223,9 +224,9 @@ public class A新闻蚂蚁看点 {
         app.setEvent("category领现金-抽奖");
         app.setEventStep("category领现金-抽奖-step");
         app.setUpDown(0);
-        List<AppDto> apps= new ArrayList<>();
-        apps.add(app);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, apps);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 

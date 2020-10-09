@@ -7,6 +7,12 @@ package com.xxl.robot.service;
 public interface AppCompositeService {
 
 
+//************************一种类型：清除********************************************************
+    /**
+     * todo 0-清除
+     */
+    public void clear(String robotCode);
+
 
 
 //************************一种类型：签到********************************************************

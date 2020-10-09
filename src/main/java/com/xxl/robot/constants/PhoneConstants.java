@@ -10,8 +10,11 @@ public class PhoneConstants {
     //小米手机 redmi 7
     public static final String phone002 = "4ed14c6a";
     //小米手机 6x
-    public static final String phone003 = "a314117";
-    //金立手机
+    public static final String phone003 = "a314117,a64d4bd";
+
+
+
+    //金立手机 s
     public static final String phone004 = "A6BIDMYTZDU8TKCE";
     //小米手机
     public static final String phone005 = "L7JRWCVC5TTSAEGQ";

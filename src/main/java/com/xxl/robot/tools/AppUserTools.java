@@ -7,7 +7,6 @@ import com.xxl.robot.dto.PhoneCodeDto;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.util.CollectionUtils;
 
 import java.awt.*;
 import java.time.LocalTime;
@@ -25,194 +24,201 @@ public class AppUserTools {
      * 以category分类定位，再点击用户行为,用一category下不可多次点击category,否则试为程序运行
      * 传相应的app_code对应的phoneCodeDtos
      */
-    public static void handle(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos, List<AppDto> appDtos){
-        log.info("robotCode:{}"+robotCode);
-        String androidId = "";
-        if(robotCode.equals("phone001")){
-            androidId = PhoneConstants.phone001;
-        }else if(robotCode.equals("phone002")){
-            androidId = PhoneConstants.phone002;
-        }else if(robotCode.equals("phone003")) {
-            androidId = PhoneConstants.phone003;
-        }else if(robotCode.equals("phone004")) {
-            androidId = PhoneConstants.phone004;
-        }else if(robotCode.equals("phone005")) {
-            androidId = PhoneConstants.phone005;
-        }else if(robotCode.equals("phone006")) {
-            androidId = PhoneConstants.phone006;
-        }
-        log.info("0.返回主界面");
-        String operateHome = "adb -s "+androidId +" shell input keyevent 3";
-        MouseTools.fastNormalEvent(robot,operateHome);
+    public static void handle(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos, AppDto app){
+        try {
+            log.info("robotCode:{}" + robotCode);
+            String androidIdStr = "";
+            if (robotCode.equals("phone001")) {
+                androidIdStr = PhoneConstants.phone001;
+            } else if (robotCode.equals("phone002")) {
+                androidIdStr = PhoneConstants.phone002;
+            } else if (robotCode.equals("phone003")) {
+                androidIdStr = PhoneConstants.phone003;
+            }
 
-        log.info("1.动作");
-        String operate1 = appCode+"-"+event;
-        MouseTools.fastNormalEvent(robot,operate1);
+            if(StringUtils.isNotBlank(androidIdStr)){
+                String[] androidIdArarry  =  androidIdStr.split(",");
+                for(String androidId:androidIdArarry){
+                    if(StringUtils.isBlank(androidId)) continue;
+//*************************************************************业务处理  START ***************************************************************************
 
-        log.info("2.初始化");
-        WindowTools.initWindowApp(robot,phoneCodeDtos,androidId);
+                    log.info("0.返回主界面");
+                    String operateHome = "adb -s " + androidId + " shell input keyevent 3";
+                    MouseTools.fastNormalEvent(robot, operateHome);
 
-        if(CollectionUtils.isEmpty(appDtos)){
-            return;
-        }
+                    log.info("0.调取缓存");
+                    String operateDispath = "adb -s " + androidId + " shell input keyevent 82";
+                    MouseTools.fastNormalEvent(robot, operateDispath);
+
+                    log.info("0.删除缓存");
+                    String operateDelete = "";
+                    if (androidId.equals(PhoneConstants.phone001)) {
+                        operateDispath = "adb -s " + androidId + " shell input tap 770 2280";
+                        MouseTools.fastNormalEvent(robot, operateDispath);
+                        operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(2080));
+                    } else if (androidId.equals(PhoneConstants.phone002)) {
+                        operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(2000));
+                    } else if (androidId.equals(PhoneConstants.phone003)) {
+                        operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(1860));
+                    } else if (androidId.equals(PhoneConstants.phone004)) {
+                        operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(1860));
+                    } else if (androidId.equals(PhoneConstants.phone005)) {
+                        operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(1730));
+                    }
+                    MouseTools.fastNormalEvent(robot, operateDelete);
+
+                    log.info("0.返回主界面");
+                    MouseTools.fastNormalEvent(robot, operateHome);
+
+
+                    log.info("1.动作");
+                    String operate1 = appCode + "-" + event;
+                    MouseTools.fastNormalEvent(robot, operate1);
+
+                    log.info("2.初始化");
+                    WindowTools.initWindowApp(robot, phoneCodeDtos, androidId);
+
+                    if (null == app) {
+                        return;
+                    }
 
 //********************************************用户行为操作 START********************************************************
 
-        int i = 0;
-        for(AppDto app:appDtos) {
-            log.info("**************用户行为："+ app.getOperate() +"*********************");
-            log.info("3.1清除");
-            String operateEsc = "adb -s " + androidId + " shell input keyevent 111";
-            MouseTools.fastNormalEvent(robot, operateEsc);
+                    log.info("**************用户行为：" + app.getOperate() + "*********************");
+                    log.info("3.1清除");
+                    String operateEsc = "adb -s " + androidId + " shell input keyevent 111";
+                    MouseTools.fastNormalEvent(robot, operateEsc);
 
-            log.info("3.2 强制清除");
-            PhoneCodeDto dto3 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getClear())).findAny().orElse(null);
-            if (null != dto3&&i==0) {
-                String operate3 = AdbTools.tap(androidId, dto3.getPositionX(), dto3.getPositionY());
-                MouseTools.fastNormalEvent(robot, operate3);
-                i++;
-            }
-            log.info("4.1步骤-分类");
-            PhoneCodeDto dto41 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getCategory())).findAny().orElse(null);
-            if (null != dto41) {
-                String operate41 = AdbTools.tap(androidId, dto41.getPositionX(), dto41.getPositionY());
-                MouseTools.normalEvent(robot, operate41);
-                if (app.getUpDown() == 0) {
-                    MouseTools.fastNormalEvent(robot, AdbTools.upPage(androidId));
-                    MouseTools.fastNormalEvent(robot, AdbTools.upPage(androidId));
-                } else {
-                    MouseTools.fastNormalEvent(robot, AdbTools.downPage(androidId));
-                    MouseTools.fastNormalEvent(robot, AdbTools.downPage(androidId));
-                }
-            }
+                    log.info("3.2 强制清除");
+                    PhoneCodeDto dto3 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getClear())).findAny().orElse(null);
+                    if (null != dto3) {
+                        String operate3 = AdbTools.tap(androidId, dto3.getPositionX(), dto3.getPositionY());
+                        MouseTools.fastNormalEvent(robot, operate3);
+                    }
+                    log.info("4.1步骤-分类");
+                    PhoneCodeDto dto41 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getCategory())).findAny().orElse(null);
+                    if (null != dto41) {
+                        String operate41 = AdbTools.tap(androidId, dto41.getPositionX(), dto41.getPositionY());
+                        MouseTools.normalEvent(robot, operate41);
+                        if (app.getUpDown() == 0) {
+                            MouseTools.fastNormalEvent(robot, AdbTools.upPage(androidId));
+                            MouseTools.fastNormalEvent(robot, AdbTools.upPage(androidId));
+                        } else {
+                            MouseTools.fastNormalEvent(robot, AdbTools.downPage(androidId));
+                            MouseTools.fastNormalEvent(robot, AdbTools.downPage(androidId));
+                        }
+                    }
 
-            log.info("4.2步骤-事件前清除");
-            PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventClear())).findAny().orElse(null);
-            if (null != dto42) {
-                String operate42 = AdbTools.tap(androidId, dto42.getPositionX(), dto42.getPositionY());
-                MouseTools.fastNormalEvent(robot, operate42);
-            }
+                    log.info("4.2步骤-事件前清除");
+                    PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventClear())).findAny().orElse(null);
+                    if (null != dto42) {
+                        String operate42 = AdbTools.tap(androidId, dto42.getPositionX(), dto42.getPositionY());
+                        MouseTools.fastNormalEvent(robot, operate42);
+                    }
 
-            log.info("4.3步骤-事件");
-            PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEvent())).findAny().orElse(null);
-            if (null != dto43) {
-                String operate43 = AdbTools.tap(androidId, dto43.getPositionX(), dto43.getPositionY());
-                MouseTools.normalEvent(robot, operate43);
-            }
-            if(StringUtils.isBlank(app.getOperate())){
-                continue;
-            }
-            switch (app.getOperate()) {
-                case AppConstants.CHECK_IN://签到
-                    handle1(robot, phoneCodeDtos, app, androidId);
-                    break;
-                case AppConstants.WATCH_VIDEOS://看视频（看视频，看广告-点攒）
-                    handle2(robot, phoneCodeDtos, app, androidId);
-                    break;
-                case AppConstants.WATCH_VIDEOS_SMALL://看视频（看视频，看广告-点攒）
-                    handle3(robot, phoneCodeDtos, app, androidId);
-                    break;
-                case AppConstants.WATCH_NEWS://看新闻
-                    handle4(robot, phoneCodeDtos, app, androidId);
-                    break;
-                case AppConstants.WATCH_NOVELS://看小说
-                    handle5(robot, phoneCodeDtos, app, androidId);
-                    break;
-                case AppConstants.WATCH_ADVERT://看广告
-                    handle6(robot, phoneCodeDtos, app, androidId);
-                    break;
-                case AppConstants.PALY_GAMES://玩游戏
-                    handle7(robot, phoneCodeDtos, app, androidId);
-                    break;
-                case AppConstants.GIFT_MONEY://领红包
-                    handle8(robot, phoneCodeDtos, app, androidId);
-                    break;
-                case AppConstants.TREASURE://开宝箱
-                    handle9(robot, phoneCodeDtos, app, androidId);
-                    break;
-                case AppConstants.DRAW://抽奖
-                    handle10(robot, phoneCodeDtos, app, androidId);
-                    break;
-                case AppConstants.SLEEP://睡觉
-                    handle11(robot, phoneCodeDtos, app, androidId);
-                    break;
-                case AppConstants.WALK://走路
-                    handle12(robot, phoneCodeDtos, app, androidId);
-                    break;
-                case AppConstants.DRINK_WATER://喝水
-                    handle13(robot, phoneCodeDtos, app, androidId);
-                    break;
-                case AppConstants.CHARGE://充电
-                    handle14(robot, phoneCodeDtos, app, androidId);
-                    break;
-                case AppConstants.MUSIC://听歌曲
-                    handle15(robot, phoneCodeDtos, app, androidId);
-                    break;
-                case AppConstants.EAT://吃饭
-                    handle16(robot, phoneCodeDtos, app, androidId);
-                    break;
-                case AppConstants.SHARE://分享
-                    handle17(robot, phoneCodeDtos, app, androidId);
-                    break;
-                case AppConstants.MONEY_TREE://摇钱树
-                    handle18(robot, phoneCodeDtos, app, androidId);
-                    break;
-                case AppConstants.SCRATCH_CARD://刮奖
-                    handle19(robot, phoneCodeDtos, app, androidId);
-                    break;
-                case AppConstants.SEARCH://搜索
-                    handle20(robot, phoneCodeDtos, app, androidId);
-                    break;
-                case AppConstants.OTHER_QINGXIANG_WATCH_VIDEOS://睛象浏览器
-                    handle21(robot, phoneCodeDtos, app, androidId);
-                    break;
+                    log.info("4.3步骤-事件");
+                    PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEvent())).findAny().orElse(null);
+                    if (null != dto43) {
+                        String operate43 = AdbTools.tap(androidId, dto43.getPositionX(), dto43.getPositionY());
+                        MouseTools.normalEvent(robot, operate43);
+                    }
 
-            }
+                    switch (app.getOperate()) {
+                        case AppConstants.CHECK_IN://签到
+                            handle1(robot, phoneCodeDtos, app, androidId);
+                            break;
+                        case AppConstants.WATCH_VIDEOS://看视频（看视频，看广告-点攒）
+                            handle2(robot, phoneCodeDtos, app, androidId);
+                            break;
+                        case AppConstants.WATCH_VIDEOS_SMALL://看视频（看视频，看广告-点攒）
+                            handle3(robot, phoneCodeDtos, app, androidId);
+                            break;
+                        case AppConstants.WATCH_NEWS://看新闻
+                            handle4(robot, phoneCodeDtos, app, androidId);
+                            break;
+                        case AppConstants.WATCH_NOVELS://看小说
+                            handle5(robot, phoneCodeDtos, app, androidId);
+                            break;
+                        case AppConstants.WATCH_ADVERT://看广告
+                            handle6(robot, phoneCodeDtos, app, androidId);
+                            break;
+                        case AppConstants.PALY_GAMES://玩游戏
+                            handle7(robot, phoneCodeDtos, app, androidId);
+                            break;
+                        case AppConstants.GIFT_MONEY://领红包
+                            handle8(robot, phoneCodeDtos, app, androidId);
+                            break;
+                        case AppConstants.TREASURE://开宝箱
+                            handle9(robot, phoneCodeDtos, app, androidId);
+                            break;
+                        case AppConstants.DRAW://抽奖
+                            handle10(robot, phoneCodeDtos, app, androidId);
+                            break;
+                        case AppConstants.SLEEP://睡觉
+                            handle11(robot, phoneCodeDtos, app, androidId);
+                            break;
+                        case AppConstants.WALK://走路
+                            handle12(robot, phoneCodeDtos, app, androidId);
+                            break;
+                        case AppConstants.DRINK_WATER://喝水
+                            handle13(robot, phoneCodeDtos, app, androidId);
+                            break;
+                        case AppConstants.CHARGE://充电
+                            handle14(robot, phoneCodeDtos, app, androidId);
+                            break;
+                        case AppConstants.MUSIC://听歌曲
+                            handle15(robot, phoneCodeDtos, app, androidId);
+                            break;
+                        case AppConstants.EAT://吃饭
+                            handle16(robot, phoneCodeDtos, app, androidId);
+                            break;
+                        case AppConstants.SHARE://分享
+                            handle17(robot, phoneCodeDtos, app, androidId);
+                            break;
+                        case AppConstants.MONEY_TREE://摇钱树
+                            handle18(robot, phoneCodeDtos, app, androidId);
+                            break;
+                        case AppConstants.SCRATCH_CARD://刮奖
+                            handle19(robot, phoneCodeDtos, app, androidId);
+                            break;
+                        case AppConstants.SEARCH://搜索
+                            handle20(robot, phoneCodeDtos, app, androidId);
+                            break;
+                        case AppConstants.OTHER_QINGXIANG_WATCH_VIDEOS://睛象浏览器
+                            handle21(robot, phoneCodeDtos, app, androidId);
+                            break;
+
+                    }
 
 
+                    log.info("5返回定制化");
+                    PhoneCodeDto dto45 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventBack())).findAny().orElse(null);
+                    if (null != dto45) {
+                        String operate45 = AdbTools.tap(androidId, dto45.getPositionX(), dto45.getPositionY());
+                        MouseTools.fastNormalEvent(robot, operate45);
+                    }
 
-            log.info("5返回定制化");
-            PhoneCodeDto dto45 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventBack())).findAny().orElse(null);
-            if (null != dto45) {
-                String operate45 = AdbTools.tap(androidId, dto45.getPositionX(), dto45.getPositionY());
-                MouseTools.fastNormalEvent(robot, operate45);
-            }
-
-            log.info("6返回上一步");
-            String operateBack = "adb -s " + androidId + " shell input keyevent BACK";
-            MouseTools.fastNormalEvent(robot, operateBack);
-            MouseTools.fastNormalEvent(robot, operateBack);
-
-        }
+                    log.info("6返回上一步");
+                    String operateBack = "adb -s " + androidId + " shell input keyevent BACK";
+                    MouseTools.fastNormalEvent(robot, operateBack);
+                    MouseTools.fastNormalEvent(robot, operateBack);
 
 
 //********************************************用户行为操作 END********************************************************
 
-        log.info("7.返回主界面");
-        MouseTools.fastNormalEvent(robot,operateHome);
+                    log.info("7.返回主界面");
+                    MouseTools.fastNormalEvent(robot, operateHome);
 
-        log.info("8.调取缓存");
-        String operateDispath = "adb -s "+androidId +" shell input keyevent 82";
-        MouseTools.fastNormalEvent(robot, operateDispath);
 
-        log.info("9.删除缓存");
-        String operateDelete = "";
-        if(androidId.equals(PhoneConstants.phone001)) {
-             operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(2080));
-        }else if(androidId.equals(PhoneConstants.phone002)) {
-            operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(2000));
-        }else if(androidId.equals(PhoneConstants.phone003)) {
-            operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(1860));
-        }else if(androidId.equals(PhoneConstants.phone004)) {
-            operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(1860));
-        }else if(androidId.equals(PhoneConstants.phone005)) {
-            operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(1730));
+
+//*************************************************************业务处理  END ***************************************************************************
+                }
+            }
+
+
+        }catch (Exception e){
+
         }
-        MouseTools.fastNormalEvent(robot, operateDelete);
-
-        log.info("10.返回主界面");
-        MouseTools.fastNormalEvent(robot,operateHome);
-
 
     }
 

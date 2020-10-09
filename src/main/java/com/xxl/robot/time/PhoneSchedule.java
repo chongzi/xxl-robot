@@ -91,7 +91,7 @@ public class PhoneSchedule {
     /**
      * todo 2.4-晚上23：00-24：00（睡觉打卡，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）
      */
-   // @Scheduled(cron = "0 0 23 * * ?")
+    @Scheduled(cron = "0 0 23 * * ?")
     public void section4() throws AWTException {
         log.info("********************2.4-晚上23：00-24：00（睡觉打卡，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）定时器启动**************************");
         Robot robot = new Robot();
@@ -103,17 +103,12 @@ public class PhoneSchedule {
     /**
      * todo 3.1-循环收取金币大于200金币
      */
-    //@Scheduled(cron = "0 0/18 * * * ?")
+    @Scheduled(cron = "0 0/45 * * * ?")
     public void circulate1() throws AWTException {
         log.info("********************3.1-循环收取金币大于200金币 定时器启动**************************");
-        Robot robot = new Robot();
-        robot.delay(RandomTools.init(60000));
         appService.circulate1("phone001");
-    appService.circulate1("phone002");
+        appService.circulate1("phone002");
         appService.circulate1("phone003");
- /*         appService.circulate1("phone004");
-        appService.circulate1("phone005");*/
-        appService.circulate1("phone006");
 
     }
 
