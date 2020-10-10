@@ -114,6 +114,16 @@ public class AdbTools {
         return  text;
     }
 
+    /***
+     * todo 获取手机屏幕是否需要点亮(android9->)
+     * android9 adb shell dumpsys window policy |find "mScreenOnFully" 判断 mAwake=truemScreenOnEarly=true mScreenOnFully=true
+     * android9，10 adb shell dumpsys power | find "Display Power: state=" 判断 Display Power: state=ON
+     * @return
+     */
+    public static String screen(String androidId){
+       String screen = "adb -s "+androidId + " shell dumpsys power | find \"Display Power: state=\"";
+       return screen;
+    }
 
 
 

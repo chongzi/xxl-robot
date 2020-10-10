@@ -103,6 +103,9 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		B小说奇热.handle(robot,robotCode,"奇热小说", AppConstants.CHECK_IN,dtos15);
 
 
+		log.info("********************晴象浏览器**************************");
+		List<PhoneCodeDto> dtos16 = phoneCodeService.getList(robotCode,"晴象浏览器");
+		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.CHECK_IN,dtos16);
 
 
 	}
@@ -211,7 +214,6 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 	@Override
 	public void circulate1(String robotCode){
 		Robot robot = new Robot();
-
 		log.info("********************抖音极速版**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"抖音极速版");
 		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.WATCH_VIDEOS,dtos1);
@@ -271,7 +273,13 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		B小说奇热.handle(robot,robotCode,"奇热小说", AppConstants.WATCH_ADVERT,dtos15);
 		B小说奇热.handle(robot,robotCode,"奇热小说", AppConstants.SWEEPSTAKES,dtos15);
 
-
+		log.info("********************晴象浏览器**************************");
+		List<PhoneCodeDto> dtos16 = phoneCodeService.getList(robotCode,"晴象浏览器");
+		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.WATCH_VIDEOS,dtos16);
+		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.GIFT_MONEY,dtos16);
+		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.GIFT_MONEY,dtos16);
+		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.DRAW,dtos16);
+		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.SCRATCH_CARD,dtos16);
 
 	}
 

@@ -52,6 +52,9 @@ public class AppUserTools {
 
             if(StringUtils.isBlank(androidId))return;
 //*************************************************************业务处理  START ***************************************************************************
+/*                    log.info("0.唤醒手机屏幕");
+                    String operateScreen = "adb -s " + androidId + " shell input keyevent 26";
+                    MouseTools.fastNormalEvent(robot, operateScreen);*/
 
                     log.info("0.返回主界面");
                     String operateHome = "adb -s " + androidId + " shell input keyevent 3";
@@ -196,7 +199,9 @@ public class AppUserTools {
                         case AppConstants.OTHER_QINGXIANG_WATCH_VIDEOS://睛象浏览器
                             handle21(robot, phoneCodeDtos, app, androidId);
                             break;
-
+                        case AppConstants.DIRECT:
+                            handle22(robot, phoneCodeDtos, app, androidId);
+                            break;
                     }
 
 
@@ -1011,6 +1016,46 @@ public class AppUserTools {
 
     }
 
+
+
+    /**
+     * todo 22.领红包(操作流程：1-点击红包，2-看广告)
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle22(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app,String androidId){
+        try {
+            PhoneCodeDto dto44 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep())).findAny().orElse(null);
+            if(null!=dto44) {
+                String operate44 = AdbTools.tap(androidId,dto44.getPositionX(), dto44.getPositionY());
+                MouseTools.normalEvent(robot, operate44);
+            }
+
+            PhoneCodeDto dto45 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep1())).findAny().orElse(null);
+            if(null!=dto45) {
+                String operate45 = AdbTools.tap(androidId,dto45.getPositionX(), dto45.getPositionY());
+                MouseTools.normalEvent(robot, operate45);
+            }
+            PhoneCodeDto dto46 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventAdvertStep())).findAny().orElse(null);
+            if(null!=dto46) {
+                String operate46 = AdbTools.tap(androidId,dto46.getPositionX(), dto46.getPositionY());
+                MouseTools.normalEvent(robot, operate46);
+            }
+
+            if(phoneCodeDtos.get(0).getAppCode().equals("红包赚不停")){
+                robot.delay(3000);
+            }
+            PhoneCodeDto dto47 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventAdvert())).findAny().orElse(null);
+            if(null!=dto47) {
+                String operate47 = AdbTools.tap(androidId,dto47.getPositionX(), dto47.getPositionY());
+                MouseTools.normalEvent(robot, operate47);
+                robot.delay(36000);
+            }
+
+
+        }catch (Exception e){}
+
+    }
 
 
 
