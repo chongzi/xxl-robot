@@ -139,15 +139,33 @@ public class AppNewsServiceImpl implements AppNewsService {
 		List<PhoneCodeDto> dtos3 = phoneCodeService.getList(robotCode,"悦头条");
 		A新闻悦头条.handle(robot,robotCode,"悦头条", AppConstants.WATCH_NEWS,dtos3);
 
+		log.info("********************忆头条**************************");
+		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"忆头条");
+		A新闻忆头条.handle(robot,robotCode,"忆头条", AppConstants.WATCH_VIDEOS,dtos4);
+		A新闻忆头条.handle(robot,robotCode,"忆头条", AppConstants.WATCH_NEWS,dtos4);
+
+		log.info("********************慧头条**************************");
+		List<PhoneCodeDto> dtos5 = phoneCodeService.getList(robotCode,"慧头条");
+		A新闻慧头条.handle(robot,robotCode,"慧头条", AppConstants.WATCH_VIDEOS,dtos5);
+		A新闻慧头条.handle(robot,robotCode,"慧头条", AppConstants.WATCH_NEWS,dtos5);
+
 		log.info("********************蚂蚁看点**************************");
 		List<PhoneCodeDto> dtos7 = phoneCodeService.getList(robotCode,"蚂蚁看点");
+		A新闻蚂蚁看点.handle(robot,robotCode,"蚂蚁看点", AppConstants.WATCH_NEWS,dtos7);
 		A新闻蚂蚁看点.handle(robot,robotCode,"蚂蚁看点", AppConstants.GIFT_MONEY,dtos7);
 		A新闻蚂蚁看点.handle(robot,robotCode,"蚂蚁看点", AppConstants.TREASURE,dtos7);
 		A新闻蚂蚁看点.handle(robot,robotCode,"蚂蚁看点", AppConstants.WATCH_ADVERT,dtos7);
 		A新闻蚂蚁看点.handle(robot,robotCode,"蚂蚁看点", AppConstants.DRAW,dtos7);
 
+
+		log.info("********************趣新闻**************************");
+		List<PhoneCodeDto> dtos8 = phoneCodeService.getList(robotCode,"趣新闻");
+		A新闻趣新闻.handle(robot,robotCode,"趣新闻", AppConstants.WATCH_NEWS,dtos8);
+
+
 		log.info("********************快看点**************************");
 		List<PhoneCodeDto> dtos9 = phoneCodeService.getList(robotCode,"快看点");
+		A新闻快看点.handle(robot,robotCode,"快看点", AppConstants.WATCH_NEWS,dtos9);
 		A新闻快看点.handle(robot,robotCode,"快看点", AppConstants.WATCH_ADVERT,dtos9);
 		A新闻快看点.handle(robot,robotCode,"快看点", AppConstants.DRAW,dtos9);
 		A新闻快看点.handle(robot,robotCode,"快看点", AppConstants.GIFT_MONEY,dtos9);
@@ -163,29 +181,6 @@ public class AppNewsServiceImpl implements AppNewsService {
 	public void circulate2(String robotCode){
 		Robot robot = new Robot();
 
-
-		log.info("********************忆头条**************************");
-		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"忆头条");
-		A新闻忆头条.handle(robot,robotCode,"忆头条", AppConstants.WATCH_VIDEOS,dtos4);
-		A新闻忆头条.handle(robot,robotCode,"忆头条", AppConstants.WATCH_NEWS,dtos4);
-
-		log.info("********************慧头条**************************");
-		List<PhoneCodeDto> dtos5 = phoneCodeService.getList(robotCode,"慧头条");
-		A新闻慧头条.handle(robot,robotCode,"慧头条", AppConstants.WATCH_VIDEOS,dtos5);
-		A新闻慧头条.handle(robot,robotCode,"慧头条", AppConstants.WATCH_NEWS,dtos5);
-
-		log.info("********************点点新闻**************************");
-		List<PhoneCodeDto> dtos2 = phoneCodeService.getList(robotCode,"点点");
-		A新闻点点新闻.handle(robot,robotCode,"点点", AppConstants.WATCH_NEWS,dtos2);
-
-		log.info("********************悦头条**************************");
-		List<PhoneCodeDto> dtos3 = phoneCodeService.getList(robotCode,"悦头条");
-		A新闻悦头条.handle(robot,robotCode,"悦头条", AppConstants.WATCH_NEWS,dtos3);
-
-
-		log.info("********************趣新闻**************************");
-		List<PhoneCodeDto> dtos8 = phoneCodeService.getList(robotCode,"趣新闻");
-		A新闻趣新闻.handle(robot,robotCode,"趣新闻", AppConstants.WATCH_NEWS,dtos8);
 
 	}
 
