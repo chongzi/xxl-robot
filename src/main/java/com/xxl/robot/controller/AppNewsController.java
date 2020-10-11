@@ -25,6 +25,12 @@ public class AppNewsController {
     public BaseResponse start() {
         appNewsService.start("phone001");
         appNewsService.start("phone002");
+        appNewsService.start("phone003");
+        appNewsService.start("phone0031");
+        appNewsService.start("phone0032");
+        appNewsService.start("phone0033");
+        appNewsService.start("phone0034");
+        appNewsService.start("phone0035");
 
         return BaseResponse.newSuccess();
     }
@@ -36,6 +42,12 @@ public class AppNewsController {
     public BaseResponse section1() {
         appNewsService.section1("phone001");
         appNewsService.section1("phone002");
+        appNewsService.section1("phone003");
+        appNewsService.section1("phone0031");
+        appNewsService.section1("phone0032");
+        appNewsService.section1("phone0033");
+        appNewsService.section1("phone0034");
+        appNewsService.section1("phone0035");
 
         return BaseResponse.newSuccess();
     }
@@ -45,6 +57,12 @@ public class AppNewsController {
     public BaseResponse section2() {
         appNewsService.section2("phone001");
         appNewsService.section2("phone002");
+        appNewsService.section2("phone003");
+        appNewsService.section2("phone0031");
+        appNewsService.section2("phone0032");
+        appNewsService.section2("phone0033");
+        appNewsService.section2("phone0034");
+        appNewsService.section2("phone0035");
         return BaseResponse.newSuccess();
     }
 
@@ -53,14 +71,26 @@ public class AppNewsController {
     public BaseResponse section3() {
         appNewsService.section3("phone001");
         appNewsService.section3("phone002");
+        appNewsService.section3("phone003");
+        appNewsService.section3("phone0031");
+        appNewsService.section3("phone0032");
+        appNewsService.section3("phone0033");
+        appNewsService.section3("phone0034");
+        appNewsService.section3("phone0035");
         return BaseResponse.newSuccess();
     }
 
     @GetMapping("section4")
     @ApiOperation("2.4-晚上23：00-24：00（睡觉打卡，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）")
     public BaseResponse section4() {
-        appNewsService.section3("phone001");
-        appNewsService.section3("phone002");
+        appNewsService.section4("phone001");
+        appNewsService.section4("phone002");
+        appNewsService.section4("phone003");
+        appNewsService.section4("phone0031");
+        appNewsService.section4("phone0032");
+        appNewsService.section4("phone0033");
+        appNewsService.section4("phone0034");
+        appNewsService.section4("phone0035");
         return BaseResponse.newSuccess();
     }
 
@@ -71,6 +101,12 @@ public class AppNewsController {
     public BaseResponse circulate1() {
         appNewsService.circulate1("phone001");
         appNewsService.circulate1("phone002");
+        appNewsService.circulate1("phone003");
+        appNewsService.circulate1("phone0031");
+        appNewsService.circulate1("phone0032");
+        appNewsService.circulate1("phone0033");
+        appNewsService.circulate1("phone0034");
+        appNewsService.circulate1("phone0035");
         return BaseResponse.newSuccess();
     }
 
@@ -78,8 +114,7 @@ public class AppNewsController {
     @GetMapping("circulate2")
     @ApiOperation("3.2-循环收取金币小于200金币")
     public BaseResponse circulate2() {
-        appNewsService.circulate2("phone001");
-        appNewsService.circulate2("phone002");
+
         return BaseResponse.newSuccess();
     }
 
