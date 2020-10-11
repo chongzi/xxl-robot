@@ -151,6 +151,10 @@ public class AppMediaServiceImpl implements AppMediaService {
 		List<PhoneCodeDto> dtos3 = phoneCodeService.getList(robotCode,"微视");
 		A视频微视.handle(robot,robotCode,"微视", AppConstants.WATCH_VIDEOS,dtos3);
 
+		log.info("********************火火视频**************************");
+		List<PhoneCodeDto> dtos9 = phoneCodeService.getList(robotCode,"火火视频");
+		A视频火火.handle(robot,robotCode,"火火视频", AppConstants.WATCH_VIDEOS,dtos9);
+
 	}
 
 	/**
