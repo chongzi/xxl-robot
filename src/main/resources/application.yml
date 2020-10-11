@@ -9,12 +9,12 @@ spring:
     name: xxl-robot
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://rm-8vb609g9dl7q906xlmo.mysql.zhangbei.rds.aliyuncs.com:3306/xxl_robot?characterEncoding=utf8&useSSL=false&serverTimezone=GMT&rewriteBatchedStatements=true
-    username: xxl880
-    password: Phoenix880
-    #url: jdbc:mysql://localhost:3306/xxl_robot?characterEncoding=utf8&useSSL=false&serverTimezone=GMT&rewriteBatchedStatements=true
-   # username: root
+    #url: jdbc:mysql://rm-8vb609g9dl7q906xlmo.mysql.zhangbei.rds.aliyuncs.com:3306/xxl_robot?characterEncoding=utf8&useSSL=false&serverTimezone=GMT&rewriteBatchedStatements=true
+    #username: xxl880
     #password: Phoenix880
+    url: jdbc:mysql://localhost:3306/xxl_robot?characterEncoding=utf8&useSSL=false&serverTimezone=GMT&rewriteBatchedStatements=true
+    username: root
+    password: Phoenix880
 
 mybatis:
   basepackage: com.xxl.robot.dao

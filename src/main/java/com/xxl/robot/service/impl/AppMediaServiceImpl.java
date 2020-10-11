@@ -35,9 +35,6 @@ public class AppMediaServiceImpl implements AppMediaService {
 	public void start(String robotCode){
 		Robot robot = new Robot();
 
-
-
-
 		log.info("********************刷宝**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"刷宝");
 		A视频刷宝.handle(robot,robotCode,"刷宝", AppConstants.CHECK_IN,dtos4);
@@ -127,26 +124,28 @@ public class AppMediaServiceImpl implements AppMediaService {
 
 		log.info("********************刷宝**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"刷宝");
+		A视频刷宝.handle(robot,robotCode,"刷宝", AppConstants.WATCH_VIDEOS,dtos4);
 		A视频刷宝.handle(robot,robotCode,"刷宝", AppConstants.TREASURE,dtos4);
 
 
 		log.info("********************快逗**************************");
 		List<PhoneCodeDto> dtos5 = phoneCodeService.getList(robotCode,"快逗");
+		A视频快逗.handle(robot,robotCode,"快逗", AppConstants.WATCH_VIDEOS,dtos5);
 		A视频快逗.handle(robot,robotCode,"快逗", AppConstants.WATCH_ADVERT,dtos5);
-		A视频快逗.handle(robot,robotCode,"快逗", AppConstants.GIFT_MONEY,dtos5);
 
 
 		log.info("********************追看**************************");
 		List<PhoneCodeDto> dtos7 = phoneCodeService.getList(robotCode,"追看");
+		A视频追看.handle(robot,robotCode,"追看", AppConstants.WATCH_VIDEOS,dtos7);
 		A视频追看.handle(robot,robotCode,"追看", AppConstants.WATCH_ADVERT,dtos7);
 		A视频追看.handle(robot,robotCode,"追看", AppConstants.SWEEPSTAKES,dtos7);
 		A视频追看.handle(robot,robotCode,"追看", AppConstants.TREASURE,dtos7);
-		A视频追看.handle(robot,robotCode,"追看", AppConstants.GIFT_MONEY,dtos7);
+		A视频追看.handle(robot,robotCode,"追看", AppConstants.SCRATCH_CARD,dtos7);
 
 		log.info("********************小吃货**************************");
 		List<PhoneCodeDto> dtos8 = phoneCodeService.getList(robotCode,"小吃货");
+		A视频小吃货.handle(robot,robotCode,"小吃货", AppConstants.WATCH_VIDEOS,dtos8);
 		A视频小吃货.handle(robot,robotCode,"小吃货", AppConstants.WATCH_ADVERT,dtos8);
-		A视频小吃货.handle(robot,robotCode,"小吃货", AppConstants.GIFT_MONEY,dtos8);
 
 		log.info("********************微视**************************");
 		List<PhoneCodeDto> dtos3 = phoneCodeService.getList(robotCode,"微视");

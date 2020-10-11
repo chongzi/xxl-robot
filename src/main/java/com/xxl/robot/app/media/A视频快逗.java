@@ -94,13 +94,10 @@ public class A视频快逗 {
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setOperate(AppConstants.CHECK_IN);
-        app.setClear("category首页-clear");
-        app.setCategory("category任务");
-        app.setEventClear("category任务-清除");
-        app.setEvent("category任务-签到");
-        app.setEventAdvert("category任务-签到-advert");
+        app.setCategory("category来赚钱");
+        app.setEvent("category来赚钱-签到");
+        app.setEventAdvert("category来赚钱-签到-advert");
         app.setUpDown(0);
-
 
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -113,12 +110,10 @@ public class A视频快逗 {
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setOperate(AppConstants.WATCH_VIDEOS);
-        app.setClear("category首页-clear");
         app.setCategory("category首页");
         app.setEvent("category首页-看视频");
         app.setEventGiveUP("category首页-看视频-giveup");
         app.setUpDown(0);
-
 
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
@@ -160,7 +155,13 @@ public class A视频快逗 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.WATCH_VIDEOS);
+        app.setCategory("category来赚钱");
+        app.setEvent("category来赚钱-看广告");
+        app.setEventAdvert("category来赚钱-看广告-advert");
+        app.setUpDown(0);
 
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -190,16 +191,7 @@ public class A视频快逗 {
      * @param phoneCodeDtos
      */
     public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setOperate(AppConstants.TREASURE);
-        app.setClear("category首页-clear");
-        app.setCategory("category任务");
-        app.setEventClear("category任务-清除");
-        app.setEvent("category任务-开宝箱");
-        app.setEventAdvert("category任务-开宝箱-advert");
-        app.setUpDown(0);
 
-
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
