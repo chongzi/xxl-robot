@@ -55,7 +55,44 @@ public class PhoneSchedule {
          appService.start("phone0034");
          appService.start("phone0035");
 
-    }
+         aAppMediaService.start("phone001");
+         aAppMediaService.start("phone002");
+         aAppMediaService.start("phone003");
+         aAppMediaService.start("phone0031");
+         aAppMediaService.start("phone0032");
+         aAppMediaService.start("phone0033");
+         aAppMediaService.start("phone0034");
+         aAppMediaService.start("phone0035");
+
+         appNewsService.start("phone001");
+         appNewsService.start("phone002");
+         appNewsService.start("phone003");
+         appNewsService.start("phone0031");
+         appNewsService.start("phone0032");
+         appNewsService.start("phone0033");
+         appNewsService.start("phone0034");
+         appNewsService.start("phone0035");
+
+         appNovelService.start("phone001");
+         appNovelService.start("phone002");
+         appNovelService.start("phone003");
+         appNovelService.start("phone0031");
+         appNovelService.start("phone0032");
+         appNovelService.start("phone0033");
+         appNovelService.start("phone0034");
+         appNovelService.start("phone0035");
+
+         appWalkService.start("phone001");
+         appWalkService.start("phone002");
+         appWalkService.start("phone003");
+         appWalkService.start("phone0031");
+         appWalkService.start("phone0032");
+         appWalkService.start("phone0033");
+         appWalkService.start("phone0034");
+         appWalkService.start("phone0035");
+
+
+     }
 
 //************************二种类型：分段（一次性收取，睡觉收取，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）*****************************************
     /**
@@ -74,6 +111,42 @@ public class PhoneSchedule {
         appService.section1("phone0033");
         appService.section1("phone0034");
         appService.section1("phone0035");
+
+        aAppMediaService.section1("phone001");
+        aAppMediaService.section1("phone002");
+        aAppMediaService.section1("phone003");
+        aAppMediaService.section1("phone0031");
+        aAppMediaService.section1("phone0032");
+        aAppMediaService.section1("phone0033");
+        aAppMediaService.section1("phone0034");
+        aAppMediaService.section1("phone0035");
+
+        appNewsService.section1("phone001");
+        appNewsService.section1("phone002");
+        appNewsService.section1("phone003");
+        appNewsService.section1("phone0031");
+        appNewsService.section1("phone0032");
+        appNewsService.section1("phone0033");
+        appNewsService.section1("phone0034");
+        appNewsService.section1("phone0035");
+
+        appNovelService.section1("phone001");
+        appNovelService.section1("phone002");
+        appNovelService.section1("phone003");
+        appNovelService.section1("phone0031");
+        appNovelService.section1("phone0032");
+        appNovelService.section1("phone0033");
+        appNovelService.section1("phone0034");
+        appNovelService.section1("phone0035");
+
+        appWalkService.section1("phone001");
+        appWalkService.section1("phone002");
+        appWalkService.section1("phone003");
+        appWalkService.section1("phone0031");
+        appWalkService.section1("phone0032");
+        appWalkService.section1("phone0033");
+        appWalkService.section1("phone0034");
+        appWalkService.section1("phone0035");
 
     }
 
@@ -94,6 +167,42 @@ public class PhoneSchedule {
         appService.section2("phone0033");
         appService.section2("phone0034");
         appService.section2("phone0035");
+
+        aAppMediaService.section2("phone001");
+        aAppMediaService.section2("phone002");
+        aAppMediaService.section2("phone003");
+        aAppMediaService.section2("phone0031");
+        aAppMediaService.section2("phone0032");
+        aAppMediaService.section2("phone0033");
+        aAppMediaService.section2("phone0034");
+        aAppMediaService.section2("phone0035");
+
+        appNewsService.section2("phone001");
+        appNewsService.section2("phone002");
+        appNewsService.section2("phone003");
+        appNewsService.section2("phone0031");
+        appNewsService.section2("phone0032");
+        appNewsService.section2("phone0033");
+        appNewsService.section2("phone0034");
+        appNewsService.section2("phone0035");
+
+        appNovelService.section2("phone001");
+        appNovelService.section2("phone002");
+        appNovelService.section2("phone003");
+        appNovelService.section2("phone0031");
+        appNovelService.section2("phone0032");
+        appNovelService.section2("phone0033");
+        appNovelService.section2("phone0034");
+        appNovelService.section2("phone0035");
+
+        appWalkService.section2("phone001");
+        appWalkService.section2("phone002");
+        appWalkService.section2("phone003");
+        appWalkService.section2("phone0031");
+        appWalkService.section2("phone0032");
+        appWalkService.section2("phone0033");
+        appWalkService.section2("phone0034");
+        appWalkService.section2("phone0035");
 
 
     }
@@ -116,6 +225,42 @@ public class PhoneSchedule {
         appService.section3("phone0035");
 
 
+        aAppMediaService.section3("phone001");
+        aAppMediaService.section3("phone002");
+        aAppMediaService.section3("phone003");
+        aAppMediaService.section3("phone0031");
+        aAppMediaService.section3("phone0032");
+        aAppMediaService.section3("phone0033");
+        aAppMediaService.section3("phone0034");
+        aAppMediaService.section3("phone0035");
+
+        appNewsService.section3("phone001");
+        appNewsService.section3("phone002");
+        appNewsService.section3("phone003");
+        appNewsService.section3("phone0031");
+        appNewsService.section3("phone0032");
+        appNewsService.section3("phone0033");
+        appNewsService.section3("phone0034");
+        appNewsService.section3("phone0035");
+
+        appNovelService.section3("phone001");
+        appNovelService.section3("phone002");
+        appNovelService.section3("phone003");
+        appNovelService.section3("phone0031");
+        appNovelService.section3("phone0032");
+        appNovelService.section3("phone0033");
+        appNovelService.section3("phone0034");
+        appNovelService.section3("phone0035");
+
+        appWalkService.section3("phone001");
+        appWalkService.section3("phone002");
+        appWalkService.section3("phone003");
+        appWalkService.section3("phone0031");
+        appWalkService.section3("phone0032");
+        appWalkService.section3("phone0033");
+        appWalkService.section3("phone0034");
+        appWalkService.section3("phone0035");
+
     }
 
     /**
@@ -135,6 +280,44 @@ public class PhoneSchedule {
         appService.section4("phone0034");
         appService.section4("phone0035");
 
+
+        aAppMediaService.section4("phone001");
+        aAppMediaService.section4("phone002");
+        aAppMediaService.section4("phone003");
+        aAppMediaService.section4("phone0031");
+        aAppMediaService.section4("phone0032");
+        aAppMediaService.section4("phone0033");
+        aAppMediaService.section4("phone0034");
+        aAppMediaService.section4("phone0035");
+
+        appNewsService.section4("phone001");
+        appNewsService.section4("phone002");
+        appNewsService.section4("phone003");
+        appNewsService.section4("phone0031");
+        appNewsService.section4("phone0032");
+        appNewsService.section4("phone0033");
+        appNewsService.section4("phone0034");
+        appNewsService.section4("phone0035");
+
+        appNovelService.section4("phone001");
+        appNovelService.section4("phone002");
+        appNovelService.section4("phone003");
+        appNovelService.section4("phone0031");
+        appNovelService.section4("phone0032");
+        appNovelService.section4("phone0033");
+        appNovelService.section4("phone0034");
+        appNovelService.section4("phone0035");
+
+        appWalkService.section4("phone001");
+        appWalkService.section4("phone002");
+        appWalkService.section4("phone003");
+        appWalkService.section4("phone0031");
+        appWalkService.section4("phone0032");
+        appWalkService.section4("phone0033");
+        appWalkService.section4("phone0034");
+        appWalkService.section4("phone0035");
+
+
     }
 
     /**
@@ -153,19 +336,45 @@ public class PhoneSchedule {
         appService.circulate1("phone0034");
         appService.circulate1("phone0035");
 
+
+        aAppMediaService.circulate1("phone001");
+        aAppMediaService.circulate1("phone002");
+        aAppMediaService.circulate1("phone003");
+        aAppMediaService.circulate1("phone0031");
+        aAppMediaService.circulate1("phone0032");
+        aAppMediaService.circulate1("phone0033");
+        aAppMediaService.circulate1("phone0034");
+        aAppMediaService.circulate1("phone0035");
+
+        appNewsService.circulate1("phone001");
+        appNewsService.circulate1("phone002");
+        appNewsService.circulate1("phone003");
+        appNewsService.circulate1("phone0031");
+        appNewsService.circulate1("phone0032");
+        appNewsService.circulate1("phone0033");
+        appNewsService.circulate1("phone0034");
+        appNewsService.circulate1("phone0035");
+
+        appNovelService.circulate1("phone001");
+        appNovelService.circulate1("phone002");
+        appNovelService.circulate1("phone003");
+        appNovelService.circulate1("phone0031");
+        appNovelService.circulate1("phone0032");
+        appNovelService.circulate1("phone0033");
+        appNovelService.circulate1("phone0034");
+        appNovelService.circulate1("phone0035");
+
+        appWalkService.circulate1("phone001");
+        appWalkService.circulate1("phone002");
+        appWalkService.circulate1("phone003");
+        appWalkService.circulate1("phone0031");
+        appWalkService.circulate1("phone0032");
+        appWalkService.circulate1("phone0033");
+        appWalkService.circulate1("phone0034");
+        appWalkService.circulate1("phone0035");
+
     }
 
-    /**
-     * todo 3.2-循环收取金币小于200金币
-     */
-   // @Scheduled(cron = "0 0/15 * * * ?")
-    public void circulate2() throws AWTException {
-        log.info("********************3.2-循环收取金币小于200金币 定时器启动**************************");
-        Robot robot = new Robot();
-        robot.delay(RandomTools.init(6000));
-        appService.circulate2(PhoneConstants.phone001);
-
-    }
 
 
 
