@@ -131,7 +131,7 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		log.info("********************今日头条**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"今日头条");
 		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.EAT,dtos4);//吃饭
-		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.DRAW,dtos4);//抽奖
+		//A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.DRAW,dtos4);//抽奖
 
 		log.info("********************趣头条**************************");
 		List<PhoneCodeDto> dtos5 = phoneCodeService.getList(robotCode,"趣头条");

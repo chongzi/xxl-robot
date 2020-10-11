@@ -92,6 +92,7 @@ public class A步行走走赚 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.CHECK_IN);
         app.setCategory("category赚钱");
         app.setEvent("category赚钱-签到");
         app.setEventAdvert("category赚钱-签到-advert");
@@ -149,6 +150,7 @@ public class A步行走走赚 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.WATCH_ADVERT);
         app.setCategory("category赚钱");
         app.setEvent("category赚钱-视频广告");
         app.setEventAdvert("category赚钱-视频广告-advert");
@@ -175,6 +177,7 @@ public class A步行走走赚 {
      * @param phoneCodeDtos
      */
     public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.GIFT_MONEY);
         app.setCategory("category运动");
         app.setEvent("category运动-领红包");
         app.setEventBack("category运动-领红包-back");
@@ -188,6 +191,7 @@ public class A步行走走赚 {
      * @param phoneCodeDtos
      */
     public static void handle81(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.GIFT_MONEY);
         app.setCategory("category赚钱");
         app.setEvent("category赚钱-摇红包");
         app.setEventStep("category赚钱-摇红包-step");
@@ -205,6 +209,7 @@ public class A步行走走赚 {
      * @param phoneCodeDtos
      */
     public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.TREASURE);
         app.setCategory("category赚钱");
         app.setEvent("category赚钱-开宝箱");
         app.setEventAdvert("category赚钱-开宝箱-advert");
@@ -222,6 +227,7 @@ public class A步行走走赚 {
      * @param phoneCodeDtos
      */
     public static void handle10(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.DRAW);
         app.setCategory("category运动");
         app.setEvent("category运动-抽奖");
         app.setEventStep("category运动-抽奖-step");
@@ -247,6 +253,7 @@ public class A步行走走赚 {
      * @param phoneCodeDtos
      */
     public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.WALK);
         app.setCategory("category运动");
         app.setEvent("category运动-走路");
         app.setEventStep("category运动-走路-step");
@@ -264,6 +271,7 @@ public class A步行走走赚 {
      * @param phoneCodeDtos
      */
     public static void handle13(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.DRINK_WATER);
         app.setCategory("category运动");
         app.setEvent("category运动-喝水");
         app.setEventStep("category运动-喝水-step");

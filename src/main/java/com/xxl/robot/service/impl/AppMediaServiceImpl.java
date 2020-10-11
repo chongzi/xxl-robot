@@ -40,32 +40,30 @@ public class AppMediaServiceImpl implements AppMediaService {
 
 		log.info("********************刷宝**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"刷宝");
-		B视频刷宝.handle(robot,robotCode,"刷宝", AppConstants.CHECK_IN,dtos4);
+		A视频刷宝.handle(robot,robotCode,"刷宝", AppConstants.CHECK_IN,dtos4);
 
 		log.info("********************快逗**************************");
 		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"快逗");
-		B视频快逗.handle(robot,robotCode,"快逗", AppConstants.CHECK_IN,dtos6);
+		A视频快逗.handle(robot,robotCode,"快逗", AppConstants.CHECK_IN,dtos6);
 
 
 		log.info("********************追看**************************");
 		List<PhoneCodeDto> dtos7 = phoneCodeService.getList(robotCode,"追看");
-		B视频追看.handle(robot,robotCode,"追看", AppConstants.CHECK_IN,dtos7);
+		A视频追看.handle(robot,robotCode,"追看", AppConstants.CHECK_IN,dtos7);
 
 
 		log.info("********************小吃货**************************");
 		List<PhoneCodeDto> dtos8 = phoneCodeService.getList(robotCode,"小吃货");
-		B视频小吃货.handle(robot,robotCode,"小吃货", AppConstants.CHECK_IN,dtos8);
+		A视频小吃货.handle(robot,robotCode,"小吃货", AppConstants.CHECK_IN,dtos8);
 
 
 
 		log.info("********************火火视频**************************");
 		List<PhoneCodeDto> dtos11 = phoneCodeService.getList(robotCode,"火火视频");
-		B视频火火.handle(robot,robotCode,"火火视频", AppConstants.CHECK_IN,dtos11);
+		A视频火火.handle(robot,robotCode,"火火视频", AppConstants.CHECK_IN,dtos11);
 
 
-		log.info("********************好看视频**************************");
-		List<PhoneCodeDto> dtos12 = phoneCodeService.getList(robotCode,"好看视频");
-		A视频好看.handle(robot,robotCode,"好看视频", AppConstants.CHECK_IN,dtos12);
+
 
 	}
 
@@ -80,31 +78,9 @@ public class AppMediaServiceImpl implements AppMediaService {
 	public void section1(String robotCode){
 		Robot robot = new Robot();
 
-
-		log.info("********************微视**************************");
-		List<PhoneCodeDto> dtos3 = phoneCodeService.getList(robotCode,"微视");
-		A视频快手.handle(robot,robotCode,"微视", AppConstants.WATCH_VIDEOS,dtos3);
-
-		log.info("********************刷宝**************************");
-		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"刷宝");
-		B视频刷宝.handle(robot,robotCode,"刷宝", AppConstants.WATCH_VIDEOS,dtos4);
-
-		log.info("********************快逗**************************");
-		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"快逗");
-		B视频快逗.handle(robot,robotCode,"快逗", AppConstants.WATCH_VIDEOS,dtos6);
-
-		log.info("********************追看**************************");
-		List<PhoneCodeDto> dtos7 = phoneCodeService.getList(robotCode,"追看");
-		B视频追看.handle(robot,robotCode,"追看", AppConstants.WATCH_VIDEOS,dtos7);
-		B视频追看.handle(robot,robotCode,"追看", AppConstants.DIRECT,dtos7);
-
-		log.info("********************小吃货**************************");
-		List<PhoneCodeDto> dtos8 = phoneCodeService.getList(robotCode,"小吃货");
-		B视频小吃货.handle(robot,robotCode,"小吃货", AppConstants.WATCH_VIDEOS,dtos8);
-
 		log.info("********************火火视频**************************");
 		List<PhoneCodeDto> dtos11 = phoneCodeService.getList(robotCode,"火火视频");
-		B视频火火.handle(robot,robotCode,"火火视频", AppConstants.CHARGE,dtos11);
+		A视频火火.handle(robot,robotCode,"火火视频", AppConstants.CHARGE,dtos11);
 	}
 
 	/**
@@ -151,34 +127,30 @@ public class AppMediaServiceImpl implements AppMediaService {
 
 		log.info("********************刷宝**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"刷宝");
-		B视频刷宝.handle(robot,robotCode,"刷宝", AppConstants.TREASURE,dtos4);
+		A视频刷宝.handle(robot,robotCode,"刷宝", AppConstants.TREASURE,dtos4);
 
-/*
+
 		log.info("********************快逗**************************");
 		List<PhoneCodeDto> dtos5 = phoneCodeService.getList(robotCode,"快逗");
-		F视频快逗.handle(robot,robotCode,"快逗", AppConstants.WATCH_ADVERT,dtos5);
-		F视频快逗.handle(robot,robotCode,"快逗", AppConstants.GIFT_MONEY,dtos5);
-*/
-/*
+		A视频快逗.handle(robot,robotCode,"快逗", AppConstants.WATCH_ADVERT,dtos5);
+		A视频快逗.handle(robot,robotCode,"快逗", AppConstants.GIFT_MONEY,dtos5);
+
 
 		log.info("********************追看**************************");
 		List<PhoneCodeDto> dtos7 = phoneCodeService.getList(robotCode,"追看");
-		G视频追看.handle(robot,robotCode,"追看", AppConstants.WATCH_ADVERT,dtos7);q
-		G视频追看.handle(robot,robotCode,"追看", AppConstants.SWEEPSTAKES,dtos7);
-		G视频追看.handle(robot,robotCode,"追看", AppConstants.TREASURE,dtos7);
-		G视频追看.handle(robot,robotCode,"追看", AppConstants.GIFT_MONEY,dtos7);
+		A视频追看.handle(robot,robotCode,"追看", AppConstants.WATCH_ADVERT,dtos7);
+		A视频追看.handle(robot,robotCode,"追看", AppConstants.SWEEPSTAKES,dtos7);
+		A视频追看.handle(robot,robotCode,"追看", AppConstants.TREASURE,dtos7);
+		A视频追看.handle(robot,robotCode,"追看", AppConstants.GIFT_MONEY,dtos7);
 
 		log.info("********************小吃货**************************");
 		List<PhoneCodeDto> dtos8 = phoneCodeService.getList(robotCode,"小吃货");
-		H视频小吃货.handle(robot,robotCode,"小吃货", AppConstants.WATCH_ADVERT,dtos8);
-		H视频小吃货.handle(robot,robotCode,"小吃货", AppConstants.GIFT_MONEY,dtos8);
-*/
+		A视频小吃货.handle(robot,robotCode,"小吃货", AppConstants.WATCH_ADVERT,dtos8);
+		A视频小吃货.handle(robot,robotCode,"小吃货", AppConstants.GIFT_MONEY,dtos8);
 
-		log.info("********************好看视频**************************");
-		List<PhoneCodeDto> dtos12 = phoneCodeService.getList(robotCode,"好看视频");
-		A视频好看.handle(robot,robotCode,"好看视频", AppConstants.TREASURE,dtos12);
-		A视频好看.handle(robot,robotCode,"好看视频", AppConstants.WATCH_ADVERT,dtos12);
-
+		log.info("********************微视**************************");
+		List<PhoneCodeDto> dtos3 = phoneCodeService.getList(robotCode,"微视");
+		A视频微视.handle(robot,robotCode,"微视", AppConstants.WATCH_VIDEOS,dtos3);
 
 	}
 
@@ -189,48 +161,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 	@SneakyThrows
 	@Override
 	public void circulate2(String robotCode){
-		Robot robot = new Robot();
-		/*log.info("********************抖音极速版**************************");
-		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"抖音极速版");
-		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.WATCH_VIDEOS,dtos);
 
-		log.info("********************火山极速版**************************");
-		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"火山极速版");
-		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.WATCH_VIDEOS,dtos1);
-
-		log.info("********************快手极速版**************************");
-		List<PhoneCodeDto> dtos2 = phoneCodeService.getList(robotCode,"快手极速版");
-		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.WATCH_VIDEOS,dtos2);
-
-
-		log.info("********************微视**************************");
-		List<PhoneCodeDto> dtos3 = phoneCodeService.getList(robotCode,"微视");
-		A视频快手.handle(robot,robotCode,"微视", AppConstants.WATCH_VIDEOS,dtos3);
-
-		log.info("********************刷宝**************************");
-		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"刷宝");
-		B视频刷宝.handle(robot,robotCode,"刷宝", AppConstants.WATCH_VIDEOS,dtos4);
-
-		log.info("********************快逗**************************");
-		List<PhoneCodeDto> dtos5 = phoneCodeService.getList(robotCode,"快逗");
-		B视频快逗.handle(robot,robotCode,"快逗", AppConstants.WATCH_VIDEOS,dtos5);
-
-		log.info("********************追看**************************");
-		List<PhoneCodeDto> dtos7 = phoneCodeService.getList(robotCode,"追看");
-		B视频追看.handle(robot,robotCode,"追看", AppConstants.WATCH_VIDEOS,dtos7);
-
-		log.info("********************小吃货**************************");
-		List<PhoneCodeDto> dtos8 = phoneCodeService.getList(robotCode,"小吃货");
-		B视频小吃货.handle(robot,robotCode,"小吃货", AppConstants.WATCH_VIDEOS,dtos8);*/
-
-		log.info("********************抖音火山**************************");
-		List<PhoneCodeDto> dtos9 = phoneCodeService.getList(robotCode,"抖音火山");
-		B视频抖音火山.handle(robot,robotCode,"抖音火山", AppConstants.WATCH_VIDEOS,dtos9);
-
-	/*	log.info("********************火火视频**************************");
-		List<PhoneCodeDto> dtos11 = phoneCodeService.getList(robotCode,"火火视频");
-		B视频火火.handle(robot,robotCode,"火火视频", AppConstants.WATCH_VIDEOS,dtos11);
-		B视频火火.handle(robot,robotCode,"火火视频", AppConstants.WATCH_VIDEOS_SMALL,dtos11);*/
 
 	}
 

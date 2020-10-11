@@ -94,6 +94,7 @@ public class A步行步多多 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.CHECK_IN);
         app.setCategory("category赚赚");
         app.setEvent("category赚赚-签到");
         app.setEventAdvert("category赚赚-签到-advert");
@@ -183,6 +184,7 @@ public class A步行步多多 {
      * @param phoneCodeDtos
      */
     public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.TREASURE);
         app.setCategory("category赚赚");
         app.setEvent("category赚赚-开宝箱");
         app.setEventAdvert("category赚赚-开宝箱-advert");
@@ -218,6 +220,7 @@ public class A步行步多多 {
      * @param phoneCodeDtos
      */
     public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.WALK);
         app.setCategory("category运动");
         app.setEvent("category运动-走路");
         app.setEventAdvert("category运动-走路-advert");
@@ -234,6 +237,7 @@ public class A步行步多多 {
      * @param phoneCodeDtos
      */
     public static void handle13(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.DRINK_WATER);
         app.setCategory("category健康");
         app.setEvent("category健康-喝水");
         app.setEventStep("category健康-喝水-step");

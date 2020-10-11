@@ -8,15 +8,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * todo A新闻今日头条
  * app-用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class B视频追看 {
-    private static Logger log = LoggerFactory.getLogger(B视频追看.class);
+public class A视频刷宝 {
+    private static Logger log = LoggerFactory.getLogger(A视频刷宝.class);
 
     /**
      * todo 1.
@@ -94,6 +93,7 @@ public class B视频追看 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.CHECK_IN);
         app.setClear("category首页-clear");
         app.setCategory("category任务");
         app.setEventClear("category任务-清除");
@@ -112,6 +112,7 @@ public class B视频追看 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.WATCH_VIDEOS);
         app.setClear("category首页-clear");
         app.setCategory("category首页");
         app.setEvent("category首页-看视频");
@@ -189,6 +190,7 @@ public class B视频追看 {
      * @param phoneCodeDtos
      */
     public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.TREASURE);
         app.setClear("category首页-clear");
         app.setCategory("category任务");
         app.setEventClear("category任务-清除");
@@ -226,7 +228,7 @@ public class B视频追看 {
      * @param phoneCodeDtos
      */
     public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        ;
+     ;
     }
 
 

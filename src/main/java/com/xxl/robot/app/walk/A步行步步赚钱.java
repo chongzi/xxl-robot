@@ -8,15 +8,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * todo A步步赚钱7操作
  * app-用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class A步行步步赚钱7 {
-    private static Logger log = LoggerFactory.getLogger(A步行步步赚钱7.class);
+public class A步行步步赚钱 {
+    private static Logger log = LoggerFactory.getLogger(A步行步步赚钱.class);
 
     /**
      * todo 1.
@@ -95,6 +94,7 @@ public class A步行步步赚钱7 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.CHECK_IN);
         app.setCategory("category运动");
         app.setEvent("category运动-签到");
         app.setEventAdvert("category运动-签到-step");
@@ -170,6 +170,7 @@ public class A步行步步赚钱7 {
      * @param phoneCodeDtos
      */
     public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.GIFT_MONEY);
         app.setCategory("category运动");
         app.setEvent("category运动-领红包");
         app.setEventAdvert("category运动-领红包-advert");
@@ -208,6 +209,7 @@ public class A步行步步赚钱7 {
      * @param phoneCodeDtos
      */
     public static void handle10(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.DRAW);
         app.setCategory("category运动");
         app.setEvent("category运动-抽奖");
         app.setEventAdvert("category运动-抽奖-advert");
@@ -233,6 +235,7 @@ public class A步行步步赚钱7 {
      * @param phoneCodeDtos
      */
     public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.WALK);
         app.setCategory("category运动");
         app.setEvent("category运动-走路");
         app.setEventStep("category运动-走路-step");

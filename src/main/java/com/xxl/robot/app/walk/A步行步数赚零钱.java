@@ -1,4 +1,4 @@
-package com.xxl.robot.app.media;
+package com.xxl.robot.app.walk;
 
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
@@ -8,15 +8,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * todo A新闻今日头条
+ * todo A步行步步操作
  * app-用户行为操作(签到，看视频，关注，点赞，收藏，评论，开宝箱，种菜，走路)
  */
-public class B视频快逗 {
-    private static Logger log = LoggerFactory.getLogger(B视频快逗.class);
+public class A步行步数赚零钱 {
+    private static Logger log = LoggerFactory.getLogger(A步行步数赚零钱.class);
 
     /**
      * todo 1.
@@ -50,6 +49,8 @@ public class B视频快逗 {
                 break;
             case AppConstants.GIFT_MONEY://领红包
                 handle8(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                handle81(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                handle82(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.TREASURE://开宝箱
                 handle9(robot, robotCode, appCode, event, phoneCodeDtos, app);
@@ -62,6 +63,7 @@ public class B视频快逗 {
                 break;
             case AppConstants.WALK://走路
                 handle12(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                handle121(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.DRINK_WATER://喝水
                 handle13(robot, robotCode, appCode, event, phoneCodeDtos, app);
@@ -94,11 +96,11 @@ public class B视频快逗 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
-        app.setCategory("category任务");
-        app.setEventClear("category任务-清除");
-        app.setEvent("category任务-签到");
-        app.setEventAdvert("category任务-签到-advert");
+        app.setOperate(AppConstants.CHECK_IN);
+        app.setClear("category全局-清除");
+        app.setCategory("category赚赚");
+        app.setEvent("category赚赚-签到");
+        app.setEventAdvert("category赚赚-签到");
         app.setUpDown(0);
 
 
@@ -112,14 +114,7 @@ public class B视频快逗 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
-        app.setCategory("category首页");
-        app.setEvent("category首页-看视频");
-        app.setEventGiveUP("category首页-看视频-giveup");
-        app.setUpDown(0);
 
-
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -159,7 +154,15 @@ public class B视频快逗 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.WATCH_ADVERT);
+        app.setClear("category全局-清除");
+        app.setCategory("category赚赚");
+        app.setEvent("category赚赚-看广告");
+        app.setEventAdvert("category赚赚-看广告-advert");
+        app.setUpDown(0);
 
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -178,6 +181,56 @@ public class B视频快逗 {
      * @param phoneCodeDtos
      */
     public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.GIFT_MONEY);
+        app.setClear("category全局-清除");
+        app.setCategory("category首页");
+        app.setEvent("category首页-领红包");
+        app.setEventAdvert("category首页-领红包-advert");
+        app.setUpDown(0);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+    }
+
+    /**
+     * todo 8.领红包(操作流程：1-点击红包，2-看广告)
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle81(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.GIFT_MONEY);
+        app.setClear("category全局-清除");
+        app.setCategory("category首页");
+        app.setEvent("category首页-领视频红包");
+        app.setEventAdvert("category首页-领视频红包-advert");
+        app.setUpDown(0);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+    }
+
+    /**
+     * todo 8.领红包(操作流程：1-点击红包，2-看广告)
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle82(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+/*
+        app.setClear("category全局-清除");
+        app.setCategory("category首页");
+        app.setEvent("category首页-领每日红包");
+        app.setEventAdvert("category首页-领每日红包-advert");
+        app.setUpDown(0);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+
+        for(int i=0;i<6;i++){
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        }
+*/
 
     }
 
@@ -189,15 +242,7 @@ public class B视频快逗 {
      * @param phoneCodeDtos
      */
     public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        app.setClear("category首页-clear");
-        app.setCategory("category任务");
-        app.setEventClear("category任务-清除");
-        app.setEvent("category任务-开宝箱");
-        app.setEventAdvert("category任务-开宝箱-advert");
-        app.setUpDown(0);
 
-
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -226,7 +271,32 @@ public class B视频快逗 {
      * @param phoneCodeDtos
      */
     public static void handle12(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
-        ;
+        app.setOperate(AppConstants.WALK);
+        app.setClear("category全局-清除");
+        app.setCategory("category首页");
+        app.setEvent("category首页-走路步数");
+        app.setEventAdvert("category首页-走路步数-advert");
+        app.setUpDown(0);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+    }
+
+    /**
+     * todo 12.走路
+     * @param robot
+     * @param phoneCodeDtos
+     */
+    public static void handle121(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.WALK);
+        app.setClear("category全局-清除");
+        app.setCategory("category首页");
+        app.setEvent("category首页-走路视频步数");
+        app.setEventAdvert("category首页-走路视频步数-advert");
+        app.setUpDown(0);
+
+
+        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 

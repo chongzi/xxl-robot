@@ -95,6 +95,7 @@ public class A小说米读 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.CHECK_IN);
         app.setCategory("category福利");
         app.setEvent("category福利-签到");
         app.setEventAdvert("category福利-签到-advert");
@@ -142,6 +143,7 @@ public class A小说米读 {
      * @param phoneCodeDtos
      */
     public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.WATCH_NOVELS);
         app.setCategory("category福利");
         app.setEvent("category福利-看小说");
         app.setUpDown(0);

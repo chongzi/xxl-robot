@@ -95,6 +95,7 @@ public class A新闻蚂蚁看点 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.CHECK_IN);
         app.setClear("category看点-清除");
         app.setCategory("category任务");
         app.setEvent("category任务-签到");
@@ -132,6 +133,7 @@ public class A新闻蚂蚁看点 {
      * @param phoneCodeDtos
      */
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.WATCH_NEWS);
         app.setCategory("category看点");
         app.setEvent("category看点-看新闻");
         app.setEventStep("category看点-看新闻-step");
@@ -158,6 +160,7 @@ public class A新闻蚂蚁看点 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.WATCH_ADVERT);
         app.setClear("category看点-清除");
         app.setCategory("category看点");
         app.setEvent("category看点-看广告");
@@ -184,6 +187,7 @@ public class A新闻蚂蚁看点 {
      * @param phoneCodeDtos
      */
     public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.GIFT_MONEY);
         app.setClear("category看点-清除");
         app.setCategory("category看点");
         app.setEvent("category看点-领红包");
@@ -202,6 +206,7 @@ public class A新闻蚂蚁看点 {
      * @param phoneCodeDtos
      */
     public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.TREASURE);
         app.setClear("category看点-清除");
         app.setCategory("category任务");
         app.setEvent("category任务-开宝箱");
@@ -219,6 +224,7 @@ public class A新闻蚂蚁看点 {
      * @param phoneCodeDtos
      */
     public static void handle10(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.DRAW);
         app.setClear("category看点-清除");
         app.setCategory("category领现金");
         app.setEvent("category领现金-抽奖");

@@ -95,6 +95,7 @@ public class A新闻慧头条 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.CHECK_IN);
         app.setCategory("category任务");
         app.setEvent("category任务-签到");
         app.setUpDown(0);
@@ -121,6 +122,7 @@ public class A新闻慧头条 {
      * @param phoneCodeDtos
      */
     public static void handle3(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.WATCH_VIDEOS_SMALL);
         app.setCategory("category视频");
         app.setEvent("category视频-看视频");
         app.setEventStep("category视频-看视频-step");
@@ -137,6 +139,7 @@ public class A新闻慧头条 {
      * @param phoneCodeDtos
      */
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.WATCH_NEWS);
         app.setCategory("category头条");
         app.setEvent("category头条-看新闻");
         app.setEventStep("category头条-看新闻-step");
@@ -163,6 +166,7 @@ public class A新闻慧头条 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.WATCH_ADVERT);
         app.setCategory("category头条");
         app.setEvent("category头条-看广告");
         app.setEventAdvert("category头条-看广告-advert");
@@ -188,6 +192,7 @@ public class A新闻慧头条 {
      * @param phoneCodeDtos
      */
     public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.GIFT_MONEY);
         app.setCategory("category头条");
         app.setEvent("category头条-领红包");
         app.setEventAdvert("category头条-领红包-advert");
@@ -206,6 +211,7 @@ public class A新闻慧头条 {
      * @param phoneCodeDtos
      */
     public static void handle9(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.TREASURE);
         app.setCategory("category头条");
         app.setEvent("category头条-开宝箱");
         app.setEventAdvert("category头条-开宝箱-advert");

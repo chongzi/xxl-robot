@@ -95,6 +95,7 @@ public class A新闻趣新闻 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.CHECK_IN);
         app.setCategory("category任务");
         app.setEvent("category任务-签到");
         app.setUpDown(0);
@@ -131,6 +132,7 @@ public class A新闻趣新闻 {
      * @param phoneCodeDtos
      */
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.WATCH_NEWS);
         app.setCategory("category新闻");
         app.setEvent("category新闻-看新闻");
         app.setEventStep("category新闻-看新闻-step");
@@ -157,6 +159,7 @@ public class A新闻趣新闻 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.WATCH_ADVERT);
         app.setCategory("category任务");
         app.setEvent("category任务-看广告");
         app.setEventAdvert("category任务-看广告-advert");
@@ -182,6 +185,7 @@ public class A新闻趣新闻 {
      * @param phoneCodeDtos
      */
     public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.GIFT_MONEY);
         app.setCategory("category新闻");
         app.setEvent("category新闻-领红包");
 

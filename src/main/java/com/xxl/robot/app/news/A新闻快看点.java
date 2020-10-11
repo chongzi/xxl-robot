@@ -91,6 +91,7 @@ public class A新闻快看点 {
      * @param phoneCodeDtos
      */
     public static void handle1(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.CHECK_IN);
         app.setCategory("category我的-签到");
         app.setEvent("category我的-签到");
         app.setEventAdvert("category我的-签到-advert");
@@ -167,6 +168,7 @@ public class A新闻快看点 {
      * @param phoneCodeDtos
      */
     public static void handle8(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.GIFT_MONEY);
         app.setCategory("category我的");
         app.setEvent("category我的-红包");
         app.setEventAdvert("category我的-红包-advert");
@@ -194,6 +196,7 @@ public class A新闻快看点 {
      * @param phoneCodeDtos
      */
     public static void handle10(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setOperate(AppConstants.DRAW);
         app.setCategory("category我的");
         app.setEvent("category我的-抽奖");
         app.setEventAdvertStep("category我的-抽奖-advertstep");

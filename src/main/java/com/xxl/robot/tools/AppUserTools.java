@@ -52,10 +52,11 @@ public class AppUserTools {
 
             if(StringUtils.isBlank(androidId))return;
 //*************************************************************业务处理  START ***************************************************************************
-/*                    log.info("0.唤醒手机屏幕");
-                    String operateScreen = "adb -s " + androidId + " shell input keyevent 26";
-                    MouseTools.fastNormalEvent(robot, operateScreen);*/
-
+                    if(!AdbTools.screen(androidId)) {
+                        log.info("0.唤醒手机屏幕");
+                        String operateScreen = "adb -s " + androidId + " shell input keyevent 26";
+                        MouseTools.fastNormalEvent(robot, operateScreen);
+                    }
                     log.info("0.返回主界面");
                     String operateHome = "adb -s " + androidId + " shell input keyevent 3";
                     MouseTools.fastNormalEvent(robot, operateHome);

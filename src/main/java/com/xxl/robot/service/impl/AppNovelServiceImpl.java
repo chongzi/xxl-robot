@@ -92,7 +92,7 @@ public class AppNovelServiceImpl implements AppNovelService {
 	public void circulate1(String robotCode){
 		Robot robot = new Robot();
 		log.info("********************米读小说**************************");
-		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"\t\tlog.info(\"**********************************************\");\n");
+		List<PhoneCodeDto> dtos = phoneCodeService.getList(robotCode,"米读小说");
 		A小说米读.handle(robot,robotCode,"米读小说", AppConstants.WATCH_NOVELS,dtos);
 
 	}
