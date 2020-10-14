@@ -53,6 +53,7 @@
         </dependency>
 
 
+<!--
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
@@ -68,10 +69,10 @@
 
         <dependency>
             <groupId>com.google.guava</groupId>
-
             <artifactId>guava</artifactId>
             <version>22.0</version>
         </dependency>
+-->
 
 
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-websocket -->
