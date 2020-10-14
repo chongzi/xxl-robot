@@ -2,7 +2,10 @@ package com.xxl.robot.tools;
 
 import com.xxl.robot.constants.PhoneConstants;
 import lombok.SneakyThrows;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +15,26 @@ import java.util.concurrent.TimeUnit;
  * todo 模拟手机操作
  */
 public class AdbTools {
+    private static final Logger log = LoggerFactory.getLogger(AdbTools.class);
+
+    /**
+     * 获取手机执行之后app包及main activity  adb logcat | find "START"
+     * 例子 https://blog.csdn.net/qq_39721240/article/details/88306166
+     */
+
+    /**
+     * todo adb执行常规操作(传过来数据 点击输入并回车操作)
+     *
+     */
+    public static void process(Robot robot, String operateData){
+        try {
+            log.info(operateData);
+            Runtime.getRuntime().exec(operateData);
+        }catch (Exception e){
+
+        }
+    }
+
 
     /**
      * todo 向下滑动，正常操作

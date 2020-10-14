@@ -4,6 +4,9 @@ import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
 import com.xxl.robot.tools.AppUserTools;
+import com.xxl.robot.tools.AppiumTools;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -82,6 +85,9 @@ public class A视频抖音 {
                 break;
             case AppConstants.SCRATCH_CARD://刮奖
                 handle19(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                break;
+            case AppConstants.APPIUM://APPIUM
+                handle880(robot, robotCode);
                 break;
 
         }
@@ -317,7 +323,22 @@ public class A视频抖音 {
 
 
 
+    /**
+     * todo 20.appium
+     * @param robot
+     */
+    public static void handle880(Robot robot,String robotCode){
+        AndroidDriver driver = AppiumTools.init(robotCode);
+        MobileElement el1 = (MobileElement) driver.findElementByXPath("(//android.widget.RelativeLayout[@content-desc=\"A综合\"])[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.ImageView[2]");
+        el1.click();
 
+        MobileElement el2 = (MobileElement) driver.findElementByXPath("//android.widget.ImageView[@content-desc=\"抖音极速版\"]");
+        el2.click();
+
+
+
+
+    }
 
 
 

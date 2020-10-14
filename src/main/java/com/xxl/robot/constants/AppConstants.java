@@ -37,6 +37,8 @@ public class AppConstants {
     public static final String SCRATCH_CARD = "刮奖";
     public static final String SEARCH = "搜索";
 
+    public static final String APPIUM = "APPIUM";
+
 //***********************************定制化************************************************
     public static final String OTHER_QINGXIANG_WATCH_VIDEOS = "睛象看视频";
 

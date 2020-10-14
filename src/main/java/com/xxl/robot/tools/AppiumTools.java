@@ -1,5 +1,6 @@
 package com.xxl.robot.tools;
 
+import com.xxl.robot.constants.PhoneConstants;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import lombok.SneakyThrows;
@@ -7,54 +8,58 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.URL;
 
+/**
+ * todo appium 公共操作类
+ */
 public class AppiumTools {
+
+    public static AndroidDriver init(String robotCode){
+        AndroidDriver driver = null;
+        if(robotCode.equals("phone001")){
+            driver = process("9", PhoneConstants.phone001,PhoneConstants.appActivity001);
+        }else if(robotCode.equals("phone002")){
+            driver = process("10", PhoneConstants.phone002,PhoneConstants.appActivity002);
+        }else if(robotCode.equals("phone003")){
+            driver = process("9", PhoneConstants.phone003,PhoneConstants.appActivity003);
+        }else if(robotCode.equals("phone0031")){
+            driver = process("9", PhoneConstants.phone0031,PhoneConstants.appActivity0031);
+        }else if(robotCode.equals("phone0032")){
+            driver = process("9", PhoneConstants.phone0032,PhoneConstants.appActivity0032);
+        }else if(robotCode.equals("phone0033")){
+            driver = process("9", PhoneConstants.phone0033,PhoneConstants.appActivity0033);
+        }else if(robotCode.equals("phone0034")){
+            driver = process("9", PhoneConstants.phone0034,PhoneConstants.appActivity0034);
+        }else if(robotCode.equals("phone0035")){
+            driver = process("9", PhoneConstants.phone0035,PhoneConstants.appActivity0035);
+        }
+
+
+      return driver;
+    }
 
 
     @SneakyThrows
-    public static void process(){
+    public static AndroidDriver process(String platformVersion,String deviceName, String appActivity){
        //1.添加配置，创建DesiredCapabilities对象
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-
         //添加操作系统配置
         desiredCapabilities.setCapability("platformName", "Android");
         //添加操作系统版本设置
-        desiredCapabilities.setCapability("platformVersion", "10");
+        desiredCapabilities.setCapability("platformVersion", platformVersion);
         //指定测试设备的名称
-        desiredCapabilities.setCapability("deviceName", "4ed14c6a");
-        //指定想要测试应用的入口activity
-        desiredCapabilities.setCapability("appActivity", ".launcher.Launcher t1");
+        desiredCapabilities.setCapability("deviceName", deviceName);
+        //指定想要测试应用的入口activity   (adb shell dumpsys activity | findstr "mResume")
+        desiredCapabilities.setCapability("appActivity", appActivity);
 
         //2.创建驱动...URL是appium的固定地址；指定appium通讯的地址，将相对应的配置传入到驱动里边
-        AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),desiredCapabilities);
-
-
-        MobileElement el10 = (MobileElement) driver.findElementByXPath("//android.widget.ImageView[@content-desc=\"今日头条\"]");
-        el10.click();
-
-
-
-      /*  MobileElement el2 = (MobileElement) driver.findElementById("com.ss.android.article.news:id/cju");
-        el2.click();
-        MobileElement el4 = (MobileElement) driver.findElementByAccessibilityId("推荐");
-        el4.click();
-        MobileElement el5 = (MobileElement) driver.findElementByXPath("(//android.widget.RelativeLayout[@content-desc=\"A综合\"])[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.ImageView[1]");
-        el5.click();
-        MobileElement el6 = (MobileElement) driver.findElementByXPath("//android.widget.ImageView[@content-desc=\"书旗小说\"]");
-        el6.click();
-        MobileElement el7 = (MobileElement) driver.findElementByXPath("//com.uc.webview.export.WebView[@content-desc=\"WVUCWebView\"]/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View[3]/android.view.View[2]/android.view.View");
-        el7.click();
-        MobileElement el8 = (MobileElement) driver.findElementByXPath("//android.widget.RelativeLayout[@content-desc=\"ActionBarActivity的根View\"]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.widget.Button[2]");
-        el8.click();
-        driver.navigate().back();
-        MobileElement el9 = (MobileElement) driver.findElementByXPath("//android.widget.RelativeLayout[@content-desc=\"ActionBarActivity的根View\"]/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.widget.Button[2]");
-        el9.click();*/
-
-
+/*        AndroidDriver driver = null;
+        if(null==driver){
+               driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),desiredCapabilities);
+        }*/
+        AndroidDriver   driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),desiredCapabilities);
+        return  driver;
     }
 
-    public static void main(String[] args) {
-        process();
-    }
 
 
 }
