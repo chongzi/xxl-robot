@@ -31,14 +31,9 @@ public class PhoneCode {
     private String positionX;
     @ApiModelProperty(value="坐标y位置")
     private String positionY;
-    @ApiModelProperty(value="坐标x1位置")
-    private String positionX1;
-    @ApiModelProperty(value="坐标y1位置")
-    private String positionY1;
     @ApiModelProperty(value="次数")
     private Integer times;
-    @ApiModelProperty(value="备注")
-    private String remark;
+
 
 
 

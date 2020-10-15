@@ -5,7 +5,7 @@
 
 	<!-- 通用查询结果列-->
 	<sql id="Base_Column_List">
-		id, robot_code,app_code,app_event, position_x, position_y, position_x1,position_y1,times,remark
+		id, robot_code,app_code,app_event, position_x, position_y,times
 	</sql>
 
 	<!--返回MAP -->
@@ -16,10 +16,7 @@
 	<result column="app_event" property="appEvent"/>
 	<result column="position_x" property="positionX"/>
 	<result column="position_y" property="positionY"/>
-	<result column="position_x1" property="positionX1"/>
-	<result column="position_y1" property="positionY1"/>
 	<result column="times" property="times"/>
-	<result column="remark" property="positionY1"/>
  	</resultMap>
 
 
