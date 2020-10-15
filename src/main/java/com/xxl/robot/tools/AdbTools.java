@@ -34,7 +34,8 @@ public class AdbTools {
 
     /**
      * todo 启动app
-     * 命令：查看当前app启动 adb shell dumpsys window | findstr mCurrentFocus
+     * 命令：查看当前app启动 （adb shell dumpsys window | findstr mCurrentFocus）
+     * 命令2：启动报错时使用写日志方式找到主类 （adb logcat>D:/app.txt） 使用ctrl+c中断，查看mainActivity
      */
     @SneakyThrows
     public static void startup(String androidId, String operateData){
