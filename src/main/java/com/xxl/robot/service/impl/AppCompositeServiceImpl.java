@@ -141,6 +141,7 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"搜狐资讯");
 		A新闻搜狐资讯.handle(robot,robotCode,"搜狐资讯", AppConstants.EAT,dtos6);
 
+
 	}
 
 	/**
@@ -203,6 +204,9 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		A新闻搜狐资讯.handle(robot,robotCode,"搜狐资讯", AppConstants.EAT,dtos6);
 		A新闻搜狐资讯.handle(robot,robotCode,"搜狐资讯", AppConstants.SHARE,dtos6);
 
+		log.info("********************晴象浏览器**************************");
+		List<PhoneCodeDto> dtos16 = phoneCodeService.getList(robotCode,"晴象浏览器");
+		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.CLOCK,dtos16);
 	}
 
 //*************************三种类型：循环(开宝箱，看广告，领红包,看视频，看新闻，看小说，刮卡，抽奖)********************************************************

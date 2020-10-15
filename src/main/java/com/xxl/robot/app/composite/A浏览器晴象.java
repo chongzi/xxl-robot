@@ -31,7 +31,6 @@ public class A浏览器晴象 {
          switch (event){
             case AppConstants.CHECK_IN://签到
                 handle1(robot, robotCode, appCode, event, phoneCodeDtos, app);
-                handle101(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.WATCH_VIDEOS://看视频（看视频，看广告-点攒）
                 handle2(robot, robotCode, appCode, event, phoneCodeDtos, app);
@@ -89,6 +88,9 @@ public class A浏览器晴象 {
                 break;
             case AppConstants.SCRATCH_CARD://刮奖
                 handle19(robot, robotCode, appCode, event, phoneCodeDtos, app);
+                break;
+            case AppConstants.CLOCK://打卡
+                handle101(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
             case AppConstants.OTHER_QINGXIANG_WATCH_VIDEOS://看视频
                 handle21(robot, robotCode, appCode, event, phoneCodeDtos, app);

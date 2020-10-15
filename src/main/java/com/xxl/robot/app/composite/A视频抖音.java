@@ -3,6 +3,7 @@ package com.xxl.robot.app.composite;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
+import com.xxl.robot.tools.AdbTools;
 import com.xxl.robot.tools.AppUserTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -87,6 +88,8 @@ public class A视频抖音 {
         }
 
     }
+
+
 
     /**
      * todo 1.签到

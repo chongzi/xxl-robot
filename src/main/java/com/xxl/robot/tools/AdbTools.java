@@ -2,7 +2,10 @@ package com.xxl.robot.tools;
 
 import com.xxl.robot.constants.PhoneConstants;
 import lombok.SneakyThrows;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +15,34 @@ import java.util.concurrent.TimeUnit;
  * todo 模拟手机操作
  */
 public class AdbTools {
+    private static final Logger log = LoggerFactory.getLogger(AdbTools.class);
+
+    /**
+     * todo 常规操作(传过来数据 点击输入并回车操作)
+     *
+     */
+    public static void process(Robot robot, String operateData){
+        try {
+            log.info(operateData);
+            Runtime.getRuntime().exec(operateData);
+            robot.delay(600);
+        }catch (Exception e){
+
+        }
+    }
+
+
+    /**
+     * todo 启动app
+     * 命令：查看当前app启动 adb shell dumpsys window | findstr mCurrentFocus
+     */
+    @SneakyThrows
+    public static void startup(String androidId, String operateData){
+        log.info("******************启动app**************");
+            String operate = " adb -s " + androidId + " shell am start -n " + operateData;
+            Runtime.getRuntime().exec(operate);
+    }
+
 
     /**
      * todo 向下滑动，正常操作
@@ -137,38 +168,38 @@ public class AdbTools {
 
 
 
-        public static boolean exeCmd(String commandStr) {
-            boolean bool = false;
-            BufferedReader br = null;
-            try {
-                Process p = Runtime.getRuntime().exec(commandStr);
-                br = new BufferedReader(new InputStreamReader(p.getInputStream()));
-                String line = null;
-                StringBuilder sb = new StringBuilder();
-                while ((line = br.readLine()) != null) {
-                    if(line.contains("state=ON")){
-                         bool = true;
-                    }
-                    //sb.append(line + "\n");
-
+    public static boolean exeCmd(String commandStr) {
+        boolean bool = false;
+        BufferedReader br = null;
+        try {
+            Process p = Runtime.getRuntime().exec(commandStr);
+            br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            String line = null;
+            StringBuilder sb = new StringBuilder();
+            while ((line = br.readLine()) != null) {
+                if(line.contains("state=ON")){
+                     bool = true;
                 }
+                //sb.append(line + "\n");
 
-            } catch (Exception e) {
-                e.printStackTrace();
             }
-            finally
-            {
-                if (br != null)
-                {
-                    try {
-                        br.close();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return bool;
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        finally
+        {
+            if (br != null)
+            {
+                try {
+                    br.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return bool;
+    }
 
 
 

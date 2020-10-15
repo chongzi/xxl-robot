@@ -99,7 +99,7 @@ public class A视频火山 {
         app.setClear("category首页-clear");
         app.setCategory("category红包");
         app.setEvent("category红包-签到");
-        app.setEventAdvert("category红包-签到-advert");
+       // app.setEventAdvert("category红包-签到-advert");
         app.setUpDown(0);
 
         AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);

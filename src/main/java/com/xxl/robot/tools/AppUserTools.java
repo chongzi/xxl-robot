@@ -89,7 +89,8 @@ public class AppUserTools {
                     MouseTools.fastNormalEvent(robot, operate1);
 
                     log.info("2.初始化");
-                    WindowTools.initWindowApp(robot, phoneCodeDtos, androidId);
+                    initWindow(appCode,androidId);
+                     robot.delay(6000);
 
                     if (null == app) {
                         return;
@@ -233,6 +234,153 @@ public class AppUserTools {
         }
 
     }
+
+    /**
+     * todo 初始化启动app
+     * @param appCode
+     * @param androidId
+     */
+    public static void initWindow(String appCode, String androidId){
+
+          if(appCode.contains("抖音")){
+              AdbTools.startup(androidId,AppConstants.startup抖音);
+          }else if(appCode.contains("火山极速")){
+              AdbTools.startup(androidId,AppConstants.startup火山);
+          }else if(appCode.contains("快手")){
+              AdbTools.startup(androidId,AppConstants.startup快手);
+          }else if(appCode.contains("今日头条")){
+              AdbTools.startup(androidId,AppConstants.startup今日头条);
+          }else if(appCode.contains("趣头条")){
+              AdbTools.startup(androidId,AppConstants.startup趣头条);
+          }else if(appCode.contains("搜狐资讯")){
+              AdbTools.startup(androidId,AppConstants.startup搜狐资讯);
+          }else if(appCode.contains("QQ阅读")){
+              AdbTools.startup(androidId,AppConstants.startupQQ阅读);
+          }else if(appCode.contains("火山小说")){
+              AdbTools.startup(androidId,AppConstants.startup火山小说);
+          }else if(appCode.contains("NOW直播")){
+              AdbTools.startup(androidId,AppConstants.startupNOW直播);
+          }else if(appCode.contains("搜狗")){
+              AdbTools.startup(androidId,AppConstants.startup搜狗);
+          }else if(appCode.contains("拼多多")){
+              AdbTools.startup(androidId,AppConstants.startup拼多多);
+          }else if(appCode.contains("微博")){
+              AdbTools.startup(androidId,AppConstants.startup微博);
+
+
+          }else if(appCode.contains("书旗")){
+              AdbTools.startup(androidId,AppConstants.startup书旗);
+          }else if(appCode.contains("番茄")){
+              AdbTools.startup(androidId,AppConstants.startup番茄);
+          }else if(appCode.contains("奇热")){
+              AdbTools.startup(androidId,AppConstants.startup奇热);
+          }else if(appCode.contains("抖音火山")){
+              AdbTools.startup(androidId,AppConstants.startup抖音火山);
+          }else if(appCode.contains("晴象")){
+              AdbTools.startup(androidId,AppConstants.startup晴象);
+          }else if(appCode.contains("米读")){
+              AdbTools.startup(androidId,AppConstants.startup米读);
+          }else if(appCode.contains("必看")){
+              AdbTools.startup(androidId,AppConstants.startup必看);
+          }else if(appCode.contains("牛角")){
+              AdbTools.startup(androidId,AppConstants.startup牛角);
+          }else if(appCode.contains("喜马拉雅")){
+              AdbTools.startup(androidId,AppConstants.startup喜马拉雅);
+          }else if(appCode.contains("新浪")){
+              AdbTools.startup(androidId,AppConstants.startup新浪);
+          }else if(appCode.contains("2345")){
+              AdbTools.startup(androidId,AppConstants.startup2345);
+
+          }else if(appCode.contains("刷宝")){
+              AdbTools.startup(androidId,AppConstants.startup刷宝);
+          }else if(appCode.contains("快逗")){
+              AdbTools.startup(androidId,AppConstants.startup快逗);
+          }else if(appCode.contains("追看")){
+              AdbTools.startup(androidId,AppConstants.startup追看);
+          }else if(appCode.contains("小吃货")){
+              AdbTools.startup(androidId,AppConstants.startup小吃货);
+          }else if(appCode.contains("微视")){
+              AdbTools.startup(androidId,AppConstants.startup微视);
+          }else if(appCode.contains("火火")){
+              AdbTools.startup(androidId,AppConstants.startup火火视频);
+          }else if(appCode.contains("红包视频")){
+              AdbTools.startup(androidId,AppConstants.startup红包视频);
+          }else if(appCode.contains("彩蛋")){
+              AdbTools.startup(androidId,AppConstants.startup彩蛋);
+          }else if(appCode.contains("热火")){
+              AdbTools.startup(androidId,AppConstants.startup热火);
+          }else if(appCode.contains("赚钱")){
+              AdbTools.startup(androidId,AppConstants.startup赚钱);
+          }else if(appCode.contains("长豆")){
+              AdbTools.startup(androidId,AppConstants.startup长豆);
+
+
+          }else if(appCode.contains("点点")){
+              AdbTools.startup(androidId,AppConstants.startup点点);
+          }else if(appCode.contains("悦头条")){
+              AdbTools.startup(androidId,AppConstants.startup悦头条);
+          }else if(appCode.contains("忆头条")){
+              AdbTools.startup(androidId,AppConstants.startup忆头条);
+          }else if(appCode.contains("惠头条")){
+              AdbTools.startup(androidId,AppConstants.startup惠头条);
+          }else if(appCode.contains("蚂蚁看点")){
+              AdbTools.startup(androidId,AppConstants.startup蚂蚁看点);
+          }else if(appCode.contains("趣新闻")){
+              AdbTools.startup(androidId,AppConstants.startup趣新闻);
+          }else if(appCode.contains("快看点")){
+              AdbTools.startup(androidId,AppConstants.startup快看点);
+          }else if(appCode.contains("聚看点")){
+              AdbTools.startup(androidId,AppConstants.startup聚看点);
+          }else if(appCode.contains("趣故事")){
+              AdbTools.startup(androidId,AppConstants.startup趣故事);
+          }else if(appCode.contains("有料看看")){
+              AdbTools.startup(androidId,AppConstants.startup有料看看);
+          }else if(appCode.contains("微鲤看看")){
+              AdbTools.startup(androidId,AppConstants.startup微鲤看看);
+          }else if(appCode.contains("赚钱阅文赚")){
+              AdbTools.startup(androidId,AppConstants.startup赚钱阅文赚);
+
+
+          }else if(appCode.contains("多多步")){
+              AdbTools.startup(androidId,AppConstants.startup多多步);
+          }else if(appCode.contains("步数赚零钱")){
+              AdbTools.startup(androidId,AppConstants.startup步数赚零钱);
+          }else if(appCode.contains("步步宝")){
+              AdbTools.startup(androidId,AppConstants.startup步步宝);
+          }else if(appCode.contains("走走赚")){
+              AdbTools.startup(androidId,AppConstants.startup走走赚);
+          }else if(appCode.contains("步多多")){
+              AdbTools.startup(androidId,AppConstants.startup步多多);
+          }else if(appCode.contains("步步赚钱")){
+              AdbTools.startup(androidId,AppConstants.startup步步赚钱);
+          }else if(appCode.contains("一起来走路")){
+              AdbTools.startup(androidId,AppConstants.startup一起来走路);
+          }else if(appCode.contains("多宝")){
+              AdbTools.startup(androidId,AppConstants.startup多宝);
+          }else if(appCode.contains("走路赚钱")){
+              AdbTools.startup(androidId,AppConstants.startup走路赚钱);
+          }else if(appCode.contains("乐步")){
+              AdbTools.startup(androidId,AppConstants.startup乐步);
+          }else if(appCode.contains("计步赚钱")){
+              AdbTools.startup(androidId,AppConstants.startup计步赚钱);
+          }else if(appCode.contains("步步多")){
+              AdbTools.startup(androidId,AppConstants.startup步步多);
+
+
+          }else if(appCode.contains("红包赚不停")){
+              AdbTools.startup(androidId,AppConstants.startup红包赚不停);
+          }else if(appCode.contains("快乐看天气")){
+              AdbTools.startup(androidId,AppConstants.startup快乐看天气);
+          }else if(appCode.contains("云朵天气")){
+              AdbTools.startup(androidId,AppConstants.startup云朵天气);
+          }else if(appCode.contains("幸福果园")){
+              AdbTools.startup(androidId,AppConstants.startup幸福果园);
+
+          }
+
+    }
+
+
 
     /**
      * todo 1.签到
