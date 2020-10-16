@@ -3,7 +3,7 @@ package com.xxl.robot.app.media;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
-import com.xxl.robot.tools.AppUserTools;
+import com.xxl.robot.tools.AppTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -100,7 +100,7 @@ public class A视频火火 {
         app.setUpDown(0);
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -110,6 +110,7 @@ public class A视频火火 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setEventType(1);
         app.setOperate(AppConstants.WATCH_VIDEOS);
         app.setCategory("category小视频");
         app.setEvent("category小视频-看视频");
@@ -118,7 +119,7 @@ public class A视频火火 {
         app.setUpDown(0);
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -128,6 +129,7 @@ public class A视频火火 {
      * @param phoneCodeDtos
      */
     public static void handle3(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setEventType(1);
         app.setOperate(AppConstants.WATCH_VIDEOS_SMALL);
         app.setCategory("category首页");
         app.setEvent("category首页-看视频");
@@ -136,7 +138,7 @@ public class A视频火火 {
         app.setUpDown(0);
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -193,7 +195,7 @@ public class A视频火火 {
         app.setUpDown(0);
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -257,7 +259,7 @@ public class A视频火火 {
         app.setCategory("category任务");
         app.setEvent("category任务-充电");
         app.setUpDown(1);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**

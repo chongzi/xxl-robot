@@ -61,9 +61,6 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		List<PhoneCodeDto> dtos5 = phoneCodeService.getList(robotCode,"趣头条");
 		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.CHECK_IN,dtos5);
 
-		log.info("********************搜狐资讯**************************");
-		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"搜狐资讯");
-		A新闻搜狐资讯.handle(robot,robotCode,"搜狐资讯", AppConstants.CHECK_IN,dtos6);
 
 
 		log.info("********************QQ阅读**************************");
@@ -137,9 +134,7 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		List<PhoneCodeDto> dtos5 = phoneCodeService.getList(robotCode,"趣头条");
 		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.WATCH_NOVELS,dtos5);
 
-		log.info("********************搜狐资讯**************************");
-		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"搜狐资讯");
-		A新闻搜狐资讯.handle(robot,robotCode,"搜狐资讯", AppConstants.EAT,dtos6);
+
 
 
 	}
@@ -153,9 +148,7 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 	public void  section2(String robotCode){
 		Robot robot = new Robot();
 
-		log.info("********************搜狐资讯**************************");
-		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"搜狐资讯");
-		A新闻搜狐资讯.handle(robot,robotCode,"搜狐资讯", AppConstants.EAT,dtos6);
+
 	}
 	/**
 	 * todo 2.3-下午19：00-20：00（吃饭，喝水，打卡，种菜，分享，游戏，充电）
@@ -166,9 +159,6 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 	public void  section3(String robotCode){
 		Robot robot = new Robot();
 
-		log.info("********************搜狐资讯**************************");
-		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"搜狐资讯");
-		A新闻搜狐资讯.handle(robot,robotCode,"搜狐资讯", AppConstants.EAT,dtos6);
 	}
 	/**
 	 * todo 2.4-晚上23：00-24：00（睡觉打卡，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）
@@ -199,10 +189,6 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.WALK,dtos5);
 		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.SLEEP,dtos5);
 
-		log.info("********************搜狐资讯**************************");
-		List<PhoneCodeDto> dtos6 = phoneCodeService.getList(robotCode,"搜狐资讯");
-		A新闻搜狐资讯.handle(robot,robotCode,"搜狐资讯", AppConstants.EAT,dtos6);
-		A新闻搜狐资讯.handle(robot,robotCode,"搜狐资讯", AppConstants.SHARE,dtos6);
 
 		log.info("********************晴象浏览器**************************");
 		List<PhoneCodeDto> dtos16 = phoneCodeService.getList(robotCode,"晴象浏览器");

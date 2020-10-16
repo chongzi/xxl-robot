@@ -3,12 +3,11 @@ package com.xxl.robot.app.news;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
-import com.xxl.robot.tools.AppUserTools;
+import com.xxl.robot.tools.AppTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -98,7 +97,7 @@ public class A新闻快看点 {
         app.setUpDown(0);
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -174,7 +173,7 @@ public class A新闻快看点 {
         app.setEventAdvert("category我的-红包-advert");
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -204,7 +203,7 @@ public class A新闻快看点 {
         app.setUpDown(0);
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 

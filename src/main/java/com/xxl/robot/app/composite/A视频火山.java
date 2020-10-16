@@ -3,12 +3,11 @@ package com.xxl.robot.app.composite;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
-import com.xxl.robot.tools.AppUserTools;
+import com.xxl.robot.tools.AppTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -102,7 +101,7 @@ public class A视频火山 {
        // app.setEventAdvert("category红包-签到-advert");
         app.setUpDown(0);
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -112,13 +111,14 @@ public class A视频火山 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setEventType(1);
         app.setOperate(AppConstants.WATCH_VIDEOS);
         app.setCategory("category首页");
         app.setEvent("category首页-看视频");
         app.setEventGiveUP("category首页-看视频-giveup");
         app.setUpDown(0);
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -164,7 +164,7 @@ public class A视频火山 {
         app.setEventAdvert("category红包-看广告-advert");
         app.setUpDown(0);
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -200,7 +200,7 @@ public class A视频火山 {
         app.setEventAdvert("category红包-开宝箱-advert");
         app.setUpDown(0);
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -227,7 +227,7 @@ public class A视频火山 {
         app.setEventAdvert("category红包-睡觉-advert");
         app.setUpDown(0);
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -242,7 +242,7 @@ public class A视频火山 {
         app.setEventStep("category红包-走路-step");
         app.setUpDown(0);
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -304,7 +304,7 @@ public class A视频火山 {
         app.setEventStep("category红包-摇钱树-step");
         app.setUpDown(0);
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
 
     }
 

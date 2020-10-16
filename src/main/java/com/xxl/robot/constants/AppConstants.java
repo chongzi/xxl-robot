@@ -48,20 +48,19 @@ public class AppConstants {
     public static final String startup快手 = "com.kuaishou.nebula/com.yxcorp.gifshow.HomeActivity";
     public static final String startup今日头条 = "com.ss.android.article.lite/com.ss.android.article.lite.activity.SplashActivity";
     public static final String startup趣头条 = "com.jifen.qukan/com.jifen.qkbase.main.MainActivity";
-    public static final String startup搜狐资讯 = "com.sohu.infonews/com.sohu.quicknews.homeModel.activity.HomeActivity";
     public static final String startupQQ阅读 = "com.qq.reader/com.qq.reader.activity.MainActivity";
-    public static final String startup火山小说 = "com.jiubang.volcanonovle/com.jiubang.volcanonovle.ui.main.MainActivity";
+    public static final String startup火山小说 = "com.jiubang.volcanonovle/.ui.main.SplashActivity";
     public static final String startupNOW直播 = "com.tencent.now/com.tencent.hy.module.login.HuaYangLoginActivity";
     public static final String startup搜狗 = "sogou.mobile.explorer.speed/sogou.mobile.explorer.BrowserActivity";
-    public static final String startup拼多多 = "com.xunmeng.pinduoduo/com.xunmeng.pinduoduo.ui.activity.HomeActivity";
+    public static final String startup拼多多 = "com.xunmeng.pinduoduo/.ui.activity.MainFrameActivity";
     public static final String startup微博 = "com.sina.weibo/com.sina.weibo.MainTabActivity";
 
-    public static final String startup书旗 = "com.shuqi.controller/com.shuqi.activity.MainActivity";
-    public static final String startup番茄 = "com.dragon.read/com.dragon.read.pages.main.MainFragmentActivity";
-    public static final String startup奇热 = "com.qixiao.qrxs/com.qixiao.qrxs.ui.activity.MainActivity";
+    public static final String startup书旗 = "com.shuqi.controller/com.shuqi.activity.SplashActivity";
+    public static final String startup番茄 = "com.dragon.read/.pages.splash.SplashActivity";
+    public static final String startup奇热 = "com.qixiao.qrxs/.ui.activity.SplashActivity";
     public static final String startup抖音火山 = "com.ss.android.ugc.live/com.ss.android.ugc.live.main.MainActivity";
     public static final String startup晴象 = "com.tiantian.browser.android.search/com.speed.app.views.activities.MainActivity";
-    public static final String startup米读 = "com.lechuan.mdwz/com.lechuan.mdwz.ui.activity.NovelMainActivity";
+    public static final String startup米读 = "com.lechuan.mdwz/.ui.activity.WelcomeActivity";
     public static final String startup必看 = "com.lwby.breader.ad/com.lwby.breader.view.BKWelcomeActivity";
     public static final String startup牛角 = "com.yincheng.njread/com.yincheng.njread.ui.load.LoadActivity";
     public static final String startup喜马拉雅 = "com.ximalaya.ting.lite/com.ximalaya.ting.android.host.activity.MainActivity";

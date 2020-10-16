@@ -3,12 +3,11 @@ package com.xxl.robot.app.walk;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
-import com.xxl.robot.tools.AppUserTools;
+import com.xxl.robot.tools.AppTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -99,7 +98,7 @@ public class A步行步步宝 {
         app.setUpDown(0);
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -130,6 +129,7 @@ public class A步行步步宝 {
      * @param phoneCodeDtos
      */
     public static void handle4(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setEventType(1);
         app.setOperate(AppConstants.WATCH_NEWS);
         app.setCategory("category看看");
         app.setEvent("category看看-看新闻");
@@ -137,7 +137,7 @@ public class A步行步步宝 {
         app.setUpDown(0);
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -146,6 +146,7 @@ public class A步行步步宝 {
      * @param phoneCodeDtos
      */
     public static void handle41(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setEventType(1);
         app.setOperate(AppConstants.WATCH_NEWS);
         app.setCategory("category看看");
         app.setEvent("category首页-看看赚");
@@ -154,7 +155,7 @@ public class A步行步步宝 {
         app.setUpDown(0);
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -200,7 +201,7 @@ public class A步行步步宝 {
         app.setEventBack("category首页-领红包-back");
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -229,7 +230,7 @@ public class A步行步步宝 {
         app.setUpDown(0);
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 

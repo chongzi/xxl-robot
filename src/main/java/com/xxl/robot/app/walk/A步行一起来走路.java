@@ -3,12 +3,11 @@ package com.xxl.robot.app.walk;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
-import com.xxl.robot.tools.AppUserTools;
+import com.xxl.robot.tools.AppTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -103,7 +102,7 @@ public class A步行一起来走路 {
         app.setUpDown(0);
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -160,7 +159,7 @@ public class A步行一起来走路 {
         app.setUpDown(0);
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -176,7 +175,7 @@ public class A步行一起来走路 {
         app.setUpDown(0);
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -202,7 +201,7 @@ public class A步行一起来走路 {
         app.setUpDown(0);
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -219,7 +218,7 @@ public class A步行一起来走路 {
         app.setUpDown(0);
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -235,7 +234,7 @@ public class A步行一起来走路 {
         app.setUpDown(0);
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -280,7 +279,7 @@ public class A步行一起来走路 {
         app.setUpDown(0);
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -346,15 +345,16 @@ public class A步行一起来走路 {
      */
     public static void handle19(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         for(int i=0;i<6;i++) {
+            app.setEventType(3);
             app.setOperate(AppConstants.SCRATCH_CARD);
             app.setCategory("category走走");
             app.setEvent("category走走-刮卡");
-            app.setEventAdvertStep("category走走-刮卡-advertstep");
+            app.setEventFastUpDown("category走走-刮卡-advertstep");
             app.setEventBack("category走走-刮卡-back");
             app.setUpDown(0);
 
 
-            AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+            AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
         }
     }
 

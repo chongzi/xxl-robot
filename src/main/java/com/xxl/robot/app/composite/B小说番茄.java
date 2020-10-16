@@ -3,12 +3,11 @@ package com.xxl.robot.app.composite;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
-import com.xxl.robot.tools.AppUserTools;
+import com.xxl.robot.tools.AppTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -97,7 +96,7 @@ public class B小说番茄 {
         app.setEventAdvert("category福利-签到-advert");
         app.setUpDown(0);
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -138,12 +137,13 @@ public class B小说番茄 {
      * @param phoneCodeDtos
      */
     public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setEventType(2);
         app.setOperate(AppConstants.WATCH_NOVELS);
         app.setCategory("category书城");
         app.setEvent("category书城-看小说");
         app.setUpDown(0);
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -159,7 +159,7 @@ public class B小说番茄 {
         app.setEventAdvert("category福利-看视频广告-advert");
         app.setUpDown(0);
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -196,7 +196,7 @@ public class B小说番茄 {
         app.setEventAdvert("category福利-开宝箱-advert");
         app.setUpDown(0);
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 

@@ -3,7 +3,7 @@ package com.xxl.robot.app.media;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
-import com.xxl.robot.tools.AppUserTools;
+import com.xxl.robot.tools.AppTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -101,7 +101,7 @@ public class A视频追看 {
         app.setEventAdvert("category赚钱-签到-advert");
         app.setUpDown(0);
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -111,6 +111,7 @@ public class A视频追看 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setEventType(1);
         app.setOperate(AppConstants.WATCH_VIDEOS);
         app.setCategory("category首页");
         app.setEvent("category首页-看视频");
@@ -118,7 +119,7 @@ public class A视频追看 {
         app.setUpDown(0);
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -164,7 +165,7 @@ public class A视频追看 {
         app.setEventAdvert("category赚钱-看广告-advert");
         app.setUpDown(0);
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -200,7 +201,7 @@ public class A视频追看 {
         app.setEvent("category首页-开宝箱");
         app.setEventAdvert("category首页-开宝箱-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -214,7 +215,7 @@ public class A视频追看 {
         app.setEvent("category赚钱-开宝箱");
         app.setEventAdvert("category赚钱-开宝箱-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -232,7 +233,7 @@ public class A视频追看 {
         app.setEvent("category赚钱-抽奖");
         app.setEventAdvert("category赚钱-抽奖-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -316,14 +317,15 @@ public class A视频追看 {
      * @param phoneCodeDtos
      */
     public static void handle19(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setEventType(3);
         app.setOperate(AppConstants.SCRATCH_CARD);
         app.setCategory("category赚钱");
         app.setEvent("category赚钱-刮卡");
         app.setEventStep("category赚钱-刮卡-step");
-        app.setEventAdvertStep("category赚钱-刮卡-advertstep");
+        app.setEventFastUpDown("category赚钱-刮卡-advertstep");
         app.setEventAdvert("category赚钱-刮卡-advert");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 

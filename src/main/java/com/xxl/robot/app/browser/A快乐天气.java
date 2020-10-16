@@ -3,11 +3,10 @@ package com.xxl.robot.app.browser;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
-import com.xxl.robot.tools.AppUserTools;
+import com.xxl.robot.tools.AppTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.awt.*;
-import java.time.LocalTime;
 import java.util.List;
 
 
@@ -113,7 +112,7 @@ public class A快乐天气 {
         app.setEventAdvert("category钱包-签到-advert");
         app.setEventBack("category钱包-签到-back");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -131,48 +130,48 @@ public class A快乐天气 {
         app.setEventAdvert("category浏览器-天天爱打卡-advert");
         app.setEventBack("category浏览器-天天爱打卡-back");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
         app.setEventAdvertStep("category浏览器-天天爱打卡-打卡1");
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
         app.setEventAdvertStep("category浏览器-天天爱打卡-打卡2");
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
         app.setEventAdvertStep("category浏览器-天天爱打卡-打卡3");
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
         app.setEventAdvertStep("category浏览器-天天爱打卡-打卡4");
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
         //中午
         app.setEventAdvertStep("category浏览器-天天爱打卡-打卡5");
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
         app.setEventAdvertStep("category浏览器-天天爱打卡-打卡6");
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
         app.setEventAdvertStep("category浏览器-天天爱打卡-打卡7");
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
 
         //下午
         app.setUpDown(1);
         app.setEventAdvertStep("category浏览器-天天爱打卡-打卡9");
-        AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
         app.setEventAdvertStep("category浏览器-天天爱打卡-打卡10");
-        AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
         app.setEventAdvertStep("category浏览器-天天爱打卡-打卡11");
-        AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
         app.setEventAdvertStep("category浏览器-天天爱打卡-打卡12");
-        AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
         app.setEventAdvertStep("category浏览器-天天爱打卡-打卡13");
-        AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
         app.setEventAdvertStep("category浏览器-天天爱打卡-打卡14");
-        AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
         app.setEventAdvertStep("category浏览器-天天爱打卡-打卡15");
-        AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
         app.setEventAdvertStep("category浏览器-天天爱打卡-打卡16");
-        AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
 
         app.setEventAdvertStep("category浏览器-天天爱打卡-打卡17");
-        AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
         app.setEventAdvertStep("category浏览器-天天爱打卡-打卡18");
-        AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
         app.setEventAdvertStep("category浏览器-天天爱打卡-打卡19");
-        AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
 
 
     }
@@ -274,7 +273,7 @@ public class A快乐天气 {
         app.setEventAdvert("category浏览器-红包-advert");
         app.setEventBack("category浏览器-红包-back");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -290,7 +289,7 @@ public class A快乐天气 {
         app.setEventAdvert("category浏览器-现金红包-advert");
         app.setEventBack("category浏览器-现金红包-back");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -306,7 +305,7 @@ public class A快乐天气 {
         app.setEventAdvert("category浏览器-现金领取红包-advert");
         app.setEventBack("category浏览器-现金领取红包-back");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -323,7 +322,7 @@ public class A快乐天气 {
         app.setEventAdvert("category浏览器-右边领取红包-advert");
         app.setEventBack("category浏览器-右边领取红包-back");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -353,7 +352,7 @@ public class A快乐天气 {
         app.setEventAdvert("category大转盘-抽奖-advert");
         app.setEventBack("category大转盘-抽奖-back");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -459,7 +458,7 @@ public class A快乐天气 {
             app.setEventAdvert("category刮刮卡-刮卡-advert");
             app.setEventBack("category刮刮卡-刮卡-back");
             app.setUpDown(0);
-            AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
+            AppTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
         }
     }
 
@@ -476,7 +475,7 @@ public class A快乐天气 {
         app.setEventGiveUP("category小视频-看视频-giveup");
         app.setEventBack("category小视频-看视频-back");
         app.setUpDown(0);
-        AppUserTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode, appCode, event, phoneCodeDtos, app);
     }
 
 

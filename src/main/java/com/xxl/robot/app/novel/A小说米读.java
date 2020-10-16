@@ -3,16 +3,11 @@ package com.xxl.robot.app.novel;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
-import com.xxl.robot.tools.AdbTools;
-import com.xxl.robot.tools.AppUserTools;
-import com.xxl.robot.tools.MouseTools;
-import com.xxl.robot.tools.RandomTools;
+import com.xxl.robot.tools.AppTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
-import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -102,7 +97,7 @@ public class A小说米读 {
         app.setUpDown(0);
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -143,13 +138,14 @@ public class A小说米读 {
      * @param phoneCodeDtos
      */
     public static void handle5(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setEventType(2);
         app.setOperate(AppConstants.WATCH_NOVELS);
         app.setCategory("category福利");
         app.setEvent("category福利-看小说");
         app.setUpDown(0);
 
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 

@@ -3,12 +3,11 @@ package com.xxl.robot.app.composite;
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.dto.AppDto;
 import com.xxl.robot.dto.PhoneCodeDto;
-import com.xxl.robot.tools.AppUserTools;
+import com.xxl.robot.tools.AppTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -103,7 +102,7 @@ public class A视频快手 {
         app.setEventStep("category首页-去赚钱");
         app.setEventStep1("category首页-去赚钱-签到");
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -113,12 +112,13 @@ public class A视频快手 {
      * @param phoneCodeDtos
      */
     public static void handle2(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setEventType(1);
         app.setOperate(AppConstants.WATCH_VIDEOS);
         app.setCategory("category发现");
         app.setEvent("category发现-看视频");
         app.setEventGiveUP("category发现-看视频-giveup");
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -163,7 +163,7 @@ public class A视频快手 {
         app.setEventStep("category首页-去赚钱");
         app.setEventAdvertStep("category首页-去赚钱-看广告");
         app.setEventAdvert("category首页-去赚钱-看广告-advert");
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -199,7 +199,7 @@ public class A视频快手 {
         app.setEventStep("category首页-去赚钱");
         app.setEventAdvertStep("category首页-去赚钱-开宝箱");
 
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
@@ -302,13 +302,15 @@ public class A视频快手 {
      * @param phoneCodeDtos
      */
     public static void handle20(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setEventType(1);
         app.setOperate(AppConstants.DIRECT);
         app.setCategory("category首页");
         app.setEventStep("category首页-去赚钱");
         app.setEventAdvertStep("category首页-去赚钱-看直播");
         app.setEventAdvert("category首页-去赚钱-看直播-advert");
         app.setUpDown(1);
-        AppUserTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
+        app.setEventAdvertDelay(36000);
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
 
