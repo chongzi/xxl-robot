@@ -25,14 +25,14 @@ public class AppMediaController {
     @GetMapping("start")
     @ApiOperation("1-签到")
     public BaseResponse start() {
-        appMediaService.start("phone001");
+      //  appMediaService.start("phone001");
         appMediaService.start("phone002");
-        appMediaService.start("phone003");
+      /*  appMediaService.start("phone003");
         appMediaService.start("phone0031");
         appMediaService.start("phone0032");
         appMediaService.start("phone0033");
         appMediaService.start("phone0034");
-        appMediaService.start("phone0035");
+        appMediaService.start("phone0035");*/
 
         return BaseResponse.newSuccess();
     }
@@ -101,14 +101,14 @@ public class AppMediaController {
     @GetMapping("circulate1")
     @ApiOperation("3.1-循环收取金币大于200金币")
     public BaseResponse circulate1() {
-        appMediaService.circulate1("phone001");
+        //appMediaService.circulate1("phone001");
         appMediaService.circulate1("phone002");
-        appMediaService.circulate1("phone003");
+       /* appMediaService.circulate1("phone003");
         appMediaService.circulate1("phone0031");
         appMediaService.circulate1("phone0032");
         appMediaService.circulate1("phone0033");
         appMediaService.circulate1("phone0034");
-        appMediaService.circulate1("phone0035");
+        appMediaService.circulate1("phone0035");*/
         return BaseResponse.newSuccess();
     }
 

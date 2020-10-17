@@ -160,6 +160,7 @@ public class A视频快逗 {
         app.setCategory("category来赚钱");
         app.setEvent("category来赚钱-看广告");
         app.setEventAdvert("category来赚钱-看广告-advert");
+        app.setEventAdvertDelay(30000);
         app.setUpDown(0);
 
         AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);

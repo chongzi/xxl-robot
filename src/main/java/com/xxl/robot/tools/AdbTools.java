@@ -25,7 +25,7 @@ public class AdbTools {
         try {
             log.info(operateData);
             Runtime.getRuntime().exec(operateData);
-            robot.delay(600);
+            robot.delay(1200);
         }catch (Exception e){
 
         }
@@ -49,11 +49,7 @@ public class AdbTools {
      * todo 向下滑动，正常操作
      */
    public static String down(String androidId){
-       int x = 100 + RandomTools.init(300);
-       int y = 600 + RandomTools.init(600);
-       int x1 = 600 + RandomTools.init(600);
-       int y1 = 100 + RandomTools.init(300);
-       String downDraw = "adb -s "+androidId +" shell input swipe "+ x + " " + y + " " + x1 +" " +y1;
+       String downDraw = "adb -s "+androidId +" shell input swipe 540 900 540 600";
 
        return  downDraw;
    }
@@ -62,11 +58,7 @@ public class AdbTools {
      * todo 向上滑动，返回操作
      */
     public static String up(String androidId){
-        int x = 600 + RandomTools.init(600);
-        int y = 100 + RandomTools.init(300);
-        int x1 = 100 + RandomTools.init(300);
-        int y1 = 600 + RandomTools.init(600);
-        String downDraw = "adb -s "+androidId +" shell input swipe "+ x + " " + y + " " + x1 +" " +y1;
+        String downDraw = "adb -s "+androidId +" shell input swipe 540 600 540 900";
 
         return  downDraw;
     }
@@ -75,12 +67,7 @@ public class AdbTools {
      * todo 向左滑动，返回操作
      */
     public static String left(String androidId){
-        int x = 10 + RandomTools.init(200);
-        int y = 300 + RandomTools.init(300);
-        int x1 = 300 + RandomTools.init(300);
-        int y1 = 800 + RandomTools.init(600);
-
-        String downDraw = "adb -s "+androidId +" shell input swipe "+ x + " " + y + " " + x1 +" " +y1;
+        String downDraw = "adb -s "+androidId +" shell input swipe 900 1000 100 1000";
 
         return  downDraw;
     }
@@ -89,11 +76,7 @@ public class AdbTools {
      * todo 向右滑动，返回操作
      */
     public static String right(String androidId){
-        int x = 600 + RandomTools.init(600);
-        int y = 270 + RandomTools.init(100);
-        int x1 = 10 + RandomTools.init(100);
-        int y1 = 600 + RandomTools.init(600);
-        String downDraw = "adb -s "+androidId +" shell input swipe "+ x + " " + y + " " + x1 +" " +y1;
+        String downDraw = "adb -s "+androidId +" shell input swipe 100 1000 900 1000";
 
         return  downDraw;
     }
@@ -103,11 +86,7 @@ public class AdbTools {
      * todo 向下滑动，正常操作
      */
     public static String downPage(String androidId){
-        int x = 100 + RandomTools.init(300);
-        int y = 1000 + RandomTools.init(600);
-        int x1 = 600 + RandomTools.init(600);
-        int y1 = 100 + RandomTools.init(300);
-        String downDraw = "adb -s "+androidId +" shell input swipe "+ x + " " + y + " " + x1 +" " +y1;
+        String downDraw = "adb -s "+androidId +" shell input swipe 540 1800 540 400";
 
         return  downDraw;
     }
@@ -116,11 +95,7 @@ public class AdbTools {
      * todo 向上滑动，返回操作
      */
     public static String upPage(String androidId){
-        int x = 600 + RandomTools.init(600);
-        int y = 100 + RandomTools.init(300);
-        int x1 = 100 + RandomTools.init(300);
-        int y1 = 1600 + RandomTools.init(600);
-        String downDraw = "adb -s "+androidId +" shell input swipe "+ x + " " + y + " " + x1 +" " +y1;
+        String downDraw = "adb -s "+androidId +" shell input swipe 540 400 540 1800";
 
         return  downDraw;
     }

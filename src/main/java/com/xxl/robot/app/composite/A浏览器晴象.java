@@ -274,6 +274,7 @@ public class A浏览器晴象 {
         app.setOperate(AppConstants.GIFT_MONEY);
         app.setCategory("category浏览器");
         app.setEvent("category浏览器-红包");
+        app.setEventAdvertDelay(30000);
         app.setEventAdvert("category浏览器-红包-advert");
         app.setEventBack("category浏览器-红包-back");
         app.setUpDown(0);
@@ -291,6 +292,7 @@ public class A浏览器晴象 {
         app.setOperate(AppConstants.GIFT_MONEY);
         app.setCategory("category浏览器");
         app.setEvent("category浏览器-现金红包");
+        app.setEventAdvertDelay(30000);
         app.setEventAdvert("category浏览器-现金红包-advert");
         app.setEventBack("category浏览器-现金红包-back");
         app.setUpDown(0);
@@ -308,6 +310,7 @@ public class A浏览器晴象 {
         app.setOperate(AppConstants.GIFT_MONEY);
         app.setCategory("category浏览器");
         app.setEvent("category浏览器-现金领取红包");
+        app.setEventAdvertDelay(30000);
         app.setEventAdvert("category浏览器-现金领取红包-advert");
         app.setEventBack("category浏览器-现金领取红包-back");
         app.setUpDown(0);
@@ -326,6 +329,7 @@ public class A浏览器晴象 {
         app.setOperate(AppConstants.GIFT_MONEY);
         app.setCategory("category浏览器");
         app.setEvent("category浏览器-右边领取红包");
+        app.setEventAdvertDelay(30000);
         app.setEventAdvert("category浏览器-右边领取红包-advert");
         app.setEventBack("category浏览器-右边领取红包-back");
         app.setUpDown(0);
@@ -357,6 +361,7 @@ public class A浏览器晴象 {
         app.setOperate(AppConstants.DRAW);
         app.setCategory("category大转盘");
         app.setEvent("category大转盘-抽奖");
+        app.setEventAdvertDelay(30000);
         app.setEventAdvert("category大转盘-抽奖-advert");
         app.setEventBack("category大转盘-抽奖-back");
         app.setUpDown(0);
@@ -465,6 +470,7 @@ public class A浏览器晴象 {
             app.setEventClear("category刮刮卡-刮卡-clear");
             app.setEvent("category刮刮卡-刮卡-advertstep");
             app.setEventFastUpDown("category刮刮卡-刮卡-advertstep");
+            app.setEventAdvertDelay(30000);
             app.setEventAdvert("category刮刮卡-刮卡-advert");
             app.setEventBack("category刮刮卡-刮卡-back");
             app.setUpDown(0);

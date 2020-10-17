@@ -86,7 +86,7 @@ public class AppTools {
 
                     log.info("2.初始化");
                     initWindow(appCode,androidId);
-                     robot.delay(6000);
+                     robot.delay(10000);
 
                     if (null == app) {
                         return;
@@ -354,7 +354,7 @@ public class AppTools {
 
             //上下滑动
             if(null!=app.getEventType()&&app.getEventType().equals(1)) {
-                 int x = RandomTools.init(8);
+                 int x = RandomTools.init(8)+6;
                     for (int i = 0; i < x ; i++) {
                         AdbTools.process(robot, AdbTools.downPage(androidId));
                         robot.delay(RandomTools.init(20000));
@@ -412,10 +412,10 @@ public class AppTools {
 
             //左右滑动
             if(null!=app.getEventType()&&app.getEventType().equals(2)) {
-                int x = RandomTools.init(8);
+                int x = RandomTools.init(8)+6;
                 for (int i = 0; i < x ; i++) {
                     AdbTools.process(robot, AdbTools.downPage(androidId));
-                    robot.delay(RandomTools.init(10000));
+                    robot.delay(RandomTools.init(20000));
 
                     PhoneCodeDto dto413 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventLeftRightStep())).findAny().orElse(null);
                     if(null!=dto413) {
