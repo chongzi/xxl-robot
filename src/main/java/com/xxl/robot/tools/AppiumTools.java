@@ -52,11 +52,11 @@ public class AppiumTools {
         desiredCapabilities.setCapability("appActivity", appActivity);
 
         //2.创建驱动...URL是appium的固定地址；指定appium通讯的地址，将相对应的配置传入到驱动里边
-/*        AndroidDriver driver = null;
+        AndroidDriver driver = null;
         if(null==driver){
                driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),desiredCapabilities);
-        }*/
-        AndroidDriver   driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),desiredCapabilities);
+        }
+     //   AndroidDriver   driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),desiredCapabilities);
         return  driver;
     }
 
