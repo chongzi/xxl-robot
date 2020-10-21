@@ -8,6 +8,7 @@ import lombok.SneakyThrows;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 */
 /**
@@ -53,15 +54,22 @@ public class AppiumTools {
         desiredCapabilities.setCapability("deviceName", deviceName);
         //指定想要测试应用的入口activity   (adb shell dumpsys activity | findstr "mResume")
         desiredCapabilities.setCapability("appActivity", appActivity);
+        desiredCapabilities.setCapability("instrumentApp", true);//added now
+        desiredCapabilities.setCapability("showXcodeLog", true);
+        desiredCapabilities.setCapability("cssSelectorsEnabled", true);
+        desiredCapabilities.setCapability("nativeEvents", true);
+        desiredCapabilities.setCapability("nativeWebTap", true);
+
+
 
         //2.创建驱动...URL是appium的固定地址；指定appium通讯的地址，将相对应的配置传入到驱动里边
-      */
-/*  AndroidDriver driver = null;
+        AndroidDriver driver = null;
         if(null==driver){
                driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),desiredCapabilities);
-        }*//*
+        }
+       // AndroidDriver   driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),desiredCapabilities);
+       // driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 
-     AndroidDriver   driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),desiredCapabilities);
         return  driver;
     }
 

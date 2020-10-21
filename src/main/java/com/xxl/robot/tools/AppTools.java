@@ -110,13 +110,7 @@ public class AppTools {
                     if (null != dto41) {
                         String operate41 = AdbTools.tap(androidId, dto41.getPositionX(), dto41.getPositionY());
                         AdbTools.process(robot, operate41);
-                        if (app.getUpDown() == 0) {
-                            AdbTools.process(robot, AdbTools.upPage(androidId));
-                            AdbTools.process(robot, AdbTools.upPage(androidId));
-                        } else {
-                            AdbTools.process(robot, AdbTools.downPage(androidId));
-                            AdbTools.process(robot, AdbTools.downPage(androidId));
-                        }
+
                     }
 
                     log.info("4.2步骤-事件前清除");
@@ -316,6 +310,15 @@ public class AppTools {
      */
     public static void process(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app, String androidId){
         try {
+            robot.delay(2000);
+            if (app.getUpDown() == 0) {
+                AdbTools.process(robot, AdbTools.upPage(androidId));
+                AdbTools.process(robot, AdbTools.upPage(androidId));
+            } else {
+                AdbTools.process(robot, AdbTools.downPage(androidId));
+                AdbTools.process(robot, AdbTools.downPage(androidId));
+            }
+
             PhoneCodeDto dto400 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventStep())).findAny().orElse(null);
             if(null!=dto400) {
                 String operate400 = AdbTools.tap(androidId,dto400.getPositionX(), dto400.getPositionY());
@@ -489,8 +492,7 @@ public class AppTools {
             }
 
             PhoneCodeDto dto48 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventAdvert())).findAny().orElse(null);
-            //if(null!=dto48&&null!=dto48.getTimes()&&dto48.getTimes()>0) {
-            if(null!=dto48){
+            if(null!=dto48) {
                 String operate48 = AdbTools.tap(androidId,dto48.getPositionX(), dto48.getPositionY());
                 AdbTools.process(robot, operate48);
                 int duration = 36000;//看广告36秒

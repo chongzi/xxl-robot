@@ -204,6 +204,7 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 	@Override
 	public void circulate1(String robotCode){
 		Robot robot = new Robot();
+/*
 		log.info("********************抖音极速版**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"抖音极速版");
 		A视频抖音.handle(robot,robotCode,"抖音极速版", AppConstants.WATCH_VIDEOS,dtos1);
@@ -212,22 +213,22 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 
 		log.info("********************火山极速版**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList(robotCode,"火山极速版");
-		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.WATCH_VIDEOS,dtos2);
+ 		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.WATCH_VIDEOS,dtos2);
 		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.TREASURE,dtos2);
 		A视频火山.handle(robot,robotCode,"火山极速版", AppConstants.WATCH_ADVERT,dtos2);
 
+
 		log.info("********************快手极速版**************************");
 		List<PhoneCodeDto> dtos3 = phoneCodeService.getList(robotCode,"快手极速版");
-		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.WATCH_VIDEOS,dtos3);
-		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.TREASURE,dtos3);
+ 		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.WATCH_VIDEOS,dtos3);
+ 		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.TREASURE,dtos3);
 		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.WATCH_ADVERT,dtos3);
 		A视频快手.handle(robot,robotCode,"快手极速版", AppConstants.DIRECT,dtos3);
 
 		log.info("********************今日头条**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"今日头条");
-		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.WATCH_NEWS,dtos4);
-		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.TREASURE,dtos4);
-
+ 		A新闻今日头条.handle(robot,robotCode,"今日头条", AppConstants.TREASURE,dtos4);
+*/
 	  	log.info("********************趣头条**************************");
 		List<PhoneCodeDto> dtos5 = phoneCodeService.getList(robotCode,"趣头条");
 		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.WATCH_NEWS,dtos5);
@@ -235,7 +236,7 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.WATCH_ADVERT,dtos5);
 		A新闻趣头条.handle(robot,robotCode,"趣头条", AppConstants.GIFT_MONEY,dtos5);
 
-
+/*
 		log.info("********************QQ阅读**************************");
 		List<PhoneCodeDto> dtos7 = phoneCodeService.getList(robotCode,"QQ阅读");
 		A小说QQ阅读.handle(robot,robotCode,"QQ阅读", AppConstants.TREASURE,dtos7);
@@ -270,7 +271,7 @@ public class AppCompositeServiceImpl implements AppCompositeService {
 		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.GIFT_MONEY,dtos16);
 		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.DRAW,dtos16);
 		A浏览器晴象.handle(robot,robotCode,"晴象浏览器", AppConstants.SCRATCH_CARD,dtos16);
-
+*/
 	}
 
 	/**

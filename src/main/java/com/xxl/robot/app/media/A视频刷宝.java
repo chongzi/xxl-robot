@@ -118,6 +118,7 @@ public class A视频刷宝 {
         app.setCategory("category首页");
         app.setEvent("category首页-看视频");
         app.setEventGiveUP("category首页-看视频-giveup");
+
         app.setUpDown(0);
 
 
