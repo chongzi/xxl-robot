@@ -74,7 +74,7 @@ public class PhoneSchedule {
          appNewsService.start("phone0035");
 
          appNovelService.start("phone001");
-         appNovelService.start("phone002");
+          appNovelService.start("phone002");
          appNovelService.start("phone003");
          appNovelService.start("phone0031");
          appNovelService.start("phone0032");
@@ -113,7 +113,7 @@ public class PhoneSchedule {
         appService.section1("phone0035");
 
         aAppMediaService.section1("phone001");
-        aAppMediaService.section1("phone002");
+       aAppMediaService.section1("phone002");
         aAppMediaService.section1("phone003");
         aAppMediaService.section1("phone0031");
         aAppMediaService.section1("phone0032");
@@ -131,7 +131,7 @@ public class PhoneSchedule {
         appNewsService.section1("phone0035");
 
         appNovelService.section1("phone001");
-        appNovelService.section1("phone002");
+       appNovelService.section1("phone002");
         appNovelService.section1("phone003");
         appNovelService.section1("phone0031");
         appNovelService.section1("phone0032");
@@ -154,13 +154,13 @@ public class PhoneSchedule {
     /**
      * todo 2.2-中午11：00-12:00（吃饭，喝水，打卡，种菜，分享，游戏，充电）
      */
-    @Scheduled(cron = "0 0 11 * * ?")
+    //@Scheduled(cron = "0 0 11 * * ?")
     public void section2() throws AWTException {
         log.info("********************2.2-中午11：00-12:00（吃饭，喝水，打卡，种菜，分享，游戏，充电）定时器启动**************************");
         Robot robot = new Robot();
         robot.delay(RandomTools.init(6000));
         appService.section2("phone001");
-        appService.section2("phone002");
+       appService.section2("phone002");
         appService.section2("phone003");
         appService.section2("phone0031");
         appService.section2("phone0032");
@@ -178,7 +178,7 @@ public class PhoneSchedule {
         aAppMediaService.section2("phone0035");
 
         appNewsService.section2("phone001");
-        appNewsService.section2("phone002");
+         appNewsService.section2("phone002");
         appNewsService.section2("phone003");
         appNewsService.section2("phone0031");
         appNewsService.section2("phone0032");
@@ -210,13 +210,13 @@ public class PhoneSchedule {
     /**
      *  todo 2.3-下午19：00-20：00（吃饭，喝水，打卡，种菜，分享，游戏，充电）
      */
-    @Scheduled(cron = "0 0 19 * * ?")
+   // @Scheduled(cron = "0 0 19 * * ?")
     public void section3() throws AWTException {
         log.info("********************2.3-下午19：00-20：00（吃饭，喝水，打卡，种菜，分享，游戏，充电）定时器启动**************************");
         Robot robot = new Robot();
         robot.delay(RandomTools.init(6000));
         appService.section3("phone001");
-        appService.section3("phone002");
+       appService.section3("phone002");
         appService.section3("phone003");
         appService.section3("phone0031");
         appService.section3("phone0032");
@@ -235,7 +235,7 @@ public class PhoneSchedule {
         aAppMediaService.section3("phone0035");
 
         appNewsService.section3("phone001");
-        appNewsService.section3("phone002");
+       appNewsService.section3("phone002");
         appNewsService.section3("phone003");
         appNewsService.section3("phone0031");
         appNewsService.section3("phone0032");
@@ -291,7 +291,7 @@ public class PhoneSchedule {
         aAppMediaService.section4("phone0035");
 
         appNewsService.section4("phone001");
-        appNewsService.section4("phone002");
+         appNewsService.section4("phone002");
         appNewsService.section4("phone003");
         appNewsService.section4("phone0031");
         appNewsService.section4("phone0032");
@@ -324,17 +324,19 @@ public class PhoneSchedule {
      * todo 3.1-循环收取金币大于200金币
      * 执行时间 00：00-6：00，10：00-11：00，12：00-19：00，20：00-23：00
      */
-    @Scheduled(cron = "0 0 1,2,3,4,5,6,7,9,10,12,13,14,15,16,17,18,20,21,22 * * ?")
+    @Scheduled(cron = "0 0 1,2,3,4,5,6,7,9,10,11,12,13,14,15,16,17,18,19,20,21,22 * * ?")
     public void circulate1() throws AWTException {
         log.info("********************3.1-循环收取金币大于200金币 定时器启动**************************");
         appService.circulate1("phone001");
         appService.circulate1("phone002");
+
         appService.circulate1("phone003");
         appService.circulate1("phone0031");
         appService.circulate1("phone0032");
         appService.circulate1("phone0033");
         appService.circulate1("phone0034");
         appService.circulate1("phone0035");
+
 
 
         aAppMediaService.circulate1("phone001");

@@ -96,7 +96,7 @@ public class AppController {
     @GetMapping("circulate1")
     @ApiOperation("3.1-循环收取金币大于200金币")
     public BaseResponse circulate1() {
-  /*      appService.circulate1("phone001");*/
+      //  appService.circulate1("phone001");
         appService.circulate1("phone002");
 /*        appService.circulate1("phone003");
         appService.circulate1("phone0031");

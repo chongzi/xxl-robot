@@ -125,10 +125,10 @@ public class AppWalkServiceImpl implements AppWalkService {
 		A步行多多步.handle(robot,robotCode,"多多步", AppConstants.GIFT_MONEY,dtos);
 
 
-		log.info("********************步数赚**************************");
+		/*log.info("********************步数赚**************************");
 		List<PhoneCodeDto> dtos1 = phoneCodeService.getList(robotCode,"步数赚");
 		A步行步数赚零钱.handle(robot,robotCode,"步数赚", AppConstants.WATCH_ADVERT,dtos1);
-		A步行步数赚零钱.handle(robot,robotCode,"步数赚", AppConstants.GIFT_MONEY,dtos1);
+		A步行步数赚零钱.handle(robot,robotCode,"步数赚", AppConstants.GIFT_MONEY,dtos1);*/
 
 	    log.info("********************步步宝赚**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList(robotCode,"步步宝");

@@ -21,6 +21,21 @@ public class AdbTools {
      * todo 常规操作(传过来数据 点击输入并回车操作)
      *
      */
+    public static void processFast(Robot robot, String operateData){
+        try {
+            log.info(operateData);
+            Runtime.getRuntime().exec(operateData);
+            robot.delay(1000);
+        }catch (Exception e){
+
+        }
+    }
+
+
+    /**
+     * todo 常规操作(传过来数据 点击输入并回车操作)
+     *
+     */
     public static void process(Robot robot, String operateData){
         try {
             log.info(operateData);

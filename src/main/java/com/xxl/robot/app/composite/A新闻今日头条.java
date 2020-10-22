@@ -135,7 +135,7 @@ public class A新闻今日头条 {
         app.setOperate(AppConstants.WATCH_NEWS);
         app.setCategory("category任务");
         app.setEvent("category任务-阅读");
-        app.setEventStep("category任务-阅读-step");
+        app.setEventUpDownStep("category任务-阅读-step");
         app.setUpDown(0);
 
         AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
@@ -153,7 +153,7 @@ public class A新闻今日头条 {
         app.setCategory("category任务");
         app.setEvent("category任务-看小说");
         app.setEventStep("category任务-看小说-step");
-        app.setEventStep1("category任务-看小说-step1");
+        app.setEventLeftRightStep("category任务-看小说-step1");
         app.setUpDown(1);
 
         AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);

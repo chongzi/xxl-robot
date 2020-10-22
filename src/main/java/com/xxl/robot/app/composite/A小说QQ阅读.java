@@ -162,7 +162,7 @@ public class A小说QQ阅读 {
         app.setOperate(AppConstants.WATCH_ADVERT);
         app.setCategory("category书架");
         app.setEvent("category书架-现金中心");
-        app.setEventAdvertStep("category书架-现金中心-看广告");
+/*        app.setEventAdvertStep("category书架-现金中心-看广告");*/
         app.setEventAdvert("category书架-现金中心-看广告-advert");
         app.setUpDown(0);
 

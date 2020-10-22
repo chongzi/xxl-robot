@@ -51,15 +51,15 @@ public class AppTools {
                     if(!AdbTools.screen(androidId)) {
                         log.info("0.唤醒手机屏幕");
                         String operateScreen = "adb -s " + androidId + " shell input keyevent 26";
-                        AdbTools.process(robot, operateScreen);
+                        AdbTools.processFast(robot, operateScreen);
                     }
                     log.info("0.返回主界面");
                     String operateHome = "adb -s " + androidId + " shell input keyevent 3";
-                    AdbTools.process(robot, operateHome);
+                    AdbTools.processFast(robot, operateHome);
 
                     log.info("0.调取缓存");
                     String operateDispath = "adb -s " + androidId + " shell input keyevent 82";
-                    AdbTools.process(robot, operateDispath);
+                    AdbTools.processFast(robot, operateDispath);
 
                     log.info("0.删除缓存");
                     String operateDelete = "";
@@ -74,19 +74,19 @@ public class AppTools {
                     ||androidId.equals(PhoneConstants.phone0034)||androidId.equals(PhoneConstants.phone0035)) {
                         operateDelete = AdbTools.tap(androidId, String.valueOf(540), String.valueOf(1860));
                     }
-                    AdbTools.process(robot, operateDelete);
+                    AdbTools.processFast(robot, operateDelete);
 
                     log.info("0.返回主界面");
-                    AdbTools.process(robot, operateHome);
+                    AdbTools.processFast(robot, operateHome);
 
 
                     log.info("1.动作");
                     String operate1 = appCode + "-" + event;
-                    AdbTools.process(robot, operate1);
+                    AdbTools.processFast(robot, operate1);
 
                     log.info("2.初始化");
                     initWindow(appCode,androidId);
-                     robot.delay(10000);
+                     robot.delay(8000);
 
                     if (null == app) {
                         return;
@@ -97,13 +97,13 @@ public class AppTools {
                     log.info("**************用户行为：" + app.getOperate() + "*********************");
                     log.info("3.1清除");
                     String operateEsc = "adb -s " + androidId + " shell input keyevent 111";
-                    AdbTools.process(robot, operateEsc);
+                    AdbTools.processFast(robot, operateEsc);
 
                     log.info("3.2 强制清除");
                     PhoneCodeDto dto3 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getClear())).findAny().orElse(null);
                     if (null != dto3) {
                         String operate3 = AdbTools.tap(androidId, dto3.getPositionX(), dto3.getPositionY());
-                        AdbTools.process(robot, operate3);
+                        AdbTools.processFast(robot, operate3);
                     }
                     log.info("4.1步骤-分类");
                     PhoneCodeDto dto41 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getCategory())).findAny().orElse(null);
@@ -113,18 +113,20 @@ public class AppTools {
 
                     }
 
+                    robot.delay(1000);
+
                     log.info("4.2步骤-事件前清除");
                     PhoneCodeDto dto42 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventClear())).findAny().orElse(null);
                     if (null != dto42) {
                         String operate42 = AdbTools.tap(androidId, dto42.getPositionX(), dto42.getPositionY());
-                        AdbTools.process(robot, operate42);
+                        AdbTools.processFast(robot, operate42);
                     }
 
                     log.info("4.3步骤-事件");
                     PhoneCodeDto dto43 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEvent())).findAny().orElse(null);
                     if (null != dto43) {
                         String operate43 = AdbTools.tap(androidId, dto43.getPositionX(), dto43.getPositionY());
-                        AdbTools.process(robot, operate43);
+                        AdbTools.processFast(robot, operate43);
                     }
 
                     log.info("4.4步骤-事件-各种动作");
@@ -134,19 +136,19 @@ public class AppTools {
                     PhoneCodeDto dto45 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventBack())).findAny().orElse(null);
                     if (null != dto45) {
                         String operate45 = AdbTools.tap(androidId, dto45.getPositionX(), dto45.getPositionY());
-                        AdbTools.process(robot, operate45);
+                        AdbTools.processFast(robot, operate45);
                     }
 
                     log.info("6返回上一步");
                     String operateBack = "adb -s " + androidId + " shell input keyevent BACK";
-                    AdbTools.process(robot, operateBack);
-                    AdbTools.process(robot, operateBack);
+                    AdbTools.processFast(robot, operateBack);
+                    AdbTools.processFast(robot, operateBack);
 
 
 //********************************************用户行为操作 END********************************************************
 
                     log.info("7.返回主界面");
-                    AdbTools.process(robot, operateHome);
+                    AdbTools.processFast(robot, operateHome);
 
 
 
@@ -310,7 +312,7 @@ public class AppTools {
      */
     public static void process(Robot robot, List<PhoneCodeDto> phoneCodeDtos, AppDto app, String androidId){
         try {
-            robot.delay(2000);
+            robot.delay(1000);
             if (app.getUpDown() == 0) {
                 AdbTools.process(robot, AdbTools.upPage(androidId));
                 AdbTools.process(robot, AdbTools.upPage(androidId));
@@ -357,10 +359,10 @@ public class AppTools {
 
             //上下滑动
             if(null!=app.getEventType()&&app.getEventType().equals(1)) {
-                 int x = RandomTools.init(8)+6;
+                 int x = RandomTools.init(8);
                     for (int i = 0; i < x ; i++) {
                         AdbTools.process(robot, AdbTools.downPage(androidId));
-                        robot.delay(RandomTools.init(20000));
+                        robot.delay(RandomTools.init(12000));
                         if (i == RandomTools.init(6)) {
                             log.info("4.步骤-事件-点攒");
                             PhoneCodeDto dto406 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventGiveUP() )).findAny().orElse(null);
@@ -389,6 +391,15 @@ public class AppTools {
                             String operate409 = AdbTools.tap(androidId,dto409.getPositionX(), dto409.getPositionY());
                             AdbTools.process(robot, operate409);
                         }
+                        int xxx = RandomTools.init(6);
+                        for(int xx=0;xx<xxx;xx++ ) {
+                            robot.delay(RandomTools.init(12000));
+                            AdbTools.process(robot, AdbTools.downPage(androidId));
+                        }
+
+                        String operateBack = "adb -s " + androidId + " shell input keyevent BACK";
+                        AdbTools.process(robot, operateBack);
+
 
                         PhoneCodeDto dto410 = phoneCodeDtos.stream().filter(o -> o.getAppEvent().equals(app.getEventUpDownBack())).findAny().orElse(null);
                         if(null!=dto410) {
@@ -415,7 +426,7 @@ public class AppTools {
 
             //左右滑动
             if(null!=app.getEventType()&&app.getEventType().equals(2)) {
-                int x = RandomTools.init(8)+6;
+                int x = RandomTools.init(8);
                 for (int i = 0; i < x ; i++) {
                     AdbTools.process(robot, AdbTools.downPage(androidId));
                     robot.delay(RandomTools.init(20000));
@@ -495,7 +506,7 @@ public class AppTools {
             if(null!=dto48) {
                 String operate48 = AdbTools.tap(androidId,dto48.getPositionX(), dto48.getPositionY());
                 AdbTools.process(robot, operate48);
-                int duration = 36000;//看广告36秒
+                int duration = 40000;//看广告36秒
                 if(null!=app.getEventAdvertDelay()){
                     duration = duration + app.getEventAdvertDelay();
                 }

@@ -162,7 +162,12 @@ public class A视频刷宝 {
      * @param phoneCodeDtos
      */
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
+        app.setCategory("category任务");
+        app.setEventClear("category任务-清除");
+        app.setEventAdvert("category任务-看广告-advert");
+        app.setUpDown(0);
 
+        AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
     }
 
     /**
@@ -197,7 +202,7 @@ public class A视频刷宝 {
         app.setCategory("category任务");
         app.setEventClear("category任务-清除");
         app.setEvent("category任务-开宝箱");
-        app.setEventAdvert("category任务-开宝箱-advert");
+     /*   app.setEventAdvert("category任务-开宝箱-advert");*/
         app.setUpDown(0);
 
 

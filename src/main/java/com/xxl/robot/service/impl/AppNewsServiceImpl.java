@@ -131,7 +131,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 	public void circulate1(String robotCode){
 		Robot robot = new Robot();
 
-		log.info("********************点点新闻**************************");
+/*		log.info("********************点点新闻**************************");
 		List<PhoneCodeDto> dtos2 = phoneCodeService.getList(robotCode,"点点");
 		A新闻点点新闻.handle(robot,robotCode,"点点", AppConstants.WATCH_NEWS,dtos2);
 
@@ -142,7 +142,7 @@ public class AppNewsServiceImpl implements AppNewsService {
 		log.info("********************忆头条**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"忆头条");
 		A新闻忆头条.handle(robot,robotCode,"忆头条", AppConstants.WATCH_VIDEOS,dtos4);
-		A新闻忆头条.handle(robot,robotCode,"忆头条", AppConstants.WATCH_NEWS,dtos4);
+		A新闻忆头条.handle(robot,robotCode,"忆头条", AppConstants.WATCH_NEWS,dtos4);*/
 
 		log.info("********************慧头条**************************");
 		List<PhoneCodeDto> dtos5 = phoneCodeService.getList(robotCode,"慧头条");

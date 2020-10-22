@@ -119,12 +119,9 @@ public class AppMediaServiceImpl implements AppMediaService {
 	@Override
 	public void circulate1(String robotCode){
 		Robot robot = new Robot();
-
-
-
 		log.info("********************刷宝**************************");
 		List<PhoneCodeDto> dtos4 = phoneCodeService.getList(robotCode,"刷宝");
-		A视频刷宝.handle(robot,robotCode,"刷宝", AppConstants.WATCH_VIDEOS,dtos4);
+		A视频刷宝.handle(robot,robotCode,"刷宝", AppConstants.WATCH_ADVERT,dtos4);
 		A视频刷宝.handle(robot,robotCode,"刷宝", AppConstants.TREASURE,dtos4);
 
 
@@ -134,9 +131,9 @@ public class AppMediaServiceImpl implements AppMediaService {
 		A视频快逗.handle(robot,robotCode,"快逗", AppConstants.WATCH_ADVERT,dtos5);
 
 
-		log.info("********************追看**************************");
+ 		log.info("********************追看**************************");
 		List<PhoneCodeDto> dtos7 = phoneCodeService.getList(robotCode,"追看");
-		A视频追看.handle(robot,robotCode,"追看", AppConstants.WATCH_VIDEOS,dtos7);
+ 		A视频追看.handle(robot,robotCode,"追看", AppConstants.WATCH_VIDEOS,dtos7);
 		A视频追看.handle(robot,robotCode,"追看", AppConstants.WATCH_ADVERT,dtos7);
 		A视频追看.handle(robot,robotCode,"追看", AppConstants.SWEEPSTAKES,dtos7);
 		A视频追看.handle(robot,robotCode,"追看", AppConstants.TREASURE,dtos7);
@@ -151,7 +148,7 @@ public class AppMediaServiceImpl implements AppMediaService {
 		List<PhoneCodeDto> dtos3 = phoneCodeService.getList(robotCode,"微视");
 		A视频微视.handle(robot,robotCode,"微视", AppConstants.WATCH_VIDEOS,dtos3);
 
-		log.info("********************火火视频**************************");
+ 		log.info("********************火火视频**************************");
 		List<PhoneCodeDto> dtos9 = phoneCodeService.getList(robotCode,"火火视频");
 		A视频火火.handle(robot,robotCode,"火火视频", AppConstants.WATCH_VIDEOS,dtos9);
 

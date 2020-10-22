@@ -155,7 +155,7 @@ public class B小说番茄 {
     public static void handle6(Robot robot,String robotCode, String appCode, String event,List<PhoneCodeDto> phoneCodeDtos,AppDto app){
         app.setOperate(AppConstants.WATCH_ADVERT);
         app.setCategory("category福利");
-        app.setEvent("category福利-看视频广告");
+     /*   app.setEvent("category福利-看视频广告");*/
         app.setEventAdvert("category福利-看视频广告-advert");
         app.setUpDown(0);
 

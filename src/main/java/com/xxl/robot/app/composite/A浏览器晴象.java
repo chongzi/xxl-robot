@@ -274,8 +274,8 @@ public class A浏览器晴象 {
         app.setOperate(AppConstants.GIFT_MONEY);
         app.setCategory("category浏览器");
         app.setEvent("category浏览器-红包");
-        app.setEventAdvertDelay(30000);
         app.setEventAdvert("category浏览器-红包-advert");
+        app.setEventAdvertDelay(16000);
         app.setEventBack("category浏览器-红包-back");
         app.setUpDown(0);
         AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
@@ -292,7 +292,7 @@ public class A浏览器晴象 {
         app.setOperate(AppConstants.GIFT_MONEY);
         app.setCategory("category浏览器");
         app.setEvent("category浏览器-现金红包");
-        app.setEventAdvertDelay(30000);
+        app.setEventAdvertDelay(16000);
         app.setEventAdvert("category浏览器-现金红包-advert");
         app.setEventBack("category浏览器-现金红包-back");
         app.setUpDown(0);
@@ -310,7 +310,7 @@ public class A浏览器晴象 {
         app.setOperate(AppConstants.GIFT_MONEY);
         app.setCategory("category浏览器");
         app.setEvent("category浏览器-现金领取红包");
-        app.setEventAdvertDelay(30000);
+        app.setEventAdvertDelay(16000);
         app.setEventAdvert("category浏览器-现金领取红包-advert");
         app.setEventBack("category浏览器-现金领取红包-back");
         app.setUpDown(0);
@@ -329,7 +329,7 @@ public class A浏览器晴象 {
         app.setOperate(AppConstants.GIFT_MONEY);
         app.setCategory("category浏览器");
         app.setEvent("category浏览器-右边领取红包");
-        app.setEventAdvertDelay(30000);
+        app.setEventAdvertDelay(16000);
         app.setEventAdvert("category浏览器-右边领取红包-advert");
         app.setEventBack("category浏览器-右边领取红包-back");
         app.setUpDown(0);
@@ -361,7 +361,7 @@ public class A浏览器晴象 {
         app.setOperate(AppConstants.DRAW);
         app.setCategory("category大转盘");
         app.setEvent("category大转盘-抽奖");
-        app.setEventAdvertDelay(30000);
+        app.setEventAdvertDelay(16000);
         app.setEventAdvert("category大转盘-抽奖-advert");
         app.setEventBack("category大转盘-抽奖-back");
         app.setUpDown(0);

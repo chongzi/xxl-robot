@@ -138,7 +138,7 @@ public class A新闻趣头条 {
         app.setOperate(AppConstants.WATCH_NEWS);
         app.setCategory("category头条");
         app.setEvent("category头条-看新闻");
-        app.setEventStep("category头条-看新闻-step");
+        app.setEventUpDownStep("category头条-看新闻-step");
         app.setUpDown(0);
 
         AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);
@@ -155,7 +155,7 @@ public class A新闻趣头条 {
         app.setOperate(AppConstants.WATCH_NOVELS);
         app.setCategory("category我的");
         app.setEvent("category我的-看小说");
-        app.setEventStep("category我的-看小说-step");
+        app.setEventUpDownStep("category我的-看小说-step");
         app.setUpDown(0);
 
         AppTools.handle(robot, robotCode,  appCode,  event, phoneCodeDtos, app);

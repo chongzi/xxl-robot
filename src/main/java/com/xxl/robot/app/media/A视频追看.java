@@ -162,6 +162,7 @@ public class A视频追看 {
         app.setOperate(AppConstants.WATCH_ADVERT);
         app.setCategory("category赚钱");
         app.setEvent("category赚钱-看广告");
+        app.setEventAdvertDelay(12000);
         app.setEventAdvert("category赚钱-看广告-advert");
         app.setUpDown(0);
 
