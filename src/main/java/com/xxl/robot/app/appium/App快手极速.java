@@ -1,3 +1,4 @@
+/*
 
 package com.xxl.robot.app.appium;
 
@@ -67,3 +68,4 @@ public class App快手极速 {
     }
 }
 
+*/
