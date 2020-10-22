@@ -2,20 +2,17 @@ package com.xxl.robot.app.appium;
 
 import com.xxl.robot.constants.AppConstants;
 import com.xxl.robot.constants.PhoneConstants;
-import com.xxl.robot.entity.PhoneCode;
 import com.xxl.robot.tools.AdbTools;
 import com.xxl.robot.tools.AppiumTools;
 import com.xxl.robot.tools.MouseTools;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.StringUtils;
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
-import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.InputSource;
@@ -25,9 +22,7 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.*;
 import java.util.List;
-import java.util.Iterator;
 
 /**
  * todo App抖音
@@ -36,8 +31,8 @@ import java.util.Iterator;
 
 
 
-public class App抖音 {
-    private static Logger log = LoggerFactory.getLogger(App抖音.class);
+public class App抖音极速 {
+    private static Logger log = LoggerFactory.getLogger(App抖音极速.class);
 
 
 
