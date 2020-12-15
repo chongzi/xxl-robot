@@ -86,9 +86,7 @@ public class A视频抖音 {
             case AppConstants.SCRATCH_CARD://刮奖
                 handle19(robot, robotCode, appCode, event, phoneCodeDtos, app);
                 break;
-            case AppConstants.APPIUM://APPIUM
-                handle880(robot, robotCode);
-                break;
+
 
         }
 

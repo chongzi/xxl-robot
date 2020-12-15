@@ -61,13 +61,13 @@
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
-            <version>7.0.0</version>
-            <exclusions>
+            <version>7.3.0</version>
+<!--            <exclusions>
                 <exclusion>
                     <groupId>org.springframework</groupId>
                     <artifactId>spring-core</artifactId>
                 </exclusion>
-            </exclusions>
+            </exclusions>-->
 
         </dependency>
 

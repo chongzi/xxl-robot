@@ -7,6 +7,7 @@ import lombok.SneakyThrows;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 /**
  * todo appium 公共操作类
@@ -55,6 +56,7 @@ public class AppiumTools {
         AndroidDriver driver = null;
         if(null==driver){
                driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),desiredCapabilities);
+               driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
         }
      //   AndroidDriver   driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),desiredCapabilities);
         return  driver;

@@ -33,7 +33,7 @@ public class AppBrowserController {
 
 //************************二种类型：分段（一次性收取，睡觉收取，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）*****************************************
     @GetMapping("section1")
-    @ApiOperation("2.1-早上8:00-9:00 （一次性收取，睡觉收取，吃饭，喝水，打卡，种菜，分享，游戏，充电）")
+    @ApiOperation("2.1-早上6:00-8:00 （一次性收取，睡觉收取，吃饭，喝水，打卡，种菜，分享，游戏，充电）")
     public BaseResponse section1() {
         appBrowserService.section1("phone001");
         appBrowserService.section1("phone002");
@@ -42,7 +42,7 @@ public class AppBrowserController {
     }
 
     @GetMapping("section2")
-    @ApiOperation("2.2-中午11：00-12:00（吃饭，喝水，打卡，种菜，分享，游戏，充电）")
+    @ApiOperation("2.2-中午10：00-12:00（吃饭，喝水，打卡，种菜，分享，游戏，充电）")
     public BaseResponse section2() {
         appBrowserService.section2("phone001");
         appBrowserService.section2("phone002");
@@ -50,7 +50,7 @@ public class AppBrowserController {
     }
 
     @GetMapping("section3")
-    @ApiOperation("2.3-下午19：00-20：00（吃饭，喝水，打卡，种菜，分享，游戏，充电）")
+    @ApiOperation("2.3-下午18：00-20：00（吃饭，喝水，打卡，种菜，分享，游戏，充电）")
     public BaseResponse section3() {
         appBrowserService.section3("phone001");
         appBrowserService.section3("phone002");
@@ -58,7 +58,7 @@ public class AppBrowserController {
     }
 
     @GetMapping("section4")
-    @ApiOperation("2.4-晚上23：00-24：00（睡觉打卡，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）")
+    @ApiOperation("2.4-晚上22：00-24：00（睡觉打卡，吃饭，喝水，打卡，种菜，分享，游戏，充电，步行收取）")
     public BaseResponse section4() {
         appBrowserService.section3("phone001");
         appBrowserService.section3("phone002");
